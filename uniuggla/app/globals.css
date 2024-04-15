@@ -2,32 +2,114 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+* {
+  background-color: #DFFDE0;
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+@font-face {
+  font-family: 'RobotSerif';
+  src: url(./font/RobotoSerif-Medium.ttf);
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@font-face {
+  font-family: 'Tomorrow';
+  src: url(./font/Tomorrow-Medium.ttf);
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+header {
+  align-items: left;  /* Uniuggla logo aligned to the left */
+}
+
+p {
+  font-weight: normal;
+  font-style: medium;
+  text-align: center;
+}
+
+.bot {
+  font-family: 'Tomorrow';
+  color: #4F1EB0;
+}
+
+.user {
+  font-family: 'RobotSerif';
+  color: #9ECB98;
+}
+
+.logo {
+  font-family: 'Tomorrow';
+  color: #4F1EB0;
+  
+}
+
+.siteNavigation {
+  font-family: 'Tomorrow';
+  color: #61855A;
+}
+
+/* Highlights and inverts the background color and text color */
+a:hover {
+  background-color: #61855A;
+  color: #DFFDE0; 
+}
+
+/*
+button {
+}
+
+input {
+}
+
+ul {
+}
+
+li {
+}
+*/
+
+footer {
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  width: 100%;
+  display: inline-block;
+}
+
+.footerLeft {
+  top: 0;
+  left: 0;
+  width: 90%;
+  display: inline-block;
+}
+
+.footerLine {
+  top: 0;
+  left: 4%;
+  width: 92%;
+  height: 4px;
+  position: relative;
+  background-color: #4F1EB0;
+}
+
+.footerListDiv {
+  width: inherit;
+  height: inherit;
+  margin: 5%;
+}
+
+.footerListDiv li {
+  display: inline-block;
+  margin: auto;
+}
+
+.footerLogoDiv {
+  bottom: 0;
+  width: min-content;
+  height: 100%;
+  display: inline-block;
+}
+
+.footerLogoDiv p {
 }
