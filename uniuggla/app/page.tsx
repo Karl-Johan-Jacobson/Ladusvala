@@ -4,9 +4,10 @@ export default function Home() {
   return (
     <main>
       <header>
-        <img src="/images/uniu_logo.svg" alt="Error"/>
+        <img src = "../../uniu_logo_inkscape.svg" alt="Error"/> 
       </header>
       <div className="body">
+       <div className="body">
         <p className="bot">Bot:Tomorow </p>
         <p className="user">User: Robot Serif</p>
         <p className="logo"> Tomorow</p>
@@ -22,6 +23,7 @@ export default function Home() {
             <li><p className="bot">Teknisk fysik KTH</p></li>
         </ul>
       </div>
+        </div>
       <footer>
         <div className="footerLeft">
         <div className="footerLine"></div>
@@ -36,7 +38,7 @@ export default function Home() {
         <div className="footerLogoDiv">
           <p className="logo">UNIU</p>
         </div>
-      </footer>
+      </footer> 
     </main>
   );
 }
