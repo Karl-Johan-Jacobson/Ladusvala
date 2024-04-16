@@ -40,6 +40,7 @@ var openai_1 = require("openai");
 var dotenv = require("dotenv");
 var firebaseHandler_1 = require("../firebase/firebaseHandler");
 dotenv.config();
+//IF YOU GET this error TS18028, just ignore. and run js file anyway -KJ
 var openai = new openai_1.default({
     apiKey: process.env.OPENAI_API_KEY,
 });
@@ -77,15 +78,15 @@ function userAskAiAndGetAnswer(userMessagesArray //the type is OPENAI's own type
                         role: "assistant",
                         content: completion.choices[0].message.content,
                     });
-                    console.log(userMessagesArray);
+                    //DEBUG
+                    //console.log(userMessagesArray);
                     return [2 /*return*/, userMessagesArray];
             }
         });
     });
 }
-//userAskAiAndGetAnswer(messagesArray);
-//Take in two arguments. Take selected interest and all programs
-//Make an user call to chat gpt
+//Take in one argument, the interests that user selected
+//Function only used to turn type Interest to a string 
 function turnInterestToPrompt(selectedInterests) {
     var generatedString = "";
     for (var i = 0; i < selectedInterests.length; i++) {
@@ -93,16 +94,20 @@ function turnInterestToPrompt(selectedInterests) {
     }
     return generatedString;
 }
+//Take in one argument, all the programs form database
+//Function only used to turn type Program to a string 
 function turnProgramToPrompt(allPrograms) {
     var generatedString = "";
     for (var i = 0; i < allPrograms.length; i++) {
-        generatedString += "Degree: ".concat(allPrograms[i].programDegree_sv, ", ID = ").concat(allPrograms[i].programId, "\n");
+        generatedString += "Degree: ".concat(allPrograms[i].porgramTitle_sv, ", ID = ").concat(allPrograms[i].programId, "\n");
     }
     return generatedString;
 }
+//This function will take the selected interests from user and call ai to
+//get a recommendation, it returns the programID as an array. 
 function recommendProgramFromInterest(selectedInterests) {
     return __awaiter(this, void 0, void 0, function () {
-        var interestString, allPrograms, programString, content, questionToAi, completion, text, regex, numbers;
+        var interestString, allPrograms, programString, content, questionToAi, completion, text, regex, stringNumber, numbers, stringNumber_1;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -111,7 +116,7 @@ function recommendProgramFromInterest(selectedInterests) {
                 case 1:
                     allPrograms = _a.sent();
                     programString = turnProgramToPrompt(allPrograms);
-                    content = "These are my interest: ".concat(interestString, " and these are all available degrees ").concat(programString, ". Choose three of these degrees that matches my interest. Answer in bullet points with the exact names of the degrees, the bullet points should start with a dot and not numbers. Answer in swedish. You should answer in the format [Degree, ID = {number}]. Lastly end with a question asking the user if he/she think one of these degrees are interesting.");
+                    content = "These are my interest: ".concat(interestString, " and these are all available degrees ").concat(programString, ". Choose four of these degrees that matches my interest and then choose one wild card loosely based on the interests, make sure to mark your wildcard. Answer in bullet points with the exact names of the degrees, the bullet points should start with a dot and not numbers. Answer in swedish. You should answer in the format [Degree, ID = {number}]. Lastly end with a question asking the user if he/she think one of these degrees are interesting.");
                     questionToAi = {
                         role: "user",
                         content: content,
@@ -127,33 +132,53 @@ function recommendProgramFromInterest(selectedInterests) {
                     completion = _a.sent();
                     text = completion.choices[0].message.content;
                     regex = /\d+/g;
+                    stringNumber = [];
                     numbers = text.match(regex);
+                    //check if numbers is defined
+                    if (numbers != undefined) {
+                        stringNumber_1 = numbers.map(function (num) {
+                            return num;
+                        });
+                    }
                     //DEBUG PURPOSE
-                    //console.log(completion.choices[0].message.content);
-                    //console.log(numbers);
-                    return [2 /*return*/, numbers];
+                    console.log(completion.choices[0].message.content);
+                    console.log(numbers);
+                    return [2 /*return*/, stringNumber];
             }
         });
     });
 }
 //test program for letting ai recommend program
-/*
-const test: Interest[] = [
-  {
-    name: "Teknik",
-    id: 7,
-    description: "",
-  },
-  {
-    name: "Lärare",
-    id: 7,
-    description: "Gillar pengar",
-  },
-  {
-    name: "Medicin",
-    id: 7,
-    description: "Gillar att räkna pengar",
-  }
+var test = [
+    {
+        name: "Teknik",
+        id: 7,
+        description: "",
+    },
+    {
+        name: "Lärare",
+        id: 7,
+        description: "",
+    },
+    {
+        name: "Medicin",
+        id: 7,
+        description: "",
+    },
+    {
+        name: "Bilar",
+        id: 7,
+        description: "",
+    },
+    {
+        name: "kemi",
+        id: 7,
+        description: "",
+    },
+    {
+        name: "Datorspel",
+        id: 7,
+        description: "",
+    }
 ];
 recommendProgramFromInterest(test);
-*/

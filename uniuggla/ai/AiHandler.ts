@@ -77,7 +77,7 @@ function turnProgramToPrompt(allPrograms: Program[]): string {
   let generatedString: string = "";
 
   for (let i = 0; i < allPrograms.length; i++) {
-    generatedString += `Degree: ${allPrograms[i].programDegree_sv}, ID = ${allPrograms[i].programId}\n`;
+    generatedString += `Degree: ${allPrograms[i].porgramTitle_sv}, ID = ${allPrograms[i].programId}\n`;
   }
 
   return generatedString;
@@ -96,12 +96,13 @@ async function recommendProgramFromInterest(selectedInterests: Interest[]) {
   const programString: string = turnProgramToPrompt(allPrograms);
 
   //Generate the question to ai to answer
-  let content: string = `These are my interest: ${interestString} and these are all available degrees ${programString}. Choose three of these degrees that matches my interest. Answer in bullet points with the exact names of the degrees, the bullet points should start with a dot and not numbers. Answer in swedish. You should answer in the format [Degree, ID = {number}]. Lastly end with a question asking the user if he/she think one of these degrees are interesting.`;
+  let content: string = `These are my interest: ${interestString} and these are all available degrees ${programString}. Choose four of these degrees that matches my interest and then choose one wild card loosely based on the interests, make sure to mark your wildcard. Answer in bullet points with the exact names of the degrees, the bullet points should start with a dot and not numbers. Answer in swedish. You should answer in the format [Degree, ID = {number}]. Lastly end with a question asking the user if he/she think one of these degrees are interesting.`;
 
   let questionToAi: ChatCompletionMessageParam = {
     role: "user",
     content: content,
   };
+  
   //make the HTTP request to ai and save the results
   const completion = await openai.chat.completions.create({
     messages: [
@@ -136,7 +137,9 @@ async function recommendProgramFromInterest(selectedInterests: Interest[]) {
 
 //test program for letting ai recommend program
 
+
 /*
+
 const test: Interest[] = [
   {
     name: "Teknik",
@@ -146,13 +149,30 @@ const test: Interest[] = [
   {
     name: "Lärare",
     id: 7,
-    description: "Gillar pengar",
+    description: "",
   },
   {
     name: "Medicin",
     id: 7,
-    description: "Gillar att räkna pengar",
+    description: "",
+  },
+  {
+    name: "Bilar",
+    id: 7,
+    description: "",
+  },
+  {
+    name: "kemi",
+    id: 7,
+    description: "",
+  },
+  {
+    name: "Datorspel",
+    id: 7,
+    description: "",
   }
 ];
+
 recommendProgramFromInterest(test);
+
 */
