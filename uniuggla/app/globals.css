@@ -20,8 +20,24 @@
 }
 
 header {
-  align-items: left;  /* Uniuggla logo aligned to the left */
+ /* Uniuggla logo aligned to the left */
+  width: 100%;
+  height: 10vw;
+  top: 0;
+  left: 0;
+  position: fixed; 
+  background-image: linear-gradient( yellow,transparent)   
 }
+
+header img{
+  /* Uniuggla logo aligned to the left */
+   height: 10vw;
+   top: 0;
+   left: 0;
+   transform: scale(1.7);
+   
+ }
+
 
 p {
   font-weight: normal;
@@ -103,6 +119,4 @@ footer {
   bottom: 0;
   right: 0;
   display: inline-block;
-  font-size: 5vw;
-  line-height: 4vw;
 }
