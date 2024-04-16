@@ -6,13 +6,13 @@ export default function Home() {
       <header>
         <img src="/images/uniu_logo.svg" alt="Error"/>
       </header>
-      <body>
+      <div className="body">
         <p className="bot">Bot:Tomorow </p>
         <p className="user">User: Robot Serif</p>
         <p className="logo"> Tomorow</p>
-        <p className="Site"> Tomorow </p>
+        <p className="siteNavigation"> Tomorow </p>
+        <a href="" className="siteNavigation"><p className="link">Test Site Navigation</p></a>
 
-        <a href="" className="siteNavigation">Test Site Navigation</a>
         <input type="text" id="userIntrest" name="name"></input>
         <button type="button">Test button</button>
 
@@ -21,15 +21,15 @@ export default function Home() {
             <li><p className="bot">Handels Chalmers</p></li>
             <li><p className="bot">Teknisk fysik KTH</p></li>
         </ul>
-      </body>
+      </div>
       <footer>
         <div className="footerLeft">
         <div className="footerLine"></div>
           <div className="footerListDiv">
             <ul className="footerList">
-              <li><p className="siteNavigation">Hitta program</p></li>
-              <li><p className="siteNavigation">Räkna antagningspoäng</p></li>
-              <li><p className="siteNavigation">Se behörighetskrav</p></li>
+              <li><a href="page"><p className="siteNavigation">Hitta program</p></a></li>
+              <li><a href="count"><p className="siteNavigation">Räkna antagningspoäng</p></a></li>
+              <li><a href="requerierment"><p className="siteNavigation">Se behörighetskrav</p></a></li>
             </ul>
           </div>
         </div>
