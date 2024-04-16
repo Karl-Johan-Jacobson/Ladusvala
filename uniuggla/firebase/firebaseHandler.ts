@@ -12,6 +12,7 @@ import {
 import * as fs from "fs";
 import { parse } from "csv-parse";
 import * as dotenv from "dotenv"; // Import and config for .env file
+import Program from "../types/program";
 dotenv.config();
 
 // Firebase credentials
@@ -35,6 +36,36 @@ export async function fetchAllInterests() {
     const interestsRef = collection(db, "interestSelector"); // Reference to the interestSelector collection
     const interestSnapshot = await getDocs(interestsRef); // Query snapshot of the docs. in the collection
     return interestSnapshot.docs.map((doc) => doc.data()); // List of all docs. with their data (fields)
+  } catch (error) {
+    console.error("Error fetching interests:", error);
+    throw error;
+  }
+}
+
+export async function fetchAllPrograms(): Promise<Program[]>{
+  try {
+
+
+    const interestsRef = collection(db, "courseSelector"); // Reference to the interestSelector collection
+    const interestSnapshot = await getDocs(interestsRef); // Query snapshot of the docs. in the collection
+
+    const tempList = interestSnapshot.docs.map((doc) => doc.data());
+    
+    return tempList.map((temp) => {
+      const program: Program = {
+        programAiDescription_sv : temp.programAiDescription_sv,
+        programDegree_sv: temp.programDegree_sv,
+        programDescription_sv: temp.programDescription_sv,
+        programId: temp.programId,
+        programLink: temp.programLink,
+        programPlace_sv: temp.programPlace_sv,
+        programPoints: temp.programPoints,
+        programRequirements_sv: temp.programRequirements_sv,
+        porgramTitle_sv: temp.programTitle_sv,
+        programYears: temp.programYears,
+      }
+      return program;
+    })
   } catch (error) {
     console.error("Error fetching interests:", error);
     throw error;
