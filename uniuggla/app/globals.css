@@ -79,7 +79,7 @@ a:hover {
   padding-left: 10vw;
   padding-right: 10vw;
   z-index: 1; 
-  margin-top: 20vw;
+  margin-top: 5vw;
   
 }
 
@@ -136,4 +136,5 @@ footer {
 .footerLogoDiv img {
   height: 100%;
 }
+
 
