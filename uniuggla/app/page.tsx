@@ -6,7 +6,7 @@ export default function Home() {
       <header>
         <img src = "../../uniu_logo_filled.svg" alt="Logo"/> 
       </header>
-      <div className="body">
+      <div className="body typewriter">
         <p className="bot">Vill du gå på högskola eller Universitet?</p>
       </div>
       <div>

@@ -2,15 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  background-color: #DFFDE0;
-}
-
 * {
   margin: 0;
   padding: 0;
   text-decoration: none;
   font-size: 1vw;
+}
+
+html {
+  background-color: #DFFDE0;
 }
 
 @font-face {
@@ -21,31 +21,6 @@ html {
 @font-face {
   font-family: 'Tomorrow';
   src: url(./font/Tomorrow-Medium.ttf);
-}
-
-header {
- /* Uniuggla logo aligned to the left */
-  width: 100%;
-  height: 10vw;
-  top: 0;
-  left: 0;
-  position: fixed; 
-  background-image: linear-gradient(#DFFDE0 10%, transparent)   
-  
-}
-
-header img{
-  /* Uniuggla logo aligned to the left */
-   height: 100%;
-   top: 0;
-   left: 0;
-   background-color: transparent;
-}
-
-p {
-  font-weight: normal;
-  font-style: medium;
-  text-align: left;
 }
 
 .bot {
@@ -63,7 +38,7 @@ p {
   color: #61855A;
 }
 
-.link {
+a {
   font-family: 'Tomorrow';
   color: #61855A;
 }
@@ -74,6 +49,58 @@ a:hover {
   color: #DFFDE0; 
 }
 
+p {
+  font-weight: normal;
+  font-style: medium;
+  text-align: left;
+}
+
+.typewriter p {
+  overflow: hidden;
+  border-right: .15em solid #4F1EB0; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+  animation: 
+    typing 3.5s steps(40, end),
+    blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #4F1EB0; }
+}
+/*
+  End of General
+  ---===---===---===---===---===---===---===---===---===
+  Start of Header
+*/
+header {
+   width: 100%;
+   height: 10vw;
+   top: 0;
+   left: 0;
+   position: fixed; 
+   background-image: linear-gradient(#DFFDE0 10%, transparent)   
+   
+ }
+ 
+ header img{
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: transparent;
+ }
+/*
+  End of Header
+  ---===---===---===---===---===---===---===---===---===
+  Start of Body
+*/
 .body {
   width: 100%;
   padding-left: 10vw;
@@ -82,7 +109,11 @@ a:hover {
   margin-top: 20vw;
   
 }
-
+/*
+  End of Body
+  ---===---===---===---===---===---===---===---===---===
+  Start of Footer
+*/
 footer {
   bottom: 0;
   left: 0;
@@ -136,4 +167,8 @@ footer {
 .footerLogoDiv img {
   height: 100%;
 }
+/*
+  End of Footer
+  ---===---===---===---===---===---===---===---===---===
+*/
 
