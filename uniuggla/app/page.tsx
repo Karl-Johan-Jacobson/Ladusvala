@@ -4,8 +4,15 @@ export default function Home() {
   return (
     <main>
       <header>
-        <img src = "../../uniu_logo_inkscape.svg" alt="Error"/> 
+        <img src = "../../uniu_logo_filled.svg" alt="Logo"/> 
       </header>
+      <div className="body">
+        <p className="bot">Vill du gå på högskola eller Universitet?</p>
+      </div>
+      <div>
+        <button><p className="bot">Ja</p></button>
+        <button><p className="bot">Nej</p></button>
+      </div>
       <div className="body">
        <div className="body">
         <p className="bot">Bot:Tomorow </p>
@@ -14,8 +21,8 @@ export default function Home() {
         <p className="siteNavigation"> Tomorow </p>
         <a href="" className="siteNavigation"><p className="link">Test Site Navigation</p></a>
 
-        <input type="text" id="userIntrest" name="name"></input>
-        <button type="button">Test button</button>
+        <input type="text" placeholder="intrests"></input>
+        <button type="button"><p className="bot">Test button</p></button>
 
         <ul>
             <li><p className="bot">Biokemi KTH</p></li>
@@ -31,12 +38,12 @@ export default function Home() {
             <ul className="footerList">
               <li><a href="page"><p className="siteNavigation">Hitta program</p></a></li>
               <li><a href="count"><p className="siteNavigation">Räkna antagningspoäng</p></a></li>
-              <li><a href="requerierment"><p className="siteNavigation">Se behörighetskrav</p></a></li>
+              <li><a href="req"><p className="siteNavigation">Se behörighetskrav</p></a></li>
             </ul>
           </div>
         </div>
         <div className="footerLogoDiv">
-          <p className="logo">UNIU</p>
+          <img src = "../../text_logo.png" alt="Logo_Text"/> 
         </div>
       </footer> 
     </main>
