@@ -1,37 +1,60 @@
+'use client'
+
+
+import { useState } from "react";
 import { NextPage } from "next";
 import "../globals.css";
 import "./programRecommendations.css";
 import { fetchAllInterests } from "@/firebase/firebaseHandler";
 import { DocumentData } from "@firebase/firestore";
-import { buttonLogic } from "./buttonLogic";
+import { handleButtonClick } from "./buttonLogic";
 
-export default async function ProgramRecommendations(){
-    let text : string  = "fotboll \n programmering \n ";
+const ProgramRecommendations: NextPage = () => {
+    const text = "UniU-GPT";
+    const [userInput, setUserInput] = useState<string>("");
+    const[message, setMessage] = useState<string>("");
 
-    //console.log(interests);
-    return(
+    const handleButton = () => {
+        setMessage(userInput);
+    };
+
+    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setUserInput(event.target.value);
+        
+    };
+
+    return (
         <div className="container">
             <h1>
                 <div className="styles">
-                Welcome!
-                <p>
-                    {text}
-                </p>
+                    Welcome!
+                    <p>
+                        {text}
+                    </p>
                 </div>
             </h1>
             <h2>
-            <button className="button" id="send" onClick={buttonLogic}></button>
-            <form>
-            <label htmlFor="textfield">Enter text:</label>
-            <input type="text" id="textfield" name="textfield"></input>
-            </form>
+                <button className="button" id="send" onClick={handleButton}>Click me</button>
+                <form>
+                    <label htmlFor="textfield"></label>
+                    <input 
+                        type="text" 
+                        id="textfield" 
+                        name="textfield" 
+                        value={userInput}
+                        onChange={handleInputChange}
+                    ></input>
+                </form>
             </h2>
-            <script src="buttonLogic.js"
->
-            </script>
+            <div className="userInputScreen">
+                <div className = "userInput">
+                        <p>
+                        {message}
+                    </p>
+                </div>
+            </div>
         </div>
-
     );
 };
 
-
+export default ProgramRecommendations;

@@ -1,7 +1,5 @@
 
-const button = document.getElementById("send");
 
-export function buttonLogic(){
-
-    console.log("Button was clicked");
-}
+export const handleButtonClick = (userInput: string) => {
+    return userInput + "\n";
+};
