@@ -1,33 +1,218 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+ /* Is the main background for the whole hmtl */  
+html {      
+  background-color: #DFFDE0;
 }
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+/* Is the font for the the buttons */
+@font-face { 
+  font-family: 'RobotSerif';
+  src: url(./font/RobotoSerif-Medium.ttf);
 }
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+/* Is the font for the text for instance question title and greetings, etc */
+@font-face {
+  font-family: 'Tomorrow';
+  src: url(./font/Tomorrow-Medium.ttf);
 }
+/* Class for the text */
+.bot {
+  font-family: 'Tomorrow';
+  color: #4F1EB0;
+}
+/* Class for the user interaction */
+.user { 
+  font-family: 'RobotSerif';
+  color: #9ECB98;
+}
+/* Class for the alternatives "Hitta program", "Räkna antagningspoäng", "Se behörighetskrav", and "Om oss" */
+.siteNavigation { 
+  font-family: 'Tomorrow';
+  color: #61855A;
+}
+/* Styling for the links */
+a { 
+  font-family: 'Tomorrow';
+  color: #61855A;
+}
+/* Highlights and swaps the background color and text color */
+a:hover {
+  background-color: #61855A;
+  color: #DFFDE0; 
+}
+/* Standard styling for text */
+p {
+  font-weight: normal;
+  text-align: center;
+}
+/* Styling for the greeting ("Hej!") typewriter animation */
+.typewriter_greeting p {
+  border-right: .15em solid #4F1EB0;
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: 0;
+  animation:
+    blink-caret .75s step-end infinite 1s; 
+}
+/* Styling for the question ("Vill du gå på högskola eller universitet?") typewriter animation */
+.typewriter_question p {
+  border-right: .15em solid #4F1EB0;
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: 0;
+  animation: 
+    blink-caret .75s step-end infinite 1s; 
+}
+/* keyframes takes care of the functionality of the typewriter animation */
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: #4F1EB0; }
+}
+/*
+  End of General
+  ---===---===---===---===---===---===---===---===---===---
+  Start of Header
+*/
+/* Dimensioning of the background and positioning for logo for the color gradient*/
+header {
+   width: 100vw;
+   height: 10vw;
+   top: 0;
+   left: 0;
+   position: fixed; 
+   background-image: linear-gradient(#DFFDE0 10%, transparent)   
+ }
+ /* Fixes the position of the uniu logo */
+ header img{
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: transparent;
+ }
+/*
+  End of Header
+  ---===---===---===---===---===---===---===---===---===---
+  Start of Body
+*/
+/* Styling for the question and greeting class */
+.greetingDiv, .questionDiv {
+  margin: 0 auto;
+  transition: margin-top 1s ease;
+}
+.question, .greeting{
+  font-family: 'Tomorrow';
+  color: #4F1EB0;
+  font-size: 4vw;
+}
+/* Styling and positioning of the body */
+.body {
+  width: auto;
+  padding-left: 5vw;
+  padding-right: 5vw;
+  z-index: 1;
+}
+/* Positioning of the typewriter animation*/
+.typewriter {
+  width: min-content;
+  margin: 0 auto;
+}
+/* Styling and positioning */
+.answer {
+  width: 40vw;
+  height: 8vw;
+  margin: 0 auto;
+  transition: margin-top 3s ease, opacity 2s ease;
+  list-style: none;
+  display: grid;
+  grid-template-columns:1fr 1fr;
+  gap: 20vw;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+}
+/* Button  animation dimention and color*/
+.answer button {
+  height: inherit;
+  background-color: #DFFDE0;
+  border: none;
+  border-radius: 1vw;
+}
+/* Text inside the buttons color and font size */
+.answer button p {
+  color: #61855A;
+  font-size: 4vw;
+}
+/* hover color change buttons*/
+.answer button:hover {
+  background-color: #61855A;
+}
+/* hover color change text */
+.answer button:hover p {
+  color: #DFFDE0;
+}
+/*
+  End of Body
+  ---===---===---===---===---===---===---===---===---===---
+  Start of Footer
+*/
+/* Footer dimetionns and postion*/
+footer {
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  width: 98%;
+  height: 5vw;
+  padding-left: 1%;
+  padding-right: 1%;
+  padding-bottom: 1%;
+  display: inline-block;
+  background-color: #DFFDE0;
+  font-size: 1.5vw;
+}
+/* Footer navbar annd line dimentions and position */
+.footerLeft {
+  top: 0;
+  left: 0;
+  width: 83%;
+  height: 100%;
+  display: inline-block;
+}
+/* Dividing line footer */
+.footerLine {
+  top: 0;
+  height: 4px;
+  position: relative;
+  background-color: #4F1EB0;
+}
+/* Navbar wrapper */
+.footerListDiv {
+  margin-left: 2%;
+  margin-right: 2%;
+}
+/* Footer navbar grid */
+.footerList {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 1vw;
+  margin-top: 2%;
+}
+/* Text logo wrapper dimetion and position */
+.footerLogoDiv {
+  height: 100%;
+  width: auto;
+  bottom: 0;
+  right: 0;
+  height: 100%;
+  float: right;
+}
+/* Text logo size */
+.footerLogoDiv img {
+  height: 100%;
+}
+/*
+  End of Footer
+  ---===---===---===---===---===---===---===---===---===---
+*/

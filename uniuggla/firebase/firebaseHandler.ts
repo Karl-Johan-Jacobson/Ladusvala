@@ -71,9 +71,7 @@ export async function fetchAllPrograms(): Promise<Program[]>{
     throw error;
   }
 }
-
 /*----------------------------------For uploading data to the database-----------------------------------*/
-
 async function uploadData() {
   const test = "test";
   const interestsRef = query(
