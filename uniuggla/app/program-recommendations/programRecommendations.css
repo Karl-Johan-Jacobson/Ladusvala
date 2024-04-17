@@ -3,7 +3,7 @@
     text-align: center;
     width: 25%;
     height: 100vh;
-    background-color: white;
+    background-color: #282828;
     border: 2px solid white;
     position: relative;
 }
@@ -19,7 +19,7 @@ button {
     align-items: center;
     width: auto;
     height: auto;
-    background-color: #007bff;
+    background-color: #74AA9C;
     color: #fff;
     border: none;
     border-radius: 10px;
@@ -46,7 +46,7 @@ input[type=text]{
 }
 
 .styles {
-    color: black
+    color: white
 }
 
 .userInputScreen
@@ -55,8 +55,8 @@ input[type=text]{
     
     width: 100%;
     height: 85vh;
-    color: black;
-    background-color: transparent;
+    color: white;
+    background-color: #3c3c3c;
     overflow: auto;
 }
 
@@ -64,8 +64,8 @@ input[type=text]{
 {
     width: auto;
     height: auto;
-    color: black;
-    background-color: lightblue;
+    color: white;
+    background-color: transparent;
     border-radius: 25px;
 
 }

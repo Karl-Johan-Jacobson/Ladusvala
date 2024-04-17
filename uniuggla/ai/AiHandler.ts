@@ -77,7 +77,8 @@ function turnProgramToPrompt(allPrograms: Program[]): string {
   let generatedString: string = "";
 
   for (let i = 0; i < allPrograms.length; i++) {
-    generatedString += `Degree: ${allPrograms[i].porgramTitle_sv}, ID = ${allPrograms[i].programId}\n`;
+    //generatedString += `Degree: ${allPrograms[i].porgramTitle_sv}, ID = ${allPrograms[i].programId}\n`; //USED IN RELEASE
+    generatedString += `Degree: ${allPrograms[i].porgramTitle_sv}\n`;
   }
 
   return generatedString;
@@ -93,11 +94,11 @@ export default async function recommendProgramFromInterest() {
   //const allPrograms: Program[] = await fetchAllPrograms(); This must be uncomment for Release mode
   //turn all programs to a string
   const programString: string = turnProgramToPrompt(somePrograms);
-  const interestString: string = turnInterestToPrompt(interestOfEconomy);
+  const interestString: string = turnInterestToPrompt(interestOfEngineerAndMedicin);
 
   //Generate the question to ai to answer
   //let content: string = `These are my interest: ${interestString} and these are all available degrees ${programString}. Choose four of these degrees that matches my interest and then choose one wild card loosely based on the interests, make sure to mark your wildcard. Answer in bullet points with the exact names of the degrees, the bullet points should start with a dot and not numbers. Answer in swedish. You should answer in the format [Degree, ID = {number}]. Lastly end with a question asking the user if he/she think one of these degrees are interesting.`;
-  let content: string = `These are my interest: ${interestString} and these are all available degrees ${programString}. Choose four of these degrees that matches my interest and then choose one wild card loosely based on the interests, make sure to mark your wildcard. Your answer should first contain the exact degree name in capslock, followd by one sentence why you choose that degree. You must answer in swedish`;
+  let content: string = `These are my interest: ${interestString} and these are all available degrees ${programString}. Choose four of these degrees that matches my interest and then choose one wild card loosely based on the interests, make sure to mark your wildcard. Your answer should first contain the exact degree name in capslock, followd by one sentence why you choose that degree. You must answer in swedish and write a new line after every degree`;
 
   let questionToAi: ChatCompletionMessageParam = {
     role: "user",
