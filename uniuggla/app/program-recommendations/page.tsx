@@ -5,9 +5,6 @@ import { NextPage } from "next";
 import "../globals.css";
 import "./programRecommendations.css";
 import recommendProgramFromInterest from "@/ai/AiHandler";
-import * as dotenv from "dotenv";
-dotenv.config();
-
 
 const ProgramRecommendations:  NextPage = () => {
     const text = "UniU-GPT";
