@@ -1,0 +1,53 @@
+
+.container {
+    text-align: center;
+    width: 25%;
+    height: 100vh;
+    background-color: white;
+    border: 2px solid white;
+    overflow: auto;
+    position: relative;
+}
+body{
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 12%;
+    height: 4vh;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+label{
+    display: block;
+    margin-bottom: 10px;
+}
+
+input[type=text]{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 88%;
+    height: 4vh;
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid black;
+    border-radius: 2px;
+    border-color: black;
+    cursor: pointer;
+    color: black;
+}
+
+.styles {
+    color: black
+}
