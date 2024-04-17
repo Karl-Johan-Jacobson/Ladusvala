@@ -4,17 +4,23 @@ import { useState } from "react";
 import { NextPage } from "next";
 import "../globals.css";
 import "./programRecommendations.css";
+import recommendProgramFromInterest from "@/ai/AiHandler";
+import * as dotenv from "dotenv";
+dotenv.config();
 
-const ProgramRecommendations: NextPage = () => {
+
+const ProgramRecommendations:  NextPage = () => {
     const text = "UniU-GPT";
     const [message, setMessage] = useState<string>("");
 
-    
+    let aiAnswer : string = "";
 
     //activate the typewriter
     async function handleButton () {
+        console.log("Clicked")
         setMessage("");
-        typewriter("Test , ska vi se om allt går som det ska.allt går som det ska.allt går som det ska.allt går som det ska.allt går som det ska.allt går som det ska.", 50);
+        aiAnswer = await recommendProgramFromInterest()
+        typewriter(aiAnswer, 50);
     };
 
     const typewriter = (text: string, speed: number) => {

@@ -2,7 +2,7 @@
   "name": "uniuggla",
   "version": "0.1.0",
   "private": true,
-  "type": "commonjs",
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -16,6 +16,7 @@
     "dotenv": "^16.4.5",
     "firebase": "^10.11.0",
     "next": "14.2.1",
+    "openai": "^4.36.0",
     "react": "^18",
     "react-dom": "^18",
     "request": "^2.88.2",
