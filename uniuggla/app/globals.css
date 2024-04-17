@@ -101,7 +101,6 @@ header {
   margin: 0 auto;
   transition: margin-top 1s ease;
 }
-
 .question, .greeting{
   font-family: 'Tomorrow';
   color: #4F1EB0;
@@ -172,7 +171,7 @@ footer {
   background-color: #DFFDE0;
   font-size: 1.5vw;
 }
-/* Footer Navbar annd line dimetionns and position */
+/* Footer navbar annd line dimentions and position */
 .footerLeft {
   top: 0;
   left: 0;
@@ -180,14 +179,14 @@ footer {
   height: 100%;
   display: inline-block;
 }
-/* Devidig line footer */
+/* Dividing line footer */
 .footerLine {
   top: 0;
   height: 4px;
   position: relative;
   background-color: #4F1EB0;
 }
-/*  Navbar wrapper */
+/* Navbar wrapper */
 .footerListDiv {
   margin-left: 2%;
   margin-right: 2%;

@@ -32,7 +32,6 @@ const Home: React.FC = () => {
   // Starting animationn
   useEffect(() => {
     disableScroll(); 
-
     let typeWriterInterval: ReturnType<typeof setInterval> | undefined;
     // Typewriteranimationn input string and class of <p> element
     const typeWriter = (textToType: string, htmlClass: string) => {
