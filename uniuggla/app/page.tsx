@@ -1,13 +1,38 @@
 "use client"; // Makes it so it is on client side instead of server side because of the function components. 
 import Image from "next/image";
 import { useState, useEffect } from 'react';
-  // Main function that returns the html and handles the typewriter animation code 
-  const Home: React.FC = () => {
-    const speed = 50;
-    const greeting = ["Hej!", "greeting", "typewriter", "typewriter_greeting"];
-    const question = ["Vill du gå på högskola eller universitet?", "question", "typewriter", "typewriter_question"];
+// Main function that returns the html and handles the animations
+const Home: React.FC = () => {
+
+  function disableScroll() {
+    // Get the current page scroll position
+    var scrollTop = window!.pageYOffset || document.documentElement.scrollTop;
+    var scrollLeft = window!.pageXOffset || document.documentElement.scrollLeft;
+    window.onscroll = function () {
+      window.scrollTo(scrollLeft, scrollTop);
+    };
+    
+    document.body.style.overflow = 'hidden';  
+  }
+  // Will be used later on.
+  // function enableScroll() {
+  // window.onscroll = function () { };
+  // }
+ 
+  // values for js animations
+  const speed = 40;
+  const delayBetweenGreetigAndQuestion = 1000
+  const delayBetweenQuestionAndAnswer = 500
+  const greeting = ["Hej!", "greeting", "typewriter", "typewriter_greeting"];
+  const moveGreeting = ['1vw', "greetingDiv"];
+  const moveQuestion = ['5vw', "questionDiv"];
+  const question = ["Vill du gå på högskola eller universitet?", "question", "typewriter", "typewriter_question"];
+  const moveAnswer = ['8vw', "answer"]
+
   // Starting animationn
   useEffect(() => {
+    disableScroll(); 
+
     let typeWriterInterval: ReturnType<typeof setInterval> | undefined;
     // Typewriteranimationn input string and class of <p> element
     const typeWriter = (textToType: string, htmlClass: string) => {
@@ -34,12 +59,32 @@ import { useState, useEffect } from 'react';
       const parentElement = parentElements[0] as HTMLElement;
       parentElement.classList.remove(htmlClassRemove);
     }
-    // Funciton fro iniatal js animations
+    // Canges top margin from inital top margin
+    const modifyTopMargin = (newTopMargin: string, htmlClass: string) => {
+      var elements = document.querySelectorAll('.' + htmlClass);
+      elements.forEach(function(element) {
+        element.style.marginTop = newTopMargin;
+      });
+    }
+    // Canges opacity from inital opacity
+    const modifyOpacity = (newOpacity: string, htmlClass: string) => {
+      var elements = document.querySelectorAll('.' + htmlClass);
+      elements.forEach(function(element) {
+        element.style.opacity = newOpacity;
+      });
+    }
+    // Funciton for iniatal js animations
     typeWriter(greeting[0], greeting[1]);
     const timeoutId = setTimeout(() => {
       removeParent(greeting[2], greeting[3]);
+      modifyTopMargin(moveGreeting[0], moveGreeting[1]);
+      modifyTopMargin(moveQuestion[0], moveQuestion[1]);
       typeWriter(question[0], question[1]);
-    }, (greeting[0].length * speed + 1500));
+      setTimeout(() => {
+        modifyTopMargin(moveAnswer[0], moveAnswer[1]);
+        modifyOpacity('1', moveAnswer[1]);
+      }, (question[0].length * speed + delayBetweenQuestionAndAnswer)); 
+    }, (greeting[0].length * speed + delayBetweenGreetigAndQuestion));
 
     return () => {
       if (typeWriterInterval) {
@@ -55,13 +100,13 @@ import { useState, useEffect } from 'react';
         <img src="../../uniu_logo_filled.svg" alt="Logo"/> 
       </header>
       <div className="body">
-        <div className="typewriter typewriter_greeting">
+        <div className="typewriter typewriter_greeting greetingDiv" style={{marginTop: '10vw'}}>
           <p className="bot greeting"></p>
         </div>
-        <div className="typewriter typewriter_question">
+        <div className="typewriter typewriter_question questionDiv" style={{marginTop: '0vw'}}>
           <p className="bot question"></p>
         </div>
-        <div className="universityForYou">
+        <div className="answer" style={{marginTop: '100vw', opacity: '0'}}>
           <button className="yesButton"><p className="user">Ja</p></button>
           <button className="noButton"><p className="user">Nej</p></button>
         </div>
