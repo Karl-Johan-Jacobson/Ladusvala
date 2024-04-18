@@ -5,8 +5,11 @@ import InterestListItem from "./interest_list_item";
 import CustomInterestListItem from "./custom_interest_list_item";
 import { ChangeEvent, FormEvent, useState } from "react";
 import { v4 as uuidv4 } from 'uuid';
+import { useRouter } from "next/navigation";
 
 export default function InterestList({ interest }: {interest: Interest[]}){
+  
+  const router = useRouter();
   //initializing hooks
   const [displayedInterests, setDisplayedInterests] = useState<Interest[]>(interest.filter((interest, index) => index < 10));
   const [allInterests, setAllInterests] = useState<Interest[]>(interest)
@@ -79,29 +82,35 @@ export default function InterestList({ interest }: {interest: Interest[]}){
     const query = event.target.value;
     setCustomInterest(query);
   }
+  const handleRecommendationButtonClick = () => { 
+    router.push('/program_recommendations/');
+  };
+
+  console.log(selectedInterestIds );
 
 //returns a mapped list of interests, using the interestId as key
   return (
-    <>
-      <div className="mb-5">
-      <form className="" onSubmit={addInterest}>
-          <input type="text" value={customInterest} onChange={handleUpdate} required className="mt-5 ml-3 bg-purple-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5"/>
-          <button type="submit" className="mt-3 ml-3 bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">Add interest</button>
-        </form>
-        <div className="grid grid-cols-4 gap-4 ml-3 mt-3">
+    <main>
+      <div className="" style={{marginTop: '10vw'}}>
+        {displayedInterests.map((interest) => (
+          <InterestListItem onToggle={handleToggle} interest={interest} key={interest.interestId}/>)
+        )}
+        <button onClick={shuffle} className="">
+          Refresh
+        </button>
+        <div className="">
           {customInterestList.map((interest) => (
                 <CustomInterestListItem onToggle={handleRemoveCustom} interest={interest} key={interest.interestId}/>
             ))}
         </div>
+        <form className="" onSubmit={addInterest}>
+          <input type="text" value={customInterest} onChange={handleUpdate} required className=""/>
+          <button type="submit" className="">Add interest</button>
+        </form>
       </div>
-      <div className="grid grid-cols-4 gap-4 ml-3">
-        {displayedInterests.map((interest) => (
-          <InterestListItem onToggle={handleToggle} interest={interest} key={interest.interestId}/>)
-        )}
-        <button onClick={shuffle} className="w-24 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-          Refresh
-          </button>
+      <div>
+        <button onClick={handleRecommendationButtonClick} className="recommendationButton">Recommendation</button>
       </div>
-    </>
+    </main>
   )
 }
