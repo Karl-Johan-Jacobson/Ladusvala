@@ -1,6 +1,7 @@
 const request = require("request");
 const cheerio = require("cheerio");
 const fs = require("fs");
+const scrapeChalmers = require("./scraperChalmers");
 //   "type": "commonjs", i package.json för scrape
 
 let titleReturn = {
@@ -12,7 +13,7 @@ let titleReturn = {
 
 // Take list of urls as arg and parse, will make ID work better.
 // build master scraper?, with all school scrapers that parse "school" from list and uses correct scraper.
-async function scrape(url) {
+async function scrapeGoteborg(url) {
   request(url, (error, response, html) => {
     if (!error && response.statusCode == 200) {
       const $ = cheerio.load(html);
@@ -64,3 +65,4 @@ async function scrape(url) {
   });
 }
 //scrape("https://www.gu.se/studera/hitta-utbildning/antropologprogrammet-s1ant");
+module.exports = scrapeGoteborg;
