@@ -11,20 +11,18 @@ import {
 } from "firebase/firestore";
 import * as fs from "fs";
 import { parse } from "csv-parse";
-import * as dotenv from "dotenv"; // Import and config for .env file
 import Interest from "../types/interest";
 import Program from "../types/program";
-dotenv.config();
 
 // Firebase credentials
 const firebaseConfig = {
-  apiKey: process.env.REACT_APP_API_KEY,
-  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
-  projectId: process.env.REACT_APP_PROJECT_ID,
-  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
-  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
-  appId: process.env.REACT_APP_APP_ID,
-  measurementId: process.env.REACT_APP_MEASUREMENT_ID,
+  apiKey: process.env.API_KEY,
+  authDomain: process.env.AUTH_DOMAIN,
+  projectId: process.env.PROJECT_ID,
+  storageBucket: process.env.STORAGE_BUCKET,
+  messagingSenderId: process.env.MESSAGING_SENDER_ID,
+  appId: process.env.APP_ID,
+  measurementId: process.env.MEASUREMENT_ID,
 };
 
 // Connect to firebase
@@ -43,10 +41,10 @@ export async function fetchAllInterests(): Promise<Interest[]>{
       const interest: Interest = {
         interestId: temp.interestId,
         interestTitle: temp.interestTitle,
-        interestDescription : temp.interestDescription,
-      }
+        interestDescription: temp.interestDescription,
+      };
       return interest;
-    })
+    });
   } catch (error) {
     console.error("Error fetching interests:", error);
     throw error;
@@ -77,15 +75,14 @@ export async function fetchAllInterests(): Promise<Interest[]>{
 
 /*export async function fetchAllPrograms(): Promise<Program[]>{
   try {
-
     const interestsRef = collection(db, "courseSelector"); // Reference to the interestSelector collection
     const interestSnapshot = await getDocs(interestsRef); // Query snapshot of the docs. in the collection
 
     const tempList = interestSnapshot.docs.map((doc) => doc.data());
-    
+
     return tempList.map((temp) => {
       const program: Program = {
-        programAiDescription_sv : temp.programAiDescription_sv,
+        programAiDescription_sv: temp.programAiDescription_sv,
         programDegree_sv: temp.programDegree_sv,
         programDescription_sv: temp.programDescription_sv,
         programId: temp.programId,
@@ -95,9 +92,9 @@ export async function fetchAllInterests(): Promise<Interest[]>{
         programRequirements_sv: temp.programRequirements_sv,
         porgramTitle_sv: temp.programTitle_sv,
         programYears: temp.programYears,
-      }
+      };
       return program;
-    })
+    });
   } catch (error) {
     console.error("Error fetching interests:", error);
     throw error;

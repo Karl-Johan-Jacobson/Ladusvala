@@ -1,21 +1,15 @@
+"use server";
+
 import OpenAI from "openai";
 import { ChatCompletionMessageParam } from "openai/resources/index.mjs";
 import type Interest from "../types/interest";
-import * as dotenv from "dotenv";
-import {
-  fetchAllPrograms,
-  fetchAllInterests,
-} from "../firebase/firebaseHandler";
 import type Program from "../types/program";
-dotenv.config();
 
 //IF YOU GET this error TS18028, just ignore. and run js file anyway -KJ
 
 const openai = new OpenAI({
-  dangerouslyAllowBrowser: true, //DONT HAVE IN RELEASE -KJ
-  apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY,
+  apiKey: process.env.OPENAI_API_KEY,
 });
-
 
 //Remeber to handle errors, for example "no choices available" -KJ
 //When called user input should already been append to array
@@ -94,7 +88,9 @@ export default async function recommendProgramFromInterest() {
   //const allPrograms: Program[] = await fetchAllPrograms(); This must be uncomment for Release mode
   //turn all programs to a string
   const programString: string = turnProgramToPrompt(somePrograms);
-  const interestString: string = turnInterestToPrompt(interestOfEngineerAndMedicin);
+  const interestString: string = turnInterestToPrompt(
+    interestOfEngineerAndMedicin
+  );
 
   //Generate the question to ai to answer
   //let content: string = `These are my interest: ${interestString} and these are all available degrees ${programString}. Choose four of these degrees that matches my interest and then choose one wild card loosely based on the interests, make sure to mark your wildcard. Answer in bullet points with the exact interestTitles of the degrees, the bullet points should start with a dot and not numbers. Answer in swedish. You should answer in the format [Degree, ID = {number}]. Lastly end with a question asking the user if he/she think one of these degrees are interesting.`;
