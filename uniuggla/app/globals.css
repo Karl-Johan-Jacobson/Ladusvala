@@ -3,7 +3,7 @@
   padding: 0;
   text-decoration: none;
 }
- /* Is the main background for the whole hmtl */  
+ /* Is the main background for the whole hmtl and hides the scroll bar*/  
 html {      
   background-color: #DFFDE0;
   overflow: hidden; 
