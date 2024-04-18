@@ -13,22 +13,7 @@ const Home: React.FC = () => {
   const handleNoButtonClick = () => {
     router.push('/about_us');
   };
-
-  function disableScroll() {
-    // Get the current page scroll position
-    var scrollTop = window!.pageYOffset || document.documentElement.scrollTop;
-    var scrollLeft = window!.pageXOffset || document.documentElement.scrollLeft;
-    window.onscroll = function () {
-      window.scrollTo(scrollLeft, scrollTop);
-    };
-    
-    document.body.style.overflow = 'hidden';  
-  }
-  // Will be used later on.
-  // function enableScroll() {
-  // window.onscroll = function () { };
-  // }
- 
+  
   // values for js animations
   const speed = 40;
   const delayBetweenGreetigAndQuestion = 1000
@@ -40,8 +25,7 @@ const Home: React.FC = () => {
   const moveAnswer = ['8vw', "answers"]
 
   // Starting animationn
-  useEffect(() => {
-    disableScroll(); 
+  useEffect(() => { 
     let typeWriterInterval: ReturnType<typeof setInterval> | undefined;
     // Typewriteranimationn input string and class of <p> element
     const typeWriter = (textToType: string, htmlClass: string) => {
