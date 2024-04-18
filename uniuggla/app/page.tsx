@@ -13,7 +13,7 @@ export default function Home() {
     router.push('/interest_select/');
   };
   const handleNoButtonClick = () => {
-    router.push('/about_us');
+    router.push('/about');
   };
   
   // values for js animations
