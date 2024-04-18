@@ -1,8 +1,18 @@
 "use client"; // Makes it so it is on client side instead of server side because of the function components. 
 import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
 // Main function that returns the html and handles the animations
 const Home: React.FC = () => {
+  const router = useRouter();
+
+  const handleYesButtonClick = () => {
+    router.push('/interest-select/page');
+  };
+  const handleNoButtonClick = () => {
+    router.push('/interest-select/page');
+  };
 
   function disableScroll() {
     // Get the current page scroll position
@@ -27,7 +37,7 @@ const Home: React.FC = () => {
   const moveGreeting = ['1vw', "greetingDiv"];
   const moveQuestion = ['5vw', "questionDiv"];
   const question = ["Vill du gå på högskola eller universitet?", "question", "typewriter", "typewriter_question"];
-  const moveAnswer = ['8vw', "answer"]
+  const moveAnswer = ['8vw', "answers"]
 
   // Starting animationn
   useEffect(() => {
@@ -92,6 +102,7 @@ const Home: React.FC = () => {
       clearTimeout(timeoutId);
     };
   }, []);
+
   // HTML code, within <main>
   return (
     <main>
@@ -105,12 +116,16 @@ const Home: React.FC = () => {
         <div className="typewriter typewriter_question questionDiv" style={{marginTop: '0vw'}}>
           <p className="bot question"></p>
         </div>
-        <div className="answer" style={{marginTop: '100vw', opacity: '0'}}>
-          <button className="yesButton"><p className="user">Ja</p></button>
-          <button className="noButton"><p className="user">Nej</p></button>
+        <div className="answers" style={{marginTop: '100vw', opacity: '0'}}>
+          <button className="yesButton answerButton" onClick={handleYesButtonClick}>
+            <p className="user">Ja</p>
+          </button>
+          <button className="noButton answerButton" onClick={handleNoButtonClick}>
+            <p className="user">Nej</p>
+          </button>
         </div>
       </div>
-  
+
       <footer>
         <div className="footerLeft">
           <div className="footerLine"></div>
