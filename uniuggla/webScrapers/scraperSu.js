@@ -49,13 +49,14 @@ async function scrape(url) {
     }
 
     
-    fs.writeFile("Su.json", JSON.stringify(titleReturn, null, 2), (err) => {
+    fs.appendFile("test.json", JSON.stringify(titleReturn, null, 2) + ","+"\n", (err) => {
       if (err) {
         console.error(err);
         return;
       }
       console.log("Successfully written data to file");
     });
+
 
     //programId_sv|programUniversity_sv|programTitle_sv|programDescription_sv|programPoints_sv|programYears_sv|programRequirements_sv|programAiDescription_sv|programPlace_sv|programDegree_sv|programLink
   });

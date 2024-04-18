@@ -3,6 +3,7 @@ const cheerio = require("cheerio");
 const fs = require("fs");
 
 let titleReturn = {
+  programId: "",
   programTitle_sv: "",
   programPoints: "",
   programDesciption_sv: "",
@@ -11,7 +12,7 @@ let titleReturn = {
 
 // Take list of urls as arg and parse, will make ID work better.
 // build master scraper?, with all school scrapers that parse "school" from list and uses correct scraper. Will make ID work easier.
-async function scrape(url) {
+async function scrapeKarolinska(url, programId) {
   request(url, (error, response, html) => {
     if (!error && response.statusCode == 200) {
       const $ = cheerio.load(html);
@@ -43,6 +44,7 @@ async function scrape(url) {
       titleReturn.programPoints = hp;
       titleReturn.programDesciption_sv = description;
       titleReturn.programLink = url;
+      titleReturn.programId = programId;
 
       console.log(titleReturn);
     } else {
@@ -50,7 +52,7 @@ async function scrape(url) {
       console.log("ERROR CONNECTING:" + error);
     }
 
-    fs.writeFile("test.json", JSON.stringify(titleReturn, null, 2), (err) => {
+    fs.appendFile("test.json", JSON.stringify(titleReturn, null, 2) + ","+"\n", (err) => {
       if (err) {
         console.error(err);
         return;
@@ -61,4 +63,5 @@ async function scrape(url) {
     //programId_sv|programUniversity_sv|programTitle_sv|programDescription_sv|programPoints_sv|programYears_sv|programRequirements_sv|programAiDescription_sv|programPlace_sv|programDegree_sv|programLink
   });
 }
-scrape("https://utbildning.ki.se/program/2la21-lakarprogrammet");
+//scrape("https://utbildning.ki.se/program/2la21-lakarprogrammet");
+module.exports = scrapeKarolinska;

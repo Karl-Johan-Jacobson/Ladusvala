@@ -12,7 +12,7 @@ let titleReturn = {
 
 // Take list of urls as arg and parse, will make ID work better.
 // build master scraper?, with all school scrapers that parse "school" from list and uses correct scraper.
-async function scrape(url) {
+async function scrapeChalmers(url) {
   request(url, (error, response, html) => {
     if (!error && response.statusCode == 200) {
       const $ = cheerio.load(html);
@@ -51,21 +51,18 @@ async function scrape(url) {
       console.log("ERROR CONNECTING:" + error + response.statusCode);
     }
 
-    fs.writeFile(
-      "chalmers.json",
-      JSON.stringify(titleReturn, null, 2),
-      (err) => {
-        if (err) {
-          console.error(err);
-          return;
-        }
-        console.log("Successfully written data to file");
+    fs.appendFile("test.json", JSON.stringify(titleReturn, null, 2) + ","+"\n", (err) => {
+      if (err) {
+        console.error(err);
+        return;
       }
-    );
+      console.log("Successfully written data to file");
+    });
+
 
     //programId_sv|programUniversity_sv|programTitle_sv|programDescription_sv|programPoints_sv|programYears_sv|programRequirements_sv|programAiDescription_sv|programPlace_sv|programDegree_sv|programLink
   });
 }
-scrape(
+/*scrapeChalmers(
   "https://www.chalmers.se/utbildning/hitta-program/arkitektur-och-teknik-arkitektcivilingenjor/"
-);
+);*/
