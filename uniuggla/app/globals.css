@@ -213,3 +213,8 @@ footer {
   End of Footer
   ---===---===---===---===---===---===---===---===---===---
 */
+
+.interestSelected {
+  background-color: #4F1EB0;
+  color: white;
+}
