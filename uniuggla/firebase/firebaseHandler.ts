@@ -32,6 +32,7 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 // Returns a list of all interests (and their fields)
+/*
 export async function fetchAllInterests(): Promise<Interest[]>{
   try {
     const interestsRef = collection(db, "interestSelector"); // Reference to the interestSelector collection
@@ -50,7 +51,7 @@ export async function fetchAllInterests(): Promise<Interest[]>{
     console.error("Error fetching interests:", error);
     throw error;
   }
-}
+*/
 
 /*export async function fetchInterest(id: number): Promise<Interest>{
   try {
@@ -74,7 +75,7 @@ export async function fetchAllInterests(): Promise<Interest[]>{
 
 /*----------------------------------For uploading data to the database-----------------------------------*/
 
-export async function fetchAllPrograms(): Promise<Program[]>{
+/*export async function fetchAllPrograms(): Promise<Program[]>{
   try {
 
     const interestsRef = collection(db, "courseSelector"); // Reference to the interestSelector collection
@@ -102,6 +103,7 @@ export async function fetchAllPrograms(): Promise<Program[]>{
     throw error;
   }
 }
+*/
 /*----------------------------------For uploading data to the database-----------------------------------*/
 async function uploadData() {
   const test = "test";
