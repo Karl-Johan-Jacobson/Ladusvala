@@ -12,18 +12,17 @@ let titleReturn = {
 
 // Take list of urls as arg and parse, will make ID work better.
 // build master scraper?, with all school scrapers that parse "school" from list and uses correct scraper.
-async function scrape(url) { 
-
-  request({url, headers}, (error, response, html) => {
-
+async function scrape(url) {
+  request(url, (error, response, html) => {
     if (!error && response.statusCode == 200) {
       const $ = cheerio.load(html);
 
-      const titleBody = $(".uu-heading"); // Article class ref
-      const title = titleBody.text().trim(); // title holds name of program name
+      const titleBody = $(".w-xl"); // Article class ref
+      const title = titleBody.find("h1").text().trim(); // title holds name of program name
       //titleReturn.programTitle_sv = title;
       console.log("TITLE:" + title);
-      const hpBody = $(".education-header-credits p");
+
+      const hpBody = $(".mt-3");
       const hp = hpBody.text().trim(); // Holds "Program X högskolepoäng * Y år * Kandidatexamen"
 
       console.log("HP: " + hp);
@@ -68,5 +67,5 @@ async function scrape(url) {
   });
 }
 scrape(
-  "https://www.uu.se/utbildning/program/apotekarprogrammet"
+  "https://www.chalmers.se/utbildning/hitta-program/arkitektur-och-teknik-arkitektcivilingenjor/"
 );

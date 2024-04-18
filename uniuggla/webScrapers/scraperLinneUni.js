@@ -4,7 +4,7 @@ const fs = require("fs");
 //   "type": "commonjs", i package.json för scrape
 
 let titleReturn = {programTitle_sv:"" , programPoints: "", programDesciption_sv: "", programLink: ""};
-
+// DOES NOT WORK ON KTH INTERNET??? ERROR: connect ENETUNREACH
 
 // Take list of urls as arg and parse, will make ID work better.
 // build master scraper?, with all school scrapers that parse "school" from list and uses correct scraper.
@@ -13,48 +13,41 @@ async function scrape(url) {
     if (!error && response.statusCode == 200) {
       const $ = cheerio.load(html);
 
-      const titleBody = $(".layout__region--main"); // Article class ref
+      const titleBody = $(".main-content"); // Article class ref
       const title = titleBody.find("h1").text().trim(); // title holds name of program name
-      titleReturn.programTitle_sv = title;
-
-      const programInfoBody = $(".field__kicker p");
-      const programInfo = programInfoBody.first().text().trim(); // Holds "Program X högskolepoäng * Y år * Kandidatexamen"
+      //titleReturn.programTitle_sv = title;
+      console.log("TITLE:"+title);
+      //const hpBody = $(".snabbfakta li");
+      const hp = titleBody.find("span").last().text().trim(); // Holds "Program X högskolepoäng * Y år * Kandidatexamen"
   
-      //const leadSubBody = $(".lead p"); // lead class's p elements to subBody
-      //const shortDesc = leadSubBody.first().text(); // get first p and convert from HTML to text
-      
-      const shortDescBody = $(".field__lead");
+      console.log("HP: "+ hp);
+
+      const shortDescBody = $('p[id="education-page-career"]');
       const shortDesc = shortDescBody.first().text().trim(); // Holds short desciption of program
+      console.log("Short Desc: "+shortDesc);
 
-      console.log("title: "+title+"\n");
-      console.log("prog.info: "+programInfo+"\n");
-      console.log("shortDesc: "+ shortDesc+"\n");
-
-
-
-      
-      let programInfoItems = [];
-      programInfoItems = programInfo.split("·");
-      console.log("after split:" + programInfoItems);
+      let hpItems = [];
+      hpItems = hp.split("·");
+      console.log("after split:" + hpItems);
       const regex = /\d+/g;
 
-      const num = programInfoItems[0].match(regex);
+      const num = hpItems[0].match(regex);
       console.log(num[0]);
 
       titleReturn.programTitle_sv = title;
       titleReturn.programPoints = num[0];
       titleReturn.programDesciption_sv = shortDesc;
       titleReturn.programLink = url;
-
+      
       
       //console.log(titleFinal);
-      console.log("titleReturn: "+titleReturn);
+      //console.log("titleReturn: "+titleReturn);
     } else {
       console.log("ERROR CONNECTING:" + error);
     }
 
     
-    fs.writeFile("lund.json", JSON.stringify(titleReturn, null, 2), (err) => {
+    fs.writeFile("Linné.json", JSON.stringify(titleReturn, null, 2), (err) => {
       if (err) {
         console.error(err);
         return;
@@ -65,4 +58,4 @@ async function scrape(url) {
     //programId_sv|programUniversity_sv|programTitle_sv|programDescription_sv|programPoints_sv|programYears_sv|programRequirements_sv|programAiDescription_sv|programPlace_sv|programDegree_sv|programLink
   });
 }
-scrape("https://www.lu.se/lubas/i-uoh-lu-EGEKO");
+scrape("https://lnu.se/program/biologiprogrammet/kalmar-ht/");
