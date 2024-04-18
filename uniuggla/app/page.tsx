@@ -8,10 +8,10 @@ const Home: React.FC = () => {
   const router = useRouter();
 
   const handleYesButtonClick = () => {
-    router.push('/interest-select/page');
+    router.push('/interest_select/');
   };
   const handleNoButtonClick = () => {
-    router.push('/interest-select/page');
+    router.push('/about_us');
   };
 
   function disableScroll() {
