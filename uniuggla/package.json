@@ -21,7 +21,9 @@
     "react-dom": "^18",
     "ts-node": "^10.9.2",
     "uuid": "^9.0.1",
-    "uuid4": "^2.0.3"
+    "uuid4": "^2.0.3",
+    "request": "^2.88.2",
+    "typewriter-effect": "^2.21.0"
   },
   "devDependencies": {
     "@types/node": "20.12.7",
