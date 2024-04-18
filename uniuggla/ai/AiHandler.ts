@@ -12,7 +12,7 @@ dotenv.config();
 //IF YOU GET this error TS18028, just ignore. and run js file anyway -KJ
 
 const openai = new OpenAI({
-  dangerouslyAllowBrowser: true,
+  dangerouslyAllowBrowser: true, //DONT HAVE IN RELEASE -KJ
   apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY,
 });
 
@@ -64,7 +64,7 @@ function turnInterestToPrompt(selectedInterests: Interest[]): string {
   let generatedString: string = "";
 
   for (let i = 0; i < selectedInterests.length; i++) {
-    generatedString += `name: ${selectedInterests[i].name}\n`;
+    generatedString += `name: ${selectedInterests[i].interestTitle}\n`;
   }
 
   return generatedString;
@@ -97,8 +97,8 @@ export default async function recommendProgramFromInterest() {
   const interestString: string = turnInterestToPrompt(interestOfEngineerAndMedicin);
 
   //Generate the question to ai to answer
-  //let content: string = `These are my interest: ${interestString} and these are all available degrees ${programString}. Choose four of these degrees that matches my interest and then choose one wild card loosely based on the interests, make sure to mark your wildcard. Answer in bullet points with the exact names of the degrees, the bullet points should start with a dot and not numbers. Answer in swedish. You should answer in the format [Degree, ID = {number}]. Lastly end with a question asking the user if he/she think one of these degrees are interesting.`;
-  let content: string = `These are my interest: ${interestString} and these are all available degrees ${programString}. Choose four of these degrees that matches my interest and then choose one wild card loosely based on the interests, make sure to mark your wildcard. Your answer should first contain the exact degree name in capslock, followd by one sentence why you choose that degree. You must answer in swedish and write a new line after every degree`;
+  //let content: string = `These are my interest: ${interestString} and these are all available degrees ${programString}. Choose four of these degrees that matches my interest and then choose one wild card loosely based on the interests, make sure to mark your wildcard. Answer in bullet points with the exact interestTitles of the degrees, the bullet points should start with a dot and not numbers. Answer in swedish. You should answer in the format [Degree, ID = {number}]. Lastly end with a question asking the user if he/she think one of these degrees are interesting.`;
+  let content: string = `These are my interest: ${interestString} and these are all available degrees ${programString}. Choose four of these degrees that matches my interest and then choose one wild card loosely based on the interests, make sure to mark your wildcard. Your answer should first contain the exact degree name in capslock, followd by one sentence why you choose that degree. You must answer in swedish and write a new line after every degree. Lastly end with a new line  and the question "Vill du veta mer om någon av dessa utbildingarna? - UniUGpt"`;
 
   let questionToAi: ChatCompletionMessageParam = {
     role: "user",
@@ -512,76 +512,76 @@ const somePrograms: Program[] = [
 
 const interestOfEngineerAndMedicin: Interest[] = [
   {
-    name: "Teknik",
-    id: 7,
-    description: "",
+    interestTitle: "Teknik",
+    interestId: "7",
+    interestDescription: "",
   },
   {
-    name: "Lärare",
-    id: 7,
-    description: "",
+    interestTitle: "Lärare",
+    interestId: "7",
+    interestDescription: "",
   },
   {
-    name: "Medicin",
-    id: 7,
-    description: "",
+    interestTitle: "Medicin",
+    interestId: "7",
+    interestDescription: "",
   },
   {
-    name: "Bilar",
-    id: 7,
-    description: "",
+    interestTitle: "Bilar",
+    interestId: "7",
+    interestDescription: "",
   },
   {
-    name: "kemi",
-    id: 7,
-    description: "",
+    interestTitle: "kemi",
+    interestId: "7",
+    interestDescription: "",
   },
   {
-    name: "Biologi ",
-    id: 7,
-    description: "",
+    interestTitle: "Biologi ",
+    interestId: "7",
+    interestDescription: "",
   },
   {
-    name: "Matematik",
-    id: 7,
-    description: "",
+    interestTitle: "Matematik",
+    interestId: "7",
+    interestDescription: "",
   },
 ];
 const interestOfEconomy: Interest[] = [
   {
-    name: "Aktier",
-    id: 7,
-    description: "",
+    interestTitle: "Aktier",
+    interestId: "7",
+    interestDescription: "",
   },
   {
-    name: "Ekonomi",
-    id: 7,
-    description: "",
+    interestTitle: "Ekonomi",
+    interestId: "7",
+    interestDescription: "",
   },
   {
-    name: "Personal ansvar",
-    id: 7,
-    description: "",
+    interestTitle: "Personal ansvar",
+    interestId: "7",
+    interestDescription: "",
   },
   {
-    name: "fastigheter",
-    id: 7,
-    description: "",
+    interestTitle: "fastigheter",
+    interestId: "7",
+    interestDescription: "",
   },
   {
-    name: "Snygga hus",
-    id: 7,
-    description: "",
+    interestTitle: "Snygga hus",
+    interestId: "7",
+    interestDescription: "",
   },
   {
-    name: "Gillar inte matematik",
-    id: 7,
-    description: "",
+    interestTitle: "Gillar inte matematik",
+    interestId: "7",
+    interestDescription: "",
   },
   {
-    name: "Redovisning",
-    id: 7,
-    description: "",
+    interestTitle: "Redovisning",
+    interestId: "7",
+    interestDescription: "",
   },
 ];
 

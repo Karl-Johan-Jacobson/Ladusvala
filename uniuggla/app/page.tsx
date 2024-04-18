@@ -7,7 +7,7 @@ import { useState, useEffect } from 'react';
 const Home: React.FC = () => {
   const router = useRouter();
 
-  const handleYesButtonClick = () => {
+  const handleYesButtonClick = () => { 
     router.push('/interest_select/');
   };
   const handleNoButtonClick = () => {
@@ -72,14 +72,15 @@ const Home: React.FC = () => {
     const modifyTopMargin = (newTopMargin: string, htmlClass: string) => {
       var elements = document.querySelectorAll('.' + htmlClass);
       elements.forEach(function(element) {
-        element.style.marginTop = newTopMargin;
+        (element as HTMLElement).style.marginTop = newTopMargin;
       });
     }
+    
     // Canges opacity from inital opacity
     const modifyOpacity = (newOpacity: string, htmlClass: string) => {
       var elements = document.querySelectorAll('.' + htmlClass);
       elements.forEach(function(element) {
-        element.style.opacity = newOpacity;
+        (element as HTMLElement).style.opacity = newOpacity;
       });
     }
     // Funciton for iniatal js animations
@@ -106,42 +107,20 @@ const Home: React.FC = () => {
   // HTML code, within <main>
   return (
     <main>
-      <header>
-        <img src="../../uniu_logo_filled.svg" alt="Logo"/> 
-      </header>
-      <div className="body">
-        <div className="typewriter typewriter_greeting greetingDiv" style={{marginTop: '10vw'}}>
-          <p className="bot greeting"></p>
-        </div>
-        <div className="typewriter typewriter_question questionDiv" style={{marginTop: '0vw'}}>
-          <p className="bot question"></p>
-        </div>
-        <div className="answers" style={{marginTop: '100vw', opacity: '0'}}>
-          <button className="yesButton answerButton" onClick={handleYesButtonClick}>
-            <p className="user">Ja</p>
-          </button>
-          <button className="noButton answerButton" onClick={handleNoButtonClick}>
-            <p className="user">Nej</p>
-          </button>
-        </div>
+      <div className="typewriter typewriter_greeting greetingDiv" style={{marginTop: '10vw'}}>
+        <p className="bot greeting"></p>
       </div>
-
-      <footer>
-        <div className="footerLeft">
-          <div className="footerLine"></div>
-          <div className="footerListDiv">
-            <ul className="footerList">
-              <li><a href="page"><p className="siteNavigation">Hitta program</p></a></li>
-              <li><a href="count"><p className="siteNavigation">Räkna antagningspoäng</p></a></li>
-              <li><a href="req"><p className="siteNavigation">Se behörighetskrav</p></a></li>
-              <li><a href="about"><p className="siteNavigation">Om oss</p></a></li>
-            </ul>
-          </div>
-        </div>
-        <div className="footerLogoDiv">
-          <img src="../../text_logo.png" alt="Logo_Text"/> 
-        </div>
-      </footer> 
+      <div className="typewriter typewriter_question questionDiv" style={{marginTop: '0vw'}}>
+        <p className="bot question"></p>
+      </div>
+      <div className="answers" style={{marginTop: '100vw', opacity: '0'}}>
+        <button className="yesButton answerButton" onClick={handleYesButtonClick}>
+          <p className="user">Ja</p>
+        </button>
+        <button className="noButton answerButton" onClick={handleNoButtonClick}>
+          <p className="user">Nej</p>
+        </button>
+      </div>
     </main>
   );
 }

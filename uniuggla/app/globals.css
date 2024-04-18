@@ -6,6 +6,7 @@
  /* Is the main background for the whole hmtl */  
 html {      
   background-color: #DFFDE0;
+  overflow: hidden; 
 }
 /* Is the font for the the buttons */
 @font-face { 
@@ -67,6 +68,7 @@ p {
 */
 /* Dimensioning of the background and positioning for logo for the color gradient*/
 header {
+  z-index: 10;
    width: 100vw;
    height: 10vw;
    top: 0;
@@ -97,7 +99,7 @@ header {
   font-size: 4vw;
 }
 /* Styling and positioning of the body */
-.body {
+main {
   width: auto;
   padding-left: 5vw;
   padding-right: 5vw;
@@ -145,10 +147,15 @@ header {
 /*
   End of Body
   ---===---===---===---===---===---===---===---===---===---
+  Start of Intrest
+  
+  End of Intrest
+  ---===---===---===---===---===---===---===---===---===---
   Start of Footer
 */
 /* Footer dimetionns and postion*/
 footer {
+  z-index: 10;
   bottom: 0;
   left: 0;
   position: fixed;
