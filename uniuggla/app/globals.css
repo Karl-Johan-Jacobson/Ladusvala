@@ -11,12 +11,12 @@ html {
 /* Is the font for the the buttons */
 @font-face { 
   font-family: 'RobotSerif';
-  src: url(./font/RobotoSerif-Medium.ttf);
+  src: url(./../public/RobotoSerif-Medium.ttf);
 }
 /* Is the font for the text for instance question title and greetings, etc */
 @font-face {
   font-family: 'Tomorrow';
-  src: url(./font/Tomorrow-Medium.ttf);
+  src: url(./../public/Tomorrow-Medium.ttf);
 }
 /* Class for the text */
 .bot {
