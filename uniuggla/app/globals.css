@@ -32,16 +32,6 @@ html {
   font-family: 'Tomorrow';
   color: #61855A;
 }
-/* Styling for the links */
-a { 
-  font-family: 'Tomorrow';
-  color: #61855A;
-}
-/* Highlights and swaps the background color and text color */
-a:hover {
-  background-color: #61855A;
-  color: #DFFDE0; 
-}
 /* Standard styling for text */
 p {
   font-weight: normal;
@@ -119,7 +109,7 @@ header {
   margin: 0 auto;
 }
 /* Styling and positioning */
-.answer {
+.answers {
   width: 40vw;
   height: 8vw;
   margin: 0 auto;
@@ -133,23 +123,23 @@ header {
   align-items: center;
 }
 /* Button  animation dimention and color*/
-.answer button {
+.answerButton {
   height: inherit;
   background-color: #DFFDE0;
   border: none;
   border-radius: 1vw;
 }
 /* Text inside the buttons color and font size */
-.answer button p {
+.answerButton p {
   color: #61855A;
   font-size: 4vw;
 }
 /* hover color change buttons*/
-.answer button:hover {
+.answerButton:hover {
   background-color: #61855A;
 }
 /* hover color change text */
-.answer button:hover p {
+.answerButton:hover p {
   color: #DFFDE0;
 }
 /*
