@@ -18,10 +18,10 @@ const ProgramRecommendations:  NextPage = () => {
 	//activate the typewriter
 	//Make request to AI when button is clicked
 	async function handleButton () {
-			console.log("Clicked");
-			setMessage("Loading ...");
-			aiAnswer = await recommendProgramFromInterest()
-			setMessage(aiAnswer);
+		console.log("Clicked");
+		setMessage("Loading ...");
+		aiAnswer = await recommendProgramFromInterest()
+		setMessage(aiAnswer);
 	};
 
 	//HTML code
@@ -34,12 +34,11 @@ const ProgramRecommendations:  NextPage = () => {
 						<p key={index}>
 							{line}
 							<br />
-							<br />
 							</p>
 					))}
 				</div>
 			</div>
-			<button className="button" id="send" onClick={handleButton}>Get recommendations!</button>
+			<button className="button" onClick={handleButton}>Get recommendations!</button>
 		</main>
 	);
 };

@@ -3,8 +3,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
+import TypewriterComponent from "typewriter-effect";
+
 // Main function that returns the html and handles the animations
-const Home: React.FC = () => {
+export default function Home() {
   const router = useRouter();
 
   const handleYesButtonClick = () => { 
@@ -26,6 +28,10 @@ const Home: React.FC = () => {
 
   // Starting animationn
   useEffect(() => { 
+    // Will be used later on.
+    // function enableScroll() {
+    // window.onscroll = function () { };
+    // }
     let typeWriterInterval: ReturnType<typeof setInterval> | undefined;
     // Typewriteranimationn input string and class of <p> element
     const typeWriter = (textToType: string, htmlClass: string) => {
@@ -107,6 +113,4 @@ const Home: React.FC = () => {
       </div>
     </main>
   );
-}
-
-export default Home;
+};
