@@ -18,10 +18,10 @@ export default function Home() {
   
   // values for js animations
   const speed = 40;
-  const delayBetweenGreetigAndQuestion = 1000
+  const delayBetweenGreetigAndQuestion = 500
   const delayBetweenQuestionAndAnswer = 500
   const greeting = ["Hej!", "greeting", "typewriter", "typewriter_greeting"];
-  const moveGreeting = ['1vw', "greetingDiv"];
+  const moveGreeting = ['1vw', "welcome"];
   const moveQuestion = ['5vw', "questionDiv"];
   const question = ["Vill du gå på högskola eller universitet?", "question", "typewriter", "typewriter_question"];
   const moveAnswer = ['8vw', "answers"]
@@ -65,6 +65,13 @@ export default function Home() {
         (element as HTMLElement).style.marginTop = newTopMargin;
       });
     }
+    // Canges top padding from inital top padding
+    const modifyTopPadding = (newTopPadding: string, htmlClass: string) => {
+      var elements = document.querySelectorAll('.' + htmlClass);
+      elements.forEach(function(element) {
+        (element as HTMLElement).style.paddingTop = newTopPadding;
+      });
+    }
     
     // Canges opacity from inital opacity
     const modifyOpacity = (newOpacity: string, htmlClass: string) => {
@@ -77,7 +84,7 @@ export default function Home() {
     typeWriter(greeting[0], greeting[1]);
     const timeoutId = setTimeout(() => {
       removeParent(greeting[2], greeting[3]);
-      modifyTopMargin(moveGreeting[0], moveGreeting[1]);
+      modifyTopPadding(moveGreeting[0], moveGreeting[1]);
       modifyTopMargin(moveQuestion[0], moveQuestion[1]);
       typeWriter(question[0], question[1]);
       setTimeout(() => {
@@ -96,8 +103,8 @@ export default function Home() {
 
   // HTML code, within <main>
   return (
-    <main>
-      <div className="typewriter typewriter_greeting greetingDiv" style={{marginTop: '10vw'}}>
+    <main className="welcome" style={{paddingTop: '10vw'}}>
+      <div className="typewriter typewriter_greeting greetingDiv">
         <p className="bot greeting"></p>
       </div>
       <div className="typewriter typewriter_question questionDiv" style={{marginTop: '0vw'}}>

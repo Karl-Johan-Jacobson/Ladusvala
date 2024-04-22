@@ -7,6 +7,9 @@
 html {      
   background-color: #DFFDE0;
   overflow: hidden; 
+}  
+body {      
+  background-color: #DFFDE0;
 }
 /* Is the font for the the buttons */
 @font-face { 
@@ -91,7 +94,7 @@ header {
 /* Styling for the question and greeting class */
 .greetingDiv, .questionDiv {
   margin: 0 auto;
-  transition: margin-top 1s ease;
+  transition: margin-top 0.5s ease;
 }
 .question, .greeting{
   font-family: 'Tomorrow';
@@ -105,6 +108,9 @@ main {
   padding-right: 5vw;
   z-index: 1;
 }
+.welcome {
+  transition: 0.5s ease;
+}
 /* Positioning of the typewriter animation*/
 .typewriter {
   width: min-content;
@@ -115,7 +121,7 @@ main {
   width: 40vw;
   height: 8vw;
   margin: 0 auto;
-  transition: margin-top 3s ease, opacity 2s ease;
+  transition: margin-top 1s ease, opacity 0.5s ease;
   list-style: none;
   display: grid;
   grid-template-columns:1fr 1fr;
@@ -213,8 +219,14 @@ footer {
   End of Footer
   ---===---===---===---===---===---===---===---===---===---
 */
-
 .interestSelected {
   background-color: #4F1EB0;
   color: white;
+}
+
+.intrests {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 20vw;
 }
