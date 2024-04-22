@@ -1,19 +1,14 @@
+'use server'
+
 import OpenAI from "openai";
 import { ChatCompletionMessageParam } from "openai/resources/index.mjs";
 import type Interest from "../types/interest";
-import * as dotenv from "dotenv";
-import {
-  fetchAllPrograms,
-  fetchAllInterests,
-} from "../firebase/firebaseHandler";
 import type Program from "../types/program";
-dotenv.config();
 
 //IF YOU GET this error TS18028, just ignore. and run js file anyway -KJ
 
 const openai = new OpenAI({
-  dangerouslyAllowBrowser: true, //DONT HAVE IN RELEASE -KJ
-  apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY,
+  apiKey: process.env.OPENAI_API_KEY,
 });
 
 
