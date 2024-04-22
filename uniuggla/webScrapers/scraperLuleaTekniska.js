@@ -8,11 +8,12 @@ let titleReturn = {
   programPoints: "",
   programDesciption_sv: "",
   programLink: "",
+  programId: "",
 };
 
 // Take list of urls as arg and parse, will make ID work better.
 // build master scraper?, with all school scrapers that parse "school" from list and uses correct scraper.
-async function scrapeLuleå(url) {
+async function scrapeLuleå(url,programId) {
   request(url, (error, response, html) => {
     if (!error && response.statusCode == 200) {
       const $ = cheerio.load(html);
@@ -44,7 +45,7 @@ async function scrapeLuleå(url) {
       titleReturn.programPoints = num[0];
       titleReturn.programDesciption_sv = shortDesc;
       titleReturn.programLink = url;
-
+      titleReturn.programId = programId;
       //console.log(titleFinal);
       //console.log("titleReturn: "+titleReturn);
     } else {

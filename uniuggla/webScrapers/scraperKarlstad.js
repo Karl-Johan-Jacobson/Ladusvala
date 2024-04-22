@@ -7,6 +7,7 @@ let titleReturn = {programTitle_sv:"" , programPoints: "", programDesciption_sv:
 // Take list of urls as arg and parse, will make ID work better.
 // build master scraper?, with all school scrapers that parse "school" from list and uses correct scraper. Will make ID work easier.
 async function scrapeKarlstad(url, programId) {
+  await new Promise(r => setTimeout(r, 500));
   request(url, (error, response, html) => {
     if (!error && response.statusCode == 200) {
       const $ = cheerio.load(html);

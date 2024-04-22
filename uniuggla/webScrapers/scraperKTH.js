@@ -29,10 +29,26 @@ async function scrapeKTH(url, programId) {
       let hpItems = [];
       hpItems = title.split(",");
       const regex = /\d+/g;
+      let num;
+      if(hpItems.length == 3){
+       num = hpItems[2].match(regex);
+       titleReturn.programTitle_sv = (hpItems[0]+","+hpItems[1]);
+       console.log("IF NUM: "+num)
 
-      const num = hpItems[2].match(regex);
+      }
+      else if(hpItems.length > 3){
+        num = hpItems[3].match(regex);
+        titleReturn.programTitle_sv = (hpItems[0]+","+hpItems[1]+","+hpItems[2]);
+        console.log("ELSE IF NUM: "+num);
+        console.log("ELSE IF title: "+titleReturn.programTitle_sv);
 
-      titleReturn.programTitle_sv = (hpItems[0]+","+hpItems[1]);
+      }
+      else{
+        num = hpItems[1].match(regex);
+        titleReturn.programTitle_sv = (hpItems[0]);
+        console.log("ELSE NUM: "+num)
+      }
+      
       titleReturn.programPoints = num[0];
       titleReturn.programDesciption_sv = shortDesc;
       titleReturn.programLink = url;

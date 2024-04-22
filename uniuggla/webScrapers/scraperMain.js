@@ -1,13 +1,10 @@
-const scraperKarolinska = require("./scraperKarolinska.js");
-const scraperChalmers = require("./scraperChalmers.js");
 const scraperKarlstad = require("./scraperKarlstad.js");
 const scraperKTH = require("./scraperKTH.js");
-
-
-/*
+const scraperKarolinska = require("./scraperKarolinska.js");
+const scraperChalmers = require("./scraperChalmers.js");
 const scraperLinköping = require("./scraperLinkoping.js");
 const scraperLund = require("./scraperLund.js");
-const scraperMalardalen = require("./scraperMalardalen.js");
+/*const scraperMalardalen = require("./scraperMalardalen.js");
 const scraperMalmö = require("./scraperMalmo.js");
 const scraperOrebro = require("./scraperOrebro.js");
 const scraperSu = require("./scraperSu.js");
@@ -18,142 +15,133 @@ const scraperUppsala = require("./scraperUppsala.js");
 //const scrapeMittUniversitetet = require("./scraperMittUniversitetet.js");
 //const scraperLinne = require("./scraperLinneUni.js");
 
-let j = 1;
+let programId = 1;
 
-// EJ HANDELS. LINNÉ WONT WORK FROM KTH INTERNET, USE PHONE. TRY BY-PASS ON MITTUNI
+// DON´T DO HANDELS. LINNÉ WONT WORK FROM KTH INTERNET -> USE PHONE. TRY BY-PASS ON MITTUNI
 async function mainScraper() {
-
-  /*
   for (let i = 0; i < karolinskaArray.length; i++) {
-    await scraperKarolinska(karolinskaArray[i], j++);
+    await scraperKarolinska(karolinskaArray[i], programId++);
   }
 
-  /*
-  for (let i = 0; i < karlstadArray.length; i++) {
-    await scraperChalmers(chalmersArray[i], j++);
+  for (let i = 0; i < chalmersArray.length; i++) {
+    await scraperChalmers(chalmersArray[i], programId++);
   }
-  */
+
   for (let i = 0; i < karlstadArray.length; i++) {
-    await scraperKarlstad(karlstadArray[i], j++);
+    await scraperKarlstad(karlstadArray[i], programId++);
   }
-  /*
+
   for (let i = 0; i < kthArray.length; i++) {
-    await scraperKTH(kthArray[i], j++);
+    await scraperKTH(kthArray[i], programId++);
+  }
+  for (let i = 0; i < linköpingArray.length; i++) {
+    await scraperLinköping(linköpingArray[i], programId++);
+  }
+  for (let i = 0; i < lundArray.length; i++) {
+    await scraperLund(lundArray[i], programId++);
   }
   /*
   for (let i = 0; i < karolinskaArray.length; i++) {
-    await scraperLund(karolinskaArray[i], j++);
+    await scraperMalardalen(karolinskaArray[i], programId++);
   }
   for (let i = 0; i < karolinskaArray.length; i++) {
-    await scraperMalardalen(karolinskaArray[i], j++);
+    await scraperMalmö(karolinskaArray[i], programId++);
   }
   for (let i = 0; i < karolinskaArray.length; i++) {
-    await scraperMalmö(karolinskaArray[i], j++);
+    await scraperOrebro(karolinskaArray[i], programId++);
   }
   for (let i = 0; i < karolinskaArray.length; i++) {
-    await scraperOrebro(karolinskaArray[i], j++);
+    await scraperSu(karolinskaArray[i], programId++);
   }
   for (let i = 0; i < karolinskaArray.length; i++) {
-    await scraperSu(karolinskaArray[i], j++);
+    await scraperUmeå(karolinskaArray[i], programId++);
   }
   for (let i = 0; i < karolinskaArray.length; i++) {
-    await scraperUmeå(karolinskaArray[i], j++);
-  }
-  for (let i = 0; i < karolinskaArray.length; i++) {
-    await scraperUppsala(karolinskaArray[i], j++);
-  }
-  for (let i = 0; i < karolinskaArray.length; i++) {
-    await scraperLinköping(karolinskaArray[i], j++);
-  }
-  */
-
+    await scraperUppsala(karolinskaArray[i], programId++);
+  }*/
 }
 
-
-
 const karlstadArray = [
-
-"https://www.kau.se/utbildning/program-och-kurser/program/SGBET",
-"https://www.kau.se/utbildning/program-och-kurser/program/NGBIO",
-"https://www.kau.se/utbildning/program-och-kurser/program/SACEK",
-"https://www.kau.se/utbildning/program-och-kurser/program/TACDA", 
-"https://www.kau.se/utbildning/program-och-kurser/program/TACEM", 
-"https://www.kau.se/utbildning/program-och-kurser/program/TACIE",
-"https://www.kau.se/utbildning/program-och-kurser/program/TACKT", 
-"https://www.kau.se/utbildning/program-och-kurser/program/TACMA", 
-"https://www.kau.se/utbildning/program-och-kurser/program/TACTF",
-"https://www.kau.se/utbildning/program-och-kurser/program/SGFEK", 
-"https://www.kau.se/utbildning/program-och-kurser/program/LGFLV", 
-"https://www.kau.se/utbildning/program-och-kurser/program/LGFLP",
-"https://www.kau.se/utbildning/program-och-kurser/program/LGGLF", 
-"https://www.kau.se/utbildning/program-och-kurser/program/LAGLP-GLGT", 
-"https://www.kau.se/utbildning/program-och-kurser/program/LAGLP-GL46",
-"https://www.kau.se/utbildning/program-och-kurser/program/VGHMS", 
-"https://www.kau.se/utbildning/program-och-kurser/program/TGHBY", 
-"https://www.kau.se/utbildning/program-och-kurser/program/TGDDI",
-"https://www.kau.se/utbildning/program-och-kurser/program/TGHEL", 
-"https://www.kau.se/utbildning/program-och-kurser/program/TGHEM", 
-"https://www.kau.se/utbildning/program-och-kurser/program/TGHID",
-"https://www.kau.se/utbildning/program-och-kurser/program/TGLIT", 
-"https://www.kau.se/utbildning/program-och-kurser/program/TGHMT", 
-"https://www.kau.se/utbildning/program-och-kurser/program/SGIHP",
-"https://www.kau.se/utbildning/program-och-kurser/program/SGIEK", 
-"https://www.kau.se/utbildning/program-och-kurser/program/SGITD-AFEK", 
-"https://www.kau.se/utbildning/program-och-kurser/program/SGITD-SYSD",
-"https://www.kau.se/utbildning/program-och-kurser/program/SGIPA",
-"https://www.kau.se/utbildning/program-och-kurser/program/JALAW",
-"https://www.kau.se/utbildning/program-och-kurser/program/TGKDV",
-"https://www.kau.se/utbildning/program-och-kurser/program/NGFYA", 
-"https://www.kau.se/utbildning/program-och-kurser/program/SGKPR", 
-"https://www.kau.se/utbildning/program-och-kurser/program/HGMSK",
-"https://www.kau.se/utbildning/program-och-kurser/program/HGKVP", 
-"https://www.kau.se/utbildning/program-och-kurser/program/TGLMK", 
-"https://www.kau.se/utbildning/program-och-kurser/program/NGKEA",
-"https://www.kau.se/utbildning/program-och-kurser/program/NGMAA", 
-"https://www.kau.se/utbildning/program-och-kurser/program/SGMKV-SGDM", 
-"https://www.kau.se/utbildning/program-och-kurser/program/SGMKV-SGVK",
-"https://www.kau.se/utbildning/program-och-kurser/program/SGMIS", 
-"https://www.kau.se/utbildning/program-och-kurser/program/SGMIR", 
-"https://www.kau.se/utbildning/program-och-kurser/program/LAAML",
-"https://www.kau.se/utbildning/program-och-kurser/program/HGMPK", 
-"https://www.kau.se/utbildning/program-och-kurser/program/SGPAR", 
-"https://www.kau.se/utbildning/program-och-kurser/program/VAPSY",
-"https://www.kau.se/utbildning/program-och-kurser/program/SGLYS", 
-"https://www.kau.se/utbildning/program-och-kurser/program/SGSAM", 
-"https://www.kau.se/utbildning/program-och-kurser/program/VGSSP",
-"https://www.kau.se/utbildning/program-och-kurser/program/SGGEN", 
-"https://www.kau.se/utbildning/program-och-kurser/program/SGSTV",
-"https://www.kau.se/utbildning/program-och-kurser/program/OGTHY",
-"https://www.kau.se/utbildning/program-och-kurser/program/TNBAR",
-"https://www.kau.se/utbildning/program-och-kurser/program/SGTPD", 
-"https://www.kau.se/utbildning/program-och-kurser/program/SGTUR", 
-"https://www.kau.se/utbildning/program-och-kurser/program/LGVAL",
-"https://www.kau.se/utbildning/program-och-kurser/program/SGWEB", 
-"https://www.kau.se/utbildning/program-och-kurser/program/LGYRK", 
-"https://www.kau.se/utbildning/program-och-kurser/program/LGVAL",
-"https://www.kau.se/utbildning/program-och-kurser/program/SGWEB", 
-"https://www.kau.se/utbildning/program-och-kurser/program/SGWEB", 
-"https://www.kau.se/utbildning/program-och-kurser/program/LGYRK",
-"https://www.kau.se/utbildning/program-och-kurser/program/LAALP-GYBI", 
-"https://www.kau.se/utbildning/program-och-kurser/program/LAALP-GYEN", 
-"https://www.kau.se/utbildning/program-och-kurser/program/LAALP-GYHI",
-"https://www.kau.se/utbildning/program-och-kurser/program/LAALP-IDGY", 
-"https://www.kau.se/utbildning/program-och-kurser/program/LAALP-KEGY", 
-"https://www.kau.se/utbildning/program-och-kurser/program/LAALP-GYMA", 
-"https://www.kau.se/utbildning/program-och-kurser/program/LAALP-GYMF",
-"https://www.kau.se/utbildning/program-och-kurser/program/LAALP-NKGY", 
-"https://www.kau.se/utbildning/program-och-kurser/program/LAALP-REGY", 
-"https://www.kau.se/utbildning/program-och-kurser/program/LAALP-GYSH",
-"https://www.kau.se/utbildning/program-och-kurser/program/LAALP-GYSP", 
-"https://www.kau.se/utbildning/program-och-kurser/program/LAALP-GYSV",
-"https://www.kau.se/utbildning/program-och-kurser/program/LAALP-ENG2",
-"https://www.kau.se/utbildning/program-och-kurser/program/LAALP-GEG2",
-"https://www.kau.se/utbildning/program-och-kurser/program/LAALP-IDG2", 
-"https://www.kau.se/utbildning/program-och-kurser/program/LAALP-MAG2", 
-"https://www.kau.se/utbildning/program-och-kurser/program/LAALP-SHG2",
-"https://www.kau.se/utbildning/program-och-kurser/program/LAALP-SVG2", 
+  "https://www.kau.se/utbildning/program-och-kurser/program/SGBET",
+  "https://www.kau.se/utbildning/program-och-kurser/program/NGBIO",
+  "https://www.kau.se/utbildning/program-och-kurser/program/SACEK",
+  "https://www.kau.se/utbildning/program-och-kurser/program/TACDA",
+  "https://www.kau.se/utbildning/program-och-kurser/program/TACEM",
+  "https://www.kau.se/utbildning/program-och-kurser/program/TACIE",
+  "https://www.kau.se/utbildning/program-och-kurser/program/TACKT",
+  "https://www.kau.se/utbildning/program-och-kurser/program/TACMA",
+  "https://www.kau.se/utbildning/program-och-kurser/program/TACTF",
+  "https://www.kau.se/utbildning/program-och-kurser/program/SGFEK",
+  "https://www.kau.se/utbildning/program-och-kurser/program/LGFLV",
+  "https://www.kau.se/utbildning/program-och-kurser/program/LGFLP",
+  "https://www.kau.se/utbildning/program-och-kurser/program/LGGLF",
+  "https://www.kau.se/utbildning/program-och-kurser/program/LAGLP-GLGT",
+  "https://www.kau.se/utbildning/program-och-kurser/program/LAGLP-GL46",
+  "https://www.kau.se/utbildning/program-och-kurser/program/VGHMS",
+  "https://www.kau.se/utbildning/program-och-kurser/program/TGHBY",
+  "https://www.kau.se/utbildning/program-och-kurser/program/TGDDI",
+  "https://www.kau.se/utbildning/program-och-kurser/program/TGHEL",
+  "https://www.kau.se/utbildning/program-och-kurser/program/TGHEM",
+  "https://www.kau.se/utbildning/program-och-kurser/program/TGHID",
+  "https://www.kau.se/utbildning/program-och-kurser/program/TGLIT",
+  "https://www.kau.se/utbildning/program-och-kurser/program/TGHMT",
+  "https://www.kau.se/utbildning/program-och-kurser/program/SGIHP",
+  "https://www.kau.se/utbildning/program-och-kurser/program/SGIEK",
+  "https://www.kau.se/utbildning/program-och-kurser/program/SGITD-AFEK",
+  "https://www.kau.se/utbildning/program-och-kurser/program/SGITD-SYSD",
+  "https://www.kau.se/utbildning/program-och-kurser/program/SGIPA",
+  "https://www.kau.se/utbildning/program-och-kurser/program/JALAW",
+  "https://www.kau.se/utbildning/program-och-kurser/program/TGKDV",
+  "https://www.kau.se/utbildning/program-och-kurser/program/NGFYA",
+  "https://www.kau.se/utbildning/program-och-kurser/program/SGKPR",
+  "https://www.kau.se/utbildning/program-och-kurser/program/HGMSK",
+  "https://www.kau.se/utbildning/program-och-kurser/program/HGKVP",
+  "https://www.kau.se/utbildning/program-och-kurser/program/TGLMK",
+  "https://www.kau.se/utbildning/program-och-kurser/program/NGKEA",
+  "https://www.kau.se/utbildning/program-och-kurser/program/NGMAA",
+  "https://www.kau.se/utbildning/program-och-kurser/program/SGMKV-SGDM",
+  "https://www.kau.se/utbildning/program-och-kurser/program/SGMKV-SGVK",
+  "https://www.kau.se/utbildning/program-och-kurser/program/SGMIS",
+  "https://www.kau.se/utbildning/program-och-kurser/program/SGMIR",
+  "https://www.kau.se/utbildning/program-och-kurser/program/LAAML",
+  "https://www.kau.se/utbildning/program-och-kurser/program/HGMPK",
+  "https://www.kau.se/utbildning/program-och-kurser/program/SGPAR",
+  "https://www.kau.se/utbildning/program-och-kurser/program/VAPSY",
+  "https://www.kau.se/utbildning/program-och-kurser/program/SGLYS",
+  "https://www.kau.se/utbildning/program-och-kurser/program/SGSAM",
+  "https://www.kau.se/utbildning/program-och-kurser/program/VGSSP",
+  "https://www.kau.se/utbildning/program-och-kurser/program/SGGEN",
+  "https://www.kau.se/utbildning/program-och-kurser/program/SGSTV",
+  "https://www.kau.se/utbildning/program-och-kurser/program/OGTHY",
+  "https://www.kau.se/utbildning/program-och-kurser/program/TNBAR",
+  "https://www.kau.se/utbildning/program-och-kurser/program/SGTPD",
+  "https://www.kau.se/utbildning/program-och-kurser/program/SGTUR",
+  "https://www.kau.se/utbildning/program-och-kurser/program/LGVAL",
+  "https://www.kau.se/utbildning/program-och-kurser/program/SGWEB",
+  "https://www.kau.se/utbildning/program-och-kurser/program/LGYRK",
+  "https://www.kau.se/utbildning/program-och-kurser/program/LGVAL",
+  "https://www.kau.se/utbildning/program-och-kurser/program/SGWEB",
+  "https://www.kau.se/utbildning/program-och-kurser/program/SGWEB",
+  "https://www.kau.se/utbildning/program-och-kurser/program/LGYRK",
+  "https://www.kau.se/utbildning/program-och-kurser/program/LAALP-GYBI",
+  "https://www.kau.se/utbildning/program-och-kurser/program/LAALP-GYEN",
+  "https://www.kau.se/utbildning/program-och-kurser/program/LAALP-GYHI",
+  "https://www.kau.se/utbildning/program-och-kurser/program/LAALP-IDGY",
+  "https://www.kau.se/utbildning/program-och-kurser/program/LAALP-KEGY",
+  "https://www.kau.se/utbildning/program-och-kurser/program/LAALP-GYMA",
+  "https://www.kau.se/utbildning/program-och-kurser/program/LAALP-GYMF",
+  "https://www.kau.se/utbildning/program-och-kurser/program/LAALP-NKGY",
+  "https://www.kau.se/utbildning/program-och-kurser/program/LAALP-REGY",
+  "https://www.kau.se/utbildning/program-och-kurser/program/LAALP-GYSH",
+  "https://www.kau.se/utbildning/program-och-kurser/program/LAALP-GYSP",
+  "https://www.kau.se/utbildning/program-och-kurser/program/LAALP-GYSV",
+  "https://www.kau.se/utbildning/program-och-kurser/program/LAALP-ENG2",
+  "https://www.kau.se/utbildning/program-och-kurser/program/LAALP-GEG2",
+  "https://www.kau.se/utbildning/program-och-kurser/program/LAALP-IDG2",
+  "https://www.kau.se/utbildning/program-och-kurser/program/LAALP-MAG2",
+  "https://www.kau.se/utbildning/program-och-kurser/program/LAALP-SHG2",
+  "https://www.kau.se/utbildning/program-och-kurser/program/LAALP-SVG2",
 ];
-
 
 const chalmersArray = [
   "https://www.chalmers.se/utbildning/hitta-program/affarsutveckling-och-entreprenorskap-teknologie-kandidat/",
@@ -206,8 +194,6 @@ const karolinskaArray = [
   "https://utbildning.ki.se/programme/1AR15/24-25",
 ];
 
-
-
 const kthArray = [
   "https://www.kth.se/utbildning/arkitekt/arkitektutbildning",
   "https://www.kth.se/utbildning/civilingenjor/bioteknik",
@@ -243,14 +229,10 @@ const kthArray = [
   "https://www.kth.se/utbildning/kandidatutbildning/fastighetsutveckling-fastighetsformedling",
   "https://www.kth.se/utbildning/kandidatutbildning/informations-och-kommunikationsteknik",
   "https://www.kth.se/utbildning/civilingenjor/civing-larare",
-
-
 ];
 
-
-
 //Done
-const linköping = [
+const linköpingArray = [
   "https://liu.se/utbildning/program/6cien",
   "https://liu.se/utbildning/program/l7ulv",
   "https://liu.se/utbildning/program/mgsk5",
@@ -336,6 +318,113 @@ const linköping = [
   "https://liu.se/utbildning/program/f7ypu",
 ];
 
-
+const lundArray = [
+  "https://www.lu.se/lubas/i-uoh-lu-EGEKO",
+  "https://www.lu.se/lubas/i-uoh-lu-EGESO",
+  "https://www.lu.se/lubas/i-uoh-lu-EGSYS",
+  "https://www.lu.se/lubas/i-uoh-lu-LAÄGN-INEN",
+  "https://www.lu.se/lubas/i-uoh-lu-LAÄGN-INSV",
+  "https://www.lu.se/lubas/i-uoh-lu-NGNAT-ASTR",
+  "https://www.lu.se/lubas/i-uoh-lu-NGNAT-BIOL",
+  "https://www.lu.se/lubas/i-uoh-lu-NGNAT-KEMI",
+  "https://www.lu.se/lubas/i-uoh-lu-NGNAT-KEMO",
+  "https://www.lu.se/lubas/i-uoh-lu-NGNAT-TEOF",
+  "https://www.lu.se/lubas/i-uoh-lu-SAPSP",
+  "https://www.lu.se/lubas/i-uoh-lu-SGGNV",
+  "https://www.lu.se/lubas/i-uoh-lu-SGHUR",
+  "https://www.lu.se/lubas/i-uoh-lu-SGPOL",
+  "https://www.lu.se/lubas/i-uoh-lu-SGSCO",
+  "https://www.lu.se/lubas/i-uoh-lu-SGSKO",
+  "https://www.lu.se/lubas/i-uoh-lu-SGSOC",
+  "https://www.lu.se/lubas/i-uoh-lu-SGSPP",
+  "https://www.lu.se/lubas/i-uoh-lu-VGAUD",
+  "https://www.lu.se/lubas/i-uoh-lu-EGIBU",
+  "https://www.lu.se/lubas/i-uoh-lu-KGFKO",
+  "https://www.lu.se/lubas/i-uoh-lu-KGMUS-INST",
+  "https://www.lu.se/lubas/i-uoh-lu-MGBIM",
+  "https://www.lu.se/lubas/i-uoh-lu-NGNAT-ENMA",
+  "https://www.lu.se/lubas/i-uoh-lu-NGNAT-INES",
+  "https://www.lu.se/lubas/i-uoh-lu-LAÄGN-INSA",
+  "https://www.lu.se/lubas/i-uoh-lu-MALÄB",
+  "https://www.lu.se/lubas/i-uoh-lu-NASJF",
+  "https://www.lu.se/lubas/i-uoh-lu-NGNAT-FYSI",
+  "https://www.lu.se/lubas/i-uoh-lu-NGNAT-GEOB",
+  "https://www.lu.se/lubas/i-uoh-lu-NGNAT-MIHS",
+  "https://www.lu.se/lubas/i-uoh-lu-NGNAT-MIVE",
+  "https://www.lu.se/lubas/i-uoh-lu-NGNAT-MOBI",
+  "https://www.lu.se/lubas/i-uoh-lu-SGBVP",
+  "https://www.lu.se/lubas/i-uoh-lu-SGFKO",
+  "https://www.lu.se/lubas/i-uoh-lu-SGKRI",
+  "https://www.lu.se/lubas/i-uoh-lu-SGLOM",
+  "https://www.lu.se/lubas/i-uoh-lu-SGSAN",
+  "https://www.lu.se/lubas/i-uoh-lu-SGSDM",
+  "https://www.lu.se/lubas/i-uoh-lu-SGSEM-HEAL",
+  "https://www.lu.se/lubas/i-uoh-lu-SGSEM-RETA",
+  "https://www.lu.se/lubas/i-uoh-lu-SGSEM-TOHO",
+  "https://www.lu.se/lubas/i-uoh-lu-TAVOV",
+  "https://www.lu.se/lubas/i-uoh-lu-VALGP",
+  "https://www.lu.se/lubas/i-uoh-lu-VGARB",
+  "https://www.lu.se/lubas/i-uoh-lu-VGFYT",
+  "https://www.lu.se/lubas/i-uoh-lu-VGRRS",
+  "https://www.lu.se/lubas/i-uoh-lu-VGSKS",
+  "https://www.lu.se/lubas/i-uoh-lu-KGMUS-FOVÄ",
+  "https://www.lu.se/lubas/i-uoh-lu-NGNAT-ENFY",
+  "https://www.lu.se/lubas/i-uoh-lu-SGUTV",
+  "https://www.lu.se/lubas/i-uoh-lu-TAKEM",
+  "https://www.lu.se/lubas/i-uoh-lu-TAMAD",
+  "https://www.lu.se/lubas/i-uoh-lu-TATPI",
+  "https://www.lu.se/lubas/i-uoh-lu-TGBYJ",
+  "https://www.lu.se/lubas/i-uoh-lu-TGDAT",
+  "https://www.lu.se/lubas/i-uoh-lu-HGEUH",
+  "https://www.lu.se/lubas/i-uoh-lu-HGPPE",
+  "https://www.lu.se/lubas/i-uoh-lu-KGDSK",
+  "https://www.lu.se/lubas/i-uoh-lu-KGSKS",
+  "https://www.lu.se/lubas/i-uoh-lu-TADIC",
+  "https://www.lu.se/lubas/i-uoh-lu-TAELT",
+  "https://www.lu.se/lubas/i-uoh-lu-TALAN",
+  "https://www.lu.se/lubas/i-uoh-lu-HGHIS",
+  "https://www.lu.se/lubas/i-uoh-lu-RGMRS",
+  "https://www.lu.se/lubas/i-uoh-lu-KGKYM",
+  "https://www.lu.se/lubas/i-uoh-lu-HGENG",
+  "https://www.lu.se/lubas/i-uoh-lu-TADAT",
+  "https://www.lu.se/lubas/i-uoh-lu-TAMAS",
+  "https://www.lu.se/lubas/i-uoh-lu-TAMTE",
+  "https://www.lu.se/lubas/i-uoh-lu-TATNA",
+  "https://www.lu.se/lubas/i-uoh-lu-TGELT",
+  "https://www.lu.se/lubas/i-uoh-lu-JAJUP",
+  "https://www.lu.se/lubas/i-uoh-lu-KGHKY",
+  "https://www.lu.se/lubas/i-uoh-lu-TABTE",
+  "https://www.lu.se/lubas/i-uoh-lu-TAEKO",
+  "https://www.lu.se/lubas/i-uoh-lu-TAINE",
+  "https://www.lu.se/lubas/i-uoh-lu-TAARK",
+  "https://www.lu.se/lubas/i-uoh-lu-TATFY",
+  "https://www.lu.se/lubas/i-uoh-lu-TGBYA",
+  "https://www.lu.se/lubas/i-uoh-lu-TGBYV",
+  "https://www.lu.se/lubas/i-uoh-lu-HGSPK",
+  "https://www.lu.se/lubas/i-uoh-lu-HGMOV",
+  "https://www.lu.se/lubas/i-uoh-lu-HGDIK",
+  "https://www.lu.se/lubas/i-uoh-lu-RGRVT",
+  "https://www.lu.se/lubas/i-uoh-lu-KGMUS-ARKK",
+  "https://www.lu.se/lubas/i-uoh-lu-KGMUS-BLFL",
+  "https://www.lu.se/lubas/i-uoh-lu-KGMUS-JAIN",
+  "https://www.lu.se/lubas/i-uoh-lu-KGMUS-SYMF",
+  "https://www.lu.se/lubas/i-uoh-lu-LAMGY-SISO",
+  "https://www.lu.se/lubas/i-uoh-lu-TGIND",
+  "https://www.lu.se/lubas/i-uoh-lu-HGJAP",
+  "https://www.lu.se/lubas/i-uoh-lu-KGMUS-ARKJ",
+  "https://www.lu.se/lubas/i-uoh-lu-KGMUS-GITA",
+  "https://www.lu.se/lubas/i-uoh-lu-LAMGY-JAZZ",
+  "https://www.lu.se/lubas/i-uoh-lu-LAMGY-SÅGB",
+  "https://www.lu.se/lubas/i-uoh-lu-NGNAT-KEFY",
+  "https://www.lu.se/lubas/i-uoh-lu-TABRA",
+  "https://www.lu.se/lubas/i-uoh-lu-TARSK",
+  "https://www.lu.se/lubas/i-uoh-lu-HGLIT",
+  "https://www.lu.se/lubas/i-uoh-lu-KGMUS-CEMB",
+  "https://www.lu.se/lubas/i-uoh-lu-KGMUS-KOMP",
+  "https://www.lu.se/lubas/i-uoh-lu-KGMUS-PIAN",
+  "https://www.lu.se/lubas/i-uoh-lu-KGMUS-SÅNG",
+  "https://www.lu.se/lubas/i-uoh-lu-LAMGY-KLAS",
+  "https://www.lu.se/lubas/i-uoh-lu-LAMGY-ROCK",
+];
 
 mainScraper();
