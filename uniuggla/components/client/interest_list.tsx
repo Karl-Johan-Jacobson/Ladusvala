@@ -11,7 +11,7 @@ export default function InterestList({ interest }: {interest: Interest[]}){
   
   const router = useRouter();
   //initializing hooks
-  const [displayedInterests, setDisplayedInterests] = useState<Interest[]>(interest.filter((interest, index) => index < 10));
+  const [displayedInterests, setDisplayedInterests] = useState<Interest[]>(interest.filter((interest, index) => index < 4));
   const [allInterests, setAllInterests] = useState<Interest[]>(interest)
   const [selectedInterestIds, setSelectedInterestIds] = useState<string[]>([])
   const [customInterest, setCustomInterest] = useState<string>("");
@@ -34,7 +34,7 @@ export default function InterestList({ interest }: {interest: Interest[]}){
     const temp: Interest[] = [...displayedInterests];
 
     let displayIndex = 0; // Index of the displayed interest
-    while (displayIndex < 10) {
+    while (displayIndex < 4) {
       let newIndex = Math.floor(Math.random() * (allInterests.length)); // Index of the new interest
 
       // Check if the interest at displayIndex is selected
@@ -87,30 +87,35 @@ export default function InterestList({ interest }: {interest: Interest[]}){
   };
 
   console.log(selectedInterestIds );
-
+  
 //returns a mapped list of interests, using the interestId as key
   return (
-    <main>
-      <div className="" style={{marginTop: '10vw'}}>
-        {displayedInterests.map((interest) => (
-          <InterestListItem onToggle={handleToggle} interest={interest} key={interest.interestId}/>)
-        )}
-        <button onClick={shuffle} className="">
-          Refresh
-        </button>
-        <div className="">
-          {customInterestList.map((interest) => (
-                <CustomInterestListItem onToggle={handleRemoveCustom} interest={interest} key={interest.interestId}/>
-            ))}
+    <section id="intrestsContainer" className = "container intrestsContainer hide">
+      <div id = "interest" className="wrapper interestWrapper interest" style={{paddingTop: '10vw'}}>
+        <div className="" style={{marginTop: '0vw'}}>
+          <p className="bot question">Välj intressen!</p>
         </div>
-        <form className="" onSubmit={addInterest}>
-          <input type="text" value={customInterest} onChange={handleUpdate} required className=""/>
-          <button type="submit" className="">Add interest</button>
-        </form>
+        <div className="">
+          {displayedInterests.map((interest) => (
+            <InterestListItem onToggle={handleToggle} interest={interest} key={interest.interestId}/>)
+          )}
+          <button onClick={shuffle} className="">
+            Refresh
+          </button>
+          <div className="">
+            {customInterestList.map((interest) => (
+                  <CustomInterestListItem onToggle={handleRemoveCustom} interest={interest} key={interest.interestId}/>
+              ))}
+          </div>
+          <form className="" onSubmit={addInterest}>
+            <input type="text" value={customInterest} onChange={handleUpdate} required className=""/>
+            <button type="submit" className="">Add interest</button>
+          </form>
+        </div>
+        <div>
+          <button onClick={handleRecommendationButtonClick} className="recommendationButton">Recommendation</button>
+        </div>
       </div>
-      <div>
-        <button onClick={handleRecommendationButtonClick} className="recommendationButton">Recommendation</button>
-      </div>
-    </main>
+    </section>
   )
 }

@@ -4,12 +4,23 @@
   text-decoration: none;
 }
  /* Is the main background for the whole hmtl and hides the scroll bar*/  
-html {      
+html {
+  scrollbar-width: none;
   background-color: #DFFDE0;
-  overflow: hidden; 
-}  
+  scroll-behavior: smooth;
+}
+html::-webkit-scrollbar {
+  display: none;
+}
 body {      
   background-color: #DFFDE0;
+}
+.hide {
+  transition: 0.0s ease !important;
+  height: 0px !important;
+  opacity: 0 !important;
+  margin: 0px !important;
+  padding: 0px !important;
 }
 /* Is the font for the the buttons */
 @font-face { 
@@ -73,7 +84,7 @@ p {
 header {
   z-index: 10;
    width: 100vw;
-   height: 10vw;
+   height: 10vh;
    top: 0;
    left: 0;
    position: fixed; 
@@ -101,20 +112,34 @@ header {
   color: #4F1EB0;
   font-size: 4vw;
 }
-/* Styling and positioning of the body */
-main {
-  width: auto;
-  padding-left: 5vw;
-  padding-right: 5vw;
-  z-index: 1;
-}
-.welcome {
-  transition: 0.5s ease;
-}
 /* Positioning of the typewriter animation*/
 .typewriter {
   width: min-content;
   margin: 0 auto;
+}
+.container {
+  height: 100vh;
+  width: 90vw;
+  position: relative;
+  padding-left: 5vw;
+  padding-right: 5vw;
+}
+.wrapper {
+  height: auto;
+  width: max-content;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: 0vw auto 6vw;
+  padding-bottom: 1vw;
+  z-index: 1;
+  transition: 0.5s ease;
+  overflow-y: auto;
+}
+.wrapper::-webkit-scrollbar {
+  display: none;
 }
 /* Styling and positioning */
 .answers {
@@ -154,7 +179,18 @@ main {
   End of Body
   ---===---===---===---===---===---===---===---===---===---
   Start of Intrest
+*/
   
+.intrestsWrapper {
+  width: auto;
+  height: auto;
+  background-color: #27ecec;
+  padding-left: 5vw;
+  padding-right: 5vw;
+  z-index: 1;
+  transition: 0.5s ease;
+}
+/*
   End of Intrest
   ---===---===---===---===---===---===---===---===---===---
   Start of Footer
@@ -169,7 +205,7 @@ footer {
   height: 5vw;
   padding-left: 1%;
   padding-right: 1%;
-  padding-bottom: 1%;
+  padding-bottom: 1vw;
   display: inline-block;
   background-color: #DFFDE0;
   font-size: 1.5vw;
@@ -178,14 +214,14 @@ footer {
 .footerLeft {
   top: 0;
   left: 0;
-  width: 83%;
+  width: 82%;
   height: 100%;
   display: inline-block;
 }
 /* Dividing line footer */
 .footerLine {
   top: 0;
-  height: 4px;
+  height: 0.6vh;
   position: relative;
   background-color: #4F1EB0;
 }
@@ -219,6 +255,7 @@ footer {
   End of Footer
   ---===---===---===---===---===---===---===---===---===---
 */
+/*
 .interestSelected {
   background-color: #4F1EB0;
   color: white;
@@ -230,3 +267,4 @@ footer {
   grid-template-rows: repeat(3, 1fr);
   gap: 20vw;
 }
+*/
