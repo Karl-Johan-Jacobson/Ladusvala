@@ -1,5 +1,5 @@
 //imports interest list fronm database
-import InterestList from "@/components/client/interest_list"
+import { InterestList } from "@/components/client/InterestList"
 //import { fetchAllInterests } from "@/firebase/firebaseHandler"
 
 export default async function InterestsPage() {
