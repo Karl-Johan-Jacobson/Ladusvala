@@ -180,8 +180,15 @@ header {
   ---===---===---===---===---===---===---===---===---===---
   Start of Intrest
 */
-  
-.intrestsWrapper {
+.welcomeWrapper {
+  width: auto;
+  height: auto;
+  padding-left: 5vw;
+  padding-right: 5vw;
+  z-index: 1;
+  transition: 0.5s ease;
+} 
+.interestWrapper {
   width: auto;
   height: auto;
   background-color: #27ecec;
@@ -190,6 +197,16 @@ header {
   z-index: 1;
   transition: 0.5s ease;
 }
+.recommendationWrapper {
+  width: auto;
+  height: auto;
+  background-color: #e7b922;
+  padding-left: 5vw;
+  padding-right: 5vw;
+  z-index: 1;
+  transition: 0.5s ease;
+}
+
 /*
   End of Intrest
   ---===---===---===---===---===---===---===---===---===---
