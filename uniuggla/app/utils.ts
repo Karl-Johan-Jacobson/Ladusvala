@@ -1,4 +1,5 @@
 import recommendProgramFromInterest from "@/ai/AiHandler";
+import { typewriterTest } from "@/components/client/TypeWriter";
 import { useRouter } from "next/router";
 
 export function addClass(newClass: string, htmlClass: string): void {
@@ -32,7 +33,6 @@ export function scrollToId(id: string): void {
 }
 
 export function aiTypeAnswer(textToType: string, htmlClass: string): void {
-	let i = 0;
 	const elements = document.getElementsByClassName(htmlClass);
 	const element = elements[0] as HTMLElement;
 	element.innerHTML = textToType;
@@ -56,7 +56,8 @@ export async function aiResponse(interest: string[]): Promise<void> {
 }
 
 export async function handleRecommendationButtonClick(interest: string[]): Promise<void> {
-	aiResponse(interest);
+	//aiResponse(interest);
+    typewriterTest();
 	modifyOverflow("visible", "main");
 	removeClass("hide", "recommendationContainer");
 	scrollToId("recommendationContainer");
