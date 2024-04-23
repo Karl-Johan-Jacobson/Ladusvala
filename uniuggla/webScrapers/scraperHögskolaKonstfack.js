@@ -59,5 +59,5 @@ async function scrapeKF(url,programId) {
     //programId_sv|programUniversity_sv|programTitle_sv|programDescription_sv|programPoints_sv|programYears_sv|programRequirements_sv|programAiDescription_sv|programPlace_sv|programDegree_sv|programLink
   });
 }
-scrapeKF("https://www.konstfack.se/sv/Utbildning/Lararutbildning/Amneslararprogrammet-med-inriktning-mot-grundskolans-ak-7-9-270-hp/");
+//scrapeKF("https://www.konstfack.se/sv/Utbildning/Lararutbildning/Amneslararprogrammet-med-inriktning-mot-grundskolans-ak-7-9-270-hp/");
 module.exports = scrapeKF;

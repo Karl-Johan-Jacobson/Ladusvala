@@ -62,5 +62,5 @@ async function scrapeBlekinge(url,programId) {
     //programId_sv|programUniversity_sv|programTitle_sv|programDescription_sv|programPoints_sv|programYears_sv|programRequirements_sv|programAiDescription_sv|programPlace_sv|programDegree_sv|programLink
   });
 }
-scrapeBlekinge("https://www.bth.se/utbildning/program-och-kurser/dvasa/");
+//scrapeBlekinge("https://www.bth.se/utbildning/program-och-kurser/dvasa/");
 module.exports = scrapeBlekinge;

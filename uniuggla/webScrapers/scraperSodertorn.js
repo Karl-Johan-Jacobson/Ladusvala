@@ -64,5 +64,5 @@ async function scrapeSodertorn(url,programId) {
   });
 }
 // NOTE: Get the URL for respective "Inriktning" in the programs that have
-scrapeSodertorn("https://www.sh.se/program--kurser/program/grund/bibliotekarieprogrammet"); 
+//scrapeSodertorn("https://www.sh.se/program--kurser/program/grund/bibliotekarieprogrammet"); 
 module.exports = scrapeSodertorn;

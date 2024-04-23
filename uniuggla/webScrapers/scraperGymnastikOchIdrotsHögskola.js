@@ -62,5 +62,5 @@ async function scrapeGIH(url,programId) {
     //programId_sv|programUniversity_sv|programTitle_sv|programDescription_sv|programPoints_sv|programYears_sv|programRequirements_sv|programAiDescription_sv|programPlace_sv|programDegree_sv|programLink
   });
 }
-scrapeGIH("https://www.gih.se/utbildning/vara-utbildningar/program/kompletterande-pedagogisk-utbildning-till-amneslarare");
+//scrapeGIH("https://www.gih.se/utbildning/vara-utbildningar/program/kompletterande-pedagogisk-utbildning-till-amneslarare");
 module.exports = scrapeGIH;

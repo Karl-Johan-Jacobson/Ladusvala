@@ -62,5 +62,5 @@ async function scrapeSu(url,programId) {
     //programId_sv|programUniversity_sv|programTitle_sv|programDescription_sv|programPoints_sv|programYears_sv|programRequirements_sv|programAiDescription_sv|programPlace_sv|programDegree_sv|programLink
   });
 }
-scrapeSu("https://www.su.se/sok-kurser-och-program/sysdk-1.411896?semester=HT24&eventcode=43075");
+//scrapeSu("https://www.su.se/sok-kurser-och-program/sysdk-1.411896?semester=HT24&eventcode=43075");
 module.exports = scrapeSu;

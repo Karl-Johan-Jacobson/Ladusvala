@@ -63,5 +63,5 @@ async function scrapeHS(url,programId) {
     //programId_sv|programUniversity_sv|programTitle_sv|programDescription_sv|programPoints_sv|programYears_sv|programRequirements_sv|programAiDescription_sv|programPlace_sv|programDegree_sv|programLink
   });
 }
-scrapeHS("https://www.his.se/utbildning/dataspelsutveckling/dataspelsutveckling-grafik-dsgpg/");
+//scrapeHS("https://www.his.se/utbildning/dataspelsutveckling/dataspelsutveckling-grafik-dsgpg/");
 module.exports = scrapeHS;

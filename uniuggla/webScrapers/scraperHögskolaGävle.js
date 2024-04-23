@@ -63,5 +63,5 @@ async function scrapeHIG(url,programId) {
     //programId_sv|programUniversity_sv|programTitle_sv|programDescription_sv|programPoints_sv|programYears_sv|programRequirements_sv|programAiDescription_sv|programPlace_sv|programDegree_sv|programLink
   });
 }
-scrapeHIG("https://www.hig.se/utbildning/intresseomraden-och-program/hogskoleingenjor/automationsingenjor-co-op-180-hp");
+//scrapeHIG("https://www.hig.se/utbildning/intresseomraden-och-program/hogskoleingenjor/automationsingenjor-co-op-180-hp");
 module.exports = scrapeHIG;

@@ -69,5 +69,5 @@ const regex = /(\d+)\s*hp/;
     //programId_sv|programUniversity_sv|programTitle_sv|programDescription_sv|programPoints_sv|programYears_sv|programRequirements_sv|programAiDescription_sv|programPlace_sv|programDegree_sv|programLink
   });
 }
-scrapeKMH("https://www.kmh.se/utbildningar/alla-utbildningar/pianostammarutbildning.html");
+//scrapeKMH("https://www.kmh.se/utbildningar/alla-utbildningar/pianostammarutbildning.html");
 module.exports = scrapeKMH;

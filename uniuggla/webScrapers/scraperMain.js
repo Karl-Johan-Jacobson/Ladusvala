@@ -1,3 +1,5 @@
+//ADD? Years, uni names, 
+
 const scraperKarlstad = require("./scraperKarlstad.js");
 const scraperKTH = require("./scraperKTH.js");
 const scraperKarolinska = require("./scraperKarolinska.js");
@@ -5,64 +7,68 @@ const scraperChalmers = require("./scraperChalmers.js");
 const scraperLinköping = require("./scraperLinkoping.js");
 const scraperLund = require("./scraperLund.js");
 const scraperMalardalen = require("./scraperMalardalen.js");
-/*const scraperMalmö = require("./scraperMalmo.js");
+const scraperMalmö = require("./scraperMalmo.js");
 const scraperOrebro = require("./scraperOrebro.js");
 const scraperSu = require("./scraperSu.js");
 const scraperUmeå = require("./scraperUmea.js");
 const scraperUppsala = require("./scraperUppsala.js");
-*/
+const scraperBlekinge = require("./scraperBlekinge.js");
+const scraperGoteborgsUniversitet = require("./scraperGoteborgsUniversitet.js");
+const scraperGymnastikOchIdrotsHögskola = require("./scraperGymnastikOchIdrotsHögskola.js");
+const scraperHögskolaBorås = require("./scraperHögskolaBorås.js");
+const scraperHögskolaDalarna = require("./scraperHögskolaDalarna.js");
+const scraperHögskolaGävle = require("./scraperHögskolaGävle.js");
+const scraperHögskolaHalmstad = require("./scraperHögskolaHalmstad.js");
+const scraperHögskolaKonstfack = require("./scraperHögskolaKonstfack.js");
+const scraperHögskolaKristianstad = require("./scraperHögskolaKristianstad.js");
+const scraperHögskolaSkövde = require("./scraperHögskolaSkövde.js");
+const scraperHögskolaVäst = require("./scraperHögskolaVäst.js");
+const scraperKungligaMusikHögskolan = require("./scraperKungligaMusikHögskolan.js");
+const scraperLinneUni = require("./scraperLinneUni.js");
+const scraperLuleaTekniska = require("./scraperLuleaTekniska.js");
+const scraperMittUniversitetet = require("./scraperMittUniversitetet.js");
+const scraperSodertorn = require("./scraperSodertorn.js");
 
 //const scrapeMittUniversitetet = require("./scraperMittUniversitetet.js");
 //const scraperLinne = require("./scraperLinneUni.js");
 
 let programId = 1;
 
-// FUNGERAR: Linköping 
 
 // DON´T DO HANDELS. LINNÉ WONT WORK FROM KTH INTERNET -> USE PHONE. TRY BY-PASS ON MITTUNI
 async function mainScraper() {
+  
   for (let i = 0; i < karolinskaArray.length; i++) {
     await scraperKarolinska(karolinskaArray[i], programId++);
   }
-
   for (let i = 0; i < chalmersArray.length; i++) {
     await scraperChalmers(chalmersArray[i], programId++);
   }
-
   for (let i = 0; i < karlstadArray.length; i++) {
     await scraperKarlstad(karlstadArray[i], programId++);
   }
-
   for (let i = 0; i < kthArray.length; i++) {
     await scraperKTH(kthArray[i], programId++);
   }
   for (let i = 0; i < linköpingArray.length; i++) {
     await scraperLinköping(linköpingArray[i], programId++);
   }
-  
   for (let i = 0; i < lundArray.length; i++) {
     await scraperLund(lundArray[i], programId++);
   }
-
   for (let i = 0; i < malardalenArray.length; i++) {
     await scraperMalardalen(malardalenArray[i], programId++);
   }
-  /*
-  for (let i = 0; i < karolinskaArray.length; i++) {
-    await scraperMalmö(karolinskaArray[i], programId++);
+  for (let i = 0; i < malmöArray.length; i++) {
+    await scraperMalmö(malmöArray[i], programId++);
   }
-  for (let i = 0; i < karolinskaArray.length; i++) {
-    await scraperOrebro(karolinskaArray[i], programId++);
+  for (let i = 0; i < örebroArray.length; i++) {
+    await scraperOrebro(örebroArray[i], programId++);
   }
-  for (let i = 0; i < karolinskaArray.length; i++) {
-    await scraperSu(karolinskaArray[i], programId++);
+  for (let i = 0; i < stockholmsUniArray.length; i++) {
+    await scraperSu(stockholmsUniArray[i], programId++);
   }
-  for (let i = 0; i < karolinskaArray.length; i++) {
-    await scraperUmeå(karolinskaArray[i], programId++);
-  }
-  for (let i = 0; i < karolinskaArray.length; i++) {
-    await scraperUppsala(karolinskaArray[i], programId++);
-  }*/
+
 }
 
 const karlstadArray = [
@@ -479,7 +485,7 @@ const malardalenArray = [
   "https://www.mdu.se/utbildning/program/tekniskt-basar",
   "https://www.mdu.se/utbildning/program/textdesign---informationsdesign",
   "https://www.mdu.se/utbildning/program/visualisering-och-textdesign---informationsdesign",
-  "https://www.mdu.se/utbildning/program/amneslararprogrammet-gymnasieskola",
+  "https://www.mdu.se/utbildning/program/amneslararprogrammet-gymnasieskola"
 
 ]
 
