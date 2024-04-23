@@ -5,40 +5,34 @@ const fs = require("fs");
 
 let titleReturn = {programTitle_sv:"" , programPoints: "", programDesciption_sv: "", programLink: "",programId:""};
 
-
 // Take list of urls as arg and parse, will make ID work better.
 // build master scraper?, with all school scrapers that parse "school" from list and uses correct scraper.
-async function scrapeLund(url,programId) {
+async function scrapeHB(url,programId) {
   request(url, (error, response, html) => {
     if (!error && response.statusCode == 200) {
       const $ = cheerio.load(html);
 
-      const titleBody = $(".layout__region--main"); // Article class ref
+      const titleBody = $(".article__content"); // Article class ref 
       const title = titleBody.find("h1").text().trim(); // title holds name of program name
-      titleReturn.programTitle_sv = title;
-
-      const programInfoBody = $(".field__kicker p");
-      const programInfo = programInfoBody.first().text().trim(); // Holds "Program X högskolepoäng * Y år * Kandidatexamen"
+      //titleReturn.programTitle_sv = title;
+      const titleFix = title.split("  ");
+      console.log("TITLE:"+ titleFix[0]);
+      const hp = titleBody.find("span").text().trim(); // Holds "Program X högskolepoäng * Y år * Kandidatexamen"
   
+      console.log("HP: "+ hp);
       //const leadSubBody = $(".lead p"); // lead class's p elements to subBody
       //const shortDesc = leadSubBody.first().text(); // get first p and convert from HTML to text
       
-      const shortDescBody = $(".field__lead");
-      const shortDesc = shortDescBody.first().text().trim(); // Holds short desciption of program
+      const shortDescBody = $(".article__byline");
+      const shortDesc = shortDescBody.text().trim(); // Holds short desciption of program
+      console.log("Short Desc: "+shortDesc);
 
-      console.log("title: "+title+"\n");
-      console.log("prog.info: "+programInfo+"\n");
-      console.log("shortDesc: "+ shortDesc+"\n");
+      let hpItems = [];
+      hpItems = hp.split("·");
+      console.log("after split:" + hpItems);
+      const regex = /\d+/g; 
 
-
-
-      
-      let programInfoItems = [];
-      programInfoItems = programInfo.split("·");
-      console.log("after split:" + programInfoItems);
-      const regex = /\d+/g;
-
-      const num = programInfoItems[0].match(regex);
+      const num = title.match(regex);
       console.log(num[0]);
 
       titleReturn.programTitle_sv = title;
@@ -48,9 +42,9 @@ async function scrapeLund(url,programId) {
       titleReturn.programId = programId;
       
       //console.log(titleFinal);
-      console.log("titleReturn: "+titleReturn);
+      //console.log("titleReturn: "+titleReturn);
     } else {
-      console.log("ERROR CONNECTING:" + error);
+      console.log("ERROR CONNECTING:" + error + response.statusCode);
       titleReturn.programLink = url;
       titleReturn.programId = ("ERROR: "+response.statusCode);
     }
@@ -68,5 +62,5 @@ async function scrapeLund(url,programId) {
     //programId_sv|programUniversity_sv|programTitle_sv|programDescription_sv|programPoints_sv|programYears_sv|programRequirements_sv|programAiDescription_sv|programPlace_sv|programDegree_sv|programLink
   });
 }
-//scrapeLund("https://www.lu.se/lubas/i-uoh-lu-EGEKO");
-module.exports = scrapeLund;
+//scrapeHB("https://www.hb.se/utbildning/program-och-kurser/program/bibliotekarie/");
+module.exports = scrapeHB;
