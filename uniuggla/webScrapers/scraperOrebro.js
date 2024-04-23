@@ -8,11 +8,12 @@ let titleReturn = {
   programPoints: "",
   programDesciption_sv: "",
   programLink: "",
+  programId:"",
 };
 
 // Take list of urls as arg and parse, will make ID work better.
 // build master scraper?, with all school scrapers that parse "school" from list and uses correct scraper.
-async function scrapeOrebro(url) {
+async function scrapeOrebro(url,programId) {
   request(url, (error, response, html) => {
     if (!error && response.statusCode == 200) {
       const $ = cheerio.load(html);
@@ -47,11 +48,13 @@ async function scrapeOrebro(url) {
       titleReturn.programPoints = num[0];
       titleReturn.programDesciption_sv = shortDesc;
       titleReturn.programLink = url;
-
+      titleReturn.programId = programId;
       //console.log(titleFinal);
       //console.log("titleReturn: "+titleReturn);
     } else {
       console.log("ERROR CONNECTING:" + error + response.statusCode);
+      titleReturn.programLink = url;
+      titleReturn.programId = ("ERROR: "+response.statusCode);
     }
 
     fs.appendFile("test.json", JSON.stringify(titleReturn, null, 2) + ","+"\n", (err) => {
@@ -66,7 +69,7 @@ async function scrapeOrebro(url) {
     //programId_sv|programUniversity_sv|programTitle_sv|programDescription_sv|programPoints_sv|programYears_sv|programRequirements_sv|programAiDescription_sv|programPlace_sv|programDegree_sv|programLink
   });
 }
-/*scrape(
+/*scrapeOrebro(
   "https://www.oru.se/utbildning/program/analysvetenskapligt-program-i-kemi-med-inriktning-mot-forensik/"
 );*/
 module.exports = scrapeOrebro;

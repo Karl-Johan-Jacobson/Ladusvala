@@ -7,6 +7,7 @@ let titleReturn = {programTitle_sv:"" , programPoints: "", programDesciption_sv:
 // Take list of urls as arg and parse, will make ID work better.
 // build master scraper?, with all school scrapers that parse "school" from list and uses correct scraper. Will make ID work easier.
 async function scrapeKarlstad(url, programId) {
+  await new Promise(r => setTimeout(r, 500));
   request(url, (error, response, html) => {
     if (!error && response.statusCode == 200) {
       const $ = cheerio.load(html);
@@ -16,6 +17,14 @@ async function scrapeKarlstad(url, programId) {
 
       const hpClass = $(".inline-block");
       const hp = hpClass.first().text().trim();
+
+      let hpItems = [];
+      hpItems = hp.split("·");
+      const regex = /\d+/g;
+
+      const num = hpItems[0].match(regex);
+      console.log("HPNUM TO DB: " + num[0]);
+
       
       const descriptionClass = $(".mb4");
       const descriptionClass2 = descriptionClass.find(".of-aut");
@@ -25,8 +34,8 @@ async function scrapeKarlstad(url, programId) {
 
 
         titleReturn.programTitle_sv = title;
-        titleReturn.programPoints = hp;
-        titleReturn.programDesciption_sv = description;
+        titleReturn.programPoints = num[0];
+        titleReturn.programDesciption_sv = description[0];
         titleReturn.programLink = url;
         titleReturn.programId = programId;
     
@@ -34,6 +43,8 @@ async function scrapeKarlstad(url, programId) {
     } else {
       console.log(response.statusCode)
       console.log("ERROR CONNECTING:" + error);
+      titleReturn.programLink = url;
+      titleReturn.programId = ("ERROR: "+response.statusCode);
     }
 
     fs.appendFile("test.json", JSON.stringify(titleReturn, null, 2) + ","+"\n", (err) => {
@@ -42,11 +53,12 @@ async function scrapeKarlstad(url, programId) {
         return;
       }
       console.log("Successfully written data to file");
+      
     });
 
 
     //programId_sv|programUniversity_sv|programTitle_sv|programDescription_sv|programPoints_sv|programYears_sv|programRequirements_sv|programAiDescription_sv|programPlace_sv|programDegree_sv|programLink
   });
 }
-//scrape("https://www.kau.se/utbildning/program-och-kurser/program/NGBIO");
+scrapeKarlstad("https://www.kau.se/utbildning/program-och-kurser/program/NGBIO");
 module.exports = scrapeKarlstad;
