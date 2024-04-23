@@ -85,7 +85,7 @@ p {
 header {
   z-index: 10;
    width: 100vw;
-   height: 10vh;
+   height: 15vh;
    top: 0;
    left: 0;
    position: fixed; 

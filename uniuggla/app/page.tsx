@@ -5,9 +5,13 @@ import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import TypewriterComponent from "typewriter-effect";
 import InterestsPage from "./interest_select/page";
-import InterestList from "@/components/client/interest_list";
 import recommendProgramFromInterest from "@/ai/AiHandler";
+import InterestList from "@/components/client/InterestList";
 
+import {
+  handleYesButtonClick,
+  handleRecommendationButtonClick
+} from "@/app/utils";
 // Import for subpages
 
 import Welcome from "@/components/client/welcome";
@@ -18,61 +22,9 @@ import Recomendation from "@/components/client/recomendation";
 export default function Home() {
 	const router = useRouter();
 
-
-	const addClass = (newClass: string, htmlClass: string) => {
-		var elements = document.querySelectorAll("." + htmlClass);
-		elements.forEach(function (element) {
-			(element as HTMLElement).classList.add(newClass);
-		});
-	};
-
-	const removeClass = (oldClass: string, htmlClass: string) => {
-		var elements = document.querySelectorAll("." + htmlClass);
-		elements.forEach(function (element) {
-			(element as HTMLElement).classList.remove(oldClass);
-		});
-	};
-
-	const modifyOverflow = (Atribute: string, htmlClass: string) => {
-		var elements = document.querySelectorAll("." + htmlClass);
-		elements.forEach(function (element) {
-			(element as HTMLElement).style.overflow = Atribute;
-		});
-	};
-
-	const scrollToId = (id: string) => {
-		const element = document.getElementById(id);
-		if (element) {
-			element.scrollIntoView();
-		} else {
-			console.error(`Element with ID '${id}' not found.`);
-		}
-	};
-
-	function handleYesButtonClick(): void {
-		modifyOverflow("visible", "main");
-		removeClass("hide", "interestContainer");
-		scrollToId("interestContainer");
-		setTimeout(() => {
-			addClass("hide", "welcomeContainer");
-			modifyOverflow("hidden", "main");
-		}, 500);
-	}
-
-	function handleNoButtonClick(): void {
-		router.push("/about");
-	}
-
-	function handleRecommendationButtonClick(): void {
-		modifyOverflow("visible", "main");
-		removeClass("hide", "recommendationContainer");
-		scrollToId("recommendationContainer");
-		setTimeout(() => {
-			addClass("hide", "intrestContainer");
-			modifyOverflow("hidden", "main");
-		}, 500);
-	}
-
+function handleNoButtonClick(): void {// Move useRouter inside the function
+  router.push("/about");
+}
 	// values for js animations
 	const speed = 40;
 	const delayBetweenGreetigAndQuestion = 500;
@@ -85,10 +37,6 @@ export default function Home() {
 
 	// Starting animationn
 	useEffect(() => {
-		// Will be used later on.
-		// function enableScroll() {
-		// window.onscroll = function () { };
-		// }
 		let typeWriterInterval: ReturnType<typeof setInterval> | undefined;
 		// Typewriteranimationn input string and class of <p> element
 		const typeWriter = (textToType: string, htmlClass: string) => {
@@ -225,7 +173,7 @@ export default function Home() {
         Interest Page 
       */}
 			<section id="interestContainer" className="container interestContainer hide">
-				<InterestList interest={interests} handleRecommendationButtonClick={handleRecommendationButtonClick} />
+				<InterestList interest={interests} handleRecommendationButtonClick={handleRecommendationButtonClick}/>
 				{/*<Intrest interest={interests} handleRecommendationButtonClick={handleRecommendationButtonClick} />*/}
 			</section>
 			{/*
@@ -238,4 +186,4 @@ export default function Home() {
 	);
 }
 
-export default Home;
+
