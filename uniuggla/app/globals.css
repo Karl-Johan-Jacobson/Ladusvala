@@ -181,33 +181,47 @@ header {
   ---===---===---===---===---===---===---===---===---===---
   Start of Intrest
 */
-.welcomeWrapper {
-  width: auto;
-  height: auto;
-  padding-left: 5vw;
-  padding-right: 5vw;
-  z-index: 1;
-  transition: 0.5s ease;
-} 
-.interestWrapper {
-  width: auto;
-  height: auto;
-  background-color: #27ecec;
-  padding-left: 5vw;
-  padding-right: 5vw;
-  z-index: 1;
-  transition: 0.5s ease;
+/*
+.interestSelected {
+  background-color: #4F1EB0;
+  color: white;
 }
-.recommendationWrapper {
-  width: auto;
-  height: auto;
-  background-color: #e7b922;
-  padding-left: 5vw;
-  padding-right: 5vw;
-  z-index: 1;
-  transition: 0.5s ease;
+*/
+.notSelectedInterestList {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 columns */
+  grid-template-rows: repeat(2, auto); /* 2 rows */
+  grid-gap: 10px; /* Adjust gap between grid items */
+  margin-top: 100px;
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  max-height: 200px;
 }
 
+.selectedInterestList {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 columns */
+  grid-template-rows: repeat(2, auto); /* 2 rows */
+  grid-gap: 10px; /* Adjust gap between grid items */
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  min-height: 100px;
+}
+
+.interests{
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+.customInterestForm{
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
 /*
   End of Intrest
   ---===---===---===---===---===---===---===---===---===---
@@ -273,44 +287,3 @@ footer {
   End of Footer
   ---===---===---===---===---===---===---===---===---===---
 */
-/*
-.interestSelected {
-  background-color: #4F1EB0;
-  color: white;
-}
-*/
-.notSelectedInterestList {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr); /* 5 columns */
-  grid-template-rows: repeat(2, auto); /* 2 rows */
-  grid-gap: 10px; /* Adjust gap between grid items */
-  margin-top: 100px;
-  max-width: fit-content;
-  margin-left: auto;
-  margin-right: auto;
-  max-height: 200px;
-}
-
-.selectedInterestList {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr); /* 5 columns */
-  grid-template-rows: repeat(2, auto); /* 2 rows */
-  grid-gap: 10px; /* Adjust gap between grid items */
-  max-width: fit-content;
-  margin-left: auto;
-  margin-right: auto;
-  min-height: 100px;
-}
-
-.interests{
-  padding: 10px;
-  border: 1px solid #ccc;
-  text-align: center;
-}
-
-.customInterestForm{
-  max-width: fit-content;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 20px;
-}

@@ -6,25 +6,23 @@ import { useState, useEffect } from "react";
 import TypewriterComponent from "typewriter-effect";
 import InterestsPage from "./interest_select/page";
 import recommendProgramFromInterest from "@/ai/AiHandler";
-import InterestList from "@/components/client/InterestList";
+import InterestList from "@/components/client/Interest";
 
-import {
-  handleYesButtonClick,
-  handleRecommendationButtonClick
-} from "@/app/utils";
+import { handleYesButtonClick, handleRecommendationButtonClick } from "@/app/utils";
 // Import for subpages
 
 import Welcome from "@/components/client/Welcome";
 import Interest from "@/components/client/Interest";
-import Recomendation from "@/components/client/Recommendation";
+import Recommendation from "@/components/client/Recommendation";
 
 // Main function that returns the html and handles the animations
 export default function Home() {
 	const router = useRouter();
 
-function handleNoButtonClick(): void {// Move useRouter inside the function
-  router.push("/about");
-}
+	function handleNoButtonClick(): void {
+		// Move useRouter inside the function
+		router.push("/about");
+	}
 	// values for js animations
 	const speed = 40;
 	const delayBetweenGreetigAndQuestion = 500;
@@ -173,17 +171,15 @@ function handleNoButtonClick(): void {// Move useRouter inside the function
         Interest Page 
       */}
 			<section id="interestContainer" className="container interestContainer hide">
-				<InterestList interest={interests} handleRecommendationButtonClick={handleRecommendationButtonClick}/>
+				<InterestList interest={interests} handleRecommendationButtonClick={handleRecommendationButtonClick} />
 				{/*<Intrest interest={interests} handleRecommendationButtonClick={handleRecommendationButtonClick} />*/}
 			</section>
 			{/*
-        Recomendation page
+        Recommendation page
       */}
 			<section id="recommendationContainer" className="container recommendationContainer hide">
-				<Recomendation />
+				<Recommendation />
 			</section>
 		</main>
 	);
 }
-
-

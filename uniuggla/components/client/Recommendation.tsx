@@ -1,18 +1,13 @@
 import React from "react";
 
-interface RecomendationProps {}
+interface RecommendationProps {}
 
-const Recomendation: React.FC<RecomendationProps> = () => {
-	
-	/*
-		const [message, setMessage] = useState<string>("")
-		async function handleGetRecommendationButtonClick() {
-		console.log("Clicked");
-		setMessage("Loading ...");
-		aiAnswer = await recommendProgramFromInterest();
-		setMessage(aiAnswer);
-	}
-	*/
+import { useState } from "react";
+import { NextPage } from "next";
+import recommendProgramFromInterest from "@/ai/AiHandler";
+
+const Recommendation: React.FC<RecommendationProps & {}> = () => {
+	//HTML code
 	return (
 		<div id="recommmendation" className="wrapper recommmendationWrapper recommmendation" style={{ paddingTop: "10vw" }}>
 			<div className="typewriter typewriter_greeting greetingDiv">
@@ -21,8 +16,11 @@ const Recomendation: React.FC<RecomendationProps> = () => {
 			<div className="typewriter typewriter_question questionDiv" style={{ marginTop: "0vw" }}>
 				<p className="bot question"></p>
 			</div>
+			<div>
+				<p className="aiAnswer">Loading...</p>
+			</div>
 		</div>
 	);
 };
 
-export default Recomendation;
+export default Recommendation;
