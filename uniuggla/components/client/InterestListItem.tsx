@@ -11,7 +11,7 @@ interface InterestListItemProps {
 
 export default function InterestListItem({ interest, isSelected, onSelect }: InterestListItemProps) {
   return (
-    <>
+    <div className="interests">
       {isSelected ?
         <button onClick={() => onSelect(interest)} className="interestSelected">
           {interest.interestTitle}
@@ -20,6 +20,6 @@ export default function InterestListItem({ interest, isSelected, onSelect }: Int
           {interest.interestTitle}
         </button>
       }
-    </>
+    </div>
   );
 }

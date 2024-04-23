@@ -6,7 +6,7 @@ import InterestListItem from "./InterestListItem";
 import { v4 as uuidv4 } from 'uuid';
 import Link from "next/link";
 
-export const NUMBER_OF_INTERESTS = 10;
+export const NUMBER_OF_INTERESTS = 9;
 
 export const InterestList = ({ interest }: {interest: Interest[]}) => {
   const [selectedInterests, setSelectedInterests] = useState<Interest[]>([])
@@ -96,38 +96,37 @@ export const InterestList = ({ interest }: {interest: Interest[]}) => {
   }
   
   return (
-    <main>
-      <div className="" style={{marginTop: '10vw'}}>
+    <main className="" style={{marginTop: '10vw'}}>
+      <div className="selectedInterestList">
         {selectedInterests.map((interest) => (
           <InterestListItem onSelect={handleDeselect} interest={interest} isSelected={true} key={interest.interestId}/>
         ))}
       </div>
-      <div className="">  
+      <div className="notSelectedInterestList">  
         {notSelected.map((interest) => (
           <InterestListItem onSelect={handleSelect} interest={interest} isSelected={false} key={interest.interestId}/>)
         )}
       </div>
-      <div>
-        <form onSubmit={addCustomInterest} className="">
+      <div className="customInterestForm">
+        <form onSubmit={addCustomInterest}>
           <input type="text" value={customInterest} onChange={handleUpdate} required className=""/>
           <button type="submit" className="">Add interest</button>
         </form>
         <button onClick={shuffle} className="">
           Refresh
         </button>
-      </div>
-      <div>
-        <Link href={{
-          pathname: "/program_recommendations",
-          query: {
-            interests: selectedInterests.map((interest: Interest) => interest.interestTitle)
-          }
-          }}>
-          <button className="recommendationButton">
-            Recommendation
-          </button>
-        </Link>
-
+        <div>
+          <Link href={{
+            pathname: "/program_recommendations",
+            query: {
+              interests: selectedInterests.map((interest: Interest) => interest.interestTitle)
+            }
+            }}>
+            <button className="recommendationButton">
+              Recommendation
+            </button>
+          </Link>
+        </div>
       </div>
 
     </main>
