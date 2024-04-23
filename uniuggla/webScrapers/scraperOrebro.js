@@ -53,6 +53,8 @@ async function scrapeOrebro(url,programId) {
       //console.log("titleReturn: "+titleReturn);
     } else {
       console.log("ERROR CONNECTING:" + error + response.statusCode);
+      titleReturn.programLink = url;
+      titleReturn.programId = ("ERROR: "+response.statusCode);
     }
 
     fs.appendFile("test.json", JSON.stringify(titleReturn, null, 2) + ","+"\n", (err) => {
@@ -67,7 +69,7 @@ async function scrapeOrebro(url,programId) {
     //programId_sv|programUniversity_sv|programTitle_sv|programDescription_sv|programPoints_sv|programYears_sv|programRequirements_sv|programAiDescription_sv|programPlace_sv|programDegree_sv|programLink
   });
 }
-/*scrape(
+/*scrapeOrebro(
   "https://www.oru.se/utbildning/program/analysvetenskapligt-program-i-kemi-med-inriktning-mot-forensik/"
 );*/
 module.exports = scrapeOrebro;

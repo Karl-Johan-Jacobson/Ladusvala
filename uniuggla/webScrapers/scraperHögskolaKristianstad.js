@@ -55,6 +55,8 @@ async function scrapeHKR(url, programId) {
 
     } else {
       console.error("Error connecting:", error || response.statusCode);
+      titleReturn.programLink = url;
+      titleReturn.programId = ("ERROR: "+response.statusCode);
     }
   });
 }

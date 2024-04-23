@@ -45,6 +45,8 @@ async function scrapeBlekinge(url,programId) {
       //console.log("titleReturn: "+titleReturn);
     } else {
       console.log("ERROR CONNECTING:" + error + response.statusCode);
+      titleReturn.programLink = url;
+      titleReturn.programId = ("ERROR: "+response.statusCode);
     }
 
     

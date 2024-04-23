@@ -58,6 +58,8 @@ async function scrapeKTH(url, programId) {
       //console.log("titleReturn: "+titleReturn);
     } else {
       console.log("ERROR CONNECTING:" + error);
+      titleReturn.programLink = url;
+      titleReturn.programId = ("ERROR: "+response.statusCode);
     }
     
     fs.appendFile("test.json", JSON.stringify(titleReturn, null, 2) + ","+"\n", (err) => {
@@ -72,5 +74,5 @@ async function scrapeKTH(url, programId) {
     //programId_sv|programUniversity_sv|programTitle_sv|programDescription_sv|programPoints_sv|programYears_sv|programRequirements_sv|programAiDescription_sv|programPlace_sv|programDegree_sv|programLink
   });
 }
-//scrapeKTH("https://www.kth.se/utbildning/arkitekt/arkitektutbildning");
+scrapeKTH("https://www.kth.se/utbildning/arkitekt/arkitektutbildning");
 module.exports = scrapeKTH;

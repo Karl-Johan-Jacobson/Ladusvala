@@ -51,6 +51,8 @@ async function scrapeLund(url,programId) {
       console.log("titleReturn: "+titleReturn);
     } else {
       console.log("ERROR CONNECTING:" + error);
+      titleReturn.programLink = url;
+      titleReturn.programId = ("ERROR: "+response.statusCode);
     }
 
     

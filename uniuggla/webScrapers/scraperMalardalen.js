@@ -13,6 +13,7 @@ let titleReturn = {
 // Take list of urls as arg and parse, will make ID work better.
 // build master scraper?, with all school scrapers that parse "school" from list and uses correct scraper. Will make ID work easier.
 async function scrapeMalardalen(url,programId) {
+  await new Promise(r => setTimeout(r, 500));
   request(url, (error, response, html) => {
     if (!error && response.statusCode == 200) {
       const $ = cheerio.load(html);
@@ -27,10 +28,14 @@ async function scrapeMalardalen(url,programId) {
       const descriptionClass = $(".mdh-ingress");
       const description = descriptionClass.text();
 
+      const regex = /\d+/g;
+
+      const num = hp.match(regex);
+      console.log(num[0]);
 
 
       titleReturn.programTitle_sv = title;
-      titleReturn.programPoints = hp;
+      titleReturn.programPoints = num[0];
       titleReturn.programDesciption_sv = description;
       titleReturn.programLink = url;
       titleReturn.programId = programId;
@@ -38,6 +43,8 @@ async function scrapeMalardalen(url,programId) {
     } else {
       console.log(response.statusCode);
       console.log("ERROR CONNECTING:" + error);
+      titleReturn.programLink = url;
+      titleReturn.programId = ("ERROR: "+response.statusCode);
     }
 
     fs.appendFile("test.json", JSON.stringify(titleReturn, null, 2) + ","+"\n", (err) => {
@@ -52,5 +59,6 @@ async function scrapeMalardalen(url,programId) {
     //programId_sv|programUniversity_sv|programTitle_sv|programDescription_sv|programPoints_sv|programYears_sv|programRequirements_sv|programAiDescription_sv|programPlace_sv|programDegree_sv|programLink
   });
 }
-//scrape("https://www.mdu.se/utbildning/program/civilingenjorsprogrammet-i-produktion-och-produktdesign?location=Eskilstuna&teachingForm=Campus&semester=H%C3%B6sttermin%202024");
+//scrapeMalardalen("https://www.mdu.se/utbildning/program/barnmorskeprogrammet",1);
+
 module.exports = scrapeMalardalen;
