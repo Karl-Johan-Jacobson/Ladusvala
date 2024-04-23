@@ -7,7 +7,11 @@ import recommendProgramFromInterest from "@/ai/AiHandler";
 
 
 //Page for DEMO to show that ai can recommend programs
-const ProgramRecommendations:  NextPage = () => {
+const ProgramRecommendations = ({searchParams}: {
+		searchParams: {
+			interests: string[]
+		}
+	}) => {
 	const text = "UniU-GPT";
 	//Used to updated ai messages on the screen
 	const [message, setMessage] = useState<string>("");
@@ -20,7 +24,7 @@ const ProgramRecommendations:  NextPage = () => {
 	async function handleButton () {
 		console.log("Clicked");
 		setMessage("Loading ...");
-		aiAnswer = await recommendProgramFromInterest()
+		aiAnswer = await recommendProgramFromInterest(searchParams.interests)
 		setMessage(aiAnswer);
 	};
 
