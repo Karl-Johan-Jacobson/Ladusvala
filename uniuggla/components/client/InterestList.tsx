@@ -97,9 +97,9 @@ const InterestList: React.FC<InterestListProps & { interest: Interest[] }> = ({ 
 	};
 
 	const handleRecommend = () => {
-		if (selectedInterests.length != 0) handleRecommendationButtonClick(selectedInterests.map((interest) => interest.interestTitle));
+		if (selectedInterests.length >= 4) handleRecommendationButtonClick(selectedInterests.map((interest) => interest.interestTitle));
 		else {
-      //Say something to user, that they have to select interests
+			//Say something to user, that they have to select interests
 		}
 	};
 

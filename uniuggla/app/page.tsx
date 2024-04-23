@@ -14,9 +14,9 @@ import {
 } from "@/app/utils";
 // Import for subpages
 
-import Welcome from "@/components/client/welcome";
-import Intrest from "@/components/client/intrest";
-import Recomendation from "@/components/client/recomendation";
+import Welcome from "@/components/client/Welcome";
+import Interest from "@/components/client/Interest";
+import Recomendation from "@/components/client/Recommendation";
 
 // Main function that returns the html and handles the animations
 export default function Home() {
