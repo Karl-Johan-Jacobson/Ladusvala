@@ -1,0 +1,1352 @@
+[
+  {
+    "interestId": "0",
+    "interestTitle": "Matematik",
+    "interestDescription": "Om du är intresserad av siffror, ekvationer, algoritmer eller matematisk teori.",
+    "coreSubject": true
+  },
+  {
+    "interestId": "1",
+    "interestTitle": "Svenska",
+    "interestDescription": "Grundläggande ämne som omfattar studiet av det svenska språket, litteraturen och grammatiken.",
+    "coreSubject": true
+  },
+  {
+    "interestId": "2",
+    "interestTitle": "Engelska",
+    "interestDescription": "Grundläggande ämne som omfattar studiet av det engelska språket, litteraturen och kommunikation.",
+    "coreSubject": true
+  },
+  {
+    "interestId": "3",
+    "interestTitle": "Fysik",
+    "interestDescription": "Om du är intresserad av materiens och energins natur och egenskaper.",
+    "coreSubject": true
+  },
+  {
+    "interestId": "4",
+    "interestTitle": "Kemi",
+    "interestDescription": "Om du är intresserad av ämnen som materien är sammansatt av, undersökningen av deras egenskaper och reaktioner, samt användningen av sådana reaktioner för att bilda nya ämnen.",
+    "coreSubject": true
+  },
+  {
+    "interestId": "5",
+    "interestTitle": "Biologi",
+    "interestDescription": "Om du är intresserad av liv och levande organismer.",
+    "coreSubject": true
+  },
+  {
+    "interestId": "6",
+    "interestTitle": "Samhällskunskap",
+    "interestDescription": "Grundläggande ämne som omfattar studiet av samhällets strukturer, organisation och funktioner.",
+    "coreSubject": true
+  },
+  {
+    "interestId": "7",
+    "interestTitle": "Historia",
+    "interestDescription": "Om du är intresserad av att studera historiska händelser, människor eller epoker.",
+    "coreSubject": true
+  },
+  {
+    "interestId": "8",
+    "interestTitle": "Religion",
+    "interestDescription": "Grundläggande ämne som omfattar studiet av olika religiösa traditioner, trosföreställningar och etik.",
+    "coreSubject": true
+  },
+  {
+    "interestId": "9",
+    "interestTitle": "Idrott och hälsa",
+    "interestDescription": "Grundläggande ämne som omfattar studiet av fysisk aktivitet, hälsa och livsstil.",
+    "coreSubject": true
+  },
+  {
+    "interestId": "10",
+    "interestTitle": "Moderna språk",
+    "interestDescription": "Grundläggande ämne som omfattar studiet av främmande språk och deras kultur.",
+    "coreSubject": true
+  },
+  {
+    "interestId": "11",
+    "interestTitle": "Geografi",
+    "interestDescription": "Grundläggande ämne som omfattar studiet av jordens fysiska egenskaper, miljö och människors påverkan på landskapet.",
+    "coreSubject": true
+  },
+  {
+    "interestId": "12",
+    "interestTitle": "Sport",
+    "interestDescription": "Om du är sportintresserad kan du överväga universitet med starka idrottsprogram eller faciliteter.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "13",
+    "interestTitle": "Konst",
+    "interestDescription": "Detta kan inkludera bildkonst, scenkonst, musik, film osv.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "14",
+    "interestTitle": "Teknologi",
+    "interestDescription": "Om du är intresserad av områden som datavetenskap, AI, datavetenskap osv.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "15",
+    "interestTitle": "Design",
+    "interestDescription": "Detta kan vara grafisk design, industriell design, modedesign, inredningsdesign osv.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "16",
+    "interestTitle": "Byggning/Ingenjörsvetenskap",
+    "interestDescription": "Intressen för att konstruera strukturer, maskiner, enheter, system eller processer.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "17",
+    "interestTitle": "Affärer",
+    "interestDescription": "Om du är intresserad av entreprenörskap, marknadsföring, ekonomi osv.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "18",
+    "interestTitle": "Hälsovård",
+    "interestDescription": "Detta kan omfatta medicin, sjuksköterska, farmaci till folkhälsa osv.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "19",
+    "interestTitle": "Samhällsvetenskap",
+    "interestDescription": "Intressen inom områden som psykologi, sociologi, antropologi osv.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "20",
+    "interestTitle": "Miljö",
+    "interestDescription": "Om du brinner för miljövetenskap, bevarande, klimatförändringar osv.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "21",
+    "interestTitle": "Språk",
+    "interestDescription": "Intresse för att lära sig nya språk och kulturer.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "22",
+    "interestTitle": "Skrivande",
+    "interestDescription": "Detta kan vara skönlitterärt skrivande, journalistik osv.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "23",
+    "interestTitle": "Juridik",
+    "interestDescription": "Om du är intresserad av juridiska studier.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "24",
+    "interestTitle": "Utbildning",
+    "interestDescription": "Om du är intresserad av undervisning eller utbildningspolitik.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "25",
+    "interestTitle": "Forskning",
+    "interestDescription": "Om du gillar att utföra djupgående studier om olika ämnen.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "26",
+    "interestTitle": "Matlagning och konstnärlig utformning",
+    "interestDescription": "Om du är intresserad av matlagning, bakning, matpresentation osv.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "27",
+    "interestTitle": "Filosofi",
+    "interestDescription": "Om du gillar att tänka på och diskutera djupa, grundläggande frågor om existens, verklighet, kunskap osv.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "28",
+    "interestTitle": "Astronomi",
+    "interestDescription": "Om du är fascinerad av universum, stjärnor, planeter osv.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "29",
+    "interestTitle": "Geografi",
+    "interestDescription": "Om du är intresserad av jordens fysiska egenskaper och dess atmosfär, samt mänsklig aktivitet och hur den påverkar och påverkas av dessa.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "30",
+    "interestTitle": "Statsvetenskap",
+    "interestDescription": "Om du är intresserad av teorin och praktiken av politik och beskrivning och analys av politiska system och politiskt beteende.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "31",
+    "interestTitle": "Ekonomi",
+    "interestDescription": "Om du är intresserad av produktion, distribution och konsumtion av varor och tjänster.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "32",
+    "interestTitle": "Antropologi",
+    "interestDescription": "Om du är intresserad av studiet av människor, mänskligt beteende och samhällen i det förflutna och nutiden.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "33",
+    "interestTitle": "Sociologi",
+    "interestDescription": "Om du är intresserad av utvecklingen, strukturen och funktionen av mänsklig samhälle.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "34",
+    "interestTitle": "Psykologi",
+    "interestDescription": "Om du är intresserad av den mänskliga sinnet och dess funktioner.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "35",
+    "interestTitle": "Arkeologi",
+    "interestDescription": "Om du är intresserad av studiet av mänsklig historia och förhistoria genom utgrävning av platser och analys av artefakter och andra fysiska lämningar.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "36",
+    "interestTitle": "Teologi",
+    "interestDescription": "Om du är intresserad av studiet av religiösa tro, praktiker och erfarenheter.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "37",
+    "interestTitle": "Musik",
+    "interestDescription": "Om du är intresserad av att spela ett instrument, sjunga, komponera eller musikteori.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "38",
+    "interestTitle": "Dans",
+    "interestDescription": "Om du är intresserad av olika danstilar, koreografi eller danshistoria.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "39",
+    "interestTitle": "Fotografi",
+    "interestDescription": "Om du är intresserad av att ta och redigera foton, eller studera fotografiets historia.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "40",
+    "interestTitle": "Filmstudier",
+    "interestDescription": "Om du är intresserad av filmproduktion, filmkritik eller filmhistoria.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "41",
+    "interestTitle": "Litteratur",
+    "interestDescription": "Om du är intresserad av att läsa, analysera och skriva om litteratur.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "42",
+    "interestTitle": "Statistik",
+    "interestDescription": "Om du är intresserad av att samla, analysera, tolka, presentera och organisera data.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "43",
+    "interestTitle": "Jordbruk",
+    "interestDescription": "Om du är intresserad av jordbruk, trädgårdsskötsel eller jordbruksvetenskap.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "44",
+    "interestTitle": "Djurhållning",
+    "interestDescription": "Om du är intresserad av att studera biologin hos djur som är under människans kontroll.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "45",
+    "interestTitle": "Astronautik",
+    "interestDescription": "Om du är intresserad av teorin och praktiken att navigera utanför jordens atmosfär.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "46",
+    "interestTitle": "Robotik",
+    "interestDescription": "Om du är intresserad av att designa, konstruera, använda och tillämpa robotar.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "47",
+    "interestTitle": "Nanoteknik",
+    "interestDescription": "Om du är intresserad av manipulation av materia på en atomär, molekylär och supramolekylär skala.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "48",
+    "interestTitle": "Meteorologi",
+    "interestDescription": "Om du är intresserad av studiet av atmosfären, väder och klimat.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "49",
+    "interestTitle": "Geologi",
+    "interestDescription": "Om du är intresserad av den fasta jorden, dess bergarter och de processer genom vilka de förändras över tid.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "50",
+    "interestTitle": "Marinbiologi",
+    "interestDescription": "Om du är intresserad av organismer i havet eller andra marina vattendrag.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "51",
+    "interestTitle": "Skogsbruk",
+    "interestDescription": "Om du är intresserad av skapandet, förvaltningen, användningen, bevarandet och reparationen av skogar, skogsområden och relaterade resurser.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "52",
+    "interestTitle": "Stadsplanering",
+    "interestDescription": "Om du är intresserad av den tekniska och politiska processen som rör utvecklingen och utformningen av markanvändning och den byggda miljön.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "53",
+    "interestTitle": "Offentlig politik",
+    "interestDescription": "Om du är intresserad av skapandet, genomförandet och utvärderingen av lagar och förordningar.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "54",
+    "interestTitle": "Internationella relationer",
+    "interestDescription": "Om du är intresserad av relationerna mellan länder, de suveräna staternas roller, internationella organisationer, icke-statliga organisationer och multinationella företag.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "55",
+    "interestTitle": "Genus",
+    "interestDescription": "Om du är intresserad av studiet av kön och dess relation till andra aspekter av det sociala livet.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "56",
+    "interestTitle": "Lingvistik",
+    "interestDescription": "Om du är intresserad av den vetenskapliga studien av språk och dess struktur.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "57",
+    "interestTitle": "Arkitektur",
+    "interestDescription": "Om du är intresserad av studiet av byggnader, inklusive deras design och konstruktion, deras kulturella implikationer och deras historiska utveckling.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "58",
+    "interestTitle": "Kommunikation",
+    "interestDescription": "Om du är intresserad av studiet av mänsklig kommunikation, inklusive de verbala och icke-verbala meddelanden som en grupp individer utbyter under interaktion.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "59",
+    "interestTitle": "Journalistik",
+    "interestDescription": "Om du är intresserad av aktiviteten att samla, bedöma, skapa och presentera nyheter och information.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "60",
+    "interestTitle": "Biblioteksvetenskap",
+    "interestDescription": "Om du är intresserad av förvaltningen och spridningen av information, ofta genom ett offentligt eller institutionellt bibliotek.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "61",
+    "interestTitle": "Museologi",
+    "interestDescription": "Om du är intresserad av studiet av museer, deras historia, deras roll i samhället och deras särskilda metoder för allmän utbildning.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "62",
+    "interestTitle": "Hotell- och restaurangförvaltning",
+    "interestDescription": "Om du är intresserad av studiet av hotell- och restaurangbranschen, inklusive hotell, restauranger, kryssningsfartyg, nöjesparker, destination marknadsföringsorganisationer, konferenscenter och country clubs.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "63",
+    "interestTitle": "Fastighetsmäkleri",
+    "interestDescription": "Fokus på att förmedla köp, försäljning och uthyrning av fastigheter.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "64",
+    "interestTitle": "Fastighetsutveckling",
+    "interestDescription": "Inriktning på att planera och utveckla fastigheter för olika ändamål.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "65",
+    "interestTitle": "Fastighetsförvaltning",
+    "interestDescription": "Hantering och skötsel av fastigheter för att säkerställa deras värde och funktion.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "66",
+    "interestTitle": "Fastighetsjuridik",
+    "interestDescription": "Studium av lagar och förordningar som reglerar fastighetsaffärer och -förvaltning.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "67",
+    "interestTitle": "Fastighetsfinansiering",
+    "interestDescription": "Fokus på finansiella aspekter av fastighetsinvesteringar och transaktioner.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "68",
+    "interestTitle": "Personalhantering",
+    "interestDescription": "Om du är intresserad av hanteringen av människor inom en organisation.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "69",
+    "interestTitle": "Marknadsföring",
+    "interestDescription": "Om du är intresserad av marknadsföring och försäljning av produkter eller tjänster.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "70",
+    "interestTitle": "Ekonomi",
+    "interestDescription": "Om du är intresserad av hanteringen av pengar och investeringar.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "71",
+    "interestTitle": "Privatekonomi",
+    "interestDescription": "Hantering av personliga ekonomiska frågor som budgetering, sparande och skuldsättning.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "72",
+    "interestTitle": "Investment Banking",
+    "interestDescription": "Studie och tillämpning av finansiella tjänster som rådgivning, kapitalanskaffning, och företagsfusioner och förvärv, vanligtvis för större företag och institutioner.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "73",
+    "interestTitle": "Aktier",
+    "interestDescription": "Att köpa andelar av ett företag och förvänta sig ökning av värde och/eller utdelning över tiden.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "74",
+    "interestTitle": "Obligationer",
+    "interestDescription": "Att låna pengar till en organisation eller stat och förvänta sig ränta och återbetalning över tiden.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "75",
+    "interestTitle": "Fondinvestering",
+    "interestDescription": "Att investera i en portfölj av värdepapper som administreras av professionella förvaltare.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "76",
+    "interestTitle": "Råvaruhandel",
+    "interestDescription": "Att investera i fysiska varor såsom olja, guld, spannmål eller valutor.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "77",
+    "interestTitle": "Företagsekonomi",
+    "interestDescription": "Hantering av finansiella frågor inom företag, inklusive kapitalanskaffning, investeringsbeslut och riskhantering.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "78",
+    "interestTitle": "Finansmarknader",
+    "interestDescription": "Studium av aktie-, obligations- och derivatmarknader samt deras funktioner och reglering.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "79",
+    "interestTitle": "Finansiell analys",
+    "interestDescription": "Användning av kvantitativa metoder för att bedöma och förutsäga företags och investeringsprestationer.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "80",
+    "interestTitle": "Redovisning",
+    "interestDescription": "Om du är intresserad av mätning, bearbetning och kommunikation av finansiell information.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "81",
+    "interestTitle": "Entreprenörskap",
+    "interestDescription": "Om du är intresserad av processen att designa, lansera och driva ett nytt företag.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "82",
+    "interestTitle": "Offentlig förvaltning",
+    "interestDescription": "Om du är intresserad av genomförandet av regeringspolitik, teorin om offentlig förvaltning och beteendet hos offentliga tjänstemän.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "83",
+    "interestTitle": "Socialt arbete",
+    "interestDescription": "Om du är intresserad av att ge hjälp för att förbättra individens och samhällets sociala funktion.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "84",
+    "interestTitle": "Rådgivning",
+    "interestDescription": "Om du är intresserad av att hjälpa individer, familjer och grupper att uppnå mental hälsa, välbefinnande, utbildning och karriärmål.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "85",
+    "interestTitle": "Nutrition",
+    "interestDescription": "Om du är intresserad av vetenskapen som tolkar näringsämnena och andra ämnen i mat i relation till underhåll, tillväxt, reproduktion, hälsa och sjukdom hos en organism.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "86",
+    "interestTitle": "Fysioterapi",
+    "interestDescription": "Om du är intresserad av behandling av sjukdomar, skador eller deformiteter genom fysiska metoder som massage, värmebehandling och träning.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "87",
+    "interestTitle": "Arbetsterapi",
+    "interestDescription": "Om du är intresserad av användningen av bedömning och intervention för att utveckla, återhämta eller upprätthålla meningsfulla aktiviteter eller yrken hos individer, grupper eller samhällen.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "88",
+    "interestTitle": "Logopedi",
+    "interestDescription": "Om du är intresserad av behandling av tal- och kommunikationsstörningar.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "89",
+    "interestTitle": "Farmaci",
+    "interestDescription": "Om du är intresserad av vetenskapen och tekniken för att förbereda, distribuera och granska läkemedel och tillhandahålla ytterligare kliniska tjänster.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "90",
+    "interestTitle": "Veterinärmedicin",
+    "interestDescription": "Om du är intresserad av förebyggande, diagnos och behandling av sjukdom, störning och skada hos djur.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "91",
+    "interestTitle": "Inredningsdesign",
+    "interestDescription": "Dekorering och design av layout för bostadsutrymmen.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "92",
+    "interestTitle": "Mode design",
+    "interestDescription": "Design av kläder, följer modetrender, etc.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "93",
+    "interestTitle": "Utomhusaktiviteter",
+    "interestDescription": "Vandring, camping, fågelskådning, trädgårdsarbete, fiske, jakt, etc.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "94",
+    "interestTitle": "Konst och hantverk",
+    "interestDescription": "Målning, teckning, keramik, stickning, sömnad, etc.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "95",
+    "interestTitle": "Målning",
+    "interestDescription": "Konstform som använder färger och pigment för att skapa estetiska eller uttrycksfulla bilder på en yta.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "96",
+    "interestTitle": "Teckning",
+    "interestDescription": "Skapande av bilder med hjälp av olika ritmaterial som blyertspennor, kol, bläck, eller färgkritor.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "97",
+    "interestTitle": "Keramik",
+    "interestDescription": "Konsten att skapa objekt av bränd lera, inklusive keramik och porslin.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "98",
+    "interestTitle": "Stickning",
+    "interestDescription": "Skapandet av tygstycken genom att interlocka trådar med stickor eller maskiner.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "99",
+    "interestTitle": "Sömnad",
+    "interestDescription": "Processen att fästa eller sy ihop tyger med nål och tråd för att skapa textilprodukter.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "100",
+    "interestTitle": "Scenkonst",
+    "interestDescription": "Dans, sång, skådespeleri, spela musikinstrument, etc.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "101",
+    "interestTitle": "Brädspel",
+    "interestDescription": "Spel som spelas på en spelplan med brickor, tärningar eller kort, vanligtvis mot andra spelare.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "102",
+    "interestTitle": "Datorspel",
+    "interestDescription": "Elektroniska spel som spelas på en skärm och kontrolleras med hjälp av en handkontroll, tangentbord eller mus.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "103",
+    "interestTitle": "Kortspel",
+    "interestDescription": "Spel som spelas med en uppsättning spelkort, inklusive traditionella kortspel och samlarkortspel.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "104",
+    "interestTitle": "Pussel",
+    "interestDescription": "Uppgifter som kräver tänkande eller logik för att lösa, vanligtvis genom att sätta samman bitar för att bilda en komplett bild eller mönster.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "105",
+    "interestTitle": "Matlagning och bakning",
+    "interestDescription": "Prova nya recept, baka efterrätter, grilla, etc.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "106",
+    "interestTitle": "Resor",
+    "interestDescription": "Utforska nya platser, lära dig om olika kulturer, prova ny mat, etc.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "107",
+    "interestTitle": "Lärande",
+    "interestDescription": "Akademiska ämnen, språk, färdigheter, etc.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "108",
+    "interestTitle": "Socialisering",
+    "interestDescription": "Tid med vänner och familj, träffa nya människor, delta i sociala evenemang, etc.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "109",
+    "interestTitle": "Volontärarbete",
+    "interestDescription": "Hjälpa till på lokala skyddshem, delta i gemenskapsstädningar, mentorering, etc.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "110",
+    "interestTitle": "Fitness och hälsa",
+    "interestDescription": "Yoga, gym, meditation, näringslära, etc.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "111",
+    "interestTitle": "Teknologi",
+    "interestDescription": "Programmering, webbdesign, grafisk design, utforska ny teknik, etc.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "112",
+    "interestTitle": "Fotografi",
+    "interestDescription": "Landskapsfotografi, porträttfotografi, naturfotografi, etc.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "113",
+    "interestTitle": "Mode",
+    "interestDescription": "Följa trender, shoppa, designa kläder, etc.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "114",
+    "interestTitle": "Djur och natur",
+    "interestDescription": "Skötsel av husdjur, fågelskådning, trädgårdsarbete, bevarande, etc.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "115",
+    "interestTitle": "Samlarobjekt",
+    "interestDescription": "Frimärken, mynt, vintageartiklar, etc.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "116",
+    "interestTitle": "Hemförbättring",
+    "interestDescription": "Gör-det-själv-projekt, möbeltillverkning, trädgårdsarbete, etc.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "117",
+    "interestTitle": "Investering",
+    "interestDescription": "Aktier, fastigheter, kryptovaluta, etc.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "118",
+    "interestTitle": "Podcasts",
+    "interestDescription": "Lyssna på eller skapa podcasts om olika ämnen.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "119",
+    "interestTitle": "Filmer och TV-program",
+    "interestDescription": "Titta på, analysera eller diskutera filmer och serier.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "120",
+    "interestTitle": "Musik",
+    "interestDescription": "Lyssna på musik, gå på konserter, upptäcka nya artister, etc.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "121",
+    "interestTitle": "Astronomi",
+    "interestDescription": "Stjärnskådning, lära sig om himlakroppar, etc.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "122",
+    "interestTitle": "Historia",
+    "interestDescription": "Lära sig om olika perioder, civilisationer, historiska personer, etc.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "123",
+    "interestTitle": "Vetenskap",
+    "interestDescription": "Lära sig om olika vetenskapliga fält, genomföra experiment, etc.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "124",
+    "interestTitle": "Filosofi",
+    "interestDescription": "Diskutera livet, existensen, etik, etc.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "125",
+    "interestTitle": "Psykologi",
+    "interestDescription": "Förstå mänskligt beteende, känslor, kognitiva processer, etc.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "126",
+    "interestTitle": "Andlighet",
+    "interestDescription": "Meditation, yoga, mindfulness, etc.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "127",
+    "interestTitle": "Sociala medier",
+    "interestDescription": "Skapa innehåll, följa influencers, delta i online-communityn, etc.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "128",
+    "interestTitle": "Volontärarbete",
+    "interestDescription": "Hjälpa till på lokala skyddshem, delta i gemenskapsstädningar, mentorering, etc.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "129",
+    "interestTitle": "Magi och illusioner",
+    "interestDescription": "Utföra magiska trick, korttrick, etc.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "130",
+    "interestTitle": "Ståuppkomik",
+    "interestDescription": "Titta på, skriva eller utföra ståuppkomik.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "131",
+    "interestTitle": "Gör-det-själv-projekt",
+    "interestDescription": "Bygga möbler, göra hemförbättringar, skapa, etc.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "132",
+    "interestTitle": "Trädgårdsarbete",
+    "interestDescription": "Odla växter, grönsaker, blommor, etc.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "133",
+    "interestTitle": "Vinprovning",
+    "interestDescription": "Lära sig om och provsmaka olika typer av vin.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "134",
+    "interestTitle": "Kaffebryggning",
+    "interestDescription": "Testa olika bryggmetoder, bönor och smaker.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "135",
+    "interestTitle": "Fågelskådning",
+    "interestDescription": "Observation och lärande om olika fågelarter.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "136",
+    "interestTitle": "Yoga",
+    "interestDescription": "Praktisera olika positioner, förbättra flexibilitet och mindfulness.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "137",
+    "interestTitle": "Meditation",
+    "interestDescription": "Praktisera mindfulness, minska stress och ångest.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "138",
+    "interestTitle": "Löpning",
+    "interestDescription": "Delta i lopp, gå med i löparklubbar, terränglöpning.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "139",
+    "interestTitle": "Cykling",
+    "interestDescription": "Mountainbike, landsvägscykling, cykelturer.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "140",
+    "interestTitle": "Hållbart liv",
+    "interestDescription": "Minska avfall, kompostering, återvinning, etc.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "141",
+    "interestTitle": "Inredningsdesign",
+    "interestDescription": "Inredning och design av boendeytor.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "142",
+    "interestTitle": "Modedesign",
+    "interestDescription": "Design av kläder, följa modetrender, etc.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "143",
+    "interestTitle": "Programmering",
+    "interestDescription": "Lära sig olika programmeringsspråk, bidra till öppen källkod, etc.",
+    "coreSubject": true
+  },
+  {
+    "interestId": "144",
+    "interestTitle": "Science fiction och fantasy",
+    "interestDescription": "Läsa sci-fi och fantasy-böcker, delta i konvent, cosplay, etc.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "145",
+    "interestTitle": "Brädspel",
+    "interestDescription": "Spela strategiska brädspel, delta i brädspelsträffar, etc.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "146",
+    "interestTitle": "Serieböcker",
+    "interestDescription": "Läsa serieböcker, delta i seriekonvent, samla på sällsynta serietidningar, etc.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "147",
+    "interestTitle": "Robotik",
+    "interestDescription": "Bygga och programmera robotar, delta i robotiktävlingar, etc.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "148",
+    "interestTitle": "Elektronik",
+    "interestDescription": "Bygga kretsar, skapa DIY-elektroniska prylar, etc.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "149",
+    "interestTitle": "Schack",
+    "interestDescription": "Spela schack, studera schackstrategier, delta i schackturneringar, etc.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "150",
+    "interestTitle": "Spelutveckling",
+    "interestDescription": "Designa och utveckla datorspel, lära sig om spelmotorer, etc.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "151",
+    "interestTitle": "Kvantfysik",
+    "interestDescription": "Studera principerna för kvantmekanik, förstå komplexa teorier, etc.",
+    "coreSubject": true
+  },
+  {
+    "interestId": "152",
+    "interestTitle": "Lingvistik",
+    "interestDescription": "Lära sig om språkens struktur, studera fonetik, syntax, etc.",
+    "coreSubject": true
+  },
+  {
+    "interestId": "153",
+    "interestTitle": "Filosofi",
+    "interestDescription": "Dyk ner i metafysik, etik, logik, etc.",
+    "coreSubject": true
+  },
+  {
+    "interestId": "154",
+    "interestTitle": "Artificiell intelligens",
+    "interestDescription": "Studera maskininlärningsalgoritmer, neurala nätverk, etc.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "155",
+    "interestTitle": "Kryptologi",
+    "interestDescription": "Lära sig om kryptering, dekryptering och chiffer-system.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "156",
+    "interestTitle": "Dataanalys",
+    "interestDescription": "Arbeta med stora dataset, statistisk analys, prediktiv modellering, etc.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "157",
+    "interestTitle": "Maskininlärning",
+    "interestDescription": "Designa och implementera maskininlärningsmodeller, studera teorin bakom olika algoritmer, etc.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "158",
+    "interestTitle": "Anime",
+    "interestDescription": "Titta på anime, delta i animekonvent, etc.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "159",
+    "interestTitle": "Manga",
+    "interestDescription": "Läsa manga, delta i manga-events, etc.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "160",
+    "interestTitle": "Kryptovalutor",
+    "interestDescription": "Studera blockkedjeteknik, investera i kryptovalutor, etc.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "161",
+    "interestTitle": "Dungeons & Dragons",
+    "interestDescription": "Spela D&D, skapa kampanjer, bygga karaktärer, etc.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "162",
+    "interestTitle": "Cosplay",
+    "interestDescription": "Designa och skapa kostymer, delta i cosplay-evenemang, etc.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "163",
+    "interestTitle": "Star Trek/Star Wars",
+    "interestDescription": "Titta på serier/filmer, läsa böckerna, delta i fan-klubbar, etc.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "164",
+    "interestTitle": "Sagan om ringen",
+    "interestDescription": "Läsa böckerna, titta på filmerna, studera lore, etc.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "165",
+    "interestTitle": "Harry Potter",
+    "interestDescription": "Läsa böckerna, titta på filmerna, delta i fan-klubbar, etc.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "166",
+    "interestTitle": "Marvel/DC Comics",
+    "interestDescription": "Läsa serietidningar, titta på filmerna, följa karaktärerna, etc.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "167",
+    "interestTitle": "Retro-datorer",
+    "interestDescription": "Samla och restaurera gamla datorer, studera datorhistoria, etc.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "168",
+    "interestTitle": "Modelljärnvägar",
+    "interestDescription": "Bygga och driva modelljärnvägar, samla modelljärnvägar, etc.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "169",
+    "interestTitle": "Lego-byggande",
+    "interestDescription": "Skapa komplexa strukturer och modeller med Lego, samla sällsynta Lego-set, etc.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "170",
+    "interestTitle": "Paleontologi",
+    "interestDescription": "Studera fossil för att fastställa organismernas evolution och interaktioner med varandra och deras miljöer.",
+    "coreSubject": true
+  },
+  {
+    "interestId": "171",
+    "interestTitle": "Mytologi",
+    "interestDescription": "Studera myter från olika kulturer, inklusive grekisk, romersk, nordisk, egyptisk, etc.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "172",
+    "interestTitle": "Kvantmekanik",
+    "interestDescription": "Dyk ner i den grundläggande teorin inom fysiken som ger en beskrivning av naturens fysiska egenskaper på atom- och subatomisk nivå.",
+    "coreSubject": true
+  },
+  {
+    "interestId": "173",
+    "interestTitle": "Astrofysik",
+    "interestDescription": "Utforska principerna för astronomi och fysik, såsom tidens natur och universums ursprung.",
+    "coreSubject": true
+  },
+  {
+    "interestId": "174",
+    "interestTitle": "Bioinformatik",
+    "interestDescription": "Använda programvara och datormetodik för att förstå biologisk data, särskilt när det gäller DNA, RNA och proteinsekvensdata.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "175",
+    "interestTitle": "Mikrobiologi",
+    "interestDescription": "Studera mikroskopiska organismer, såsom bakterier, virus, arkeer, svampar och protozoer.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "176",
+    "interestTitle": "Neurovetenskap",
+    "interestDescription": "Lära sig om nervsystemets och hjärnans struktur och funktion.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "177",
+    "interestTitle": "Genetik",
+    "interestDescription": "Studera gener, genetisk variation och ärftlighet hos organismer.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "178",
+    "interestTitle": "Geologi",
+    "interestDescription": "Studera fast jord, de stenar den är sammansatt av och de processer genom vilka de förändras.",
+    "coreSubject": true
+  },
+  {
+    "interestId": "179",
+    "interestTitle": "Arkeologi",
+    "interestDescription": "Studera mänsklig historia och förhistoria genom utgrävning av platser och analys av artefakter och andra fysiska lämningar.",
+    "coreSubject": true
+  },
+  {
+    "interestId": "180",
+    "interestTitle": "Kartografi",
+    "interestDescription": "Studien och praxisen att göra och använda kartor.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "181",
+    "interestTitle": "Filologi",
+    "interestDescription": "Studiet av språk i muntliga och skriftliga historiska källor.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "182",
+    "interestTitle": "Epistemologi",
+    "interestDescription": "Studiet av kunskap, motivering och rationaliteten hos tro.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "183",
+    "interestTitle": "Logik",
+    "interestDescription": "Den systematiska studien av inferensformerna, de relationer som leder till antagandet av en proposition, slutsatsen, på grundval av en uppsättning andra propositioner, premissarna.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "184",
+    "interestTitle": "Etnografi",
+    "interestDescription": "Den systematiska studien av människor och kulturer, utformad för att utforska kulturella fenomen.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "185",
+    "interestTitle": "Heraldik",
+    "interestDescription": "Studiet av heraldiska vapen (vapensköldar), spårar deras historia och betydelse.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "186",
+    "interestTitle": "Numismatik",
+    "interestDescription": "Studiet eller samlar mynt, sedlar och medaljer.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "187",
+    "interestTitle": "Graffteori",
+    "interestDescription": "Studiet av grafer, som är matematiska strukturer som används för att modellera parvis relationer mellan objekt.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "188",
+    "interestTitle": "Topologi",
+    "interestDescription": "Studiet av egenskaper som bevaras under kontinuerliga deformationer, såsom sträckning, skrynklighet och böjning, men inte sönderdelning eller limning.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "189",
+    "interestTitle": "Kvantberäkning",
+    "interestDescription": "Studieområdet som fokuserar på att utveckla datorbaserade teknologier som är centrerade kring kvantteorins principer.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "190",
+    "interestTitle": "Astrobiologi",
+    "interestDescription": "Studiet av livets ursprung, evolution, fördelning och framtid i universum.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "191",
+    "interestTitle": "Kryptografi",
+    "interestDescription": "Praktiken och studiet av tekniker för säker kommunikation i närvaro av tredje part.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "192",
+    "interestTitle": "Paleografi",
+    "interestDescription": "Studiet av antika skriftsystem och dechiffrering och datering av historiska manuskript.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "193",
+    "interestTitle": "Bioengineering",
+    "interestDescription": "Användningen av biologins principer och ingenjörskapets verktyg för att skapa användbara, materiella, ekonomiskt lönsamma produkter.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "194",
+    "interestTitle": "Nanovetenskap",
+    "interestDescription": "Studiet av fenomen och manipulation av material på atom-, molekylär- och makromolekylär nivå.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "195",
+    "interestTitle": "Myrmekologi",
+    "interestDescription": "Den vetenskapliga studien av myror, en gren av entomologi.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "196",
+    "interestTitle": "Ornitologi",
+    "interestDescription": "Den vetenskapliga studien av fåglar.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "197",
+    "interestTitle": "Ichtyologi",
+    "interestDescription": "Den vetenskapliga studien av fiskar.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "198",
+    "interestTitle": "Herpetologi",
+    "interestDescription": "Grenen av zoologi som rör sig om studiet av grodor och kräldjur.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "199",
+    "interestTitle": "Hållbarhet",
+    "interestDescription": "Intresse för hållbart liv, förnybar energi, bevarande, etc.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "200",
+    "interestTitle": "Arkeoastronomi",
+    "interestDescription": "Studiet av hur tidigare civilisationer förstod fenomenen på himlen, hur de använde dessa fenomen i sin kultur och vilken roll himlen spelade i kulturen.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "201",
+    "interestTitle": "Genealogi",
+    "interestDescription": "Studiet och spårningen av familjelinjer och historia.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "202",
+    "interestTitle": "Kampsport",
+    "interestDescription": "Praktik eller studium av olika discipliner inom kampsport.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "203",
+    "interestTitle": "Parkour",
+    "interestDescription": "Aktivitet eller sport som går ut på att röra sig snabbt genom ett område, vanligtvis i en stadsmiljö, och ta sig över hinder genom att springa, hoppa och klättra.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "204",
+    "interestTitle": "Bryggning",
+    "interestDescription": "Göra ditt eget öl, vin eller sprit hemma.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "205",
+    "interestTitle": "Fodring",
+    "interestDescription": "Söka efter vilda matresurser.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "206",
+    "interestTitle": "Meteorologi",
+    "interestDescription": "Studiet av väder, klimat och de atmosfäriska förhållanden som producerar väder.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "207",
+    "interestTitle": "Permakultur",
+    "interestDescription": "Utvecklingen av jordbruks-ekosystem som är avsedda att vara hållbara och självförsörjande.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "208",
+    "interestTitle": "Radio",
+    "interestDescription": "Amatörradiooperation, skapande av podcaster, etc.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "209",
+    "interestTitle": "Keramik",
+    "interestDescription": "Skapa objekt med lera och andra keramiska material.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "210",
+    "interestTitle": "Kalligrafi",
+    "interestDescription": "Design och utförande av bokstäver med ett brett spetsat instrument, pensel eller annan skrivutrustning.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "211",
+    "interestTitle": "Akvariehållning",
+    "interestDescription": "Underhålla ett hemakvarium med fiskar eller andra akvatiska husdjur.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "212",
+    "interestTitle": "Fågelskådning",
+    "interestDescription": "Observera fåglar i deras naturliga miljöer som en hobby.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "213",
+    "interestTitle": "Filateli",
+    "interestDescription": "Att samla eller studera frimärken.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "214",
+    "interestTitle": "Amatörradio",
+    "interestDescription": "Användning av olika typer av radioutrustning för att kommunicera med andra radiolyssnare för allmän service, rekreation och egen träning.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "215",
+    "interestTitle": "Modellbygge",
+    "interestDescription": "Skapa repliker av objekt eller strukturer i en mindre skala, som modellbilar, båtar, flygplan och tåg.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "216",
+    "interestTitle": "Trädgårdsskötsel",
+    "interestDescription": "Odla och vårda växter.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "217",
+    "interestTitle": "Biodling",
+    "interestDescription": "Underhåll av bikupor, vanligtvis i bikupor, av människor.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "218",
+    "interestTitle": "Möbelrenovering",
+    "interestDescription": "Processen att återställa gamla möbler till sitt ursprungliga utseende och funktionalitet.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "219",
+    "interestTitle": "Hembryggning",
+    "interestDescription": "Bryggning av öl, sake, cider, mjöd och andra drycker genom jäsning i liten skala som en hobby.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "220",
+    "interestTitle": "Scrapbooking",
+    "interestDescription": "Skapa och bevara fotoalbum som ofta är dekorerade och kommenterade.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "221",
+    "interestTitle": "Bilar",
+    "interestDescription": "Intresse för bilar, inklusive deras design, teknik, historia och kulturella betydelser.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "222",
+    "interestTitle": "Flygplan",
+    "interestDescription": "Intresse för flygplan, inklusive deras design, funktion, historia och roll i luftfarten.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "223",
+    "interestTitle": "Båtar",
+    "interestDescription": "Intresse för båtar och fartyg, inklusive deras konstruktion, navigering, historia och användningsområden.",
+    "coreSubject": false
+  },
+  {
+    "interestId": "224",
+    "interestTitle": "Hav",
+    "interestDescription": "Intresse för havet som en ekosystem, resurs, miljö och plats för utforskning och rekreation.",
+    "coreSubject": false
+  }
+]
