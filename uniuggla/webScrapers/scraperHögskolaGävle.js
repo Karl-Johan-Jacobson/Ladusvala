@@ -8,6 +8,8 @@ let titleReturn = {programTitle_sv:"" , programPoints: "", programDesciption_sv:
 // Take list of urls as arg and parse, will make ID work better.
 // build master scraper?, with all school scrapers that parse "school" from list and uses correct scraper.
 async function scrapeHIG(url,programId) {
+  await new Promise(r => setTimeout(r, 100));
+
     headers = { // Can now scrape Uppsala by manually adding "User-Agent" and "Cookie" copy-pasted from website manually.
         "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4 Safari/605.1.15",
         "Cookie": "BBN7a6436d9053=088d4528d9ab200002830c2dc7a7508dec0e3aadefeb1b4304db63fe1991875c525c22dad9a1bc3a08edbb6f20113000ced1cfa8038d282000108af5c7a06d859381b780c5fab49020e38abcb0dc6ce1210fee6e5e878ed61fc07cff54ff41ef; BBN0183c630=0135ab579ada7d65db5b3739bcbe4aa80fd701dfce5ca078bda8f6ef3932ddc2767335367dd09ed30e3044bb0da2239e3a40f3ba4c6f2e83a601ac14fbb5447497411132499874047802da03dd4aab0948aa0d1a3d6ccc4bac74683b017f1abbca06147baf; JSESSIONID=E9E68C1ADDA360D917F9EF8F96596C0D; sv-cookie-consent=.bm1zdGF0LHJzcGtybG9hZGNvcmUscmVhZHNwZWFrZXJzZXR0aW5ncyxkY3JzZXR0aW5ncw==; SiteVisionLTM=!09ENu2ZKRCEcanPenlzEFn0oniVgynPuL0U3q8UizhmnzUm5aIJv0hm8dKBU0EpHCH+wVJbzYgZZ; _tpc_persistance_cookie=!+RDfiAWmpP/2qz3FX0w2qKR+RWxhhrIEp1eGbq15q4aoG582JJh3RvvLgtwefrPHDIpTmv0JfpWkqA=="

@@ -13,6 +13,7 @@ let titleReturn = {
 // Take list of urls as arg and parse, will make ID work better.
 // build master scraper?, with all school scrapers that parse "school" from list and uses correct scraper. Will make ID work easier.
 async function scrapeMalardalen(url,programId) {
+  
   await new Promise(r => setTimeout(r, 500));
   request(url, (error, response, html) => {
     if (!error && response.statusCode == 200) {
@@ -59,6 +60,6 @@ async function scrapeMalardalen(url,programId) {
     //programId_sv|programUniversity_sv|programTitle_sv|programDescription_sv|programPoints_sv|programYears_sv|programRequirements_sv|programAiDescription_sv|programPlace_sv|programDegree_sv|programLink
   });
 }
-scrapeMalardalen("https://www.mdu.se/utbildning/program/barnmorskeprogrammet",1);
+//scrapeMalardalen("https://www.mdu.se/utbildning/program/visualisering-och-textdesign---informationsdesign",1);
 
 module.exports = scrapeMalardalen;

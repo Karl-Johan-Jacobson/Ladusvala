@@ -11,6 +11,8 @@ let titleReturn = {
 };
 
 async function scrapeHV(url, programId) {
+  await new Promise(r => setTimeout(r, 100));
+
   request(url, (error, response, html) => {
     if (!error && response.statusCode == 200) {
       const $ = cheerio.load(html);
