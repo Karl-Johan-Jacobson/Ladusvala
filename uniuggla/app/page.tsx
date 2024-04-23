@@ -1,11 +1,6 @@
 "use client"; // Makes it so it is on client side instead of server side because of the function components.
-import Image from "next/image";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
-import TypewriterComponent from "typewriter-effect";
-import InterestsPage from "./interest_select/page";
-import recommendProgramFromInterest from "@/ai/AiHandler";
 import InterestList from "@/components/client/Interest";
 
 import { handleYesButtonClick, handleRecommendationButtonClick } from "@/app/utils";
