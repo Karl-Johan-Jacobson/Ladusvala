@@ -1,2 +1,6 @@
-./uniuggla/package-lock.json
-./uniuggla/package.json
+uniuggla/package-lock.json
+uniuggla/package.json
+
+uniuggla/public/dataset/intrests.*
+uniuggla/public/dataset/programs.*
+uniuggla/webScrapers/test.*

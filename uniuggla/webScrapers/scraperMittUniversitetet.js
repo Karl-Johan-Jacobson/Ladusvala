@@ -2,43 +2,45 @@ const request = require("request");
 const cheerio = require("cheerio");
 const fs = require("fs");
 //   "type": "commonjs", i package.json för scrape
-
-let titleReturn = {programTitle_sv:"" , programPoints: "", programDesciption_sv: "", programLink: "",programId:""};
-
+// Currently does not work due to "403 Forbidden - Probably scrape detector"
+let titleReturn = {
+  programTitle_sv: "",
+  programPoints: "",
+  programDesciption_sv: "",
+  programLink: "",
+  programId: "",
+};
 
 // Take list of urls as arg and parse, will make ID work better.
 // build master scraper?, with all school scrapers that parse "school" from list and uses correct scraper.
-async function scrapeLund(url,programId) {
+async function scrapeMittUniversitetet(url,programId) {
   request(url, (error, response, html) => {
     if (!error && response.statusCode == 200) {
       const $ = cheerio.load(html);
 
-      const titleBody = $(".layout__region--main"); // Article class ref
+      const titleBody = $(".container"); // Article class ref
       const title = titleBody.find("h1").text().trim(); // title holds name of program name
-      titleReturn.programTitle_sv = title;
+      //titleReturn.programTitle_sv = title;
+      console.log("TITLE:" + title);
+      //const hpBody = $(".snabbfakta li");
 
-      const programInfoBody = $(".field__kicker p");
-      const programInfo = programInfoBody.first().text().trim(); // Holds "Program X högskolepoäng * Y år * Kandidatexamen"
+      /*
+      const hp = titleBody.find("span").first().text().trim(); // Holds "Program X högskolepoäng * Y år * Kandidatexamen"
   
+      console.log("HP: "+ hp);
       //const leadSubBody = $(".lead p"); // lead class's p elements to subBody
       //const shortDesc = leadSubBody.first().text(); // get first p and convert from HTML to text
       
-      const shortDescBody = $(".field__lead");
+      const shortDescBody = $(".ingress");
       const shortDesc = shortDescBody.first().text().trim(); // Holds short desciption of program
+      console.log("Short Desc: "+shortDesc);
 
-      console.log("title: "+title+"\n");
-      console.log("prog.info: "+programInfo+"\n");
-      console.log("shortDesc: "+ shortDesc+"\n");
-
-
-
-      
-      let programInfoItems = [];
-      programInfoItems = programInfo.split("·");
-      console.log("after split:" + programInfoItems);
+      let hpItems = [];
+      hpItems = hp.split("·");
+      console.log("after split:" + hpItems);
       const regex = /\d+/g;
 
-      const num = programInfoItems[0].match(regex);
+      const num = hpItems[0].match(regex);
       console.log(num[0]);
 
       titleReturn.programTitle_sv = title;
@@ -46,27 +48,23 @@ async function scrapeLund(url,programId) {
       titleReturn.programDesciption_sv = shortDesc;
       titleReturn.programLink = url;
       titleReturn.programId = programId;
-      
-      //console.log(titleFinal);
-      console.log("titleReturn: "+titleReturn);
-    } else {
-      console.log("ERROR CONNECTING:" + error);
-      titleReturn.programLink = url;
-      titleReturn.programId = ("ERROR: "+response.statusCode);
-    }
-
-    
-    fs.appendFile("test.json", JSON.stringify(titleReturn, null, 2) + ","+"\n", (err) => {
+      fs.writeFile("linköping.json", JSON.stringify(titleReturn, null, 2), (err) => {
       if (err) {
         console.error(err);
         return;
       }
       console.log("Successfully written data to file");
     });
-
+      
+      */
+      //console.log(titleFinal);
+      //console.log("titleReturn: "+titleReturn);
+    } else {
+      console.log("ERROR CONNECTING:" + error + response.statusCode);
+    }
 
     //programId_sv|programUniversity_sv|programTitle_sv|programDescription_sv|programPoints_sv|programYears_sv|programRequirements_sv|programAiDescription_sv|programPlace_sv|programDegree_sv|programLink
   });
 }
-//scrapeLund("https://www.lu.se/lubas/i-uoh-lu-EGEKO");
-module.exports = scrapeLund;
+//scrape("https://www.miun.se/utbildning/program/additiv/");
+module.exports = scrapeMittUniversitetet;
