@@ -187,15 +187,32 @@ header {
   color: white;
 }
 */
+
+.interestWrapper {
+  height: min-content;
+  width: max-content;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: 0vw auto 6vw;
+  padding-bottom: 1vw;
+  z-index: 1;
+  transition: 0.5s ease;
+  overflow-y: auto;
+
+}
 .notSelectedInterestList {
   display: grid;
   grid-template-columns: repeat(5, 1fr); /* 5 columns */
   grid-template-rows: repeat(2, auto); /* 2 rows */
-  grid-gap: 10px; /* Adjust gap between grid items */
-  margin-top: 100px;
+  grid-gap: 40px;
+  margin-top: 20px;
   max-width: fit-content;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 30px;
   max-height: 200px;
 }
 
@@ -203,17 +220,11 @@ header {
   display: grid;
   grid-template-columns: repeat(5, 1fr); /* 5 columns */
   grid-template-rows: repeat(2, auto); /* 2 rows */
-  grid-gap: 10px; /* Adjust gap between grid items */
+  grid-gap: 40px;
   max-width: fit-content;
   margin-left: auto;
   margin-right: auto;
   min-height: 100px;
-}
-
-.interests{
-  padding: 10px;
-  border: 1px solid #ccc;
-  text-align: center;
 }
 
 .customInterestForm{
@@ -222,6 +233,89 @@ header {
   margin-right: auto;
   margin-top: 20px;
 }
+
+.iconButton {
+  position: relative;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: inline-block;
+}
+.iconText {
+  font-family: 'Tomorrow';
+  font-style: italic;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  color: whitesmoke;
+}
+.iconButton svg {
+  width: 100px;
+  height: 70px; 
+  z-index: 0;
+}
+
+.icon:hover {
+  box-shadow: 0 0 11px rgba(33,33,33,.2); 
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 0,5s ease-in;
+}
+
+.addInterestField{
+  font-size: 26px;
+  border: 1px solid grey;
+  width: 89%;
+  background: #DFFDE0;
+  border-right: none;
+  height: 35px;
+  margin-top: none;
+  padding-top: none;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  box-shadow:inset 0 0 2px 2px gray
+}
+
+.addInterestField::placeholder{
+  font-family: 'Tomorrow';
+  font-size: 20px;
+  color: #9ECB98;
+  text-align: center;
+  font-style: italic;
+}
+
+.addInterestButton{
+  width: 10%;
+  background: #9ECB98;
+  height: 36.6px;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none; 
+  cursor: pointer;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.shuffleButton{
+float: right;
+}
+
+.recommendationButton{
+  margin-top: 25px;
+}
+
+.recommendationButton p{
+  font-size: 30px;
+  font-family: 'Tomorrow';
+  font-style: italic;
+  color: #9ECB98;
+}
+
 /*
   End of Intrest
   ---===---===---===---===---===---===---===---===---===---

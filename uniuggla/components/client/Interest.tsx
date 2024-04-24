@@ -5,7 +5,7 @@ import InterestType from "@/types/interest";
 import InterestItem from "./InterestItem";
 import { v4 as uuidv4 } from "uuid";
 import Link from "next/link";
-export const NUMBER_OF_INTERESTS = 9;
+export const NUMBER_OF_INTERESTS = 10;
 
 interface InterestProps {
 	handleRecommendationButtonClick: (interest: string[]) => void;
@@ -116,35 +116,36 @@ const Interest: React.FC<InterestProps & { interest: InterestType[] }> = ({ hand
 			<div className="typewriter typewriter_question questionDiv" style={{ marginTop: "0vw" }}>
 				<p className="bot question"></p>
 			</div>
-			<div className="selectedInterest
-		">
+			<div className="selectedInterestList">
 				{selectedInterests.map((interest) => (
 					<InterestItem onSelect={handleDeselect} interest={interest} isSelected={true} key={interest.interestId} />
 				))}
 			</div>
-			<div className="notSelectedInterest
-		">
+			<div className="notSelectedInterestList">
 				{notSelected.map((interest) => (
 					<InterestItem onSelect={handleSelect} interest={interest} isSelected={false} key={interest.interestId} />
 				))}
 			</div>
 			<div className="customInterestForm">
-				<form onSubmit={addCustomInterest}>
-					<input type="text" value={customInterest} onChange={handleUpdate} required className="" />
-					<button type="submit" className="">
-						Add interest
+				<form onSubmit={addCustomInterest} className="form">
+					<input placeholder="Skriv ett intresse ..." type="text" value={customInterest} onChange={handleUpdate} required className="addInterestField" />
+					<button type="submit" className="addInterestButton">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#DFFDE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24">
+              <path d="M12 5v14M5 12h14" />
+            </svg>
 					</button>
 				</form>
-				<button onClick={shuffle} className="">
-					Refresh
-				</button>
-				<div>
-					<button className="recommendationButton answerButton" onClick={handleRecommend}>
-						<p className="user">Recommendation</p>
-					</button>
-				</div>
-			</div>
-		</div>
+        <button className="recommendationButton answerButton" onClick={handleRecommend}>
+          <p className="user"> &gt;&gt; Hitta min drömutbildning &lt;&lt; </p>
+        </button>
+        <button onClick={shuffle} className="shuffleButton iconButton">
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <path fill="#9ECB98" d="M51.3,-58.6C66.3,-48.4,78.4,-32.2,81.6,-14.3C84.8,3.5,79.2,23,69.7,40.8C60.1,58.7,46.6,74.8,29,82.5C11.3,90.1,-10.4,89.3,-26.2,80.1C-42,70.9,-51.8,53.2,-61.7,35.8C-71.7,18.3,-81.7,1.1,-80.9,-16.2C-80.2,-33.4,-68.6,-50.7,-53.3,-60.8C-38,-70.9,-19,-74,-0.4,-73.5C18.1,-72.9,36.2,-68.8,51.3,-58.6Z" transform="translate(100 100)" />
+        </svg>
+        <span className="iconText">Ge mig nya intressen</span>
+      </button>
+      </div>
+    </div>
 	);
 };
 

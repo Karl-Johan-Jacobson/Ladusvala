@@ -4,4 +4,4 @@ type InterestType = {
 	interestDescription: string;
 };
 
-export default Interest;
+export default InterestType;
