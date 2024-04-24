@@ -35,3 +35,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# data
+uniuggla/public/dataset/intrests.*
+uniuggla/public/dataset/programs.*
+
+# webscrapers
+webScrapers/test.*
+webScrapers/manuelScraping.json
