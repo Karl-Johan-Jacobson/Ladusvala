@@ -2,6 +2,8 @@
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import InterestList from "@/components/client/Interest";
+import { TypewriterForTitle } from "@/components/client/TypeWriter";
+import { modifyTopPadding, modifyTopPaddingRelative } from "@/app/utils";
 
 import { handleYesButtonClick, handleRecommendationButtonClick } from "@/app/utils";
 // Import for subpages
@@ -20,12 +22,7 @@ export default function Home() {
 	}
 	// values for js animations
 	const speed = 40;
-	const delayBetweenGreetigAndQuestion = 500;
-	const delayBetweenQuestionAndAnswer = 500;
-	const greeting = ["Hej!", "greeting", "typewriter", "typewriter_greeting"];
-	const moveGreeting = ["1vw", "welcome"];
-	const moveQuestion = ["5vw", "questionDiv"];
-	const question = ["Vill du gå på högskola eller universitet?", "question", "typewriter", "typewriter_question"];
+	const extraButtonDelay = 300;
 	const moveAnswer = ["8vw", "answers"];
 
 	// Starting animationn
@@ -79,17 +76,11 @@ export default function Home() {
 			});
 		};
 		// Funciton for iniatal js animations
-		typeWriter(greeting[0], greeting[1]);
+		var typeWriterDelay = TypewriterForTitle("Hej!<br />Vill du gå på högskola eller universitet?", "welcomeText");
 		const timeoutId = setTimeout(() => {
-			removeParent(greeting[2], greeting[3]);
-			modifyTopPadding(moveGreeting[0], moveGreeting[1]);
-			modifyTopMargin(moveQuestion[0], moveQuestion[1]);
-			typeWriter(question[0], question[1]);
-			setTimeout(() => {
-				modifyTopMargin(moveAnswer[0], moveAnswer[1]);
-				modifyOpacity("1", moveAnswer[1]);
-			}, question[0].length * speed + delayBetweenQuestionAndAnswer);
-		}, greeting[0].length * speed + delayBetweenGreetigAndQuestion);
+			modifyTopMargin(moveAnswer[0], moveAnswer[1]);
+			modifyOpacity("1", moveAnswer[1]);
+		}, typeWriterDelay + extraButtonDelay);
 
 		return () => {
 			if (typeWriterInterval) {

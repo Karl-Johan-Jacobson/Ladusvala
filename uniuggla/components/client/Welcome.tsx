@@ -1,19 +1,15 @@
 import React from "react";
-
+import { modifyTopPadding, modifyTopPaddingRelative } from "@/app/utils";
 interface WelcomeProps {
 	handleNoButtonClick: () => void;
 	handleYesButtonClick: () => void;
 }
 
 const Welcome: React.FC<WelcomeProps> = ({ handleNoButtonClick, handleYesButtonClick }) => {
+	
 	return (
-		<div className="wrapper welcomeWrapper welcome" style={{ paddingTop: "10vw" }}>
-			<div className="typewriter typewriter_greeting greetingDiv">
-				<p className="bot greeting"></p>
-			</div>
-			<div className="typewriter typewriter_question questionDiv" style={{ marginTop: "0vw" }}>
-				<p className="bot question"></p>
-			</div>
+		<div className="wrapper welcomeWrapper">
+			<p className="bot titleTypewriter welcomeText" style={{ paddingTop: "15vh" }}></p>
 			<div className="answers" style={{ marginTop: "5vw", opacity: "0" }}>
 				<button className="yesButton answerButton" onClick={handleYesButtonClick}>
 					<p className="user">Ja</p>

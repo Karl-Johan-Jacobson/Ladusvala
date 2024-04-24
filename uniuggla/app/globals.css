@@ -1,5 +1,7 @@
 * {
   --primary-light-green: #DFFDE0;
+  --primary-medium-green: #C6F0C3;
+  --medium-green: #9ECB98;
   --primary-dark-green: #37552B;
   --primary-dark-purple: #4F1EB0;
   --primary-border-width: 0.2vw;
@@ -27,70 +29,50 @@ body {
   margin: 0px !important;
   padding: 0px !important;
 }
-/* Is the font for the the buttons */
-@font-face { 
-  font-family: 'RobotSerif';
-  src: url(./../public/RobotoSerif-Medium.ttf);
-}
 /* Is the font for the text for instance question title and greetings, etc */
 @font-face {
   font-family: 'Tomorrow';
-  src: url(./../public/Tomorrow-Medium.ttf);
+  src: url(./../public/fonts/Tomorrow-Medium.ttf);
+  font-weight: medium;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Tomorrow';
+  src: url(./../public/fonts/Tomorrow-MediumItalic.ttf);
+  font-weight: medium;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Tomorrow';
+  src: url(./../public/fonts/Tomorrow-Regular.ttf);
+  font-weight: light;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Tomorrow';
+  src: url(./../public/fonts/Tomorrow-SemiBold.ttf);
+  font-weight: bold;
+  font-style: medium;
 }
 /* Class for the text */
 .bot {
-  font-family: 'Tomorrow';
   color: var(--primary-dark-purple);
-}
-.tempTypewriter {
-  font-family: 'Tomorrow';
-  color: var(--primary-dark-purple);
-  font-size: 4vw;
-}
-.tempdDivTypewriter
-{
-  width:auto
 }
 /* Class for the user interaction */
-.user { 
-  font-family: 'RobotSerif';
-  color: #9ECB98;
+.user {
+  color: var(--medium-green);
 }
 /* Class for the alternatives "Hitta program", "Räkna antagningspoäng", "Se behörighetskrav", and "Om oss" */
-.siteNavigation { 
-  font-family: 'Tomorrow';
-  color: #61855A;
+.siteNavigation {
+  color: var(--medium-green);
 }
 /* Standard styling for text */
 p {
+  font-family: 'Tomorrow';
   font-weight: normal;
+  font-style: normal;
   text-align: center;
 }
-/* Styling for the greeting ("Hej!") typewriter animation */
-.typewriter_greeting p {
-  border-right: .15em solid var(--primary-dark-purple);
-  white-space: nowrap;
-  margin: 0 auto;
-  letter-spacing: 0;
-  animation:
-    blink-caret .75s step-end infinite 1s; 
-}
-/* Styling for the question ("Vill du gå på högskola eller universitet?") typewriter animation */
-.typewriter_question p {
-  border-right: .15em solid var(--primary-dark-purple);
-  white-space: nowrap;
-  margin: 0 auto;
-  letter-spacing: 0;
-  animation: 
-    blink-caret .75s step-end infinite 1s; 
-}
-
-/* keyframes takes care of the functionality of the typewriter animation */
-@keyframes blink-caret {
-  from, to { border-color: transparent; }
-  50% { border-color: var(--primary-dark-purple); }
-}
-
 /*Used for formating HTTP response code page*/
 .__className_aaf875{
   background-color: var(--primary-light-green) !important;
@@ -132,9 +114,9 @@ header {
   Start of Main
 */
 /* Positioning of the typewriter animation*/
-.typewriter {
-  width: min-content;
+.titleTypewriter {
   margin: 0 auto;
+  line-height: 1.5em;
 }
 .container {
   height: 100vh;
@@ -145,18 +127,19 @@ header {
 }
 .wrapper {
   height: auto;
-  width: max-content;
+  width: auto;
   position: absolute;
   left: 0;
   right: 0;
   top: 0;
   bottom: 0;
   margin: 0vw auto 6vw;
-  padding-bottom: 1vw;
+  padding: 0 10vh 1vw;
   z-index: 1;
   transition: 0.5s ease;
   overflow-y: auto;
 }
+
 .wrapper::-webkit-scrollbar {
   display: none;
 }
@@ -200,14 +183,11 @@ header {
   Start of Welcome
 */
 /* Styling for the question and greeting class */
-.greetingDiv, .questionDiv {
-  margin: 0 auto;
-  transition: margin-top 0.5s ease;
-}
-.question, .greeting{
+.titleTypewriter {
   font-family: 'Tomorrow';
   color: var(--primary-dark-purple);
-  font-size: 4vw;
+  font-size: 5vh;
+  transition: padding-top 0.2s ease;
 }
 /*
   End of Welcome
@@ -223,18 +203,19 @@ header {
 .interestWrapper {
   height: min-content;
   width: max-content;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  margin: 0vw auto 6vw;
-  padding-bottom: 1vw;
-  z-index: 1;
-  transition: 0.5s ease;
-  overflow-y: auto;
-
 }
+
+.selectedInterestList {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 columns */
+  grid-template-rows: repeat(2, auto); /* 2 rows */
+  grid-gap: 40px;
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  /*min-height: 100px;*/
+}
+
 .notSelectedInterestList {
   display: grid;
   grid-template-columns: repeat(5, 1fr); /* 5 columns */
@@ -246,17 +227,6 @@ header {
   margin-right: auto;
   margin-bottom: 30px;
   max-height: 200px;
-}
-
-.selectedInterestList {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr); /* 5 columns */
-  grid-template-rows: repeat(2, auto); /* 2 rows */
-  grid-gap: 40px;
-  max-width: fit-content;
-  margin-left: auto;
-  margin-right: auto;
-  min-height: 100px;
 }
 
 .customInterestForm{
@@ -365,7 +335,7 @@ float: right;
   height: inherit;
   display: flex;
   border: var(--primary-border-width)solid #37552B;
-  border-radius: 0.5vw;
+  border-radius: var(--primary-border-radius);
   position: relative;
 }
 .filter input {
@@ -374,7 +344,7 @@ float: right;
   width: 17vw;
   display: flex;
   border: none;
-  border-radius: 0.5vw;
+  border-radius: var(--primary-border-radius);
   padding-left: 1vw;
   font-size: 120%;
 }
@@ -383,10 +353,10 @@ float: right;
   right: calc(-1*var(--primary-border-width));
   height: 3vw;
   width: 3vw;
-  border: var(--primary-border-width)solid #37552B;
-  border-radius: 0.5vw;
+  border: var(--primary-border-width)solid var(--primary-dark-green);
+  border-radius: var(--primary-border-radius);
   position: absolute;
-  background-color: #9ECB98;
+  background-color: var(--medium-green);
 }
 .filterImg {
   height: 70%;
@@ -395,7 +365,59 @@ float: right;
   transform: translate(-50%, -50%);
   position: absolute;
 }
+.recommendedWrapper{
+  width: 80%;
+  margin: 4vw auto 0;
+  position: relative;
+}
+.recommendedBox {
+  margin-bottom: 1vw;
+  border: var(--primary-border-width)solid var(--primary-dark-purple);
+  border-radius: var(--primary-border-radius);
+  border-color: var(--primary-dark-purple);
+  background-color: var(--primary-medium-green);
+  padding: 1vw;
+}
+.recommendedHead {
+}
+.recommendedHead p {
+  text-align: left;
+}
+.recommendedDescription {
+}
+.tilteReq {
+  font-size: 1.6vw;
+  color: var(--primary-dark-purple);
+}
+.descriptionReq {
+  display: inline-block;
+  font-size: 1.2vw;
+  color: var(--primary-dark-green);
+}
+.schoolReq, .degreeReq, .pointsReq {
+  border-right:var(--primary-border-width)solid var(--medium-green);
+  padding-right: 0.5em;
+}
+.degreeReq, .pointsReq, .yearsReq {
+  padding-left: 0.5em;
+}
+.motiveReq:hover {
+  color: var(--primary-light-purple);
+}
+.showDescription {
+  border: 0;
+  background-color: inherit;
+  display: flex;
+}
+.showDescription * {
+  display: inline-block;
+  text-decoration: underline;
+}
+.expandArrow {
+  height: 60%;
+  margin: auto 1vw auto 0;
 
+}
 /*
   End of Recommendation
   ---===---===---===---===---===---===---===---===---===---

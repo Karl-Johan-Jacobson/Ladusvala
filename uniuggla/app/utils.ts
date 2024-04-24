@@ -1,5 +1,4 @@
 import recommendProgramFromInterest from "@/ai/AiHandler";
-import { typewriterTest } from "@/components/client/TypeWriter";
 import { useRouter } from "next/router";
 
 export function addClass(newClass: string, htmlClass: string): void {
@@ -32,10 +31,16 @@ export function scrollToId(id: string): void {
 	}
 }
 
-export function aiTypeAnswer(textToType: string, htmlClass: string): void {
-	const elements = document.getElementsByClassName(htmlClass);
-	const element = elements[0] as HTMLElement;
-	element.innerHTML = textToType;
+export function aiTypeAnswer(id: string, htmlClass: string): void {
+
+
+
+// ta ut id från sträng arr
+//hitta program info från json fil
+//generera recommendationboxes med en forloop
+
+ //Placera dessa under recommendedWrapper
+ //
 }
 
 export function handleYesButtonClick(): void {
@@ -49,15 +54,15 @@ export function handleYesButtonClick(): void {
 }
 
 
-export async function aiResponse(interest: string[]): Promise<void> {
-	const aiAnswer: string = await recommendProgramFromInterest(interest);
-    aiTypeAnswer(aiAnswer, "aiAnswer");
 
+export async function aiResponse(interest: string[]): Promise<void> {
+	const aiAnswer: string[] = await recommendProgramFromInterest(interest);
+	aiTypeAnswer(aiAnswer, "recommendedWrapper");
 }
 
 export async function handleRecommendationButtonClick(interest: string[]): Promise<void> {
 	//aiResponse(interest);
-    typewriterTest();
+	
 	modifyOverflow("visible", "main");
 	removeClass("hide", "recommendationContainer");
 	scrollToId("recommendationContainer");
@@ -66,3 +71,19 @@ export async function handleRecommendationButtonClick(interest: string[]): Promi
 		modifyOverflow("hidden", "main");
 	}, 500);
 }
+
+export const modifyTopPadding = (newTopPadding: string, htmlClass: string) => {
+	var elements = document.querySelectorAll("." + htmlClass);
+	elements.forEach(function (element) {
+		(element as HTMLElement).style.paddingTop = newTopPadding;
+	});
+};
+
+export const modifyTopPaddingRelative = (relativePaddingtop: string, htmlClass: string) => {
+	var elements = document.querySelectorAll("." + htmlClass);
+	elements.forEach(function (element) {
+		var currentPaddingTop = window.getComputedStyle(element).paddingTop;
+		var newPaddingTop = "calc(" + currentPaddingTop + " + " + relativePaddingtop + ")";
+		(element as HTMLElement).style.paddingTop = newPaddingTop;
+	});
+};
