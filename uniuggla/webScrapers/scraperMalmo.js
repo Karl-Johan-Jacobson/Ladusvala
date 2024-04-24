@@ -65,5 +65,5 @@ async function scrapeMalmö(url,programId) {
     //programId_sv|programUniversity_sv|programTitle_sv|programDescription_sv|programPoints_sv|programYears_sv|programRequirements_sv|programAiDescription_sv|programPlace_sv|programDegree_sv|programLink
   });
 }
-//scrapeMalmö("https://mau.se/sok-utbildning/program/vgbap/");
+scrapeMalmö("https://mau.se/sok-utbildning/program/vgbap/");
 module.exports = scrapeMalmö;

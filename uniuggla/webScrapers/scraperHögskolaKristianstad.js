@@ -61,5 +61,5 @@ async function scrapeHKR(url, programId) {
   });
 }
 
-//scrapeHKR("https://www.hkr.se/program/grundlarare-arbetsplats");
+scrapeHKR("https://www.hkr.se/program/grundlarare-arbetsplats");
 module.exports = scrapeHKR;

@@ -71,5 +71,7 @@ async function scrapeUppsala(url,programId) {
     //programId_sv|programUniversity_sv|programTitle_sv|programDescription_sv|programPoints_sv|programYears_sv|programRequirements_sv|programAiDescription_sv|programPlace_sv|programDegree_sv|programLink
   });
 }
-scrapeUppsala("https://www.uu.se/utbildning/program/barnmorskeprogrammet");
+/*scrape(
+  "https://www.uu.se/utbildning/program/apotekarprogrammet"
+);*/
 module.exports = scrapeUppsala;

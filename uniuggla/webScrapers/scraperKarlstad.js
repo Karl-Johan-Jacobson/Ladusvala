@@ -60,5 +60,5 @@ async function scrapeKarlstad(url, programId) {
     //programId_sv|programUniversity_sv|programTitle_sv|programDescription_sv|programPoints_sv|programYears_sv|programRequirements_sv|programAiDescription_sv|programPlace_sv|programDegree_sv|programLink
   });
 }
-//scrapeKarlstad("https://www.kau.se/utbildning/program-och-kurser/program/NGBIO");
+scrapeKarlstad("https://www.kau.se/utbildning/program-och-kurser/program/NGBIO");
 module.exports = scrapeKarlstad;

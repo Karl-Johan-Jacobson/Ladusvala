@@ -59,6 +59,6 @@ async function scrapeMalardalen(url,programId) {
     //programId_sv|programUniversity_sv|programTitle_sv|programDescription_sv|programPoints_sv|programYears_sv|programRequirements_sv|programAiDescription_sv|programPlace_sv|programDegree_sv|programLink
   });
 }
-scrapeMalardalen("https://www.mdu.se/utbildning/program/barnmorskeprogrammet",1);
+//scrapeMalardalen("https://www.mdu.se/utbildning/program/barnmorskeprogrammet",1);
 
 module.exports = scrapeMalardalen;

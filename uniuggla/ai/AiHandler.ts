@@ -81,17 +81,19 @@ function turnProgramToPrompt(allPrograms: Program[]): string {
 //This function will take the selected interests from user and call ai to
 //get a recommendation, it returns the programID as an array.
 //export default async function recommendProgramFromInterest(selectedInterests: Interest[]) this is the release version
-export default async function recommendProgramFromInterest() {
+export default async function recommendProgramFromInterest(interests: string[]) {
   //turn interests to a string
   //const interestString: string = turnInterestToPrompt(selectedInterests); This must be uncomment for Release mode
   //fetch from database
   //const allPrograms: Program[] = await fetchAllPrograms(); This must be uncomment for Release mode
   //turn all programs to a string
   const programString: string = turnProgramToPrompt(somePrograms);
-  const interestString: string = turnInterestToPrompt(
+  /*const interestString: string = turnInterestToPrompt(
     interestOfEngineerAndMedicin
-  );
+  );*/
+  const interestString = interests.reduce((interest: string, result: string) => result += `Name: ${interest} \n`)
 
+  console.log(interestString);
   //Generate the question to ai to answer
   //let content: string = `These are my interest: ${interestString} and these are all available degrees ${programString}. Choose four of these degrees that matches my interest and then choose one wild card loosely based on the interests, make sure to mark your wildcard. Answer in bullet points with the exact interestTitles of the degrees, the bullet points should start with a dot and not numbers. Answer in swedish. You should answer in the format [Degree, ID = {number}]. Lastly end with a question asking the user if he/she think one of these degrees are interesting.`;
   let content: string = `These are my interest: ${interestString} and these are all available degrees ${programString}. Choose four of these degrees that matches my interest and then choose one wild card loosely based on the interests, make sure to mark your wildcard. Your answer should first contain the exact degree name in capslock, followd by one sentence why you choose that degree. You must answer in swedish and write a new line after every degree. Lastly end with a new line  and the question "Vill du veta mer om någon av dessa utbildingarna? - UniUGpt"`;
@@ -505,80 +507,4 @@ const somePrograms: Program[] = [
     programYears: "",
   },
 ];
-
-const interestOfEngineerAndMedicin: Interest[] = [
-  {
-    interestTitle: "Teknik",
-    interestId: "7",
-    interestDescription: "",
-  },
-  {
-    interestTitle: "Lärare",
-    interestId: "7",
-    interestDescription: "",
-  },
-  {
-    interestTitle: "Medicin",
-    interestId: "7",
-    interestDescription: "",
-  },
-  {
-    interestTitle: "Bilar",
-    interestId: "7",
-    interestDescription: "",
-  },
-  {
-    interestTitle: "kemi",
-    interestId: "7",
-    interestDescription: "",
-  },
-  {
-    interestTitle: "Biologi ",
-    interestId: "7",
-    interestDescription: "",
-  },
-  {
-    interestTitle: "Matematik",
-    interestId: "7",
-    interestDescription: "",
-  },
-];
-const interestOfEconomy: Interest[] = [
-  {
-    interestTitle: "Aktier",
-    interestId: "7",
-    interestDescription: "",
-  },
-  {
-    interestTitle: "Ekonomi",
-    interestId: "7",
-    interestDescription: "",
-  },
-  {
-    interestTitle: "Personal ansvar",
-    interestId: "7",
-    interestDescription: "",
-  },
-  {
-    interestTitle: "fastigheter",
-    interestId: "7",
-    interestDescription: "",
-  },
-  {
-    interestTitle: "Snygga hus",
-    interestId: "7",
-    interestDescription: "",
-  },
-  {
-    interestTitle: "Gillar inte matematik",
-    interestId: "7",
-    interestDescription: "",
-  },
-  {
-    interestTitle: "Redovisning",
-    interestId: "7",
-    interestDescription: "",
-  },
-];
-
 //recommendProgramFromInterest();

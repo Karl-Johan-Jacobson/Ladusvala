@@ -62,5 +62,5 @@ async function scrapeHDa(url,programId) {
     //programId_sv|programUniversity_sv|programTitle_sv|programDescription_sv|programPoints_sv|programYears_sv|programRequirements_sv|programAiDescription_sv|programPlace_sv|programDegree_sv|programLink
   });
 }
-//scrapeHDa("https://www.du.se/sv/Utbildning/Program/businessmanagement/");
+scrapeHDa("https://www.du.se/sv/Utbildning/Program/businessmanagement/");
 module.exports = scrapeHDa;

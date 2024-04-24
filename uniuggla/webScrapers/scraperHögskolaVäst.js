@@ -52,5 +52,5 @@ async function scrapeHV(url, programId) {
   });
 }
 
-//scrapeHV("https://www.hv.se/utbildning/program/industriell-ekonomi-heltid-campus-tgiem/");
+scrapeHV("https://www.hv.se/utbildning/program/industriell-ekonomi-heltid-campus-tgiem/");
 module.exports = scrapeHV;

@@ -1,94 +1,32 @@
 "use client"; // Makes it so it is on client side instead of server side because of the function components.
-import Image from "next/image";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
-import TypewriterComponent from "typewriter-effect";
-import InterestsPage from "./interest_select/page";
-import InterestList from "@/components/client/interest_list";
-import recommendProgramFromInterest from "@/ai/AiHandler";
+import InterestList from "@/components/client/Interest";
+import { TypewriterForTitle } from "@/components/client/TypeWriter";
+import { modifyTopPadding, modifyTopPaddingRelative } from "@/app/utils";
 
+import { handleYesButtonClick, handleRecommendationButtonClick } from "@/app/utils";
 // Import for subpages
 
-import Welcome from "@/components/client/welcome";
-import Intrest from "@/components/client/intrest";
-import Recomendation from "@/components/client/recomendation";
+import Welcome from "@/components/client/Welcome";
+import Interest from "@/components/client/Interest";
+import Recommendation from "@/components/client/Recommendation";
 
 // Main function that returns the html and handles the animations
 export default function Home() {
 	const router = useRouter();
 
-
-	const addClass = (newClass: string, htmlClass: string) => {
-		var elements = document.querySelectorAll("." + htmlClass);
-		elements.forEach(function (element) {
-			(element as HTMLElement).classList.add(newClass);
-		});
-	};
-
-	const removeClass = (oldClass: string, htmlClass: string) => {
-		var elements = document.querySelectorAll("." + htmlClass);
-		elements.forEach(function (element) {
-			(element as HTMLElement).classList.remove(oldClass);
-		});
-	};
-
-	const modifyOverflow = (Atribute: string, htmlClass: string) => {
-		var elements = document.querySelectorAll("." + htmlClass);
-		elements.forEach(function (element) {
-			(element as HTMLElement).style.overflow = Atribute;
-		});
-	};
-
-	const scrollToId = (id: string) => {
-		const element = document.getElementById(id);
-		if (element) {
-			element.scrollIntoView();
-		} else {
-			console.error(`Element with ID '${id}' not found.`);
-		}
-	};
-
-	function handleYesButtonClick(): void {
-		modifyOverflow("visible", "main");
-		removeClass("hide", "interestContainer");
-		scrollToId("interestContainer");
-		setTimeout(() => {
-			addClass("hide", "welcomeContainer");
-			modifyOverflow("hidden", "main");
-		}, 500);
-	}
-
 	function handleNoButtonClick(): void {
+		// Move useRouter inside the function
 		router.push("/about");
 	}
-
-	function handleRecommendationButtonClick(): void {
-		modifyOverflow("visible", "main");
-		removeClass("hide", "recommendationContainer");
-		scrollToId("recommendationContainer");
-		setTimeout(() => {
-			addClass("hide", "intrestContainer");
-			modifyOverflow("hidden", "main");
-		}, 500);
-	}
-
 	// values for js animations
 	const speed = 40;
-	const delayBetweenGreetigAndQuestion = 500;
-	const delayBetweenQuestionAndAnswer = 500;
-	const greeting = ["Hej!", "greeting", "typewriter", "typewriter_greeting"];
-	const moveGreeting = ["1vw", "welcome"];
-	const moveQuestion = ["5vw", "questionDiv"];
-	const question = ["Vill du gå på högskola eller universitet?", "question", "typewriter", "typewriter_question"];
+	const extraButtonDelay = 300;
 	const moveAnswer = ["8vw", "answers"];
 
 	// Starting animationn
 	useEffect(() => {
-		// Will be used later on.
-		// function enableScroll() {
-		// window.onscroll = function () { };
-		// }
 		let typeWriterInterval: ReturnType<typeof setInterval> | undefined;
 		// Typewriteranimationn input string and class of <p> element
 		const typeWriter = (textToType: string, htmlClass: string) => {
@@ -138,17 +76,11 @@ export default function Home() {
 			});
 		};
 		// Funciton for iniatal js animations
-		typeWriter(greeting[0], greeting[1]);
+		var typeWriterDelay = TypewriterForTitle("Hej!<br />Vill du gå på högskola eller universitet?", "welcomeText");
 		const timeoutId = setTimeout(() => {
-			removeParent(greeting[2], greeting[3]);
-			modifyTopPadding(moveGreeting[0], moveGreeting[1]);
-			modifyTopMargin(moveQuestion[0], moveQuestion[1]);
-			typeWriter(question[0], question[1]);
-			setTimeout(() => {
-				modifyTopMargin(moveAnswer[0], moveAnswer[1]);
-				modifyOpacity("1", moveAnswer[1]);
-			}, question[0].length * speed + delayBetweenQuestionAndAnswer);
-		}, greeting[0].length * speed + delayBetweenGreetigAndQuestion);
+			modifyTopMargin(moveAnswer[0], moveAnswer[1]);
+			modifyOpacity("1", moveAnswer[1]);
+		}, typeWriterDelay + extraButtonDelay);
 
 		return () => {
 			if (typeWriterInterval) {
@@ -229,10 +161,10 @@ export default function Home() {
 				{/*<Intrest interest={interests} handleRecommendationButtonClick={handleRecommendationButtonClick} />*/}
 			</section>
 			{/*
-        Recomendation page
+        Recommendation page
       */}
 			<section id="recommendationContainer" className="container recommendationContainer hide">
-				<Recomendation />
+				<Recommendation />
 			</section>
 		</main>
 	);
