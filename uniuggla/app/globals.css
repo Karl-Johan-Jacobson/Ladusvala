@@ -221,7 +221,7 @@ header {
 */
 
 .interestWrapper {
-  height: min-content;
+  height: auto;
   width: max-content;
   position: absolute;
   left: 0;
@@ -237,37 +237,39 @@ header {
 }
 .notSelectedInterestList {
   display: grid;
-  grid-template-columns: repeat(5, 1fr); /* 5 columns */
-  grid-template-rows: repeat(2, auto); /* 2 rows */
-  grid-gap: 40px;
-  margin-top: 20px;
-  max-width: fit-content;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 30px;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-gap: 15px;
+  margin-top: 4vw;
   max-height: 200px;
+  width: 70vw;
 }
 
 .selectedInterestList {
   display: grid;
-  grid-template-columns: repeat(5, 1fr); /* 5 columns */
-  grid-template-rows: repeat(2, auto); /* 2 rows */
-  grid-gap: 40px;
-  max-width: fit-content;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-gap: 10px;
+  margin-bottom: auto;
   margin-left: auto;
   margin-right: auto;
-  min-height: 100px;
+  max-height: 200px;
+  width: 70vw;
 }
 
 .customInterestForm{
-  max-width: fit-content;
+  bottom: 8vw;
+  width: 35vw;
+  margin-top: 4vw;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 20px;
+  right: 20%;
+
 }
 
 .iconButton {
   position: relative;
+  left: 20%;
   background: none;
   border: none;
   padding: 0;
@@ -282,16 +284,25 @@ header {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
-  color: whitesmoke;
+  color: #DFFDE0;
 }
 .iconButton svg {
-  width: 100px;
-  height: 70px; 
-  z-index: 0;
+  width: 120x;
+  height: 120px; 
 }
 
-.icon:hover {
-  box-shadow: 0 0 11px rgba(33,33,33,.2); 
+.notSelectedInterestButton:hover {
+  stroke: #4F1EB0;
+  stroke-width: 2px;
+  stroke-linejoin: round;
+  filter: drop-shadow(2px 2px 0px #4F1EB0);
+}
+
+.selectedInterestButton:hover {
+  stroke: #9ECB98;
+  stroke-width: 2px;
+  stroke-linejoin: round;
+  filter: drop-shadow(2px 2px 0px #9ECB98);
 }
 
 .fade-out {
@@ -305,12 +316,12 @@ header {
   width: 89%;
   background: #DFFDE0;
   border-right: none;
-  height: 35px;
+  height: 28px;
   margin-top: none;
   padding-top: none;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
-  box-shadow:inset 0 0 2px 2px gray
+  box-shadow:inset 0 0 1px 1px gray
 }
 
 .addInterestField::placeholder{
@@ -324,21 +335,33 @@ header {
 .addInterestButton{
   width: 10%;
   background: #9ECB98;
-  height: 36.6px;
+  height: 29px;
   font-size: 17px;
   border: 1px solid grey;
   border-left: none; 
   cursor: pointer;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
+  box-shadow: -2px 0px 2px 0px grey;
 }
 
 .shuffleButton{
-float: right;
+  left: 84%;
+  transform: translateX(-50%);
+  bottom: 7vw;
+  stroke: #646464;
+  stroke-width: 3px;
+  stroke-linejoin: round;
+}
+
+
+.shuffleButton:hover{
+  filter: drop-shadow(2px 2px 0px gray);
 }
 
 .recommendationButton{
-  margin-top: 25px;
+  cursor: pointer;
+  width: 36vw;
 }
 
 .recommendationButton p{
@@ -346,6 +369,10 @@ float: right;
   font-family: 'Tomorrow';
   font-style: italic;
   color: #9ECB98;
+}
+
+.everyThingElse{
+  margin-top: 3vw;
 }
 
 /*

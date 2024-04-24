@@ -126,24 +126,36 @@ const Interest: React.FC<InterestProps & { interest: InterestType[] }> = ({ hand
 					<InterestItem onSelect={handleSelect} interest={interest} isSelected={false} key={interest.interestId} />
 				))}
 			</div>
-			<div className="customInterestForm">
-				<form onSubmit={addCustomInterest} className="form">
-					<input placeholder="Skriv ett intresse ..." type="text" value={customInterest} onChange={handleUpdate} required className="addInterestField" />
-					<button type="submit" className="addInterestButton">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#DFFDE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24">
-              <path d="M12 5v14M5 12h14" />
-            </svg>
-					</button>
-				</form>
-        <button className="recommendationButton answerButton" onClick={handleRecommend}>
-          <p className="user"> &gt;&gt; Hitta min drömutbildning &lt;&lt; </p>
+      <div className="everyThingElse">
+        <div className="customInterestForm">
+          <form onSubmit={addCustomInterest} className="form">
+            <input placeholder="Skriv ett intresse ..." type="text" value={customInterest} onChange={handleUpdate} required className="addInterestField" />
+            <button title="Add interest!" type="submit" className="addInterestButton">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#DFFDE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24">
+                <path d="M12 5v14M5 12h14" />
+              </svg>
         </button>
+        </form>
+          <button className="recommendationButton answerButton" onClick={handleRecommend}>
+            <p className="user"> &gt;&gt; Hitta min drömutbildning &lt;&lt; </p>
+          </button>
+        </div>
         <button onClick={shuffle} className="shuffleButton iconButton">
-        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-          <path fill="#9ECB98" d="M51.3,-58.6C66.3,-48.4,78.4,-32.2,81.6,-14.3C84.8,3.5,79.2,23,69.7,40.8C60.1,58.7,46.6,74.8,29,82.5C11.3,90.1,-10.4,89.3,-26.2,80.1C-42,70.9,-51.8,53.2,-61.7,35.8C-71.7,18.3,-81.7,1.1,-80.9,-16.2C-80.2,-33.4,-68.6,-50.7,-53.3,-60.8C-38,-70.9,-19,-74,-0.4,-73.5C18.1,-72.9,36.2,-68.8,51.3,-58.6Z" transform="translate(100 100)" />
-        </svg>
-        <span className="iconText">Ge mig nya intressen</span>
-      </button>
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="">
+            <defs>
+              <linearGradient id="iconGradient" gradientTransform="rotate(90)">
+                <stop offset="0%" stop-color="#9ECB98" />
+                <stop offset="100%" stop-color="#7DA577" />
+              </linearGradient>
+            </defs>
+            <path 
+              fill="url(#iconGradient)" 
+              d="M40.8,-51.2C56.6,-44.8,75.5,-37.7,84.2,-24.2C92.9,-10.7,91.3,9.2,82.3,23.6C73.3,37.9,56.8,46.7,41.8,56.6C26.9,66.5,13.4,77.4,-1.7,79.8C-16.8,82.1,-33.7,75.8,-47,65.4C-60.3,55,-70.1,40.5,-75.7,24.4C-81.2,8.2,-82.5,-9.5,-76.9,-24.5C-71.4,-39.5,-59,-51.9,-45,-58.9C-31.1,-65.9,-15.5,-67.5,-1.5,-65.5C12.6,-63.4,25.1,-57.6,40.8,-51.2Z"
+              transform="translate(100 100)" 
+            />
+          </svg>
+          <span className="iconText">Ge mig nya intressen</span>
+        </button>
       </div>
     </div>
 	);
