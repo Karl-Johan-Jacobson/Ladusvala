@@ -1,5 +1,5 @@
 "use server";
-
+import * as fs from 'fs';
 import OpenAI from "openai";
 import { ChatCompletionMessageParam } from "openai/resources/index.mjs";
 import type Interest from "../types/interest";
@@ -134,377 +134,483 @@ export default async function recommendProgramFromInterest(interests: string[]) 
   return text;
 }
 
-//test program for letting ai recommend program
+const filePath: string = '@/uniuggla/webScrapers/manuelScraping.json';
 
-const somePrograms: Program[] = [
-  {
-    programAiDescription_sv: "",
-    programDegree_sv: "",
-    programDescription_sv: "",
-    programId: "48", //here
-    programLink: "",
-    programPlace_sv: "",
-    programPoints: "",
-    programRequirements_sv: "",
-    porgramTitle_sv: "Tandläkarprogrammet", //here
-    programYears: "",
-  },
-  {
-    programAiDescription_sv: "",
-    programDegree_sv: "",
-    programDescription_sv: "",
-    programId: "47", //here
-    programLink: "",
-    programPlace_sv: "",
-    programPoints: "",
-    programRequirements_sv: "",
-    porgramTitle_sv: "Tandhygienistprogrammet", //here
-    programYears: "",
-  },
-  {
-    programAiDescription_sv: "",
-    programDegree_sv: "",
-    programDescription_sv: "",
-    programId: "46", //here
-    programLink: "",
-    programPlace_sv: "",
-    programPoints: "",
-    programRequirements_sv: "",
-    porgramTitle_sv: "Sjuksköterskeprogrammet", //here
-    programYears: "",
-  },
-  {
-    programAiDescription_sv: "",
-    programDegree_sv: "",
-    programDescription_sv: "",
-    programId: "44", //here
-    programLink: "",
-    programPlace_sv: "",
-    programPoints: "",
-    programRequirements_sv: "",
-    porgramTitle_sv: "Röntgensjuksköterskeprogrammet", //here
-    programYears: "",
-  },
-  {
-    programAiDescription_sv: "",
-    programDegree_sv: "",
-    programDescription_sv: "",
-    programId: "43", //here
-    programLink: "",
-    programPlace_sv: "",
-    programPoints: "",
-    programRequirements_sv: "",
-    porgramTitle_sv: "Psykologprogrammet", //here
-    programYears: "",
-  },
-  {
-    programAiDescription_sv: "",
-    programDegree_sv: "",
-    programDescription_sv: "",
-    programId: "42", //here
-    programLink: "",
-    programPlace_sv: "",
-    programPoints: "",
-    programRequirements_sv: "",
-    porgramTitle_sv: "Optikerprogrammet", //here
-    programYears: "",
-  },
-  {
-    programAiDescription_sv: "",
-    programDegree_sv: "",
-    programDescription_sv: "",
-    programId: "38", //here
-    programLink: "",
-    programPlace_sv: "",
-    programPoints: "",
-    programRequirements_sv: "",
-    porgramTitle_sv: "Fysioterapeutprogrammet", //here
-    programYears: "",
-  },
-  {
-    programAiDescription_sv: "",
-    programDegree_sv: "",
-    programDescription_sv: "",
-    programId: "31", //here
-    programLink: "",
-    programPlace_sv: "",
-    programPoints: "",
-    programRequirements_sv: "",
-    porgramTitle_sv: "Teknisk matematik, civilingenjör", //here
-    programYears: "",
-  },
-  {
-    programAiDescription_sv: "",
-    programDegree_sv: "",
-    programDescription_sv: "",
-    programId: "30", //here
-    programLink: "",
-    programPlace_sv: "",
-    programPoints: "",
-    programRequirements_sv: "",
-    porgramTitle_sv: "Teknisk kemi, civilingenjör", //here
-    programYears: "",
-  },
-  {
-    programAiDescription_sv: "",
-    programDegree_sv: "",
-    programDescription_sv: "",
-    programId: "28", //here
-    programLink: "",
-    programPlace_sv: "",
-    programPoints: "",
-    programRequirements_sv: "",
-    porgramTitle_sv: "Teknik och ekonomi, högskoleingenjör", //here
-    programYears: "",
-  },
-  {
-    programAiDescription_sv: "",
-    programDegree_sv: "",
-    programDescription_sv: "",
-    programId: "1", // Behövs
-    programLink: "",
-    programPlace_sv: "",
-    programPoints: "",
-    programRequirements_sv: "",
-    porgramTitle_sv: "Arkitektutbildning", // Behövs
-    programYears: "",
-  },
+type ProgramNameAndId = {programTitle_sv: string, programPoints: string, programDescription_sv: string, programLink: string};
+async function fetchAllProgramsJson(): Promise<ProgramNameAndId[]> {
+  return new Promise((resolve, reject) => {
+    fs.readFile(filePath, 'utf8', (err: NodeJS.ErrnoException | null, data: string) => {
+      if (err) {
+        reject(err);
+        return;
+      }
+      let counter: number = 10000; 
+      try {
+        const jsonArray = JSON.parse(data) as any[]; // Parse as array of any type
+        const allPrograms: ProgramNameAndId[] = jsonArray.map((item) => ({
+    
+          programTitle_sv: item.programTitle_sv,
+          programPoints: item.programPoints,
+          programDescription_sv: item.programDescription_sv,
+          programLink: item.programLink,
+          id: counter++ // Assuming programId is a string and needs to be converted to a number
+        })); console.log(allPrograms);
+        resolve(allPrograms);
+      } catch (parseError) {
+        reject(parseError);
+      }
+    });
+  });
+}
+ await fetchAllProgramsJson();
 
-  {
-    programAiDescription_sv: "",
-    programDegree_sv: "",
-    programDescription_sv: "",
-    programId: "2", // Behövs
-    programLink: "",
-    programPlace_sv: "",
-    programPoints: "",
-    programRequirements_sv: "",
-    porgramTitle_sv: "Bioteknik, civilingenjör", // Behövs
-    programYears: "",
-  },
+        //test program for letting ai recommend program
 
-  {
-    programAiDescription_sv: "",
-    programDegree_sv: "",
-    programDescription_sv: "",
-    programId: "3", // Behövs
-    programLink: "",
-    programPlace_sv: "",
-    programPoints: "",
-    programRequirements_sv: "",
-    porgramTitle_sv: "Byggteknik och design, högskoleingenjör", // Behövs
-    programYears: "",
-  },
+        const somePrograms: Program[] = [
+          {
+            programAiDescription_sv: "",
+            programDegree_sv: "",
+            programDescription_sv: "",
+            programId: "48", //here
+            programLink: "",
+            programPlace_sv: "",
+            programPoints: "",
+            programRequirements_sv: "",
+            porgramTitle_sv: "Tandläkarprogrammet", //here
+            programYears: "",
+          },
+          {
+            programAiDescription_sv: "",
+            programDegree_sv: "",
+            programDescription_sv: "",
+            programId: "47", //here
+            programLink: "",
+            programPlace_sv: "",
+            programPoints: "",
+            programRequirements_sv: "",
+            porgramTitle_sv: "Tandhygienistprogrammet", //here
+            programYears: "",
+          },
+          {
+            programAiDescription_sv: "",
+            programDegree_sv: "",
+            programDescription_sv: "",
+            programId: "46", //here
+            programLink: "",
+            programPlace_sv: "",
+            programPoints: "",
+            programRequirements_sv: "",
+            porgramTitle_sv: "Sjuksköterskeprogrammet", //here
+            programYears: "",
+          },
+          {
+            programAiDescription_sv: "",
+            programDegree_sv: "",
+            programDescription_sv: "",
+            programId: "44", //here
+            programLink: "",
+            programPlace_sv: "",
+            programPoints: "",
+            programRequirements_sv: "",
+            porgramTitle_sv: "Röntgensjuksköterskeprogrammet", //here
+            programYears: "",
+          },
+          {
+            programAiDescription_sv: "",
+            programDegree_sv: "",
+            programDescription_sv: "",
+            programId: "43", //here
+            programLink: "",
+            programPlace_sv: "",
+            programPoints: "",
+            programRequirements_sv: "",
+            porgramTitle_sv: "Psykologprogrammet", //here
+            programYears: "",
+          },
+          {
+            programAiDescription_sv: "",
+            programDegree_sv: "",
+            programDescription_sv: "",
+            programId: "42", //here
+            programLink: "",
+            programPlace_sv: "",
+            programPoints: "",
+            programRequirements_sv: "",
+            porgramTitle_sv: "Optikerprogrammet", //here
+            programYears: "",
+          },
+          {
+            programAiDescription_sv: "",
+            programDegree_sv: "",
+            programDescription_sv: "",
+            programId: "38", //here
+            programLink: "",
+            programPlace_sv: "",
+            programPoints: "",
+            programRequirements_sv: "",
+            porgramTitle_sv: "Fysioterapeutprogrammet", //here
+            programYears: "",
+          },
+          {
+            programAiDescription_sv: "",
+            programDegree_sv: "",
+            programDescription_sv: "",
+            programId: "31", //here
+            programLink: "",
+            programPlace_sv: "",
+            programPoints: "",
+            programRequirements_sv: "",
+            porgramTitle_sv: "Teknisk matematik, civilingenjör", //here
+            programYears: "",
+          },
+          {
+            programAiDescription_sv: "",
+            programDegree_sv: "",
+            programDescription_sv: "",
+            programId: "30", //here
+            programLink: "",
+            programPlace_sv: "",
+            programPoints: "",
+            programRequirements_sv: "",
+            porgramTitle_sv: "Teknisk kemi, civilingenjör", //here
+            programYears: "",
+          },
+          {
+            programAiDescription_sv: "",
+            programDegree_sv: "",
+            programDescription_sv: "",
+            programId: "28", //here
+            programLink: "",
+            programPlace_sv: "",
+            programPoints: "",
+            programRequirements_sv: "",
+            porgramTitle_sv: "Teknik och ekonomi, högskoleingenjör", //here
+            programYears: "",
+          },
+          {
+            programAiDescription_sv: "",
+            programDegree_sv: "",
+            programDescription_sv: "",
+            programId: "1", // Behövs
+            programLink: "",
+            programPlace_sv: "",
+            programPoints: "",
+            programRequirements_sv: "",
+            porgramTitle_sv: "Arkitektutbildning", // Behövs
+            programYears: "",
+          },
 
-  {
-    programAiDescription_sv: "",
-    programDegree_sv: "",
-    programDescription_sv: "",
-    programId: "4", // Behövs
-    programLink: "",
-    programPlace_sv: "",
-    programPoints: "",
-    programRequirements_sv: "",
-    porgramTitle_sv: "Civilingenjör och lärare", // Behövs
-    programYears: "",
-  },
+          {
+            programAiDescription_sv: "",
+            programDegree_sv: "",
+            programDescription_sv: "",
+            programId: "2", // Behövs
+            programLink: "",
+            programPlace_sv: "",
+            programPoints: "",
+            programRequirements_sv: "",
+            porgramTitle_sv: "Bioteknik, civilingenjör", // Behövs
+            programYears: "",
+          },
 
-  {
-    programAiDescription_sv: "",
-    programDegree_sv: "",
-    programDescription_sv: "",
-    programId: "5", // Behövs
-    programLink: "",
-    programPlace_sv: "",
-    programPoints: "",
-    programRequirements_sv: "",
-    porgramTitle_sv: "Datateknik, civilingenjör", // Behövs
-    programYears: "",
-  },
+          {
+            programAiDescription_sv: "",
+            programDegree_sv: "",
+            programDescription_sv: "",
+            programId: "3", // Behövs
+            programLink: "",
+            programPlace_sv: "",
+            programPoints: "",
+            programRequirements_sv: "",
+            porgramTitle_sv: "Byggteknik och design, högskoleingenjör", // Behövs
+            programYears: "",
+          },
 
-  {
-    programAiDescription_sv: "",
-    programDegree_sv: "",
-    programDescription_sv: "",
-    programId: "8", // Behövs
-    programLink: "",
-    programPlace_sv: "",
-    programPoints: "",
-    programRequirements_sv: "",
-    porgramTitle_sv: "Design och produktframtagning, civilingenjör", // Behövs
-    programYears: "",
-  },
+          {
+            programAiDescription_sv: "",
+            programDegree_sv: "",
+            programDescription_sv: "",
+            programId: "4", // Behövs
+            programLink: "",
+            programPlace_sv: "",
+            programPoints: "",
+            programRequirements_sv: "",
+            porgramTitle_sv: "Civilingenjör och lärare", // Behövs
+            programYears: "",
+          },
 
-  {
-    programAiDescription_sv: "",
-    programDegree_sv: "",
-    programDescription_sv: "",
-    programId: "9", // Behövs
-    programLink: "",
-    programPlace_sv: "",
-    programPoints: "",
-    programRequirements_sv: "",
-    porgramTitle_sv: "Elektronik och datorteknik, högskoleingenjör", // Behövs
-    programYears: "",
-  },
+          {
+            programAiDescription_sv: "",
+            programDegree_sv: "",
+            programDescription_sv: "",
+            programId: "5", // Behövs
+            programLink: "",
+            programPlace_sv: "",
+            programPoints: "",
+            programRequirements_sv: "",
+            porgramTitle_sv: "Datateknik, civilingenjör", // Behövs
+            programYears: "",
+          },
 
-  {
-    programAiDescription_sv: "",
-    programDegree_sv: "",
-    programDescription_sv: "",
-    programId: "12", // Behövs
-    programLink: "",
-    programPlace_sv: "",
-    programPoints: "",
-    programRequirements_sv: "",
-    porgramTitle_sv: "Energi och miljö, civilingenjör", // Behövs
-    programYears: "",
-  },
+          {
+            programAiDescription_sv: "",
+            programDegree_sv: "",
+            programDescription_sv: "",
+            programId: "8", // Behövs
+            programLink: "",
+            programPlace_sv: "",
+            programPoints: "",
+            programRequirements_sv: "",
+            porgramTitle_sv: "Design och produktframtagning, civilingenjör", // Behövs
+            programYears: "",
+          },
 
-  {
-    programAiDescription_sv: "",
-    programDegree_sv: "",
-    programDescription_sv: "",
-    programId: "13", // Behövs
-    programLink: "",
-    programPlace_sv: "",
-    programPoints: "",
-    programRequirements_sv: "",
-    porgramTitle_sv: "Farkostteknik, civilingenjör", // Behövs
-    programYears: "",
-  },
+          {
+            programAiDescription_sv: "",
+            programDegree_sv: "",
+            programDescription_sv: "",
+            programId: "9", // Behövs
+            programLink: "",
+            programPlace_sv: "",
+            programPoints: "",
+            programRequirements_sv: "",
+            porgramTitle_sv: "Elektronik och datorteknik, högskoleingenjör", // Behövs
+            programYears: "",
+          },
 
-  {
-    programAiDescription_sv: "",
-    programDegree_sv: "",
-    programDescription_sv: "",
-    programId: "14", // Behövs
-    programLink: "",
-    programPlace_sv: "",
-    programPoints: "",
-    programRequirements_sv: "",
-    porgramTitle_sv: "Fastighet och finans, kandidatutbildning", // Behövs
-    programYears: "",
-  },
-  {
-    programAiDescription_sv: "",
-    programDegree_sv: "",
-    programDescription_sv: "",
-    programId: "16", // Behövs
-    programLink: "",
-    programPlace_sv: "",
-    programPoints: "",
-    programRequirements_sv: "",
-    porgramTitle_sv: "Industriell ekonomi, civilingenjör", // Behövs
-    programYears: "",
-  },
-  {
-    programAiDescription_sv: "",
-    programDegree_sv: "",
-    programDescription_sv: "",
-    programId: "18", // Behövs
-    programLink: "",
-    programPlace_sv: "",
-    programPoints: "",
-    programRequirements_sv: "",
-    porgramTitle_sv: "Industriell teknik och hållbarhet, civilingenjör", // Behövs
-    programYears: "",
-  },
-  {
-    programAiDescription_sv: "",
-    programDegree_sv: "",
-    programDescription_sv: "",
-    programId: "20", // Behövs
-    programLink: "",
-    programPlace_sv: "",
-    programPoints: "",
-    programRequirements_sv: "",
-    porgramTitle_sv: "Informationsteknik, civilingenjör", // Behövs
-    programYears: "",
-  },
-  {
-    programAiDescription_sv: "",
-    programDegree_sv: "",
-    programDescription_sv: "",
-    programId: "21", // Behövs
-    programLink: "",
-    programPlace_sv: "",
-    programPoints: "",
-    programRequirements_sv: "",
-    porgramTitle_sv: "Kemiteknik, högskoleingenjör", // Behövs
-    programYears: "",
-  },
-  {
-    programAiDescription_sv: "",
-    programDegree_sv: "",
-    programDescription_sv: "",
-    programId: "22", // Behövs
-    programLink: "",
-    programPlace_sv: "",
-    programPoints: "",
-    programRequirements_sv: "",
-    porgramTitle_sv: "Maskinteknik, civilingenjör", // Behövs
-    programYears: "",
-  },
-  {
-    programAiDescription_sv: "",
-    programDegree_sv: "",
-    programDescription_sv: "",
-    programId: "23", // Behövs
-    programLink: "",
-    programPlace_sv: "",
-    programPoints: "",
-    programRequirements_sv: "",
-    porgramTitle_sv: "Materialdesign, civilingenjör", // Behövs
-    programYears: "",
-  },
-  {
-    programAiDescription_sv: "",
-    programDegree_sv: "",
-    programDescription_sv: "",
-    programId: "25", // Behövs
-    programLink: "",
-    programPlace_sv: "",
-    programPoints: "",
-    programRequirements_sv: "",
-    porgramTitle_sv: "Medicinsk teknik, civilingenjör", // Behövs
-    programYears: "",
-  },
-  {
-    programAiDescription_sv: "",
-    programDegree_sv: "",
-    programDescription_sv: "",
-    programId: "27", // Behövs
-    programLink: "",
-    programPlace_sv: "",
-    programPoints: "",
-    programRequirements_sv: "",
-    porgramTitle_sv: "Samhällsbyggnad, civilingenjör", // Behövs
-    programYears: "",
-  },
-  {
-    programAiDescription_sv: "",
-    programDegree_sv: "",
-    programDescription_sv: "",
-    programId: "29", // Behövs
-    programLink: "",
-    programPlace_sv: "",
-    programPoints: "",
-    programRequirements_sv: "",
-    porgramTitle_sv: "Teknisk fysik, civilingenjör", // Behövs
-    programYears: "",
-  },
-  {
-    programAiDescription_sv: "",
-    programDegree_sv: "",
-    programDescription_sv: "",
-    programId: "34", // Behövs
-    programLink: "",
-    programPlace_sv: "",
-    programPoints: "",
-    programRequirements_sv: "",
-    porgramTitle_sv: "Öppen ingång, civilingenjör", // Behövs
-    programYears: "",
-  },
-];
+          {
+            programAiDescription_sv: "",
+            programDegree_sv: "",
+            programDescription_sv: "",
+            programId: "12", // Behövs
+            programLink: "",
+            programPlace_sv: "",
+            programPoints: "",
+            programRequirements_sv: "",
+            porgramTitle_sv: "Energi och miljö, civilingenjör", // Behövs
+            programYears: "",
+          },
+
+          {
+            programAiDescription_sv: "",
+            programDegree_sv: "",
+            programDescription_sv: "",
+            programId: "13", // Behövs
+            programLink: "",
+            programPlace_sv: "",
+            programPoints: "",
+            programRequirements_sv: "",
+            porgramTitle_sv: "Farkostteknik, civilingenjör", // Behövs
+            programYears: "",
+          },
+
+          {
+            programAiDescription_sv: "",
+            programDegree_sv: "",
+            programDescription_sv: "",
+            programId: "14", // Behövs
+            programLink: "",
+            programPlace_sv: "",
+            programPoints: "",
+            programRequirements_sv: "",
+            porgramTitle_sv: "Fastighet och finans, kandidatutbildning", // Behövs
+            programYears: "",
+          },
+          {
+            programAiDescription_sv: "",
+            programDegree_sv: "",
+            programDescription_sv: "",
+            programId: "16", // Behövs
+            programLink: "",
+            programPlace_sv: "",
+            programPoints: "",
+            programRequirements_sv: "",
+            porgramTitle_sv: "Industriell ekonomi, civilingenjör", // Behövs
+            programYears: "",
+          },
+          {
+            programAiDescription_sv: "",
+            programDegree_sv: "",
+            programDescription_sv: "",
+            programId: "18", // Behövs
+            programLink: "",
+            programPlace_sv: "",
+            programPoints: "",
+            programRequirements_sv: "",
+            porgramTitle_sv: "Industriell teknik och hållbarhet, civilingenjör", // Behövs
+            programYears: "",
+          },
+          {
+            programAiDescription_sv: "",
+            programDegree_sv: "",
+            programDescription_sv: "",
+            programId: "20", // Behövs
+            programLink: "",
+            programPlace_sv: "",
+            programPoints: "",
+            programRequirements_sv: "",
+            porgramTitle_sv: "Informationsteknik, civilingenjör", // Behövs
+            programYears: "",
+          },
+          {
+            programAiDescription_sv: "",
+            programDegree_sv: "",
+            programDescription_sv: "",
+            programId: "21", // Behövs
+            programLink: "",
+            programPlace_sv: "",
+            programPoints: "",
+            programRequirements_sv: "",
+            porgramTitle_sv: "Kemiteknik, högskoleingenjör", // Behövs
+            programYears: "",
+          },
+          {
+            programAiDescription_sv: "",
+            programDegree_sv: "",
+            programDescription_sv: "",
+            programId: "22", // Behövs
+            programLink: "",
+            programPlace_sv: "",
+            programPoints: "",
+            programRequirements_sv: "",
+            porgramTitle_sv: "Maskinteknik, civilingenjör", // Behövs
+            programYears: "",
+          },
+          {
+            programAiDescription_sv: "",
+            programDegree_sv: "",
+            programDescription_sv: "",
+            programId: "23", // Behövs
+            programLink: "",
+            programPlace_sv: "",
+            programPoints: "",
+            programRequirements_sv: "",
+            porgramTitle_sv: "Materialdesign, civilingenjör", // Behövs
+            programYears: "",
+          },
+          {
+            programAiDescription_sv: "",
+            programDegree_sv: "",
+            programDescription_sv: "",
+            programId: "25", // Behövs
+            programLink: "",
+            programPlace_sv: "",
+            programPoints: "",
+            programRequirements_sv: "",
+            porgramTitle_sv: "Medicinsk teknik, civilingenjör", // Behövs
+            programYears: "",
+          },
+          {
+            programAiDescription_sv: "",
+            programDegree_sv: "",
+            programDescription_sv: "",
+            programId: "27", // Behövs
+            programLink: "",
+            programPlace_sv: "",
+            programPoints: "",
+            programRequirements_sv: "",
+            porgramTitle_sv: "Samhällsbyggnad, civilingenjör", // Behövs
+            programYears: "",
+          },
+          {
+            programAiDescription_sv: "",
+            programDegree_sv: "",
+            programDescription_sv: "",
+            programId: "29", // Behövs
+            programLink: "",
+            programPlace_sv: "",
+            programPoints: "",
+            programRequirements_sv: "",
+            porgramTitle_sv: "Teknisk fysik, civilingenjör", // Behövs
+            programYears: "",
+          },
+          {
+            programAiDescription_sv: "",
+            programDegree_sv: "",
+            programDescription_sv: "",
+            programId: "34", // Behövs
+            programLink: "",
+            programPlace_sv: "",
+            programPoints: "",
+            programRequirements_sv: "",
+            porgramTitle_sv: "Öppen ingång, civilingenjör", // Behövs
+            programYears: "",
+          },
+        ];
+
+        const interestOfEngineerAndMedicin: Interest[] = [
+          {
+            interestTitle: "Teknik",
+            interestId: "7",
+            interestDescription: "",
+          },
+          {
+            interestTitle: "Lärare",
+            interestId: "7",
+            interestDescription: "",
+          },
+          {
+            interestTitle: "Medicin",
+            interestId: "7",
+            interestDescription: "",
+          },
+          {
+            interestTitle: "Bilar",
+            interestId: "7",
+            interestDescription: "",
+          },
+          {
+            interestTitle: "kemi",
+            interestId: "7",
+            interestDescription: "",
+          },
+          {
+            interestTitle: "Biologi ",
+            interestId: "7",
+            interestDescription: "",
+          },
+          {
+            interestTitle: "Matematik",
+            interestId: "7",
+            interestDescription: "",
+          },
+        ];
+        const interestOfEconomy: Interest[] = [
+          {
+            interestTitle: "Aktier",
+            interestId: "7",
+            interestDescription: "",
+          },
+          {
+            interestTitle: "Ekonomi",
+            interestId: "7",
+            interestDescription: "",
+          },
+          {
+            interestTitle: "Personal ansvar",
+            interestId: "7",
+            interestDescription: "",
+          },
+          {
+            interestTitle: "fastigheter",
+            interestId: "7",
+            interestDescription: "",
+          },
+          {
+            interestTitle: "Snygga hus",
+            interestId: "7",
+            interestDescription: "",
+          },
+          {
+            interestTitle: "Gillar inte matematik",
+            interestId: "7",
+            interestDescription: "",
+          },
+          {
+            interestTitle: "Redovisning",
+            interestId: "7",
+            interestDescription: "",
+          },
+        ];
+
 //recommendProgramFromInterest();

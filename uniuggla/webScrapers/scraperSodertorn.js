@@ -5,34 +5,37 @@ const fs = require("fs");
 
 let titleReturn = {programTitle_sv:"" , programPoints: "", programDesciption_sv: "", programLink: "",programId:""};
 
+
 // Take list of urls as arg and parse, will make ID work better.
 // build master scraper?, with all school scrapers that parse "school" from list and uses correct scraper.
-async function scrapeHDa(url,programId) {
+async function scrapeSodertorn(url,programId) {
   await new Promise(r => setTimeout(r, 100));
 
   request(url, (error, response, html) => {
     if (!error && response.statusCode == 200) {
+      // Cheerio paket, HTML struktur.
       const $ = cheerio.load(html);
 
-      const titleBody = $('h1 > span'); // Article class ref 
-      const title = titleBody.text().trim(); // title holds name of program name
+      const titleBody = $(".sh-course-page-info"); // Article class ref
+      const title = titleBody.find("h1").text().trim(); // title holds name of program name
       //titleReturn.programTitle_sv = title;
-      console.log("TITLE:"+ title);
-      const hpBody = $(".pull-left > b"); 
+      console.log("TITLE:"+title);
+      const hpBody = $(".sh-course-page-info__right p");
       const hp = hpBody.first().text().trim(); // Holds "Program X högskolepoäng * Y år * Kandidatexamen"
   
       console.log("HP: "+ hp);
       //const leadSubBody = $(".lead p"); // lead class's p elements to subBody
       //const shortDesc = leadSubBody.first().text(); // get first p and convert from HTML to text
       
-      const shortDescBody = $(".pagetitle-summary");
+      const shortDescBody = $(".sv-text-portlet-content p");
       const shortDesc = shortDescBody.first().text().trim(); // Holds short desciption of program
       console.log("Short Desc: "+shortDesc);
 
       let hpItems = [];
       hpItems = hp.split("·");
       console.log("after split:" + hpItems);
-      const regex = /\d+/g; 
+      // Plockar ut siffror. 
+      const regex = /\d+/g;
 
       const num = hpItems[0].match(regex);
       console.log(num[0]);
@@ -47,8 +50,6 @@ async function scrapeHDa(url,programId) {
       //console.log("titleReturn: "+titleReturn);
     } else {
       console.log("ERROR CONNECTING:" + error + response.statusCode);
-      titleReturn.programLink = url;
-      titleReturn.programId = ("ERROR: "+response.statusCode);
     }
 
     
@@ -64,5 +65,6 @@ async function scrapeHDa(url,programId) {
     //programId_sv|programUniversity_sv|programTitle_sv|programDescription_sv|programPoints_sv|programYears_sv|programRequirements_sv|programAiDescription_sv|programPlace_sv|programDegree_sv|programLink
   });
 }
-scrapeHDa("https://www.du.se/sv/Utbildning/Program/businessmanagement/");
-module.exports = scrapeHDa;
+// NOTE: Get the URL for respective "Inriktning" in the programs that have
+//scrapeSodertorn("https://www.sh.se/program--kurser/program/grund/bibliotekarieprogrammet"); 
+module.exports = scrapeSodertorn;
