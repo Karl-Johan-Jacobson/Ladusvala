@@ -1,19 +1,17 @@
 import React from "react";
+import RecommendedItme from "@/components/client/RecommendationItem";
 
 interface RecommendationProps {}
 
 import { useState } from "react";
 import { NextPage } from "next";
 import recommendProgramFromInterest from "@/ai/AiHandler";
-import { typewriterTest } from "./TypeWriter";
 
 const Recommendation: React.FC<RecommendationProps & {}> = () => {
 	//HTML code
 	return (
-		<div id="recommmendation" className="wrapper recommmendationWrapper recommmendation" style={{ paddingTop: "10vw" }}>
-			<div className="tempdDivTypewriter greetingDiv">
-				<p className="tempTypewriter" ></p>
-			</div>
+		<div id="recommmendation" className="wrapper recommmendationWrapper recommmendation">
+			<p className="bot titleTypewriter recommmendationText" style={{ paddingTop: "15vh" }}></p>
 			<div className="filterContainer ">
 				<form className="filterWrapper" action="">
 					<div className="filter schoolFilter">
@@ -29,6 +27,9 @@ const Recommendation: React.FC<RecommendationProps & {}> = () => {
 						</div>
 					</div>
 				</form>
+			</div>
+			<div className="recommendedWrapper">
+				<RecommendedItme />
 			</div>
 			<div>
 				<p className="aiAnswer">Loading...</p>

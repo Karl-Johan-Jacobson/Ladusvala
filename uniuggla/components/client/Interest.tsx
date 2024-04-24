@@ -16,7 +16,7 @@ const Interest: React.FC<InterestProps & { interest: InterestType[] }> = ({ hand
 	const [notSelected, setNotSelected] = useState<InterestType[]>(interest.filter((interest, index) => index < NUMBER_OF_INTERESTS));
 	const [allInterests, setAllInterests] = useState<InterestType[]>(interest);
 	const [customInterest, setCustomInterest] = useState<string>("");
-	
+
 	const handleSelect = (selectedInterest: InterestType) => {
 		// Find index of interest to "remove" from non-selected interests
 		let index = 0;
@@ -39,7 +39,7 @@ const Interest: React.FC<InterestProps & { interest: InterestType[] }> = ({ hand
 		setNotSelected([...temp]);
 
 		// Adds the interest to selectedInterest
-	
+
 		setSelectedInterests([...selectedInterests, selectedInterest]);
 	};
 
@@ -97,25 +97,17 @@ const Interest: React.FC<InterestProps & { interest: InterestType[] }> = ({ hand
 		setCustomInterest(event.target.value);
 	};
 
-	async function handleRecommend (){
-		if (selectedInterests.length >= 4) 
-		{
+	async function handleRecommend() {
+		if (selectedInterests.length >= 4) {
 			handleRecommendationButtonClick(selectedInterests.map((interest) => interest.interestTitle));
-
+		} else {
 		}
-		else {}
-			//Say something to user, that they have to select interests
-		
-	};
+		//Say something to user, that they have to select interests
+	}
 
 	return (
-		<div className="wrapper interestWrapper interest" style={{ paddingTop: "10vw" }}>
-			<div className="typewriter typewriter_greeting greetingDiv">
-				<p className="bot greeting"></p>
-			</div>
-			<div className="typewriter typewriter_question questionDiv" style={{ marginTop: "0vw" }}>
-				<p className="bot question"></p>
-			</div>
+		<div className="wrapper interestWrapper interest">
+			<p className="bot titleTypewriter interestText" style={{ paddingTop: "15vh" }}></p>
 			<div className="selectedInterestList">
 				{selectedInterests.map((interest) => (
 					<InterestItem onSelect={handleDeselect} interest={interest} isSelected={true} key={interest.interestId} />
