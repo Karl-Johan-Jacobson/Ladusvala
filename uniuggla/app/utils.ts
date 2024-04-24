@@ -1,3 +1,5 @@
+//import {recommendProgramFromInterest} from "@/ai/AiHandler";
+import { fetchAllProgramsJson, ProgramNameAndId } from "@/ai/AiHandler";
 import recommendProgramFromInterest from "@/ai/AiHandler";
 import { useRouter } from "next/router";
 
@@ -31,56 +33,41 @@ export function scrollToId(id: string): void {
 	}
 }
 
-
-
-export async function fetchJsonTurnItToProgram()
-{
-	
-
-}
-
+export async function fetchJsonTurnItToProgram() {}
 
 /*
 export async function aiTypeAnswer(id: string[], htmlClass: string): void {
-
-//ta ut id från sträng arr, 
-for(var i = 0; i < id.length; i++)
-	{
-		//Program[] all fields = id[i].fetch from database
-	}
-
-for(var i = 0; i < program.length; i++)
-	{
-		//do HTML here 
-		/* 
-	<div className="recommendedBox program.title">
-      <div className="recommendedHead">
-        <p className="tilteReq">program.title</p>
-        <p className="schoolReq descriptionReq"> program.school</p>
-        <p className="degreeReq descriptionReq">program.degree</p>
-        <p className="pointsReq descriptionReq">program.points</p>
-        <p className="yearsReq descriptionReq">program.years</p>
-        <button className="showDescription">
-          <img className="expandArrow" src="../../arrow.svg" alt="" />
-          <p>Visa beskriving</p>
-        </button>
-      </div>
-      <div className="recommendedDescription"></div>
-    </div>
+	for (var i = 0; i < program.length; i++) {
+		//do HTML here
+		
+		<div className="recommendedBox program.title">
+			<div className="recommendedHead">
+				<p className="tilteReq">program.title</p>
+				<p className="schoolReq descriptionReq"> program.school</p>
+				<p className="degreeReq descriptionReq">program.degree</p>
+				<p className="pointsReq descriptionReq">program.points</p>
+				<p className="yearsReq descriptionReq">program.years</p>
+				<button className="showDescription">
+					<img className="expandArrow" src="../../arrow.svg" alt="" />
+					<p>Visa beskriving</p>
+				</button>
+			</div>
+			<div className="recommendedDescription">
+			</div>
+		</div>
 		
 	}
 
- //Placera dessa under recommendedWrapper
- 
- 	var elements = document.querySelectorAll("." + htmlClass);
+	//Placera dessa under recommendedWrapper
+
+	var elements = document.querySelectorAll("." + htmlClass);
 	elements.forEach(function (element) {
-		(element as HTMLElement).style.overflow = Atribute;
+		//(element as HTMLElement).style.overflow = Atribute;
 	});
- 
- //
+
+	//
 }
 */
-
 
 export function handleYesButtonClick(): void {
 	modifyOverflow("visible", "main");
@@ -94,20 +81,43 @@ export function handleYesButtonClick(): void {
 
 
 
+
 export async function aiResponse(interests: string): Promise<void> {
 	const aiAnswer: string[] = await recommendProgramFromInterest(interests);
+	const programs : ProgramNameAndId[] = await fetchAllProgramsJson();
+	console.log(programs);
 	console.log(aiAnswer);
-	//aiTypeAnswer(aiAnswer, "recommendedWrapper");
+
+	const aiAnswerAsNumber : number[] = aiAnswer.map((item) => {
+		return item as unknown as number
+	})
+	
+
+	
+	//USED for testing 
+	for(var i = 0; i < programs.length; i++)
+		{
+			for(var j = 0; j < aiAnswerAsNumber.length; j++)
+				{
+					if(programs[i].programId == aiAnswerAsNumber[j])
+						{
+							console.log(programs[i].programTitle_sv)
+						}
+
+				}
+		}
+	//Turn the programs to recommendedBoxes 
 }
 
 export async function handleRecommendationButtonClick(interestArr: string[]): Promise<void> {
-
-	var interests : string = ""
+	var interests: string = "";
 	interestArr.map((item) => {
-		interests += "interest: " + item + "\n"; 
-	})
-	aiResponse(interests);
+		interests += "interest: " + item + "\n";
+	});
+	console.log(interests)
+	//aiResponse(interests);
 	
+
 	modifyOverflow("visible", "main");
 	removeClass("hide", "recommendationContainer");
 	scrollToId("recommendationContainer");

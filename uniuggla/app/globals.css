@@ -33,26 +33,8 @@ body {
 @font-face {
   font-family: 'Tomorrow';
   src: url(./../public/fonts/Tomorrow-Medium.ttf);
-  font-weight: medium;
+  font-weight: normal;
   font-style: normal;
-}
-@font-face {
-  font-family: 'Tomorrow';
-  src: url(./../public/fonts/Tomorrow-MediumItalic.ttf);
-  font-weight: medium;
-  font-style: italic;
-}
-@font-face {
-  font-family: 'Tomorrow';
-  src: url(./../public/fonts/Tomorrow-Regular.ttf);
-  font-weight: light;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Tomorrow';
-  src: url(./../public/fonts/Tomorrow-SemiBold.ttf);
-  font-weight: bold;
-  font-style: medium;
 }
 /* Class for the text */
 .bot {
@@ -68,9 +50,7 @@ body {
 }
 /* Standard styling for text */
 p {
-  font-family: 'Tomorrow';
-  font-weight: normal;
-  font-style: normal;
+  font-family: 'Tomorrow', sans-serif;
   text-align: center;
 }
 /*Used for formating HTTP response code page*/
@@ -117,6 +97,10 @@ header {
 .titleTypewriter {
   margin: 0 auto;
   line-height: 1.5em;
+  font-family: 'Tomorrow';
+  color: var(--primary-dark-purple);
+  font-size: 5vh;
+  transition: padding-top 0.2s ease;
 }
 .container {
   height: 100vh;
@@ -182,13 +166,7 @@ header {
 ---===---===---===---===---===---===---===---===---===---
   Start of Welcome
 */
-/* Styling for the question and greeting class */
-.titleTypewriter {
-  font-family: 'Tomorrow';
-  color: var(--primary-dark-purple);
-  font-size: 5vh;
-  transition: padding-top 0.2s ease;
-}
+
 /*
   End of Welcome
   ---===---===---===---===---===---===---===---===---===---

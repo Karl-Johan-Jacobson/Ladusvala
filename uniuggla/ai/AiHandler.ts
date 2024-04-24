@@ -8,8 +8,8 @@ import type Program from "../types/program";
 //IF YOU GET this error TS18028, just ignore. and run js file anyway -KJ
 
 const openai = new OpenAI({
-  //apiKey: process.env.OPENAI_API_KEY,
-  apiKey: "", // DO NOT PUSH THIS PLEASE
+  apiKey: process.env.OPENAI_API_KEY,
+  //apiKey: "", // DO NOT PUSH THIS PLEASE
 });
 
 //Remeber to handle errors, for example "no choices available" -KJ
@@ -74,7 +74,7 @@ function turnProgramToPrompt(allPrograms: ProgramNameAndId[]): string {
 
   for (let i = 0; i < allPrograms.length; i++) {
     //generatedString += `Degree: ${allPrograms[i].porgramTitle_sv}, ID = ${allPrograms[i].programId}\n`; //USED IN RELEASE
-    generatedString += `Program title: ${allPrograms[i].programTitle_sv}, Program description: ${allPrograms[i].programDesciption_sv}, ProgramId: ${allPrograms[i].programId}\n, `;
+    generatedString += `Program title: ${allPrograms[i].programTitle_sv}, ProgramId: ${allPrograms[i].programId}\n, `;
   }
   //console.log(generatedString+'\n');
 
@@ -154,17 +154,19 @@ console.log(numbers);
   return idFromRespArray;
 }
 
-const filePath: string = "manuelScraping.json";
+const filePath: string = "/Users/karljohanwejnefalkjakobsson/Ladusvala/uniuggla/demoPrograms.json";
 
 // programDesciption name will be fixed when actual file is used.
-type ProgramNameAndId = {
+export type ProgramNameAndId = {
   programTitle_sv: string;
   programPoints: string;
   programDesciption_sv: string;
   programLink: string;
   programId: number;
 };
-async function fetchAllProgramsJson(): Promise<ProgramNameAndId[]> {
+
+
+export async function fetchAllProgramsJson(): Promise<ProgramNameAndId[]> {
 
   return new Promise((resolve, reject) => {
     //Reads JSON file
@@ -191,7 +193,7 @@ async function fetchAllProgramsJson(): Promise<ProgramNameAndId[]> {
           console.log("-----END OF PROGRAM SECTION------");*/
 
           resolve(allPrograms);
-          //return test; // can use resolve(allPrograms) if errors occur. -> is much slower
+          return allPrograms; // can use resolve(allPrograms) if errors occur. -> is much slower
         } catch (parseError) {
           reject(parseError);
         }

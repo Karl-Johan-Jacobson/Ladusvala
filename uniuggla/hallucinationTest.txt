@@ -1,0 +1,80 @@
+10004
+10057
+10078
+10087
+10076
+ProgramId: 10004
+Programmet "Statsvetenskap med inriktning krishantering och säkerhet" kan vara av intresse då det kombinerar studier inom politik och säkerhetspolitik.
+
+ProgramId: 10057
+Med "Idrottsvetenskapligt program" kan du följa ditt intresse för sport och hälsa samtidigt som du får en bred kunskap inom idrottsvetenskap.
+
+ProgramId: 10078
+"Programvaruteknik" ger dig möjligheten att forma den digitala framtiden och utveckla programvaror för olika tekniska enheter.
+
+ProgramId: 10087
+Med "Turism och destinationsutveckling" kan du utforska branschen för besöksnäring och lära dig om strategisk planering och hållbar utveckling.
+
+ProgramId: 10076
+"Programmet för litteratur och skrivande" erbjuder en kombination av kreativt skrivande och litteraturvetenskap vilket kan passa din intresse för språk och kreativt uttryckande.
+
+Vill du veta mer om någon av dessa utbildingarna? - UniUGpt10078
+10072
+10009
+10031
+10062
+- ProgramId: 10078
+Jag har valt Programvaruteknik eftersom det matchar ditt intresse för mjukvaruutveckling.
+ 
+- ProgramId: 10072
+Musik- och ljuddesign är ett bra val med tanke på ditt intresse för musik.
+
+- ProgramId: 10009
+Biologi och miljövetenskap kan vara intressant med tanke på ditt intresse för medicin och öl.
+
+- ProgramId: 10031
+Veterinärprogrammet kan vara en spännande möjlighet med tanke på ditt intresse för medicin och djur.
+
+- ProgramId: 10062
+Jag har valt Kriminologi som en wildcard eftersom det kan vara intressant med tanke på ditt intresse för säkerhet och samhällsanalys.
+
+Vill du veta mer om någon av dessa utbildingarna? - UniUGpt10067
+10003
+10050
+10032
+10048
+ProgramId: 10067
+Jag har valt Lärarutbildning - Förskollärare eftersom det matchar ditt intresse för att bli lärare. 
+
+ProgramId: 10003
+Krig, kultur och samhälle – kandidatprogram kan passa med ditt intresse för filosofi och krigsvetenskap.
+
+ProgramId: 10050
+Ekonomprogram kan vara intressant med din passion för vin och handel.
+
+ProgramId: 10032
+Trädgårdsingenjörsprogrammet – odling relaterar till dina intressen för snygga hus och odling.
+
+ProgramId: 10048
+Ekoentreprenör för hållbar utveckling är ett wildcardval som löst relaterar till dina intressen för miljö, design och hållbarhet.
+
+Vill du veta mer om någon av dessa utbildningar? - UniUGpt10014
+10031
+10004
+10032
+10060
+ProgramId: 10014
+Jag valde detta program eftersom det kombinerar ekonomi med hållbar utveckling, vilket kan vara relevant för dina intressen.
+
+ProgramId: 10031
+Veterinärprogrammet kan vara intressant för dig med ditt intresse för medicin och djur.
+
+ProgramId: 10004
+Statsvetenskap med inriktning krishantering och säkerhet - kandidatprogram kan ge dig insikter om kriser och säkerhet, vilket kan kopplas till dina intressen.
+
+ProgramId: 10032
+Trädgårdsingenjörsprogrammet – odling kan tilltala dig med ditt intresse för snygga hus och natur.
+
+ProgramId: 10060
+Journalistprogrammet kan vara ett spännande val för dig med en språklig och kommunikativ förmåga.
+Vill du veta mer om någon av dessa utbildingarna? - UniUGpt
