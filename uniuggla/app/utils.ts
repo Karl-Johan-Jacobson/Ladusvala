@@ -31,17 +31,56 @@ export function scrollToId(id: string): void {
 	}
 }
 
-export function aiTypeAnswer(id: string, htmlClass: string): void {
 
 
+export async function fetchJsonTurnItToProgram()
+{
+	
 
-// ta ut id från sträng arr
-//hitta program info från json fil
-//generera recommendationboxes med en forloop
+}
+
+
+/*
+export async function aiTypeAnswer(id: string[], htmlClass: string): void {
+
+//ta ut id från sträng arr, 
+for(var i = 0; i < id.length; i++)
+	{
+		//Program[] all fields = id[i].fetch from database
+	}
+
+for(var i = 0; i < program.length; i++)
+	{
+		//do HTML here 
+		/* 
+	<div className="recommendedBox program.title">
+      <div className="recommendedHead">
+        <p className="tilteReq">program.title</p>
+        <p className="schoolReq descriptionReq"> program.school</p>
+        <p className="degreeReq descriptionReq">program.degree</p>
+        <p className="pointsReq descriptionReq">program.points</p>
+        <p className="yearsReq descriptionReq">program.years</p>
+        <button className="showDescription">
+          <img className="expandArrow" src="../../arrow.svg" alt="" />
+          <p>Visa beskriving</p>
+        </button>
+      </div>
+      <div className="recommendedDescription"></div>
+    </div>
+		
+	}
 
  //Placera dessa under recommendedWrapper
+ 
+ 	var elements = document.querySelectorAll("." + htmlClass);
+	elements.forEach(function (element) {
+		(element as HTMLElement).style.overflow = Atribute;
+	});
+ 
  //
 }
+*/
+
 
 export function handleYesButtonClick(): void {
 	modifyOverflow("visible", "main");
@@ -55,13 +94,19 @@ export function handleYesButtonClick(): void {
 
 
 
-export async function aiResponse(interest: string[]): Promise<void> {
-	const aiAnswer: string[] = await recommendProgramFromInterest(interest);
-	aiTypeAnswer(aiAnswer, "recommendedWrapper");
+export async function aiResponse(interests: string): Promise<void> {
+	const aiAnswer: string[] = await recommendProgramFromInterest(interests);
+	console.log(aiAnswer);
+	//aiTypeAnswer(aiAnswer, "recommendedWrapper");
 }
 
-export async function handleRecommendationButtonClick(interest: string[]): Promise<void> {
-	//aiResponse(interest);
+export async function handleRecommendationButtonClick(interestArr: string[]): Promise<void> {
+
+	var interests : string = ""
+	interestArr.map((item) => {
+		interests += "interest: " + item + "\n"; 
+	})
+	aiResponse(interests);
 	
 	modifyOverflow("visible", "main");
 	removeClass("hide", "recommendationContainer");

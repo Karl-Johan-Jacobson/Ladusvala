@@ -158,7 +158,6 @@ export default function Home() {
       */}
 			<section id="interestContainer" className="container interestContainer hide">
 				<InterestList interest={interests} handleRecommendationButtonClick={handleRecommendationButtonClick} />
-				{/*<Intrest interest={interests} handleRecommendationButtonClick={handleRecommendationButtonClick} />*/}
 			</section>
 			{/*
         Recommendation page
@@ -169,5 +168,3 @@ export default function Home() {
 		</main>
 	);
 }
-
-export default Home;
