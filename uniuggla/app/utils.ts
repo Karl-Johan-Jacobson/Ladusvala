@@ -1,6 +1,7 @@
 //import {recommendProgramFromInterest} from "@/ai/AiHandler";
 import { fetchAllProgramsJson, ProgramNameAndId } from "@/ai/AiHandler";
 import recommendProgramFromInterest from "@/ai/AiHandler";
+import { TypewriterForTitle } from "@/components/client/TypeWriter";
 import { useRouter } from "next/router";
 
 export function addClass(newClass: string, htmlClass: string): void {
@@ -33,8 +34,6 @@ export function scrollToId(id: string): void {
 	}
 }
 
-export async function fetchJsonTurnItToProgram() {}
-
 export function aiTypeAnswer(programs: ProgramNameAndId[], htmlClass: string): void {
 	const container = document.querySelector("." + htmlClass);
 
@@ -45,7 +44,8 @@ export function aiTypeAnswer(programs: ProgramNameAndId[], htmlClass: string): v
 	for (let i = 0; i < programs.length; i++) {
 		const program = programs[i];
 		const recommendedBox = document.createElement("div");
-		recommendedBox.className = "recommendedBox";
+		recommendedBox.className = `recommendedBox recommendedBox${i}`;
+		container.appendChild(recommendedBox);
 
 		const recommendedHead = document.createElement("div");
 		recommendedHead.className = "recommendedHead";
@@ -80,25 +80,49 @@ export function aiTypeAnswer(programs: ProgramNameAndId[], htmlClass: string): v
 		years.textContent = numberOfYears + " ÅR";
 		recommendedHead.appendChild(years);
 
+		const reqDescriptionBox = document.createElement("div");
+		reqDescriptionBox.className = `reqDescriptionBox reqDescriptionBox${i} hide`;
+		recommendedBox.appendChild(reqDescriptionBox);
+
+		const reqDescriptionLink = document.createElement("a");
+		reqDescriptionLink.className = ` reqDescription reqDescriptionLink reqDescriptionLink${i}`;
+		reqDescriptionLink.textContent = "Till programmets hemsida";
+		reqDescriptionLink.target = "_blank";
+		reqDescriptionLink.href = program.programLink;
+
+		reqDescriptionBox.appendChild(reqDescriptionLink);
+
+		const reqDescriptionTitle = document.createElement("p");
+		reqDescriptionTitle.className = `reqDescription reqDescriptionTitle reqDescriptionTitle${i}`;
+		reqDescriptionTitle.textContent = "Programbeskrivning:";
+		reqDescriptionBox.appendChild(reqDescriptionTitle);
+
+		const reqDescriptionDescription = document.createElement("p");
+		reqDescriptionDescription.className = `reqDescriptionDescription reqDescriptionDescription${i}`;
+		reqDescriptionDescription.textContent = program.programDesciption_sv;
+		reqDescriptionBox.appendChild(reqDescriptionDescription);
+
+		const recommendedFoot = document.createElement("div");
+		recommendedFoot.className = `recommendedFoot`;
+		recommendedBox.appendChild(recommendedFoot);
+
 		const button = document.createElement("button");
 		button.addEventListener("click", () => {
-			const element = document.querySelector(`.recommendedDescription${i}`);
+			const element = document.querySelector(`.reqDescriptionBox${i}`);
 			const buttonText = button.children[1];
 			console.log(buttonText);
 			if (element.classList.contains("hide") && buttonText) {
-				removeClass("hide", `recommendedDescription${i}`);
+				removeClass("hide", `reqDescriptionBox${i}`);
 				removeClass("expandArrow", `arrow${i}`);
 				addClass("contractArrow", `arrow${i}`);
-				buttonText.textContent = "Visa mindre";
 			} else {
-				addClass("hide", `recommendedDescription${i}`);
+				addClass("hide", `reqDescriptionBox${i}`);
 				removeClass("contractArrow", `arrow${i}`);
 				addClass("expandArrow", `arrow${i}`);
-				buttonText.textContent = "Visa mer";
 			}
 		});
 		button.className = "showDescription";
-		recommendedHead.appendChild(button);
+		recommendedFoot.appendChild(button);
 
 		const expandArrow = document.createElement("img");
 		expandArrow.className = `arrow${i} expandArrow`;
@@ -107,7 +131,6 @@ export function aiTypeAnswer(programs: ProgramNameAndId[], htmlClass: string): v
 		button.appendChild(expandArrow);
 
 		const buttonText = document.createElement("p");
-		buttonText.textContent = "Visa mer";
 		button.appendChild(buttonText);
 
 		const recommendedDescription = document.createElement("div");
@@ -119,12 +142,11 @@ export function aiTypeAnswer(programs: ProgramNameAndId[], htmlClass: string): v
 		if (elementToRemove && elementToRemove.parentNode) {
 			elementToRemove.parentNode.removeChild(elementToRemove);
 		}
-
-		container.appendChild(recommendedBox);
 	}
 }
 
 export function handleYesButtonClick(): void {
+	TypewriterForTitle("Berätta vad du har för intressen, så föreslår jag ett par program som kan passar dig! :)", "interestText");
 	modifyOverflow("visible", "main");
 	removeClass("hide", "interestContainer");
 	scrollToId("interestContainer");
@@ -179,6 +201,8 @@ export async function handleRecommendationButtonClick(interestArr: string[]): Pr
 	});
 	console.log(interests);
 	aiResponse(interests);
+
+	TypewriterForTitle("JAG ÄR AI OCH JAG REKOMMENDERAR THIS", "recommmendationText");
 
 	modifyOverflow("visible", "main");
 	removeClass("hide", "recommendationContainer");

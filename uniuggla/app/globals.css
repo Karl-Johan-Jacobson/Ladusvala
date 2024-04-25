@@ -3,8 +3,9 @@
   --primary-medium-green: #C6F0C3;
   --medium-green: #9ECB98;
   --primary-dark-green: #37552B;
+  --primary-dark-green-shadow: #37552b64;
   --primary-dark-purple: #4F1EB0;
-  --primary-border-width: 0.2vw;
+  --primary-border-width: 0.1vw;
   --primary-border-radius: 0.5vw;
   margin: 0;
   padding: 0;
@@ -22,12 +23,13 @@ html::-webkit-scrollbar {
 body {      
   background-color: var(--primary-light-green);
 }
-.hide {
+.hide, .hide p, .hide a, .hide * p, .hide * a {
   transition: 0.0s ease !important;
   height: 0px !important;
   opacity: 0 !important;
   margin: 0px !important;
   padding: 0px !important;
+  font-size: 0px !important;
 }
 /* Is the font for the text for instance question title and greetings, etc */
 @font-face {
@@ -47,7 +49,7 @@ body {
 @font-face {
   font-family: 'Tomorrow-Regular';
   src: url(./../public/fonts/Tomorrow-Regular.ttf);
-  font-weight: normal;
+  font-weight: 400;
   font-style: normal;
 }
 
@@ -73,7 +75,7 @@ body {
 }
 /* Standard styling for text */
 p {
-  font-family: 'Tomorrow-MediumItalic', sans-serif;
+  font-family: 'Tomorrow-Medium', sans-serif;
   text-align: center;
 }
 /*Used for formating HTTP response code page*/
@@ -173,6 +175,7 @@ header {
 }
 /* Text inside the buttons color and font size */
 .answerButton p {
+  font-family: 'Tomorrow-MediumItalic';
   color: #9ECB98;
   font-size: 4vw;
 }
@@ -250,7 +253,6 @@ header {
   margin-left: auto;
   margin-right: auto;
   right: 20%;
-
 }
 
 .iconButton {
@@ -340,7 +342,6 @@ header {
   stroke-linejoin: round;
 }
 
-
 .shuffleButton:hover{
   filter: drop-shadow(2px 2px 0px gray);
 }
@@ -359,7 +360,6 @@ header {
 .everyThingElse{
   margin-top: 3vw;
 }
-
 /*
   End of Intrest
  ---===---===---===---===---===---===---===---===---===---
@@ -371,12 +371,13 @@ header {
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 10px;
   max-width: fit-content;
-  margin: 0 auto;
+  margin: 0vw auto;
+  margin-top: 1vw;
 }
 .filter {
   height: inherit;
   display: flex;
-  border: var(--primary-border-width)solid #37552B;
+  border: var(--primary-border-width) solid #37552B;
   border-radius: var(--primary-border-radius);
   position: relative;
 }
@@ -386,22 +387,28 @@ header {
   width: 17vw;
   display: flex;
   border: none;
-  border-radius: var(--primary-border-radius);
+  border-radius: calc(var(--primary-border-radius)*0.85);
   padding-left: 1vw;
-  font-size: 120%;
+  font-size: 1.6vw;
+  background-color: var(--primary-light-green);
+  box-shadow: inset 0.2vw 0.3vw 0.4vw var(--primary-dark-green-shadow);
+}
+.filter input::placeholder{
+  font-family: Tomorrow-MediumItalic;
+  color: var(--medium-green);
 }
 .filterImgDiv {
   top: calc(-0.75*var(--primary-border-width));
   right: calc(-1*var(--primary-border-width));
   height: 3vw;
   width: 3vw;
-  border: var(--primary-border-width)solid var(--primary-dark-green);
+  border: var(--primary-border-width) solid var(--primary-dark-green);
   border-radius: var(--primary-border-radius);
   position: absolute;
   background-color: var(--medium-green);
 }
 .filterImg {
-  height: 70%;
+  height: 60%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -409,43 +416,60 @@ header {
 }
 .recommendedWrapper{
   width: 80%;
-  margin: 4vw auto 0;
+  margin: 2vw auto 0;
   position: relative;
+}
+.recommendedWrapper * p, .recommendedWrapper * a {
+  line-height: 1em;
+  text-align: left;
 }
 .recommendedBox {
   height: min-content;
   margin-bottom: 1vw;
-  border: var(--primary-border-width)solid var(--primary-dark-purple);
+  border: var(--primary-border-width) solid var(--primary-dark-purple);
   border-radius: var(--primary-border-radius);
   border-color: var(--primary-dark-purple);
   background-color: var(--primary-medium-green);
   padding: 1vw;
   transition: height 0.5s ease-in;
 }
-.recommendedHead {
+.reqHead {
 }
-.recommendedHead p {
-  text-align: left;
-}
-.recommendedDescription {
-}
-
 .tilteReq {
   font-size: 1.6vw;
+  font-family: Tomorrow-SemiBold !important;
   color: var(--primary-dark-purple);
+}
+.descriptionReq, .reqDescription, .reqDescriptionDescription{
+  font-family: Tomorrow-Medium;
+  font-size: 1.2vw;
 }
 .descriptionReq {
   display: inline-block;
-  font-size: 1.2vw;
-  line-height: 1em;
   color: var(--primary-dark-green);
 }
-.schoolReq, .degreeReq, .pointsReq {
-  border-right:var(--primary-border-width) solid var(--medium-green);
+.schoolReq, .degreeReq, .pointsReq, .reqDescriptionLink {
+  border-right: var(--primary-border-width) solid var(--medium-green);
   padding-right: 0.5em;
 }
-.degreeReq, .pointsReq, .yearsReq {
+.degreeReq, .pointsReq, .yearsReq, .reqDescriptionTitle {
   padding-left: 0.5em;
+}
+.reqDescription {
+  display: inline-block;
+  color: var(--primary-dark-purple);
+}
+.reqDescriptionLink {
+  text-decoration: underline;
+  text-decoration-color: var(--primary-dark-purple);
+}
+.reqDescriptionDescription {
+  font-family: Tomorrow-Regular !important;
+  margin-top: 0.5em;
+}
+.recommendedFoot {
+  display: flex;
+  margin-top: 1em;
 }
 .showDescription {
   border: 0;
@@ -467,6 +491,9 @@ header {
 .contractArrow {
   transform: rotate(180deg);
   transition: transform 0.5s ease-in;
+}
+.showDescription p {
+  padding-left: 0.5em;
 }
 /*
   End of Recommendation
