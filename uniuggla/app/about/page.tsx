@@ -12,11 +12,11 @@ export default function About() {
 		<input type="text" placeholder="intrests"></input>
 		<button type="button"><p className="bot">Test button</p></button>
 
-		<ul>
-			<li><p className="bot">Biokemi KTH</p></li>
-			<li><p className="bot">Handels Chalmers</p></li>
-			<li><p className="bot">Teknisk fysik KTH</p></li>
-		</ul>
+			<ul>
+				<li><p className="bot">Biokemi KTH</p></li>
+				<li><p className="bot">Handels Chalmers</p></li>
+				<li><p className="bot">Teknisk fysik KTH</p></li>
+			</ul>
 		</div>
 	</main>
 	)
