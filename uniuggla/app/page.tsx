@@ -77,7 +77,7 @@ export default function Home() {
 			});
 		};
 		// Funciton for iniatal js animations
-		var typeWriterDelay = TypewriterForTitle("Hej!<br />Vill du gå på högskola eller universitet?", "welcomeText");
+		var typeWriterDelay = TypewriterForTitle("Hej!<br />Är du redo att hitta din drömutbildning?", "welcomeText");
 		const timeoutId = setTimeout(() => {
 			modifyTopMargin(moveAnswer[0], moveAnswer[1]);
 			modifyOpacity("1", moveAnswer[1]);

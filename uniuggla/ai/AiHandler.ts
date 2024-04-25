@@ -8,8 +8,8 @@ import type Program from "../types/program";
 //IF YOU GET this error TS18028, just ignore. and run js file anyway -KJ
 
 const openai = new OpenAI({
-  //apiKey: process.env.OPENAI_API_KEY,
-  apiKey: "", // DO NOT PUSH THIS PLEASE
+  apiKey: process.env.OPENAI_API_KEY,
+  //apiKey: "", // DO NOT PUSH THIS PLEASE
 });
 
 //Remeber to handle errors, for example "no choices available" -KJ
@@ -74,7 +74,7 @@ function turnProgramToPrompt(allPrograms: ProgramNameAndId[]): string {
 
   for (let i = 0; i < allPrograms.length; i++) {
     //generatedString += `Degree: ${allPrograms[i].porgramTitle_sv}, ID = ${allPrograms[i].programId}\n`; //USED IN RELEASE
-    generatedString += `Program title: ${allPrograms[i].programTitle_sv}, Program description: ${allPrograms[i].programDesciption_sv}, ProgramId: ${allPrograms[i].programId}\n, `;
+    generatedString += `Program title: ${allPrograms[i].programTitle_sv}, ProgramId: ${allPrograms[i].programId}\n, `;
   }
   //console.log(generatedString+'\n');
 
@@ -100,8 +100,9 @@ export default async function recommendProgramFromInterest(interestString: strin
 
 
   //Generate the question to ai to answer
+  let content : string = `These are my interest: ${interestString} and these are all available programs ${programString}. I want you to choose 5 programs that are based on my interest. It's important that they are relevent to my interest. You should only answer with the programID.`
   //let content: string = `These are my interest: ${interestString} and these are all available degrees ${programString}. Choose four of these degrees that matches my interest and then choose one wild card loosely based on the interests, make sure to mark your wildcard. Answer in bullet points with the exact interestTitles of the degrees, the bullet points should start with a dot and not numbers. Answer in swedish. You should answer in the format [Degree, ID = {number}]. Lastly end with a question asking the user if he/she think one of these degrees are interesting.`;
-  let content: string = `These are my interest: ${interestString} and these are all available programs one on each line: ${programString}. Choose four of these programs that matches my interest and then choose one wild card loosely based on the interests, (in total 5 program recommendations) make sure to put the wildcard last. Your answer should start by presenting the programId, followd by one sentence why you choose that degree. You must answer in swedish and write a new line after every degree. Lastly end with a new line and the question "Vill du veta mer om någon av dessa utbildingarna? - UniUGpt"`;
+  //let content: string = `These are my interest: ${interestString} and these are all available programs one on each line: ${programString}. Choose four of these programs that matches my interest and then choose one wild card loosely based on the interests, (in total 5 program recommendations) make sure to put the wildcard last. Your answer should start by presenting the programId, followd by one sentence why you choose that degree. You must answer in swedish and write a new line after every degree. Lastly end with a new line and the question "Vill du veta mer om någon av dessa utbildingarna? - UniUGpt"`;
 
   let questionToAi: ChatCompletionMessageParam = {
     role: "user",
@@ -154,17 +155,19 @@ console.log(numbers);
   return idFromRespArray;
 }
 
-const filePath: string = "manuelScraping.json";
+const filePath: string = "demoPrograms.json";
 
 // programDesciption name will be fixed when actual file is used.
-type ProgramNameAndId = {
+export type ProgramNameAndId = {
   programTitle_sv: string;
   programPoints: string;
   programDesciption_sv: string;
   programLink: string;
   programId: number;
 };
-async function fetchAllProgramsJson(): Promise<ProgramNameAndId[]> {
+
+
+export async function fetchAllProgramsJson(): Promise<ProgramNameAndId[]> {
 
   return new Promise((resolve, reject) => {
     //Reads JSON file
@@ -191,7 +194,7 @@ async function fetchAllProgramsJson(): Promise<ProgramNameAndId[]> {
           console.log("-----END OF PROGRAM SECTION------");*/
 
           resolve(allPrograms);
-          //return test; // can use resolve(allPrograms) if errors occur. -> is much slower
+          return allPrograms; // can use resolve(allPrograms) if errors occur. -> is much slower
         } catch (parseError) {
           reject(parseError);
         }

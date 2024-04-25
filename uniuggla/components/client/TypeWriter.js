@@ -31,3 +31,5 @@ export function TypewriterForTitle(text, htmlClass) {
 	console.log(time);
 	return time;
 }
+
+

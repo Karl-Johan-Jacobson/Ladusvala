@@ -1,4 +1,7 @@
+//import {recommendProgramFromInterest} from "@/ai/AiHandler";
+import { fetchAllProgramsJson, ProgramNameAndId } from "@/ai/AiHandler";
 import recommendProgramFromInterest from "@/ai/AiHandler";
+import { TypewriterForTitle } from "@/components/client/TypeWriter";
 import { useRouter } from "next/router";
 
 export function addClass(newClass: string, htmlClass: string): void {
@@ -31,58 +34,119 @@ export function scrollToId(id: string): void {
 	}
 }
 
+export function aiTypeAnswer(programs: ProgramNameAndId[], htmlClass: string): void {
+	const container = document.querySelector("." + htmlClass);
 
-
-export async function fetchJsonTurnItToProgram()
-{
-	
-
-}
-
-
-/*
-export async function aiTypeAnswer(id: string[], htmlClass: string): void {
-
-//ta ut id från sträng arr, 
-for(var i = 0; i < id.length; i++)
-	{
-		//Program[] all fields = id[i].fetch from database
+	if (!container) {
+		console.error(`Container element with class '${htmlClass}' not found.`);
+		return;
 	}
+	for (let i = 0; i < programs.length; i++) {
+		const program = programs[i];
+		const recommendedBox = document.createElement("div");
+		recommendedBox.className = `recommendedBox recommendedBox${i}`;
+		container.appendChild(recommendedBox);
 
-for(var i = 0; i < program.length; i++)
-	{
-		//do HTML here 
-		/* 
-	<div className="recommendedBox program.title">
-      <div className="recommendedHead">
-        <p className="tilteReq">program.title</p>
-        <p className="schoolReq descriptionReq"> program.school</p>
-        <p className="degreeReq descriptionReq">program.degree</p>
-        <p className="pointsReq descriptionReq">program.points</p>
-        <p className="yearsReq descriptionReq">program.years</p>
-        <button className="showDescription">
-          <img className="expandArrow" src="../../arrow.svg" alt="" />
-          <p>Visa beskriving</p>
-        </button>
-      </div>
-      <div className="recommendedDescription"></div>
-    </div>
-		
+		const recommendedHead = document.createElement("div");
+		recommendedHead.className = "recommendedHead";
+		recommendedBox.appendChild(recommendedHead);
+
+		const title = document.createElement("p");
+		title.className = "tilteReq";
+		title.textContent = program.programTitle_sv;
+		recommendedHead.appendChild(title);
+
+		const school = document.createElement("p");
+		school.className = "schoolReq descriptionReq";
+		//school.textContent = program.school;
+		school.textContent = "LÄROSÄTE: " + "Kungliga Tekniska Högskolan";
+		recommendedHead.appendChild(school);
+
+		const degree = document.createElement("p");
+		degree.className = "degreeReq descriptionReq";
+		//degree.textContent = program.;
+		degree.textContent = "EXAMEN: " + "Civilingenjör, Kandidat, Master";
+		recommendedHead.appendChild(degree);
+
+		const points = document.createElement("p");
+		points.className = "pointsReq descriptionReq";
+		points.textContent = program.programPoints + " HP";
+		recommendedHead.appendChild(points);
+
+		const years = document.createElement("p");
+		years.className = "yearsReq descriptionReq";
+
+		const numberOfYears: string = ((program.programPoints as unknown as number) / 60) as unknown as string;
+		years.textContent = numberOfYears + " ÅR";
+		recommendedHead.appendChild(years);
+
+		const reqDescriptionBox = document.createElement("div");
+		reqDescriptionBox.className = `reqDescriptionBox reqDescriptionBox${i} hide`;
+		recommendedBox.appendChild(reqDescriptionBox);
+
+		const reqDescriptionLink = document.createElement("a");
+		reqDescriptionLink.className = ` reqDescription reqDescriptionLink reqDescriptionLink${i}`;
+		reqDescriptionLink.textContent = "Till programmets hemsida";
+		reqDescriptionLink.target = "_blank";
+		reqDescriptionLink.href = program.programLink;
+
+		reqDescriptionBox.appendChild(reqDescriptionLink);
+
+		const reqDescriptionTitle = document.createElement("p");
+		reqDescriptionTitle.className = `reqDescription reqDescriptionTitle reqDescriptionTitle${i}`;
+		reqDescriptionTitle.textContent = "Programbeskrivning:";
+		reqDescriptionBox.appendChild(reqDescriptionTitle);
+
+		const reqDescriptionDescription = document.createElement("p");
+		reqDescriptionDescription.className = `reqDescriptionDescription reqDescriptionDescription${i}`;
+		reqDescriptionDescription.textContent = program.programDesciption_sv;
+		reqDescriptionBox.appendChild(reqDescriptionDescription);
+
+		const recommendedFoot = document.createElement("div");
+		recommendedFoot.className = `recommendedFoot`;
+		recommendedBox.appendChild(recommendedFoot);
+
+		const button = document.createElement("button");
+		button.addEventListener("click", () => {
+			const element = document.querySelector(`.reqDescriptionBox${i}`);
+			const buttonText = button.children[1];
+			console.log(buttonText);
+			if (element.classList.contains("hide") && buttonText) {
+				removeClass("hide", `reqDescriptionBox${i}`);
+				removeClass("expandArrow", `arrow${i}`);
+				addClass("contractArrow", `arrow${i}`);
+			} else {
+				addClass("hide", `reqDescriptionBox${i}`);
+				removeClass("contractArrow", `arrow${i}`);
+				addClass("expandArrow", `arrow${i}`);
+			}
+		});
+		button.className = "showDescription";
+		recommendedFoot.appendChild(button);
+
+		const expandArrow = document.createElement("img");
+		expandArrow.className = `arrow${i} expandArrow`;
+		expandArrow.src = "../../arrow.svg";
+		expandArrow.alt = "";
+		button.appendChild(expandArrow);
+
+		const buttonText = document.createElement("p");
+		button.appendChild(buttonText);
+
+		const recommendedDescription = document.createElement("div");
+		recommendedDescription.className = `recommendedDescription recommendedDescription${i} hide`;
+		recommendedDescription.textContent = program.programDesciption_sv;
+		recommendedBox.appendChild(recommendedDescription);
+
+		var elementToRemove = container.querySelector(".aiAnswer");
+		if (elementToRemove && elementToRemove.parentNode) {
+			elementToRemove.parentNode.removeChild(elementToRemove);
+		}
 	}
-
- //Placera dessa under recommendedWrapper
- 
- 	var elements = document.querySelectorAll("." + htmlClass);
-	elements.forEach(function (element) {
-		(element as HTMLElement).style.overflow = Atribute;
-	});
- 
- //
 }
-*/
-
 
 export function handleYesButtonClick(): void {
+	TypewriterForTitle("Berätta vad du har för intressen, så föreslår jag ett par program som kan passar dig! :)", "interestText");
 	modifyOverflow("visible", "main");
 	removeClass("hide", "interestContainer");
 	scrollToId("interestContainer");
@@ -92,22 +156,54 @@ export function handleYesButtonClick(): void {
 	}, 500);
 }
 
-
-
 export async function aiResponse(interests: string): Promise<void> {
 	const aiAnswer: string[] = await recommendProgramFromInterest(interests);
-	console.log(aiAnswer);
-	//aiTypeAnswer(aiAnswer, "recommendedWrapper");
+	const allPrograms: ProgramNameAndId[] = await fetchAllProgramsJson();
+
+	const aiAnswerAsNumber: number[] = aiAnswer.map((item) => {
+		return item as unknown as number;
+	});
+	var selectedPrograms: ProgramNameAndId[] = [];
+
+	for (var i = 0, n = 0; i < allPrograms.length; i++) {
+		for (var j = 0; j < aiAnswerAsNumber.length; j++) {
+			if (allPrograms[i].programId == aiAnswerAsNumber[j]) {
+				console.log(allPrograms[i].programTitle_sv);
+				selectedPrograms[n++] = allPrograms[i];
+			}
+		}
+	}
+
+	aiTypeAnswer(selectedPrograms, "recommendedWrapper");
+
+	//USED for testing
+
+	/*
+	for(var i = 0; i < programs.length; i++)
+		{
+			for(var j = 0; j < aiAnswerAsNumber.length; j++)
+				{
+					if(programs[i].programId == aiAnswerAsNumber[j])
+						{
+							console.log(programs[i].programTitle_sv)
+						}
+
+				}
+		}
+		*/
+	//Turn the programs to recommendedBoxes
 }
 
 export async function handleRecommendationButtonClick(interestArr: string[]): Promise<void> {
-
-	var interests : string = ""
+	var interests: string = "";
 	interestArr.map((item) => {
-		interests += "interest: " + item + "\n"; 
-	})
+		interests += "interest: " + item + "\n";
+	});
+	console.log(interests);
 	aiResponse(interests);
-	
+
+	TypewriterForTitle("JAG ÄR AI OCH JAG REKOMMENDERAR THIS", "recommmendationText");
+
 	modifyOverflow("visible", "main");
 	removeClass("hide", "recommendationContainer");
 	scrollToId("recommendationContainer");
