@@ -2,30 +2,60 @@
 
 import Interest from "@/types/interest";
 import { useState } from "react";
+import { RandomBlob, RandomSelectedBlob }  from "../Blob";
 
 interface InterestListItemProps {
   interest: Interest;
   isSelected: boolean;
-  onSelect: (interest: Interest) => void;
+  mounted: boolean;
+  updateParent: (interest: Interest, isMounted: boolean) => void;
 }
 
-export default function InterestListItem({ interest, isSelected, onSelect }: InterestListItemProps) {
+export default function InterestListItem({ interest, isSelected, mounted, updateParent }: InterestListItemProps) {
+  const [isMounted, setIsMounted] = useState<boolean>(mounted);
+
+  // This function is called when an animation has ended, i.e when the component has either faded in or ou
+  const handleParentUpdate = () => {
+    // We only want to update the parent when the component is unmounted, i.e. should be removed
+    if (!isMounted) {
+      updateParent(interest, isMounted);
+    }
+  };
+
+  const handleClick = () => {
+    // The state of an unmounted components shouldn't be able to change
+    if (isMounted) {
+      setIsMounted(!isMounted);
+    }
+  }
+
   return (
     <div>
       {isSelected ?
-        <button onClick={() => onSelect(interest)} className="iconButton selectedInterestButton">
-          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="">
-            <path fill="#2E0A8E" d="M51.3,-58.6C66.3,-48.4,78.4,-32.2,81.6,-14.3C84.8,3.5,79.2,23,69.7,40.8C60.1,58.7,46.6,74.8,29,82.5C11.3,90.1,-10.4,89.3,-26.2,80.1C-42,70.9,-51.8,53.2,-61.7,35.8C-71.7,18.3,-81.7,1.1,-80.9,-16.2C-80.2,-33.4,-68.6,-50.7,-53.3,-60.8C-38,-70.9,-19,-74,-0.4,-73.5C18.1,-72.9,36.2,-68.8,51.3,-58.6Z" transform="translate(100 100)" />
-          </svg>
+        <button 
+          onClick={handleClick}
+          className={
+            isMounted ?
+              "iconButton selectedInterestButton fadeInSelected" :
+              "iconButton selectedInterestButton fadeOut"
+          }
+          onAnimationEnd={handleParentUpdate}
+        >
+          <RandomSelectedBlob key={interest.interestId}/>
           <span className="iconText">{interest.interestTitle}</span>
-        </button> :
-        <button onClick={() => onSelect(interest)} className="iconButton notSelectedInterestButton">
-          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="">
-            <path fill="#9ECB98" d="M51.3,-58.6C66.3,-48.4,78.4,-32.2,81.6,-14.3C84.8,3.5,79.2,23,69.7,40.8C60.1,58.7,46.6,74.8,29,82.5C11.3,90.1,-10.4,89.3,-26.2,80.1C-42,70.9,-51.8,53.2,-61.7,35.8C-71.7,18.3,-81.7,1.1,-80.9,-16.2C-80.2,-33.4,-68.6,-50.7,-53.3,-60.8C-38,-70.9,-19,-74,-0.4,-73.5C18.1,-72.9,36.2,-68.8,51.3,-58.6Z" transform="translate(100 100)" />
-          </svg>
+        </button> : 
+        <button // If not selected
+          onClick={handleClick}
+          onAnimationEnd={handleParentUpdate}
+          className={
+            isMounted ?
+              "iconButton notSelectedInterestButton fadeInNew" :
+              "iconButton notSelectedInterestButton fadeOut"
+          }
+        >
+          <RandomBlob key={interest.interestId}/>
           <span className="iconText">{interest.interestTitle}</span>
         </button>
-
       }
     </div>
   );

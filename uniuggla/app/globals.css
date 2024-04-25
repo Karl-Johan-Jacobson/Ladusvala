@@ -213,38 +213,38 @@ header {
   z-index: 1;
   transition: 0.5s ease;
   overflow-y: auto;
-
 }
+
 .notSelectedInterestList {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  grid-gap: 15px;
-  margin-top: 4vw;
-  max-height: 200px;
-  width: 70vw;
+  position: absolute;
+  left: 18%;
+  bottom: 7vw;
+  width: 60%;
 }
+
+
 
 .selectedInterestList {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  grid-gap: 10px;
-  margin-bottom: auto;
-  margin-left: auto;
-  margin-right: auto;
-  max-height: 200px;
-  width: 70vw;
+  margin-top: 4vw;
+  position: absolute;
+  left: 18%;
+  bottom: 18vw;
+  width: 60%;
 }
 
 .customInterestForm{
-  bottom: 8vw;
   width: 35vw;
-  margin-top: 4vw;
   margin-left: auto;
   margin-right: auto;
-  right: 20%;
-
+  left: 30%;
+  position: absolute;
+  bottom: 1vw;
 }
 
 .iconButton {
@@ -256,19 +256,24 @@ header {
   cursor: pointer;
   display: inline-block;
 }
+
 .iconText {
   font-family: 'Tomorrow';
   font-style: italic;
+  font-size: medium;
   position: absolute;
+  width: 80px;
+  word-break: break-all;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 1;
   color: #DFFDE0;
 }
+
+
 .iconButton svg {
-  width: 120x;
-  height: 120px; 
+  width: 8vw;
+  height: 8vw; 
 }
 
 .notSelectedInterestButton:hover {
@@ -285,15 +290,20 @@ header {
   filter: drop-shadow(2px 2px 0px #9ECB98);
 }
 
-.fade-out {
-  opacity: 0;
-  transition: opacity 0,5s ease-in;
+.notSelectedInterestButton:hover .iconText {
+  color: #4F1EB0;
+}
+
+.selectedInterestButton:hover .iconText {
+  color: #9ECB98;
 }
 
 .addInterestField{
-  font-size: 26px;
+  font-size: 30px;
+  font-family: 'Tomorrow';
+  color: #61855A;
   border: 1px solid grey;
-  width: 89%;
+  width: 91%;
   background: #DFFDE0;
   border-right: none;
   height: 28px;
@@ -301,7 +311,8 @@ header {
   padding-top: none;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
-  box-shadow:inset 0 0 1px 1px gray
+  box-shadow:inset 0 0 1px 1px gray;
+  margin-bottom: 1vw;
 }
 
 .addInterestField::placeholder{
@@ -312,8 +323,13 @@ header {
   font-style: italic;
 }
 
+.addInterestField:focus{
+  outline: none;
+  box-shadow:inset 0 0 2px 2px gray;
+}
+
 .addInterestButton{
-  width: 10%;
+  width: 8%;
   background: #9ECB98;
   height: 29px;
   font-size: 17px;
@@ -326,14 +342,14 @@ header {
 }
 
 .shuffleButton{
-  left: 84%;
+  left: 70%;
   transform: translateX(-50%);
-  bottom: 7vw;
   stroke: #646464;
   stroke-width: 3px;
   stroke-linejoin: round;
+  position: absolute;
+  bottom: 1vw;
 }
-
 
 .shuffleButton:hover{
   filter: drop-shadow(2px 2px 0px gray);
@@ -351,8 +367,70 @@ header {
   color: #9ECB98;
 }
 
-.everyThingElse{
-  margin-top: 3vw;
+/* Interests fade-in and fade-out animations */
+
+.fadeInSelected {
+  animation-name: inAnimationSelected;
+  animation-duration: 500ms;
+  animation-timing-function: ease-in;
+}
+
+.fadeInNew {
+  animation-name: inAnimationNew; 
+  animation-duration: 1000ms;
+  animation-timing-function: ease-in;
+}
+
+.fadeOut {
+  animation-name: outAnimation;
+  animation-duration: 300ms;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes inAnimationSelected {
+  0% {
+    transform: scale(0.1);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes inAnimationNew {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  80% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes outAnimation {
+  0% {
+    opacity: 1;
+  }
+  20% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
 }
 
 /*
