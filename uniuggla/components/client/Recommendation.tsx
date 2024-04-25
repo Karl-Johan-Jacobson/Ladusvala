@@ -29,11 +29,12 @@ const Recommendation: React.FC<RecommendationProps & {}> = () => {
 				</form>
 			</div>
 			<div className="recommendedWrapper">
-				<RecommendedItme />
+				<div className="aiAnswer">
+					<p>Loading...</p>
+				</div>
 			</div>
-			<div>
-				<p className="aiAnswer">Loading...</p>
-			</div>
+			
+
 		</div>
 	);
 };

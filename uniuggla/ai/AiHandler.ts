@@ -100,8 +100,9 @@ export default async function recommendProgramFromInterest(interestString: strin
 
 
   //Generate the question to ai to answer
+  let content : string = `These are my interest: ${interestString} and these are all available programs ${programString}. I want you to choose 5 programs that are based on my interest. It's important that they are relevent to my interest. You should only answer with the programID.`
   //let content: string = `These are my interest: ${interestString} and these are all available degrees ${programString}. Choose four of these degrees that matches my interest and then choose one wild card loosely based on the interests, make sure to mark your wildcard. Answer in bullet points with the exact interestTitles of the degrees, the bullet points should start with a dot and not numbers. Answer in swedish. You should answer in the format [Degree, ID = {number}]. Lastly end with a question asking the user if he/she think one of these degrees are interesting.`;
-  let content: string = `These are my interest: ${interestString} and these are all available programs one on each line: ${programString}. Choose four of these programs that matches my interest and then choose one wild card loosely based on the interests, (in total 5 program recommendations) make sure to put the wildcard last. Your answer should start by presenting the programId, followd by one sentence why you choose that degree. You must answer in swedish and write a new line after every degree. Lastly end with a new line and the question "Vill du veta mer om någon av dessa utbildingarna? - UniUGpt"`;
+  //let content: string = `These are my interest: ${interestString} and these are all available programs one on each line: ${programString}. Choose four of these programs that matches my interest and then choose one wild card loosely based on the interests, (in total 5 program recommendations) make sure to put the wildcard last. Your answer should start by presenting the programId, followd by one sentence why you choose that degree. You must answer in swedish and write a new line after every degree. Lastly end with a new line and the question "Vill du veta mer om någon av dessa utbildingarna? - UniUGpt"`;
 
   let questionToAi: ChatCompletionMessageParam = {
     role: "user",
@@ -154,7 +155,7 @@ console.log(numbers);
   return idFromRespArray;
 }
 
-const filePath: string = "/Users/karljohanwejnefalkjakobsson/Ladusvala/uniuggla/demoPrograms.json";
+const filePath: string = "demoPrograms.json";
 
 // programDesciption name will be fixed when actual file is used.
 export type ProgramNameAndId = {

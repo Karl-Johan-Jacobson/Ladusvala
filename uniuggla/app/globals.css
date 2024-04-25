@@ -265,7 +265,7 @@ header {
 
 .fade-out {
   opacity: 0;
-  transition: opacity 0,5s ease-in;
+  transition: opacity 0.5s ease-in;
 }
 
 .addInterestField{
@@ -386,12 +386,14 @@ header {
   position: relative;
 }
 .recommendedBox {
+  height: min-content;
   margin-bottom: 1vw;
   border: var(--primary-border-width)solid var(--primary-dark-purple);
   border-radius: var(--primary-border-radius);
   border-color: var(--primary-dark-purple);
   background-color: var(--primary-medium-green);
   padding: 1vw;
+  transition: height 0.5s ease-in;
 }
 .recommendedHead {
 }
@@ -400,6 +402,7 @@ header {
 }
 .recommendedDescription {
 }
+
 .tilteReq {
   font-size: 1.6vw;
   color: var(--primary-dark-purple);
@@ -407,17 +410,15 @@ header {
 .descriptionReq {
   display: inline-block;
   font-size: 1.2vw;
+  line-height: 1em;
   color: var(--primary-dark-green);
 }
 .schoolReq, .degreeReq, .pointsReq {
-  border-right:var(--primary-border-width)solid var(--medium-green);
+  border-right:var(--primary-border-width) solid var(--medium-green);
   padding-right: 0.5em;
 }
 .degreeReq, .pointsReq, .yearsReq {
   padding-left: 0.5em;
-}
-.motiveReq:hover {
-  color: var(--primary-light-purple);
 }
 .showDescription {
   border: 0;
@@ -428,10 +429,17 @@ header {
   display: inline-block;
   text-decoration: underline;
 }
-.expandArrow {
+.arrow {
   height: 60%;
   margin: auto 1vw auto 0;
-
+}
+.expandArrow {
+  transform: rotate(0deg);
+  transition: transform 0.5s ease-in;
+}
+.contractArrow {
+  transform: rotate(180deg);
+  transition: transform 0.5s ease-in;
 }
 /*
   End of Recommendation

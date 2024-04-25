@@ -77,4 +77,852 @@ Trädgårdsingenjörsprogrammet – odling kan tilltala dig med ditt intresse f�
 
 ProgramId: 10060
 Journalistprogrammet kan vara ett spännande val för dig med en språklig och kommunikativ förmåga.
-Vill du veta mer om någon av dessa utbildingarna? - UniUGpt
+Vill du veta mer om någon av dessa utbildingarna? - UniUGpt10002
+10012
+10031
+10087
+10048
+ProgramId: 10002  
+Officersprogrammet inriktning sjökrigsvetenskap. Detta program kombinerar dina intressen för segling och kampsport samtidigt som det fokuserar på marina krigsförmågor.
+
+ProgramId: 10012  
+Djur och hållbarhet. Denna utbildning är kopplad till din kärlek för djur och ger dig möjligheten att arbeta med hållbart jordbruk och djurhållning.
+
+ProgramId: 10031  
+Veterinär. Eftersom du är intresserad av medicin och djur är detta program perfekt för dig då det kombinerar dessa områden.
+
+ProgramId: 10087  
+Turism och destinationsutveckling. Eftersom du även är intresserad av resor kan detta program ge dig möjligheten att arbeta inom turistnäringen och bidra till att utveckla destinationer.
+
+ProgramId: 10048  
+Ekoentreprenör för hållbar utveckling. Som en wildcard rekommenderar jag detta program då det fokuserar på hållbarhet och kan kopplas till dina övriga intressen på ett kreativt sätt.
+
+Vill du veta mer om någon av dessa utbildingarna? - UniUGpt10031
+10040
+10072
+10015
+10080
+ProgramId: 10031
+Jag rekommenderar programmet Veterinär eftersom det passar din intresse för Medicin och Djur.
+
+ProgramId: 10040
+Civilingenjör i datateknik kan vara intressant för dig då det kombinerar din passion för Mjukvaruutveckling.
+
+ProgramId: 10072
+Musik- och ljuddesign kan tilltala dig med ditt intresse för Musik och kreativa uttryck.
+
+ProgramId: 10015
+Etologi och djurskydd verkar vara en bra matchning för din passion för Djur och hållbarhet.
+
+ProgramId: 10080
+Risk- och krishanteringsprogrammet kan vara ett spännande val som en wildcard med tanke på din breda intresse inom olika områden.
+
+Vill du veta mer om någon av dessa utbildningar? - UniUGpt10002
+10013
+10029
+10011
+10060
+ProgramId: 10002
+Jag valde Officersprogrammet inriktning sjökrigsvetenskap eftersom det kombinerar ditt intresse för segling med en militär inriktning.
+ProgramId: 10013
+Djursjukskötare kan vara en passande utbildning med tanke på ditt intresse för medicin och djur.
+ProgramId: 10029
+Trädgårdsingenjör - design kombinerar din passion för design och intresse för växter och odling.
+ProgramId: 10011
+Civilingenjör i miljö- och vattenteknik kan vara ett intressant val med tanke på din passion för hållbar utveckling och miljö.
+ProgramId: 10060
+Journalistprogrammet ger en möjlighet att kombinera din passion för foto med en kreativ och kommunikativ karriär. 
+
+Vill du veta mer om någon av dessa utbildingarna? - UniUGpt10030
+10029
+10031
+10008
+10048
+ProgramId: 10030
+Skogsmästare - Skogsbranschen kan erbjuda en spännande karriär inom natur, miljö och hållbar utveckling.
+
+ProgramId: 10029
+Trädgårdsingenjör - design - Kombinerar intresset för design och gröna miljöer.
+
+ProgramId: 10031
+Veterinär - Perfekt för dig som brinner för medicin och djurskötare.
+
+ProgramId: 10008
+Basår/Bastermin - Ett bra förberedande program för vidare studier inom olika områden.
+
+ProgramId: 10048
+Ekoentreprenör för hållbar utveckling - Ett wildcard som kombinerar intressen för hållbarhet och affärsutveckling.
+
+Vill du veta mer om någon av dessa utbildingarna? - UniUGpt10031
+10059
+10033
+10004
+10048
+ProgramId: 10031
+Veterinär - Eftersom du är intresserad av medicin och djur, kan denna utbildning kombinera dina intressen på ett givande sätt.
+
+ProgramId: 10059
+Informatik med inriktning systemutveckling - Denna utbildning ger dig möjlighet att utforska din passion för foto genom att utveckla tekniska färdigheter inom systemutveckling.
+
+ProgramId: 10033
+Växtodlingsprogrammet - Eftersom du har ett intresse för natur och resor kan denna utbildning ge dig kunskap inom växtodling och hållbart jordbruk.
+
+ProgramId: 10004
+Statsvetenskap med inriktning krishantering och säkerhet – kandidatprogram - Denna utbildning kan ge dig insikter om krishantering och säkerhet, vilket kan kopplas till ditt intresse för aktier och utvecklas inom ett samhällsvetenskapligt område.
+
+ProgramId: 10048
+Ekoentreprenör för hållbar utveckling - Wildcard: Denna utbildning kombinerar hållbarhet och entreprenörskap, vilket kan ge dig en bred förståelse för ämnen som intresserar dig inom whisky, foto och resor.
+Vill du veta mer om någon av dessa utbildingarna? - UniUGpt10009
+10031
+10024
+10029
+10048
+ProgramId: 10009
+Jag valde Biologi och miljövetenskap eftersom det kan kombinera din intresse för medicin och djur.
+
+ProgramId: 10031
+Veterinärprogrammet skulle passa bra med din intresse för medicin och djur.
+
+ProgramId: 10024
+Livsmedelsprogrammet kan kopplas till ditt intresse för matlagning och kockning.
+
+ProgramId: 10029
+Trädgårdsingenjör - design är ett program som integrerar din intresse för smycken och design.
+
+ProgramId: 10048
+Wild card: Ekoentreprenör för hållbar utveckling valdes eftersom det kombinerar ekonomi, hållbar utveckling och kan vara en kreativ väg att utforska dina intressen. 
+
+Vill du veta mer om någon av dessa utbildingarna? - UniUGpt10003
+10025
+10030
+10031
+10059
+ProgramId: 10003
+Programmet "Krig, kultur och samhälle – kandidatprogram" kan vara intressant med dess fokus på krig och samhälle.
+
+ProgramId: 10025
+"Politices kandidat - hållbar utveckling" är ett passande val med inriktning på hållbar utveckling.
+
+ProgramId: 10030
+"Skogsvetarprogrammet (kandidat)" kombinerar möjligheten att utforska skogen med miljövetenskap.
+
+ProgramId: 10031
+"Veterinär" är ett direkt svar på ditt intresse för medicin och djur.
+
+ProgramId: 10059
+"Informatik med inriktning systemutveckling" kan vara en spännande wildcard med teknikinriktning som kan relateras till dina andra intressen.
+
+Vill du veta mer om någon av dessa utbildingarna? - UniUGpt10007
+10030
+10040
+10077
+10048
+ProgramId: 10007
+Jag valde Agrar ekonomi eftersom det kombinerar ekonomi med hållbarhetsaspekter inom jordbruket.
+
+ProgramId: 10030
+Skogsvetarprogrammet (kandidat) är ett bra val med tanke på din intresse för forskning och miljövetenskap.
+
+ProgramId: 10040
+Civilingenjör i datateknik passar din intresse för mjukvaruutveckling och teknik.
+
+ProgramId: 10077
+Programmet för psykisk hälsa/ohälsa - särskild komplicerad problematik kan vara intressant med tanke på din intresse för medicin och forskning.
+
+ProgramId: 10048
+Som wildcard valde jag Ekoentreprenör för hållbar utveckling då det kombinerar din intresse för hållbarhet och affärsutveckling.
+Vill du veta mer om någon av dessa utbildingarna? - UniUGpt10002
+10031
+10060
+10034
+10009
+ProgramId: 10002
+Jag valde denna utbildning eftersom den har en inriktning på sjökrigsvetenskap, vilket matchar din intresse för segling.
+ProgramId: 10031
+Denna utbildning passar dig med intresset för medicin då den leder till examen som veterinär.
+ProgramId: 10060
+Journalistprogrammet kan vara intressant för dig med tanke på din bredd av intressen som kan omsättas i kreativt skrivande.
+ProgramId: 10034
+Additiv tillverkning - högskoleingenjör maskinteknik kan vara spännande då det kombinerar teknik och intresse för innovation.
+ProgramId: 10009
+För det mer löst baserade intresset för öl kan du utforska Biologi och miljövetenskap.
+Vill du veta mer om någon av dessa utbildningar? - UniUGpt10003
+10031
+10024
+10032
+10048
+ProgramId: 10003
+Krig, kultur och samhälle – kandidatprogram, passar din intresse för krigsvetenskap.
+ProgramId: 10031
+Veterinär, matchar din intresse för medicin.
+ProgramId: 10024
+Livsmedelsprogrammet, relaterat till din intresse för mat och dryck i form av whisky.
+ProgramId: 10032
+Trädgårdsingenjörsprogrammet – odling, kopplat till din intresse för klättring och naturen.
+ProgramId: 10048
+Ekoentreprenör för hållbar utveckling, som en wildcard länkad till ditt övergripande intresse för hållbarhet.
+Vill du veta mer om någon av dessa utbildingarna? - UniUGpt10007
+10031
+10078
+10015
+10086
+ProgramId: 10007
+Jag valde Agrar ekonomi eftersom det kombinerar ekonomi och jordbruk, vilket kan relateras till ditt intresse för aktier och mjukvaruutveckling.
+
+ProgramId: 10031
+Veterinärprogrammet kan passa dig med intresse för medicin och antikviteter, då det innebär att arbeta med djurhälsa och medicinvård.
+
+ProgramId: 10078
+Programvaruteknik verkar lämpligt med tanke på ditt intresse för mjukvaruutveckling och teknik.
+
+ProgramId: 10015
+Etologi och djurskydd kan vara intressant för dig med passion för kampsport och antikviteter, då det fokuserar på beteendevetenskap och djurskydd.
+
+ProgramId: 10086
+Sportteknologi - högskoleingenjör produktutveckling är ett wildcardval som kan vara spännande med tanke på din kombination av intressen, där produkter inom idrott och hälsa möter teknologi och innovation.
+
+Vill du veta mer om någon av dessa utbildningar? - UniUGpt10012
+10018
+10056
+10057
+10087
+ProgramId: 10012
+Jag valde Djur och hållbarhet eftersom det verkar passa din intresse för djur och miljö.
+
+ProgramId: 10018
+Trädgårdsingenjör - odling skulle kunna vara ett bra val med tanke på ditt intresse för trädgård.
+
+ProgramId: 10056
+Grafisk design kan kombinera din passion för konst och målning med en kreativ karriär.
+
+ProgramId: 10057
+Idrottsvetenskapligt program kan vara ett bra val med ditt intresse för gym och klättring.
+
+ProgramId: 10087
+Som wildcard valde jag Turism och destinationsutveckling eftersom det kan ge dig möjlighet att kombinera resor med din mångfald av intressen.
+
+Vill du veta mer om någon av dessa utbildingarna? - UniUGpt10031
+10013
+10012
+10007
+10080
+ProgramId: 10031 - Veterinär. Jag valde detta program eftersom det ligger nära ditt intresse för medicin och djur.
+ProgramId: 10013 - Djursjukskötare. Eftersom du är intresserad av djur och medicin kan denna utbildning vara passande för dig.
+ProgramId: 10012 - Djur och hållbarhet. Eftersom du är intresserad av djur kan denna utbildning kombinera ditt intresse med hållbarhet.
+ProgramId: 10007 - Agrar ekonomi. Med ditt intresse för kockning kan detta program ge dig kunskaper om ekonomi inom jordbrukssektorn.
+ProgramId: 10080 - Risk- och krishanteringsprogrammet. Som en wildcard valde jag detta program eftersom det kan vara intressant att utforska hur riskhantering relaterar till dina övriga intressen.
+
+Vill du veta mer om någon av dessa utbildingarna? - UniUGpt10003
+10030
+10052
+10031
+10005
+ProgramId: 10003
+Krig, kultur och samhälle – kandidatprogram - Denna utbildning kombinerar kunskap om krig och samhälle vilket kan vara intressant utifrån din skidåkning.
+ProgramId: 10030
+Skogsvetarprogrammet (kandidat) - Denna utbildning kan kopplas till din intresse för skidåkning och naturen.
+ProgramId: 10052
+Elkraftingenjör - Med ditt intresse för gym och energi kan denna utbildning vara relevant då den fokuserar på elkraft.
+ProgramId: 10031
+Veterinär - Eftersom du är intresserad av medicin och antikviteter kan en utbildning inom veterinärmedicin vara spännande då det involverar hälsa och djur.
+ProgramId: 10005
+Bachelor program in Business & Economics - Ett wildcard val baserat på en bredare förståelse för näringslivet och ekonomi som kan gynna dina andra intressen.
+
+Vill du veta mer om någon av dessa utbildningar? - UniUGpt10010
+10015
+10034
+10061
+10048
+ProgramId: 10010
+Valde Civilingenjör i energisystem för att det kombinerar teknik och intresset för hållbarhet och energi.
+
+ProgramId: 10015
+Valde Etologi och djurskydd för att det relaterar till intresset för djur och hållbarhet.
+
+ProgramId: 10034
+Valde Additiv tillverkning - högskoleingenjör maskinteknik för att det kombinerar teknik och intresset för innovation inom tillverkningsprocesser.
+
+ProgramId: 10061
+Valde Kandidatprogram i kemi med inriktning kemisk analys för att det relaterar till intresset för kemi och teknik.
+
+ProgramId: 10048
+Valde Ekoentreprenör för hållbar utveckling som wildcard eftersom det kombinerar intresset för teknik och hållbar utveckling med en mer entreprenöriell inriktning.
+
+Vill du veta mer om någon av dessa utbildingarna? - UniUGpt10005
+10050
+10014
+10013
+10048
+ProgramId: 10005
+Jag har valt detta program eftersom det fokuserar på affärer och ekonomi, vilket matchar ditt intresse för Ekonomi.
+
+ProgramId: 10050
+Detta ekonomiprogram kan vara passande med tanke på din specifika intresse inom ekonomi.
+
+ProgramId: 10014
+Denna utbildning kombinerar ekonomi med hållbar utveckling, vilket kan vara intressant för dig.
+
+ProgramId: 10013
+Djursjukskötare-programmet kan vara en intressant kombination av ditt intresse för djur och hållbar utveckling.
+
+ProgramId: 10048
+Som wildcard kan du överväga Ekoentreprenör för hållbar utveckling med tanke på ditt intresse för hållbarhet, även om det inte är direkt relaterat till dina andra intressen.
+ 
+Vill du veta mer om någon av dessa utbildingarna? - UniUGpt10031
+10000
+10057
+10025
+10048
+ProgramId: 10031
+Veterinär - Eftersom du är intresserad av Medicin skulle en utbildning inom veterinärmedicin kunna kombinera ditt intresse för medicin och djur.
+
+ProgramId: 10000
+Officersprogrammet inriktning krigsvetenskap - Ditt intresse för Forskning kan triggas av denna utbildning som ger möjlighet att fördjupa sig inom området krigsvetenskap.
+
+ProgramId: 10057
+Idrottsvetenskapligt program - Med ditt intresse för Gym och aktiviteter som skateboarding kan denna utbildning inom idrottsvetenskap vara relevant.
+
+ProgramId: 10025
+Politices kandidat - hållbar utveckling - Eftersom du är intresserad av Vintage och hållbarhet kan denna utbildning ge dig kunskaper inom hållbar utveckling och samtidigt kopplas till ditt intresse för samhället.
+
+ProgramId: 10048
+Ekoentreprenör för hållbar utveckling - Som en wild card rekommenderar jag denna utbildning med fokus på hållbar utveckling, vilket kan matcha dina intressen för både Vintage och att vara en entreprenör inom miljövänliga områden.
+
+Vill du veta mer om någon av dessa utbildingarna? - UniUGpt10047
+10037
+10014
+10084
+10048
+ProgramId: 10047
+Datateknik - Eftersom du är intresserad av mjukvaruutveckling kan detta program ge dig kunskap inom området.
+
+ProgramId: 10037
+Biomedicinsk analytiker - Med ditt intresse för medicin kan denna utbildning kombinera dina intressen inom hälsa och vetenskap.
+
+ProgramId: 10014
+Ekonomi - hållbar utveckling - Denna ekonomiprogrammet fokuserar på hållbar utveckling vilket kan vara intressant med din intresse för redovisning.
+
+ProgramId: 10084
+Sjuksköterskeutbildning - Med din intresse för medicin och omsorg kan detta program ge dig möjlighet att arbeta inom vårdsektorn.
+
+ProgramId: 10048
+Ekoentreprenör för hållbar utveckling - Som wildcard rekommenderar jag detta program eftersom det kombinerar dina intressen på ett innovativt sätt.
+
+Vill du veta mer om någon av dessa utbildingarna? - UniUGpt10040
+10049
+10003
+10031
+10077
+ProgramId: 10040
+Valde Civilingenjör i datateknik eftersom det kombinerar intressen för dataanalys och spelutveckling.
+
+ProgramId: 10049
+Valde Ekoingenjör med tanke på intresset för miljö och hållbar utveckling.
+
+ProgramId: 10003
+Valde Krig, kultur och samhälle – kandidatprogram med hänsyn till intresset för militär och kampsport.
+
+ProgramId: 10031
+Valde Veterinär på grund av intresset för medicin och hållbarhet inom djur- och hållbarhetssfären.
+
+ProgramId: 10077
+Valde Programmet för psykisk hälsa/ohälsa - särskild komplicerad problematik som wildcard med en koppling till människors beteende och psykisk hälsa.
+
+Vill du veta mer om någon av dessa utbildingarna? - UniUGpt10012
+10013
+10031
+10015
+10059
+ProgramId: 10012
+Djur och hållbarhet verkar passa med ditt intresse för djur.
+
+ProgramId: 10013
+Djursjukskötare skulle kunna vara intressant med din passion för djur.
+
+ProgramId: 10031
+Veterinär utbildningen kan kombinera din passion för djur och medicin.
+
+ProgramId: 10015
+Etologi och djurskydd kan vara spännande med ditt intresse för djur och hållbarhet.
+
+ProgramId: 10059
+Informatik med inriktning systemutveckling är en wildcard där du kan kombinera dina intressen för teknik med bakning och skateboardåkning.
+
+Vill du veta mer om någon av dessa utbildningar? - UniUGpt10025
+10034
+10000
+10015
+10048
+ProgramId: 10025
+Jag har valt Politices kandidat - hållbar utveckling eftersom det fokuserar på hållbarhet vilket kan vara intressant med tanke på ditt intresse för forskning och antikviteter.
+
+ProgramId: 10034
+Additiv tillverkning - högskoleingenjör maskinteknik kan vara intressant för dig med tanke på din önskan om spelutveckling och tekniskt kunnande.
+
+ProgramId: 10000
+Officersprogrammet inriktning krigsvetenskap kan locka dig då det kombinerar ditt intresse för forskning och film.
+
+ProgramId: 10015
+Etologi och djurskydd verkar passa bra med ditt intresse för antikviteter och forskning inom djurväg.
+
+ProgramId: 10048
+Som wildcard valde jag Ekoentreprenör för hållbar utveckling då det kombinerar hållbarhet (som du är intresserad av) och ger dig möjlighet att utforska andra områden inom entreprenörskap. 
+
+Vill du veta mer om någon av dessa utbildingarna? - UniUGpt10012
+10024
+10031
+10071
+10048
+ProgramId: 10012
+Djur och hållbarhet passar din kärlek till djur och intresse för hållbarhet. 
+
+ProgramId: 10024
+Livsmedelsprogrammet kombinerar ditt intresse för bakning och matlagning.
+
+ProgramId: 10031
+Veterinär är en perfekt match med ditt intresse för medicin och djur.
+
+ProgramId: 10071
+Lärarutbildning - Ämneslärare med inriktning mot arbete i gymnasieskolan kan ge dig möjligheten att lära ut din kunskap om ämnen som intresserar dig.
+
+ProgramId: 10048
+Ekoentreprenör för hållbar utveckling är det vilda kortet som kombinerar dina intressen på ett innovativt sätt.
+
+Vill du veta mer om någon av dessa utbildingarna? - UniUGpt10012
+10031
+10014
+10029
+10048
+ProgramId: 10012
+
+Valde Djur och hållbarhet eftersom det matchar ditt intresse för Djur. 
+
+ProgramId: 10031
+
+Valde Veterinär eftersom det relaterar till medicin och djur.
+
+ProgramId: 10014
+
+Valde Ekonomi - hållbar utveckling eftersom det kombinerar ekonomi med hållbarhet. 
+
+ProgramId: 10029
+
+Valde Trädgårdsingenjör - design eftersom det kan kopplas till intresset för antikviteter.
+
+ProgramId: 10048
+
+Valde Ekoentreprenör för hållbar utveckling som en wildcard då den kombinerar hållbarhet med entreprenörskap.
+
+Vill du veta mer om någon av dessa utbildningar? - UniUGpt10004
+10030
+10031
+10056
+10048
+ProgramId: 10004 
+Valde Krig, kultur och samhälle – kandidatprogram eftersom det kombinerar krigsforskning med samhällsvetenskapliga aspekter.
+
+ProgramId: 10030 
+Valde Skogsvetarprogrammet (kandidat) då det kan ge en bred förståelse för miljöfrågor och hållbarhet.
+
+ProgramId: 10031 
+Valde Veterinär eftersom det relaterar till intresset för medicin och djur.
+
+ProgramId: 10056 
+Valde Grafisk design för möjligheten att kombinera intresset för foto med kreativt designarbete.
+
+ProgramId: 10048 
+Valde Ekoentreprenör för hållbar utveckling som en wildcard fokuserad på hållbarhet och affärsinnovation.
+
+Vill du veta mer om någon av dessa utbildingarna? - UniUGpt10067
+10031
+10078
+10086
+10029
+ProgramId: 10067
+Jag valde denna utbildning eftersom du visade intresse för att bli lärare.
+
+ProgramId: 10031
+Veterinärprogrammet kan passa dig med intresse för djur och hållbarhet.
+
+ProgramId: 10078
+Programvaruteknik är relevant för dig med intresse för mjukvaruutveckling.
+
+ProgramId: 10086
+Sportteknologi - högskoleingenjör produktutveckling är en kombination av teknik och sport, vilket kan intressera dig med Yoga som intresse.
+
+ProgramId: 10029
+Jag valde landskapsarkitektprogrammet med inriktning design som en wildcard för dess kreativa koppling till dina intressen inom te och öl.
+
+Vill du veta mer om någon av dessa utbildningar? - UniUGpt10003
+10031
+10030
+10072
+10048
+ProgramId: 10003
+Valde detta program på grund av intresset för krig och samhälle.
+
+ProgramId: 10031
+Veterinärprogrammet passar din kärlek till medicin och djur.
+
+ProgramId: 10030
+Skogsvetarprogrammet passar din passion för naturen och intresset för skogsekonomi.
+
+ProgramId: 10072
+Musik- och ljuddesignprogrammet kombinerar din kärlek till musik och intresset för teknik.
+
+ProgramId: 10048
+Som wildcard valde jag Ekoentreprenör för hållbar utveckling som kan koppla samman dina intressen på ett spännande sätt.
+
+Vill du veta mer om någon av dessa utbildingarna? - UniUGpt10001
+10031
+10014
+10007
+10048
+ProgramId: 10001
+Officersprogrammet inriktning militärteknik - Programmets fokus på teknik och militärvetenskap passar dina intressen inom Teknik och Kemi.
+
+ProgramId: 10031
+Veterinär - Denna utbildning kombinerar dina intressen för Teknik och Medicin genom att involvera djurhälsa och medicinska aspekter.
+
+ProgramId: 10014
+Ekonomi - hållbar utveckling - Ekonomiprogrammet med inriktning på hållbar utveckling tar hänsyn till både din ekonomiska och miljömässiga intresseområde.
+
+ProgramId: 10007
+Agrar ekonomi - Denna kandidatutbildning kombinerar dina intressen inom Ekonomi och Kemi genom att fokusera på ekonomiska aspekter inom jordbrukssektorn.
+
+ProgramId: 10048
+Ekoentreprenör för hållbar utveckling - Med en inriktning på hållbar utveckling kan du utforska innovation och entreprenörskap inom miljöskydd och teknik. 
+
+Vill du veta mer om någon av dessa utbildingarna? - UniUGpt10037
+10032
+10051
+10061
+10030
+Based on your interests in Aktier, Medicin, Vin, Spelutveckling, Språk, and Klättring, here are 5 relevant program IDs for you:
+
+1. ProgramID: 10037 (Biomedicinsk analytiker)
+2. ProgramID: 10032 (Trädgårdsingenjörsprogrammet – odling)
+3. ProgramID: 10051 (Ekoteknik)
+4. ProgramID: 10061 (Kandidatprogram i kemi med inriktning kemisk analys)
+5. ProgramID: 10030 (Skogsvetarprogrammet (kandidat))10037
+10031
+10063
+10056
+10087
+Based on your interests in medicine, vintage items, and beer, here are 5 programs that might be of interest to you:
+
+1. ProgramId: 10037 (Biomedicinsk analytiker)
+2. ProgramId: 10031 (Veterinär)
+3. ProgramId: 10063 (Kommunikations- och PR-programmet)
+4. ProgramId: 10056 (Grafisk design)
+5. ProgramId: 10087 (Turism och destinationsutveckling)10050
+10014
+10038
+10061
+10079
+Based on your interests in teacher education, finance, economics, and accounting, here are 5 relevant programs for you:
+
+ProgramID: 10050 (Ekonomprogram)
+ProgramID: 10014 (Ekonomi - hållbar utveckling)
+ProgramID: 10038 (Byggingenjör Hållbart byggande)
+ProgramID: 10061 (Kandidatprogram i kemi med inriktning kemisk analys)
+ProgramID: 10079 (Psykologprogrammet)10067
+10068
+10069
+10071
+10076
+Based on your interests in teaching, diving, painting, and disliking mathematics, here are 5 programs that align with your interests:
+
+1. ProgramId: 10067 (Lärarutbildning - Förskollärare)
+2. ProgramId: 10068 (Lärarutbildning - Grundlärare med inriktning mot arbete i fritidshem)
+3. ProgramId: 10069 (Lärarutbildning - Grundlärare med inriktning mot arbete i förskoleklass och grundskolans årskurs 1-3)
+4. ProgramId: 10071 (Lärarutbildning - Ämneslärare med inriktning mot arbete i gymnasieskolan)
+5. ProgramId: 10076 (Programmet för litteratur och skrivande)10007
+10017
+10024
+10032
+10038
+ProgramId: 10007
+ProgramId: 10017
+ProgramId: 10024
+ProgramId: 10032
+ProgramId: 1003810031
+10057
+10054
+10072
+10030
+10031
+10057
+10054
+10072
+1003010013
+10031
+10012
+10037
+10076
+Based on your interests in Medicine, Animals, and Painting, here are 5 programs that align with those interests:
+- ProgramID: 10013 (Djursjukskötare)
+- ProgramID: 10031 (Veterinär)
+- ProgramID: 10012 (Djur och hållbarhet)
+- ProgramID: 10037 (Biomedicinsk analytiker)
+- ProgramID: 10076 (Programmet för litteratur och skrivande)10060
+10072
+10015
+10085
+10063
+Based on your interests in teaching, playing instruments, game development, wine, and languages, here are 5 programs that align with your interests:
+
+1. ProgramId: 10060 (Journalistprogrammet)
+2. ProgramId: 10072 (Musik- och ljuddesign)
+3. ProgramId: 10015 (Etologi och djurskydd)
+4. ProgramId: 10085 (Socionomutbildning)
+5. ProgramId: 10063 (Kommunikations- och PR-programmet)10037
+10040
+10047
+10078
+10081
+Based on your interests in Medicine (Medicin), Design (Design), Data Analysis (Dataanalys), and Research (Forskning), here are 5 relevant programs for you:
+
+1. ProgramId: 10037 (Biomedicinsk analytiker)
+2. ProgramId: 10040 (Civilingenjör i datateknik)
+3. ProgramId: 10047 (Datateknik)
+4. ProgramId: 10078 (Programvaruteknik)
+5. ProgramId: 10081 (Samhällsvetarprogrammet)
+
+These programs align closely with your stated interests and could be good choices for you to consider further.10012
+10018
+10029
+10037
+10079
+Based on your interests, here are 5 programs that are relevant to you:
+
+1. ProgramId: 10012 (Djur och hållbarhet)
+2. ProgramId: 10018 (Trädgårdsingenjör - odling)
+3. ProgramId: 10029 (Trädgårdsingenjör - design)
+4. ProgramId: 10037 (Biomedicinsk analytiker)
+5. ProgramId: 10079 (Psykologprogrammet)10032
+10031
+10061
+10079
+10054
+Based on your interests in Medicin, Språk, Resor, Gym, and Redovisning, here are 5 programs that may be relevant to you:
+
+1. ProgramID: 10032
+2. ProgramID: 10031
+3. ProgramID: 10061
+4. ProgramID: 10079
+5. ProgramID: 1005410037
+10032
+10048
+10047
+10085
+ProgramId: 10037
+ProgramId: 10032
+ProgramId: 10048
+ProgramId: 10047
+ProgramId: 1008510012
+10013
+10037
+10031
+10032
+Based on your interests in medicine, playing instruments, vintage, swimming, and animals, here are 5 programs that may be relevant to you:
+
+ProgramID:
+10012 (Djur och hållbarhet)
+10013 (Djursjukskötare)
+10037 (Biomedicinsk analytiker)
+10031 (Veterinär)
+10032 (Trädgårdsingenjörsprogrammet – odling)10037
+10031
+10048
+10057
+10075
+Based on your interests in Medicine, Languages, Film, Skiing, and Gym, here are 5 relevant programs for you:
+
+1. ProgramId: 10037 (Biomedicinsk analytiker)
+2. ProgramId: 10031 (Veterinär)
+3. ProgramId: 10048 (Ekoentreprenör för hållbar utveckling)
+4. ProgramId: 10057 (Idrottsvetenskapligt program)
+5. ProgramId: 10075 (Programmet för Hälsa och Rehabilitering i arbetslivet)10005
+10006
+10057
+10067
+10071
+10005, 10006, 10057, 10067, 1007110031
+10015
+10037
+10084
+10075
+Based on your interests in Medicine, Yoga, Game Development, Coffee, and Diving, here are 5 relevant programs for you:
+
+1. ProgramID: 10031 (Veterinär)
+2. ProgramID: 10015 (Etologi och djurskydd)
+3. ProgramID: 10037 (Biomedicinsk analytiker)
+4. ProgramID: 10084 (Sjuksköterskeutbildning)
+5. ProgramID: 10075 (Programmet för Hälsa och Rehabilitering i arbetslivet)10031
+10037
+10061
+10065
+10078
+ProgramId: 10031
+ProgramId: 10037
+ProgramId: 10061
+ProgramId: 10065
+ProgramId: 1007810043
+10061
+10067
+10072
+10092
+ProgramId: 10043
+ProgramId: 10061
+ProgramId: 10067
+ProgramId: 10072
+ProgramId: 1009210067
+10072
+10060
+10084
+10026
+Based on your interests in teaching, yoga, film, playing instruments, and skiing, here are 5 programs that may align with your interests:
+
+1. ProgramId: 10067 (Lärarutbildning - Förskollärare)
+2. ProgramId: 10072 (Musik- och ljuddesign)
+3. ProgramId: 10060 (Journalistprogrammet)
+4. ProgramId: 10084 (Sjuksköterskeutbildning)
+5. ProgramId: 10026 (Samhällsutveckling - landsbygd)10032
+10036
+10072
+10051
+10031
+ProgramIds for 5 programs based on your interests are:
+
+1. ProgramId: 10032 (Trädgårdsingenjörsprogrammet – odling)
+2. ProgramId: 10036 (Beteendevetenskapligt program)
+3. ProgramId: 10072 (Musik- och ljuddesign)
+4. ProgramId: 10051 (Ekoteknik)
+5. ProgramId: 10031 (Veterinär)10067
+10068
+10071
+10076
+10084
+Based on your interests in Lärare, Språk, Vin, Vintage, and Whisky, I recommend the following program IDs:
+
+1. ProgramId: 10067 (Lärarutbildning - Förskollärare)
+2. ProgramId: 10068 (Lärarutbildning - Grundlärare med inriktning mot arbete i fritidshem)
+3. ProgramId: 10071 (Lärarutbildning - Ämneslärare med inriktning mot arbete i gymnasieskolan)
+4. ProgramId: 10076 (Programmet för litteratur och skrivande)
+5. ProgramId: 10084 (Sjuksköterskeutbildning)10067
+10035
+10040
+10047
+10078
+Based on your interests in teaching, climbing, languages, data analysis, game development, and software development, here are 5 relevant programs for you:
+
+ProgramID:
+1. 10067
+2. 10035
+3. 10040
+4. 10047
+5. 1007810067
+10009
+10017
+10031
+10057
+Based on your interests in teaching, sailing, disliking mathematics, cycling, and tea, here are 5 programs that are relevant to your interests:
+
+ProgramId: 10067 (Lärarutbildning - Förskollärare)
+ProgramId: 10009 (Biologi och miljövetenskap)
+ProgramId: 10017 (Hippologprogrammet)
+ProgramId: 10031 (Veterinär)
+ProgramId: 10057 (Idrottsvetenskapligt program)
+
+These programs align with your interests and provide opportunities in teaching, biology, equestrian studies, veterinary care, and sports science.10031
+10024
+10034
+10019
+10005
+Based on your interests in Medicine, Wine, Game Development, Antiques, and Stocks, here are 5 relevant program IDs for you:
+
+1. Program ID: 10031 (Veterinär)
+2. Program ID: 10024 (Livsmedelsprogrammet)
+3. Program ID: 10034 (Additiv tillverkning - högskoleingenjör maskinteknik)
+4. Program ID: 10019 (Landskapsarkitektprogrammet - Uppsala)
+5. Program ID: 10005 (Bachelor program in Business & Economics)10030
+10037
+10052
+10057
+10061
+Based on your interests in Medicine, Research, Accounting, Design, and Skateboarding, here are 5 relevant program IDs for you:
+- ProgramID: 10030 (Skogsvetarprogrammet - relevant to research)
+- ProgramID: 10037 (Biomedicinsk analytiker - relevant to medicine)
+- ProgramID: 10052 (Elkraftingenjör - design aspect might align with your interest in design)
+- ProgramID: 10057 (Idrottsvetenskapligt program - related to skateboarding as a sport)
+- ProgramID: 10061 (Kandidatprogram i kemi med inriktning kemisk analys - linked to your interest in research)10067
+10068
+10069
+10070
+10071
+ProgramID: 10067
+ProgramID: 10068
+ProgramID: 10069
+ProgramID: 10070
+ProgramID: 1007110025
+10029
+10036
+10048
+10061
+Based on your interests in "Aktier", "Medicin", "Yoga", and "Språk", here are 5 programs that may align with your interests:
+
+1. ProgramID: 10025 (Politices kandidat - hållbar utveckling)
+2. ProgramID: 10029 (Trädgårdsingenjör - design)
+3. ProgramID: 10036 (Beteendevetenskapligt program)
+4. ProgramID: 10048 (Ekoentreprenör för hållbar utveckling)
+5. ProgramID: 10061 (Kandidatprogram i kemi med inriktning kemisk analys)10031
+10012
+10016
+10037
+10086
+ProgramId: 10031
+ProgramId: 10012
+ProgramId: 10016
+ProgramId: 10037
+ProgramId: 1008610030
+10013
+10031
+10081
+10016
+ProgramId: 10030
+ProgramId: 10013
+ProgramId: 10031
+ProgramId: 10081
+ProgramId: 1001610030
+10031
+10015
+10087
+10008
+ProgramId: 10030
+ProgramId: 10031
+ProgramId: 10015
+ProgramId: 10087
+ProgramId: 1000810003
+10025
+10037
+10059
+10060
+Based on your interests in Bilar, Kaffe, Whisky, Film, and Kampsport, here are 5 relevant programs for you:
+
+1. ProgramId: 10003
+2. ProgramId: 10025
+3. ProgramId: 10037
+4. ProgramId: 10059
+5. ProgramId: 10060
+
+These programs are aligned with your interests and could provide you with an engaging educational experience.10014
+10018
+10032
+10024
+10042
+ProgramId: 10014
+ProgramId: 10018
+ProgramId: 10032
+ProgramId: 10024
+ProgramId: 10042

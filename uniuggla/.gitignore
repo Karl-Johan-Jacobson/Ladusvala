@@ -43,3 +43,5 @@ uniuggla/public/dataset/programs.*
 # webscrapers
 webScrapers/test.*
 webScrapers/manuelScraping.json
+
+*/.DS_Store
