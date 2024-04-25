@@ -524,13 +524,17 @@ header {
   display: inline-block;
   text-decoration: underline;
 }
-.expandArrow {
+.arrow {
   height: 60%;
   margin: auto 1vw auto 0;
-
 }
-.showDescription p {
-  padding-left: 0.5em;
+.expandArrow {
+  transform: rotate(0deg);
+  transition: transform 0.5s ease-in;
+}
+.contractArrow {
+  transform: rotate(180deg);
+  transition: transform 0.5s ease-in;
 }
 .showDescription p {
   padding-left: 0.5em;

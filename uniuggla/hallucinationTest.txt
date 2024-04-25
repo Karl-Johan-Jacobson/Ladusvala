@@ -1409,4 +1409,20 @@ Based on your interests in English, Physics, Swedish, and Religion, here are 5 p
 2. ProgramId: 10061 (Kandidatprogram i kemi med inriktning kemisk analys)
 3. ProgramId: 10063 (Kommunikations- och PR-programmet)
 4. ProgramId: 10085 (Socionomutbildning)
-5. ProgramId: 10076 (Programmet för litteratur och skrivande)
+5. ProgramId: 10076 (Programmet för litteratur och skrivande)10003
+10004
+10030
+10057
+10080
+10003, 10004, 10030, 10057, 1008010054
+10057
+10062
+10064
+10077
+Based on your interests in Engelska, Historia, Hälsovård, Idrott och hälsa, and Psykologi, here are 5 relevant programs:
+
+1. ProgramId: 10054 - Folkhälsovetenskapliga programmet
+2. ProgramId: 10057 - Idrottsvetenskapligt program
+3. ProgramId: 10062 - Kandidatprogram i Kriminologi
+4. ProgramId: 10064 - Kompletterande pedagogisk utbildning
+5. ProgramId: 10077 - Programmet för psykisk hälsa/ohälsa - särskild komplicerad problematik
