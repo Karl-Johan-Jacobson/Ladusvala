@@ -8,20 +8,20 @@ let titleReturn = {
   programDesciption_sv: "",
   programLink: "",
   programId: "",
+  schoolName:""
 };
 
 // Take list of urls as arg and parse, will make ID work better.
 // build master scraper?, with all school scrapers that parse "school" from list and uses correct scraper. Will make ID work easier.
-async function scrapeMalmö(url,programId) {
-  await new Promise(r => setTimeout(r, 100));
+async function scrapeMalmö(url, programId,schoolName) {
+  await new Promise((r) => setTimeout(r, 1000));
 
   request(url, (error, response, html) => {
     if (!error && response.statusCode == 200) {
       const $ = cheerio.load(html);
-
+      console.log(url);
       const titleClass = $(".hero__title"); // Article class ref
       const titleItems = titleClass.text().split(" "); // title holds name of program, title, amount of HP
-
 
       let title = "";
       titleItems.map((item) => {
@@ -31,38 +31,49 @@ async function scrapeMalmö(url,programId) {
         }
       });
 
-      const hpClass = $(".edu-sticky-block-content");
+      const hpClass = $(".column");
 
-      const hpArr = hpClass.text().replace(/[^hp0-9]/g, '').split("hp");
-      
-      hp = hpArr[0] + " " + "hp"
-        const descriptionClass = $(".wysiwyg");
-        const description = descriptionClass.find("p").first().text();
+      const hpArr = hpClass.text();
 
+      //console.log(hpArr);
+      hp = hpArr;
+      const descriptionClass = $(".narrow-content > .wysiwyg");
+      const description = descriptionClass.find("p").first().text();
 
+      let hpItems = [];
+      hpItems = hp.split("·");
+      console.log("after split:" + hpItems[0]);
+      const regex = /\d+/g;
+
+      const num = hpItems[0].match(regex);
+      console.log(num[0]);
 
       titleReturn.programTitle_sv = title;
-      titleReturn.programPoints = hp;
+      titleReturn.programPoints = num[0];
       titleReturn.programDesciption_sv = description;
       titleReturn.programLink = url;
       titleReturn.programId = programId;
+      titleReturn.schoolName = schoolName;
 
       console.log(titleReturn);
     } else {
       console.log(response.statusCode);
       console.log("ERROR CONNECTING:" + error);
       titleReturn.programLink = url;
-      titleReturn.programId = ("ERROR: "+response.statusCode);
+      titleReturn.programId = "ERROR: " + response.statusCode;
     }
 
-    fs.appendFile("test.json", JSON.stringify(titleReturn, null, 2) + ","+"\n", (err) => {
-      if (err) {
-        console.error(err);
-        return;
+    fs.appendFile(
+      "test.json",
+      JSON.stringify(titleReturn, null, 2) + "," + "\n",
+      (err) => {
+        if (err) {
+          console.error(err);
+          return;
+        }
+        console.log("Successfully written data to file");
       }
-      console.log("Successfully written data to file");
-    });
-
+    );
 
     //programId_sv|programUniversity_sv|programTitle_sv|programDescription_sv|programPoints_sv|programYears_sv|programRequirements_sv|programAiDescription_sv|programPlace_sv|programDegree_sv|programLink
   });

@@ -1,10 +1,10 @@
 "use server";
 import * as fs from "fs";
+import * as fs from "fs";
 import OpenAI from "openai";
 import { ChatCompletionMessageParam } from "openai/resources/index.mjs";
 import type Interest from "../types/interest";
 import type Program from "../types/program";
-
 //IF YOU GET this error TS18028, just ignore. and run js file anyway -KJ
 
 const openai = new OpenAI({
@@ -47,6 +47,7 @@ async function userAskAiAndGetAnswer(
   });
 
 
+
   //DEBUG
   //console.log(userMessagesArray);
 
@@ -70,12 +71,16 @@ function turnInterestToPrompt(selectedInterests: Interest[]): string {
 //Function only used to turn type Program to a string
 
 function turnProgramToPrompt(allPrograms: ProgramNameAndId[]): string {
+function turnProgramToPrompt(allPrograms: ProgramNameAndId[]): string {
   let generatedString: string = "";
 
   for (let i = 0; i < allPrograms.length; i++) {
     //generatedString += `Degree: ${allPrograms[i].porgramTitle_sv}, ID = ${allPrograms[i].programId}\n`; //USED IN RELEASE
     generatedString += `Program title: ${allPrograms[i].programTitle_sv}, ProgramId: ${allPrograms[i].programId}\n, `;
   }
+  //console.log(generatedString+'\n');
+
+
   //console.log(generatedString+'\n');
 
 
@@ -118,8 +123,10 @@ export default async function recommendProgramFromInterest(interestString: strin
     model: "gpt-3.5-turbo",
   });
 
+
   // save the answer to a varible to find the IDs
   const text = completion.choices[0].message.content as string;
+  console.log("TOTAL TOKEN USAGE: "+completion.usage?.total_tokens);
   console.log("TOTAL TOKEN USAGE: "+completion.usage?.total_tokens);
   // Use the exec method of the regex to find matches in the text
   const regex = /\d+/g;
@@ -148,7 +155,32 @@ console.log(numbers);
   });
   
   
+  let idFromRespArray: string[] = []; // this will now hold all the IDs of programs extracted from the ai response.
+
+  const numbers = text.match(regex);  // extract numbers from the string
+console.log(numbers);
+  // Check if numbers is defined
+  if (numbers !== null) {
+    numbers.forEach((num) => {
+      if (num.length === 5) { // check if the length of the sequence is exactly 5, matches our chosen numbering of programs.
+        idFromRespArray.push(num); // push the sequence of IDs into the idFromRespArray array
+      }
+    });
+  } // send id's to func which can display proper program info from them.
+
+  // Append to file to check if hallucinations occur
+  const contentToWrite = idFromRespArray.join('\n') + '\n' + completion.choices[0].message.content;
+  fs.appendFile('hallucinationTest.txt', contentToWrite, (err) => {
+    if (err) {
+      console.error('Error writing to file:', err);
+      return;
+    }
+    console.log('Content has been written to output.txt');
+  });
+  
+  
   //DEBUG PURPOSE
+  console.log(idFromRespArray);
   console.log(idFromRespArray);
   console.log(completion.choices[0].message.content);
   //console.log(numbers);

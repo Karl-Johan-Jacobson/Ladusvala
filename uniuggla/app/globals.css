@@ -21,7 +21,16 @@ html {
 html::-webkit-scrollbar {
   display: none;
 }
+html {
+  scrollbar-width: none;
+  background-color: var(--primary-light-green);
+  scroll-behavior: smooth;
+}
+html::-webkit-scrollbar {
+  display: none;
+}
 body {      
+  background-color: var(--primary-light-green);
   background-color: var(--primary-light-green);
 }
 .hide, .hide p, .hide a, .hide * p, .hide * a {
@@ -60,12 +69,17 @@ body {
 /* Class for the text */
 .bot {
   color: var(--primary-dark-purple);
+  color: var(--primary-dark-purple);
 }
 /* Class for the user interaction */
 .user {
   color: var(--medium-green);
+.user {
+  color: var(--medium-green);
 }
 /* Class for the alternatives "Hitta program", "Räkna antagningspoäng", "Se behörighetskrav", and "Om oss" */
+.siteNavigation {
+  color: var(--medium-green);
 .siteNavigation {
   color: var(--medium-green);
 }
@@ -74,6 +88,18 @@ p {
   font-family: 'Tomorrow-Medium', sans-serif;
   text-align: center;
 }
+/*Used for formating HTTP response code page*/
+.__className_aaf875{
+  background-color: var(--primary-light-green) !important;
+}
+.__className_aaf875 div div h1 {
+ color: var(--primary-dark-purple);
+}
+.next-error-h1 {
+  border-right-color: var(--primary-dark-purple) !important;
+}
+.__className_aaf875 div div  div h2 {
+ color: var(--primary-dark-purple);
 /*Used for formating HTTP response code page*/
 .__className_aaf875{
   background-color: var(--primary-light-green) !important;
@@ -97,9 +123,11 @@ header {
   z-index: 10;
    width: 100vw;
    height: 15vh;
+   height: 15vh;
    top: 0;
    left: 0;
    position: fixed; 
+   background-image: linear-gradient(var(--primary-light-green) 10%, transparent)   
    background-image: linear-gradient(var(--primary-light-green) 10%, transparent)   
  }
  /* Fixes the position of the uniu logo */
@@ -113,7 +141,10 @@ header {
   End of Header
   ---===---===---===---===---===---===---===---===---===---
   Start of Main
+  Start of Main
 */
+/* Positioning of the typewriter animation*/
+.titleTypewriter {
 /* Positioning of the typewriter animation*/
 .titleTypewriter {
   margin: 0 auto;
@@ -129,6 +160,17 @@ header {
   position: relative;
   padding-left: 5vw;
   padding-right: 5vw;
+}
+.wrapper {
+  height: auto;
+  width: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: 0vw auto 6vw;
+  padding: 0 10vh 1vw;
 }
 .wrapper {
   height: auto;
@@ -164,6 +206,7 @@ header {
 /* Button  animation dimention and color*/
 .answerButton {
   height: inherit;
+  background-color: var(--primary-light-green);
   background-color: var(--primary-light-green);
   border: none;
   border-radius: 1vw;
@@ -555,7 +598,9 @@ footer {
   padding-left: 1%;
   padding-right: 1%;
   padding-bottom: 1vw;
+  padding-bottom: 1vw;
   display: inline-block;
+  background-color: var(--primary-light-green);
   background-color: var(--primary-light-green);
   font-size: 1.5vw;
 }
@@ -564,6 +609,7 @@ footer {
   top: 0;
   left: 0;
   width: 82%;
+  width: 82%;
   height: 100%;
   display: inline-block;
 }
@@ -571,7 +617,9 @@ footer {
 .footerLine {
   top: 0;
   height: 0.6vh;
+  height: 0.6vh;
   position: relative;
+  background-color: var(--primary-dark-purple);
   background-color: var(--primary-dark-purple);
 }
 /* Navbar wrapper */

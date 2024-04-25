@@ -9,27 +9,30 @@ let titleReturn = {
   programDesciption_sv: "",
   programLink: "",
   programId:"",
+  schoolName:""
 };
 
 // Take list of urls as arg and parse, will make ID work better.
 // build master scraper?, with all school scrapers that parse "school" from list and uses correct scraper.
-async function scrapeOrebro(url,programId) {
-  await new Promise(r => setTimeout(r, 100));
+async function scrapeOrebro(url,programId,schoolName) {
+  await new Promise(r => setTimeout(r, 1000));
 
   request(url, (error, response, html) => {
     if (!error && response.statusCode == 200) {
       const $ = cheerio.load(html);
 
       const titleBody = $(".main-article h1"); // Article class ref
-      const titleFind = titleBody.first().text();
-      let titleHpList = [];
-      titleHpList = titleFind.split(",");
-      const title = titleHpList[0].trim(); // title holds name of program name
-      //titleReturn.programTitle_sv = title;
-      console.log("TITLE:" + title);
+      const titleFind = titleBody.first().text().trim();
+      
+      // Regex to find and exclude the hp points from the title
+      const regexRemoveHp = /,\s*\d+ hp/g;
+      const titleOnly = titleFind.replace(regexRemoveHp, ''); // Remove hp points from the title
+      
+
+      console.log("TITLE:" + titleOnly);
 
       //const hpBody = $(".u-mb-50 div");
-      const hp = titleHpList[1].trim(); // Holds "Program X högskolepoäng * Y år * Kandidatexamen"
+      const hp = titleFind.trim(); // Holds "Program X högskolepoäng * Y år * Kandidatexamen"
 
       console.log("HP: " + hp);
       //const leadSubBody = $(".lead p"); // lead class's p elements to subBody
@@ -46,11 +49,12 @@ async function scrapeOrebro(url,programId) {
       const num = hpItems[0].match(regex);
       console.log("HPNUM TO DB: " + num[0]);
 
-      titleReturn.programTitle_sv = title;
+      titleReturn.programTitle_sv = titleOnly;
       titleReturn.programPoints = num[0];
       titleReturn.programDesciption_sv = shortDesc;
       titleReturn.programLink = url;
       titleReturn.programId = programId;
+      titleReturn.schoolName = schoolName;
       //console.log(titleFinal);
       //console.log("titleReturn: "+titleReturn);
     } else {

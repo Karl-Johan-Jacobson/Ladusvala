@@ -7,11 +7,12 @@ let titleReturn = {
   programPoints: "",
   programDesciption_sv: "",
   programLink: "",
-  programId: ""
+  programId: "",
+  schoolName:""
 };
 
-async function scrapeHKR(url, programId) {
-  await new Promise(r => setTimeout(r, 100));
+async function scrapeHKR(url, programId,schoolName) {
+  await new Promise(r => setTimeout(r, 1000));
 
   request(url, (error, response, html) => {
     if (!error && response.statusCode == 200) {
@@ -39,7 +40,8 @@ async function scrapeHKR(url, programId) {
         programPoints: hp,
         programDesciption_sv: shortDesc,
         programLink: url,
-        programId: programId
+        programId: programId,
+        schoolName: schoolName
       };
       
       // Output to console for debugging

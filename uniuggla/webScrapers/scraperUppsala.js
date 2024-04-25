@@ -9,12 +9,13 @@ let titleReturn = {
   programDesciption_sv: "",
   programLink: "",
   programId: "",
+  schoolName:""
 };
 
 // Take list of urls as arg and parse, will make ID work better.
 // build master scraper?, with all school scrapers that parse "school" from list and uses correct scraper.
-async function scrapeUppsala(url,programId) { 
-  await new Promise(r => setTimeout(r, 100));
+async function scrapeUppsala(url,programId,schoolName) { 
+  await new Promise(r => setTimeout(r, 1000));
 
   headers = { // Can now scrape Uppsala by manually adding "User-Agent" and "Cookie" copy-pasted from website manually.
     "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4 Safari/605.1.15",
@@ -36,7 +37,7 @@ async function scrapeUppsala(url,programId) {
       //const leadSubBody = $(".lead p"); // lead class's p elements to subBody
       //const shortDesc = leadSubBody.first().text(); // get first p and convert from HTML to text
 
-      const shortDescBody = $(".leading-8 p");
+      const shortDescBody = $(".lead");
       const shortDesc = shortDescBody.text().trim(); // Holds short desciption of program
       console.log("Short Desc: " + shortDesc);
 
@@ -52,6 +53,7 @@ async function scrapeUppsala(url,programId) {
       titleReturn.programDesciption_sv = shortDesc;
       titleReturn.programLink = url;
       titleReturn.programId = programId;
+      titleReturn.schoolName = schoolName;
 
       //console.log(titleFinal);
       //console.log("titleReturn: "+titleReturn);
@@ -73,5 +75,5 @@ async function scrapeUppsala(url,programId) {
     //programId_sv|programUniversity_sv|programTitle_sv|programDescription_sv|programPoints_sv|programYears_sv|programRequirements_sv|programAiDescription_sv|programPlace_sv|programDegree_sv|programLink
   });
 }
-//scrapeUppsala("https://www.uu.se/utbildning/program/barnmorskeprogrammet");
+//scrapeUppsala("https://www.uu.se/utbildning/program/samhallsvetarprogram");
 module.exports = scrapeUppsala;

@@ -1,4 +1,4 @@
-//ADD? Years, uni names, 
+//ADD? Years, uni names,
 const scraperKarlstad = require("./scraperKarlstad.js");
 const scraperKTH = require("./scraperKTH.js");
 const scraperKarolinska = require("./scraperKarolinska.js");
@@ -6,7 +6,7 @@ const scraperChalmers = require("./scraperChalmers.js");
 const scraperLinköping = require("./scraperLinkoping.js");
 const scraperLund = require("./scraperLund.js");
 const scraperMalardalen = require("./scraperMalardalen.js");
-/*const scraperMalmö = require("./scraperMalmo.js");
+const scraperMalmö = require("./scraperMalmo.js");
 const scraperOrebro = require("./scraperOrebro.js");
 const scraperSu = require("./scraperSu.js");
 const scraperUmeå = require("./scraperUmea.js");
@@ -15,7 +15,7 @@ const scraperBlekinge = require("./scraperBlekinge.js");
 const scraperGoteborgsUniversitet = require("./scraperGoteborgsUniversitet.js");
 const scraperGymnastikOchIdrotsHögskola = require("./scraperGymnastikOchIdrotsHögskola.js");
 const scraperHögskolaBorås = require("./scraperHögskolaBorås.js");
-const scraperHögskolaDalarna = require("./scraperHögskolaDalarna.js");
+const scraperHögskolaDalarna = require("./scraperHögskolaDalarna.js"); 
 const scraperHögskolaGävle = require("./scraperHögskolaGävle.js");
 const scraperHögskolaHalmstad = require("./scraperHögskolaHalmstad.js");
 const scraperHögskolaKonstfack = require("./scraperHögskolaKonstfack.js");
@@ -25,110 +25,153 @@ const scraperHögskolaVäst = require("./scraperHögskolaVäst.js");
 const scraperKungligaMusikHögskolan = require("./scraperKungligaMusikHögskolan.js");
 const scraperLinneUni = require("./scraperLinneUni.js");
 const scraperLuleaTekniska = require("./scraperLuleaTekniska.js");
-const scraperMittUniversitetet = require("./scraperMittUniversitetet.js");
+//const scraperMittUniversitetet = require("./scraperMittUniversitetet.js");
 const scraperSodertorn = require("./scraperSodertorn.js");
 
-let programId = 1;
+let programId = 1698;
 
 // Mittuni must be scraped manually. 403 Forbidden.
 // DON´T DO HANDELS. LINNÉ WONT WORK FROM KTH INTERNET -> USE PHONE. TRY BY-PASS ON MITTUNI
 async function mainScraper() {
-  /*
+  for (let i = 0; i < lundArray.length; i++) {
+    await scraperLund(lundArray[i], programId++, "Lunds universitet");
+  }
+  for (let i = 0; i < örebroArray.length; i++) {
+    await scraperOrebro(örebroArray[i], programId++, "Örebros universitet");
+  }
+  for (let i = 0; i < malmöArray.length; i++) {
+    await scraperMalmö(malmöArray[i], programId++, "Malmös universitet");
+  }
   for (let i = 0; i < karolinskaArray.length; i++) {
-    await scraperKarolinska(karolinskaArray[i], programId++);
+    await scraperKarolinska(
+      karolinskaArray[i],
+      programId++,
+      "Karolinska institutet"
+    );
   }
 
   for (let i = 0; i < chalmersArray.length; i++) {
-    await scraperChalmers(chalmersArray[i], programId++);
+    await scraperChalmers(
+      chalmersArray[i],
+      programId++,
+      "Chalmers tekniska högskola"
+    );
   }
 
   for (let i = 0; i < karlstadArray.length; i++) {
-    await scraperKarlstad(karlstadArray[i], programId++);
+    await scraperKarlstad(
+      karlstadArray[i],
+      programId++,
+      "Karlstads universitet"
+    );
   }
 
   for (let i = 0; i < kthArray.length; i++) {
-    await scraperKTH(kthArray[i], programId++);
+    await scraperKTH(kthArray[i], programId++, "Kungliga Tekniska Högskolan");
   }
   for (let i = 0; i < linköpingArray.length; i++) {
-    await scraperLinköping(linköpingArray[i], programId++);
-  }
-  
-  for (let i = 0; i < lundArray.length; i++) {
-    await scraperLund(lundArray[i], programId++);
+    await scraperLinköping(
+      linköpingArray[i],
+      programId++,
+      "Linköpings universitet"
+    );
   }
   for (let i = 0; i < malmöArray.length; i++) {
-    await scraperMalmö(malmöArray[i], programId++);
-  }
-  for (let i = 0; i < karolinskaArray.length; i++) {
-    await scraperOrebro(karolinskaArray[i], programId++);
+    await scraperMalmö(malmöArray[i], programId++, "Malmö universitet");
   }
   for (let i = 0; i < stockholmsUniArray.length; i++) {
-    await scraperSu(stockholmsUniArray[i], programId++);
+    await scraperSu(
+      stockholmsUniArray[i],
+      programId++,
+      "Stockholms universitet"
+    );
   }
-  for (let i = 0; i < lnuArray.length; i++) {
-    await scraperLinneUni(lnuArray[i], programId++);
+  for (let i = 0; i < lnuArray.length; i++) { // Wont work from KTH wifi.
+    await scraperLinneUni(lnuArray[i], programId++, "Linnéuniversitetet");
   }
   for (let i = 0; i < ltuArray.length; i++) {
-    await scraperLuleaTekniska(ltuArray[i], programId++);
+    await scraperLuleaTekniska(
+      ltuArray[i],
+      programId++,
+      "Luleå tekniska universitet"
+    );
   }
   for (let i = 0; i < umuArray.length; i++) {
-    await scraperUmeå(umuArray[i], programId++);
+    await scraperUmeå(umuArray[i], programId++, "Umeå universitet");
   }
   for (let i = 0; i < guArray.length; i++) {
-    await scraperGoteborgsUniversitet(guArray[i], programId++);
+    await scraperGoteborgsUniversitet(
+      guArray[i],
+      programId++,
+      "Göteborgs universitet"
+    );
   }
   for (let i = 0; i < uuArray.length; i++) {
-    await scraperUppsala(uuArray[i], programId++);
+    await scraperUppsala(uuArray[i], programId++, "Uppsala universitet");
   }
   for (let i = 0; i < malardalenArray.length; i++) {
-    await scraperMalardalen(malardalenArray[i], programId++);
+    await scraperMalardalen(
+      malardalenArray[i],
+      programId++,
+      "Mälardalens universitet"
+    );
   }
-  for (let i = 0; i < guArray.length; i++) {
-    await scraperGoteborgsUniversitet(guArray[i], programId++);
-  }*/
-
-  // Needs new arrays.
-
-/*
-  for (let i = 0; i < malmöArray.length; i++) {
-    await scraperBlekinge(malmöArray[i], programId++);
+  for (let i = 0; i < bthArray.length; i++) {
+    await scraperBlekinge(
+      bthArray[i],
+      programId++,
+      "Blekinge Tekniska Högskola"
+    );
   }
-  for (let i = 0; i < stockholmsUniArray.length; i++) {
-    await scraperGymnastikOchIdrotsHögskola(stockholmsUniArray[i], programId++);
+  for (let i = 0; i < gihArray.length; i++) {
+    await scraperGymnastikOchIdrotsHögskola(
+      gihArray[i],
+      programId++,
+      "Gymnastik- och idrottshögskolan"
+    );
   }
-  for (let i = 0; i < lundArray.length; i++) {
-    await scraperHögskolaBorås(lundArray[i], programId++);
+  for (let i = 0; i < hbArray.length; i++) {
+    await scraperHögskolaBorås(hbArray[i], programId++, "Högskolan i Borås");
   }
-  for (let i = 0; i < malardalenArray.length; i++) {
-    await scraperHögskolaDalarna(malardalenArray[i], programId++);
+  for (let i = 0; i < hdaArray.length; i++) {
+    await scraperHögskolaDalarna(hdaArray[i], programId++, "Högskolan Dalarna");
   }
-  for (let i = 0; i < malmöArray.length; i++) {
-    await scraperHögskolaGävle(malmöArray[i], programId++);
+  for (let i = 0; i < higArray.length; i++) {
+    await scraperHögskolaGävle(higArray[i], programId++, "Högskolan i Gävle");
   }
-  for (let i = 0; i < örebroArray.length; i++) {
-    await scraperHögskolaHalmstad(örebroArray[i], programId++);
+  for (let i = 0; i < hhArray.length; i++) {
+    await scraperHögskolaHalmstad(
+      hhArray[i],
+      programId++,
+      "Högskolan i Halmstad"
+    );
   }
-  for (let i = 0; i < stockholmsUniArray.length; i++) {
-    await scraperHögskolaKonstfack(stockholmsUniArray[i], programId++);
+  for (let i = 0; i < kfArray.length; i++) {
+    await scraperHögskolaKonstfack(kfArray[i], programId++, "Konstfack");
   }
-  for (let i = 0; i < malardalenArray.length; i++) {
-    await scraperHögskolaKristianstad(malardalenArray[i], programId++);
+  for (let i = 0; i < hkrArray.length; i++) {
+    await scraperHögskolaKristianstad(
+      hkrArray[i],
+      programId++,
+      "Högskolan Kristianstad"
+    );
   }
-  for (let i = 0; i < malmöArray.length; i++) {
-    await scraperHögskolaSkövde(malmöArray[i], programId++);
+  for (let i = 0; i < hisArray.length; i++) {
+    await scraperHögskolaSkövde(hisArray[i], programId++, "Högskolan i Skövde");
   }
-  for (let i = 0; i < örebroArray.length; i++) {
-    await scraperHögskolaVäst(örebroArray[i], programId++);
+  for (let i = 0; i < hvArray.length; i++) {
+    await scraperHögskolaVäst(hvArray[i], programId++, "Högskolan Väst");
   }
-  for (let i = 0; i < stockholmsUniArray.length; i++) {
-    await scraperKungligaMusikHögskolan(stockholmsUniArray[i], programId++);
+  for (let i = 0; i < kmhArray.length; i++) {
+    await scraperKungligaMusikHögskolan(
+      kmhArray[i],
+      programId++,
+      "Kungliga Musikhögskolan"
+    );
   }
-  for (let i = 0; i < örebroArray.length; i++) {
-    await scraperMittUniversitetet(örebroArray[i], programId++);
+  for (let i = 0; i < shArray.length; i++) {
+    await scraperSodertorn(shArray[i], programId++, "Södertörns högskola");
   }
-  for (let i = 0; i < stockholmsUniArray.length; i++) {
-    await scraperSodertorn(stockholmsUniArray[i], programId++);
-  }*/
 }
 
 const karlstadArray = [
@@ -497,7 +540,6 @@ const lundArray = [
   "https://www.lu.se/lubas/i-uoh-lu-LAMGY-ROCK",
 ];
 
-
 // Only links from this URL is compatible. Other result in error 400: https://www.mdu.se/utbildning/program
 const malardalenArray = [
   "https://www.mdu.se/utbildning/program/analytical-finance",
@@ -546,8 +588,7 @@ const malardalenArray = [
   "https://www.mdu.se/utbildning/program/visualisering-och-textdesign---informationsdesign",
   "https://www.mdu.se/utbildning/program/visualisering-och-textdesign---informationsdesign",
   "https://www.mdu.se/utbildning/program/amneslararprogrammet-gymnasieskola",
-
-]
+];
 
 const malmöArray = [
   "https://mau.se/sok-utbildning/program/vgbap/",
@@ -630,9 +671,7 @@ const malmöArray = [
   "https://mau.se/sok-utbildning/program/lalam-gysh/",
   "https://mau.se/sok-utbildning/program/lalam-gysv/",
   "https://mau.se/sok-utbildning/program/lalam-gyas/",
-
-  
-]
+];
 
 const örebroArray = [
   "https://www.oru.se/utbildning/program/analysvetenskapligt-program-i-kemi-med-inriktning-mot-forensik/",
@@ -702,242 +741,185 @@ const örebroArray = [
   "https://www.oru.se/utbildning/program/amneslararprogrammet-inriktning-mot-arbete-i-gymnasieskolan-svenska-engelska/",
   "https://www.oru.se/utbildning/program/amneslararprogrammet-inriktning-mot-arbete-i-gymnasieskolan-svenska-historia/",
   "https://www.oru.se/utbildning/program/amneslararprogrammet-inriktning-mot-arbete-i-gymnasieskolan-svenska-idrott-och-halsa/",
-
-]
+];
 
 const stockholmsUniArray = [
-  "https://www.su.se/sok-kurser-och-program/sysdk-1.411896?semester=HT24&eventcode=43075",
-"https://www.su.se/sok-kurser-och-program/lföry-1.411794?semester=VT24&eventcode=61100",
-"https://www.su.se/sok-kurser-och-program/lföry-1.411794?semester=HT24&eventcode=61132",
-"https://www.su.se/sok-kurser-och-program/lgfry-bild-1.411795?semester=VT24&eventcode=61106",
-"https://www.su.se/sok-kurser-och-program/lgfry-bild-1.411795?semester=HT24&eventcode=61139",
-"https://www.su.se/sok-kurser-och-program/lgfry-idrh-1.411796?semester=VT24&eventcode=61102",
-"https://www.su.se/sok-kurser-och-program/lgfry-idrh-1.411796?semester=HT24&eventcode=61140",
-"https://www.su.se/sok-kurser-och-program/lgfry-musi-1.411797?semester=HT24&eventcode=61141",
-"https://www.su.se/sok-kurser-och-program/lgf3y-1.412001?semester=VT24&eventcode=17100",
-"https://www.su.se/sok-kurser-och-program/lgf3y-1.412001?semester=HT24&eventcode=17134",
-"https://www.su.se/sok-kurser-och-program/lg46y-1.412349?semester=VT24&eventcode=17101",
-"https://www.su.se/sok-kurser-och-program/lg46y-1.412349?semester=HT24&eventcode=17107",
-"https://www.su.se/sok-kurser-och-program/hjook-1.411871?semester=HT24&eventcode=18020",
-"https://www.su.se/sok-kurser-och-program/jjupg-1.411373?semester=VT24&eventcode=29236",
-"https://www.su.se/sok-kurser-och-program/jjupg-1.411373?semester=HT24&eventcode=29075",
-"https://www.su.se/sok-kurser-och-program/hmusk-1.412271?semester=HT24&eventcode=01120",
-"https://www.su.se/sok-kurser-och-program/sssak-1.412665?semester=VT24&eventcode=38520",
-"https://www.su.se/sok-kurser-och-program/sssak-1.412665?semester=HT24&eventcode=38032",
-"https://www.su.se/sok-kurser-och-program/hkm2k-1.600151?semester=HT24&eventcode=01119",
-"https://www.su.se/sok-kurser-och-program/saffk-1.411895?semester=HT24&eventcode=43028",
-"https://www.su.se/sok-kurser-och-program/hamnk-1.412567?semester=HT24&eventcode=28059",
-"https://www.su.se/sok-kurser-och-program/harak-1.411994?semester=HT24&eventcode=15023",
-"https://www.su.se/sok-kurser-och-program/nasak-1.601973?semester=HT24&eventcode=46024",
-"https://www.su.se/sok-kurser-och-program/sbksk-1.711355?semester=HT24&eventcode=61135",
-"https://www.su.se/sok-kurser-och-program/nbigk-1.411398?semester=HT24&eventcode=58104",
-"https://www.su.se/sok-kurser-och-program/nbiok-biol-1.642398?semester=HT24&eventcode=56093",
-"https://www.su.se/sok-kurser-och-program/nbiok-bike-1.642397?semester=HT24&eventcode=56094",
-"https://www.su.se/sok-kurser-och-program/sdavk-1.411897?semester=HT24&eventcode=43029",
-"https://www.su.se/sok-kurser-och-program/sgamk-1.411902?semester=HT24&eventcode=43046",
-"https://www.su.se/sok-kurser-och-program/sitek-1.411899?semester=HT24&eventcode=43072",
-"https://www.su.se/sok-kurser-och-program/hfolk-1.412689?semester=HT24&eventcode=10053",
-"https://www.su.se/sok-kurser-och-program/hppek-1.411913?semester=HT24&eventcode=10043",
-"https://www.su.se/sok-kurser-och-program/phsgn-1.564479?semester=HT24&eventcode=71049",
-"https://www.su.se/sok-kurser-och-program/nfysk-1.536413?semester=HT24&eventcode=47055",
-"https://www.su.se/sok-kurser-och-program/nfysk-lära-1.650486?semester=HT24&eventcode=47057",
-"https://www.su.se/sok-kurser-och-program/sfekk-1.411779?semester=VT24&eventcode=31100",
-"https://www.su.se/sok-kurser-och-program/sfekk-1.411779?semester=HT24&eventcode=31120",
-"https://www.su.se/sok-kurser-och-program/sfehk-1.521186?semester=HT24&eventcode=31114",
-"https://www.su.se/sok-kurser-och-program/sfehk-1.521186?semester=HT24&eventcode=31155",
-"https://www.su.se/sok-kurser-och-program/h1gvk-1.694379?semester=HT24&eventcode=01147",
-"https://www.su.se/sok-kurser-och-program/nkigk-1.411361?semester=HT24&eventcode=58103",
-"https://www.su.se/sok-kurser-och-program/ngegk-1.596264?semester=HT24&eventcode=58105",
-"https://www.su.se/sok-kurser-och-program/ngdjk-1.596296?semester=VT24&eventcode=59558",
-"https://www.su.se/sok-kurser-och-program/ngdjk-1.596296?semester=HT24&eventcode=59010",
-"https://www.su.se/sok-kurser-och-program/sehgk-1.716018?semester=HT24&eventcode=30030",
-"https://www.su.se/sok-kurser-och-program/glutv-1.411601?semester=HT24&eventcode=37020",
-"https://www.su.se/sok-kurser-och-program/hhisk-1.483370?semester=VT24&eventcode=12872",
-"https://www.su.se/sok-kurser-och-program/hhisk-1.483370?semester=HT24&eventcode=12038",
-"https://www.su.se/sok-kurser-och-program/hhpsk-1.430254?semester=VT24&eventcode=12873",
-"https://www.su.se/sok-kurser-och-program/hhpsk-1.430254?semester=HT24&eventcode=12037",
-"https://www.su.se/sok-kurser-och-program/siadk-1.411900?semester=HT24&eventcode=43050",
-"https://www.su.se/sok-kurser-och-program/sifpk-1.411529?semester=HT24&eventcode=31113",
-"https://www.su.se/sok-kurser-och-program/sifpk-1.411529?semester=HT24&eventcode=31154",
-"https://www.su.se/sok-kurser-och-program/nkemk-1.412681?semester=HT24&eventcode=54057",
-"https://www.su.se/sok-kurser-och-program/hkonk-1.594542?semester=HT24&eventcode=14154",
-"https://www.su.se/sok-kurser-och-program/skrik-1.480671?semester=HT24&eventcode=40022",
-"https://www.su.se/sok-kurser-och-program/skgsk-1.425213?semester=HT24&eventcode=32057",
-"https://www.su.se/sok-kurser-och-program/hlask-port-1.411469?semester=HT24&eventcode=07153",
-"https://www.su.se/sok-kurser-och-program/hlask-port-1.411469?semester=HT24&eventcode=07314",
-"https://www.su.se/sok-kurser-och-program/hlask-span-1.411470?semester=HT24&eventcode=07152",
-"https://www.su.se/sok-kurser-och-program/hlask-span-1.411470?semester=HT24&eventcode=07313",
-"https://www.su.se/sok-kurser-och-program/hlivk-1.412081?semester=HT24&eventcode=20115",
-"https://www.su.se/sok-kurser-och-program/hlfmk-1.412688?semester=HT24&eventcode=10048",
-"https://www.su.se/sok-kurser-och-program/mggek-1.597257?semester=HT24&eventcode=59011",
-"https://www.su.se/sok-kurser-och-program/nmark-1.412289?semester=HT24&eventcode=56095",
-"https://www.su.se/sok-kurser-och-program/smrpk-1.412472?semester=VT24&eventcode=31000",
-"https://www.su.se/sok-kurser-och-program/smrpk-1.412472?semester=HT24&eventcode=31153",
-"https://www.su.se/sok-kurser-och-program/smark-1.411901?semester=HT24&eventcode=43074",
-"https://www.su.se/sok-kurser-och-program/nmatk-1.412172?semester=HT24&eventcode=48109",
-"https://www.su.se/sok-kurser-och-program/nmdvk-1.425699?semester=HT24&eventcode=48111",
-"https://www.su.se/sok-kurser-och-program/nmmlk-1.653168?semester=HT24&eventcode=48112",
-"https://www.su.se/sok-kurser-och-program/nmesk-1.632169?semester=HT24&eventcode=48110",
-"https://www.su.se/sok-kurser-och-program/nmttk-1.490680?semester=HT24&eventcode=49022",
-"https://www.su.se/sok-kurser-och-program/nmvek-1.411457?semester=HT24&eventcode=70019",
-"https://www.su.se/sok-kurser-och-program/nmolk-1.412290?semester=HT24&eventcode=56096",
-"https://www.su.se/sok-kurser-och-program/hmpmk-1.411626?semester=HT24&eventcode=14187",
-"https://www.su.se/sok-kurser-och-program/snest-1.411943?semester=VT24&eventcode=33100",
-"https://www.su.se/sok-kurser-och-program/snest-1.411943?semester=HT24&eventcode=33052",
-"https://www.su.se/sok-kurser-och-program/nmnuk-1.599073?semester=HT24&eventcode=54046",
-"https://www.su.se/sok-kurser-och-program/slekk-1.640507?semester=VT24&eventcode=34957",
-"https://www.su.se/sok-kurser-och-program/slekk-1.640507?semester=HT24&eventcode=34127",
-"https://www.su.se/sok-kurser-och-program/spofk-1.416833?semester=HT24&eventcode=34129",
-"https://www.su.se/sok-kurser-och-program/skand-1.411602?semester=HT24&eventcode=37019",
-"https://www.su.se/sok-kurser-och-program/soaak-1.412663?semester=VT24&eventcode=38519",
-"https://www.su.se/sok-kurser-och-program/soaak-1.412663?semester=HT24&eventcode=38033",
-"https://www.su.se/sok-kurser-och-program/hövka-enka-1.412140?semester=HT24&eventcode=21220",
-"https://www.su.se/sok-kurser-och-program/hövka-fink-1.412142?semester=HT24&eventcode=21222",
-"https://www.su.se/sok-kurser-och-program/hövka-frak-1.412143?semester=HT24&eventcode=21223",
-"https://www.su.se/sok-kurser-och-program/hövka-itak-1.412144?semester=HT24&eventcode=21224",
-"https://www.su.se/sok-kurser-och-program/hövka-latk-1.424209?semester=HT24&eventcode=21225",
-"https://www.su.se/sok-kurser-och-program/hövka-litk-1.424211?semester=HT24&eventcode=21226",
-"https://www.su.se/sok-kurser-och-program/hövka-nedk-1.424212?semester=HT24&eventcode=21227",
-"https://www.su.se/sok-kurser-och-program/hövka-polk-1.412167?semester=HT24&eventcode=21228",
-"https://www.su.se/sok-kurser-och-program/hövka-port-1.412168?semester=HT24&eventcode=21230",
-"https://www.su.se/sok-kurser-och-program/hövka-rysk-1.412170?semester=HT24&eventcode=21232",
-"https://www.su.se/sok-kurser-och-program/hövka-spak-1.412174?semester=HT24&eventcode=21233",
-"https://www.su.se/sok-kurser-och-program/hövka-tysk-1.412185?semester=HT24&eventcode=21235",
-"https://www.su.se/sok-kurser-och-program/skops-1.645190?semester=HT24&eventcode=42073",
-"https://www.su.se/sok-kurser-och-program/htvds-1.411629?semester=HT24&eventcode=14080",
-"https://www.su.se/sok-kurser-och-program/httok-tosv-1.645468?semester=HT24&eventcode=21183",
-"https://www.su.se/sok-kurser-och-program/hvffk-1.721518?semester=HT24&eventcode=10019",
-"https://www.su.se/sok-kurser-och-program/sperk-1.481832?semester=VT24&eventcode=34973",
-"https://www.su.se/sok-kurser-och-program/sperk-1.481832?semester=HT24&eventcode=34128",
-"https://www.su.se/sok-kurser-och-program/hkopk-1.424769?semester=HT24&eventcode=21250",
-"https://www.su.se/sok-kurser-och-program/lkp46-1.620398?semester=VT24&eventcode=17009",
-"https://www.su.se/sok-kurser-och-program/socku-1.570802?semester=HT24&eventcode=41071",
-"https://www.su.se/sok-kurser-och-program/jjkom-1.411917?semester=HT24&eventcode=29120",
-"https://www.su.se/sok-kurser-och-program/hvetk-1.412108?semester=VT24&eventcode=12884",
-"https://www.su.se/sok-kurser-och-program/hvetk-1.412108?semester=HT24&eventcode=12036",
-"https://www.su.se/sok-kurser-och-program/snekp-1.538514?semester=HT24&eventcode=33053",
-"https://www.su.se/sok-kurser-och-program/snsvk-1.411586?semester=VT24&eventcode=42100",
-"https://www.su.se/sok-kurser-och-program/snsvk-1.411586?semester=HT24&eventcode=42056",
-"https://www.su.se/sok-kurser-och-program/pspro-1.412604?semester=VT24&eventcode=36100",
-"https://www.su.se/sok-kurser-och-program/pspro-1.412604?semester=HT24&eventcode=36072",
-"https://www.su.se/sok-kurser-och-program/splak-1.411818?semester=HT24&eventcode=32058",
-"https://www.su.se/sok-kurser-och-program/nsfky-1.412521?semester=HT24&eventcode=47056",
-"https://www.su.se/sok-kurser-och-program/socmy-1.411368?semester=VT24&eventcode=41014",
-"https://www.su.se/sok-kurser-och-program/socmy-1.411368?semester=HT24&eventcode=41041",
-"https://www.su.se/sok-kurser-och-program/styrk-1.411655?semester=HT24&eventcode=34126",
-"https://www.su.se/sok-kurser-och-program/styrk-1.411655?semester=HT24&eventcode=34125",
-"https://www.su.se/sok-kurser-och-program/valfö-1.547643?semester=VT24&eventcode=61024",
-"https://www.su.se/sok-kurser-och-program/valfö-1.547643?semester=HT24&eventcode=61142",
-"https://www.su.se/sok-kurser-och-program/valny-1.663748?semester=VT24&eventcode=34002",
-"https://www.su.se/sok-kurser-och-program/valny-1.663748?semester=VT24&eventcode=34003",
-"https://www.su.se/sok-kurser-och-program/valny-1.663748?semester=HT24&eventcode=34181",
-"https://www.su.se/sok-kurser-och-program/valny-1.663748?semester=HT24&eventcode=34182",
-"https://www.su.se/sok-kurser-och-program/lsy2y-yrk2-1.567163?semester=VT24&eventcode=34979",
-"https://www.su.se/sok-kurser-och-program/lsy2y-yrk2-1.567163?semester=VT24&eventcode=34981",
-"https://www.su.se/sok-kurser-och-program/lsy2y-yrk2-1.567163?semester=HT24&eventcode=34190",
-"https://www.su.se/sok-kurser-och-program/lsy2y-yrk2-1.567163?semester=HT24&eventcode=34189",
-"https://www.su.se/sok-kurser-och-program/lsy2y-vår2-1.567155?semester=VT24&eventcode=34975",
-"https://www.su.se/sok-kurser-och-program/lsy2y-vår2-1.567155?semester=VT24&eventcode=34977",
-"https://www.su.se/sok-kurser-och-program/lsy2y-vår2-1.567155?semester=HT24&eventcode=34187",
-"https://www.su.se/sok-kurser-och-program/lsy2y-vår2-1.567155?semester=HT24&eventcode=34188",
-"https://www.su.se/sok-kurser-och-program/lsdiy-79e2-1.413240?semester=VT24&eventcode=17243",
-"https://www.su.se/sok-kurser-och-program/lsdiy-79e2-1.413240?semester=HT24&eventcode=17467",
-"https://www.su.se/sok-kurser-och-program/lsamy-79gh-1.424445?semester=HT24&eventcode=17138",
-"https://www.su.se/sok-kurser-och-program/lsamy-79gr-1.425081?semester=HT24&eventcode=17139",
-"https://www.su.se/sok-kurser-och-program/lsamy-79gs-1.425082?semester=HT24&eventcode=17140",
-"https://www.su.se/sok-kurser-och-program/luhsy-79he-1.412935?semester=VT24&eventcode=17267",
-"https://www.su.se/sok-kurser-och-program/luhsy-79he-1.412935?semester=HT24&eventcode=17141",
-"https://www.su.se/sok-kurser-och-program/luhsy-79hr-1.595139?semester=VT24&eventcode=17275",
-"https://www.su.se/sok-kurser-och-program/luhsy-79hr-1.595139?semester=HT24&eventcode=17142",
-"https://www.su.se/sok-kurser-och-program/luhsy-79hs-1.412936?semester=VT24&eventcode=17281",
-"https://www.su.se/sok-kurser-och-program/luhsy-79hs-1.412936?semester=HT24&eventcode=17143",
-"https://www.su.se/sok-kurser-och-program/luhsy-79rn-1.412937?semester=VT24&eventcode=17271",
-"https://www.su.se/sok-kurser-och-program/luhsy-79rn-1.412937?semester=HT24&eventcode=17144",
-"https://www.su.se/sok-kurser-och-program/luhsy-79rh-1.595252?semester=VT24&eventcode=17277",
-"https://www.su.se/sok-kurser-och-program/luhsy-79rh-1.595252?semester=HT24&eventcode=17145",
-"https://www.su.se/sok-kurser-och-program/luhsy-79rs-1.412938?semester=VT24&eventcode=17283",
-"https://www.su.se/sok-kurser-och-program/luhsy-79rs-1.412938?semester=HT24&eventcode=17146",
-"https://www.su.se/sok-kurser-och-program/lsdiy-792e-1.413239?semester=VT24&eventcode=17205",
-"https://www.su.se/sok-kurser-och-program/lsdiy-792e-1.413239?semester=HT24&eventcode=17470",
-"https://www.su.se/sok-kurser-och-program/lsdiy-79se-1.412809?semester=VT24&eventcode=17211",
-"https://www.su.se/sok-kurser-och-program/lsdiy-79se-1.412809?semester=HT24&eventcode=17468",
-"https://www.su.se/sok-kurser-och-program/lsdiy-79ss-1.412810?semester=VT24&eventcode=17237",
-"https://www.su.se/sok-kurser-och-program/lsdiy-79ss-1.412810?semester=HT24&eventcode=17469",
-"https://www.su.se/sok-kurser-och-program/lsdiy-gv2h-1.412811?semester=VT24&eventcode=17231",
-"https://www.su.se/sok-kurser-och-program/lsdiy-gv2h-1.412811?semester=HT24&eventcode=17453",
-"https://www.su.se/sok-kurser-och-program/lsdiy-gv2r-1.412812?semester=VT24&eventcode=17213",
-"https://www.su.se/sok-kurser-och-program/lsdiy-gv2r-1.412812?semester=HT24&eventcode=17461",
-"https://www.su.se/sok-kurser-och-program/lsdiy-gvsm-1.412813?semester=HT24&eventcode=17411",
-"https://www.su.se/sok-kurser-och-program/lsdiy-gyef-1.411949?semester=VT24&eventcode=17241",
-"https://www.su.se/sok-kurser-och-program/lsdiy-gyef-1.411949?semester=HT24&eventcode=17171",
-"https://www.su.se/sok-kurser-och-program/lsdiy-gyeg-1.413241?semester=VT24&eventcode=17223",
-"https://www.su.se/sok-kurser-och-program/lsdiy-gyeh-1.411950?semester=VT24&eventcode=17239",
-"https://www.su.se/sok-kurser-och-program/lsdiy-gyeh-1.411950?semester=HT24&eventcode=17178",
-"https://www.su.se/sok-kurser-och-program/lsdiy-gyem-1.411951?semester=HT24&eventcode=17177",
-"https://www.su.se/sok-kurser-och-program/lsdiy-gyer-1.411952?semester=VT24&eventcode=17233",
-"https://www.su.se/sok-kurser-och-program/lsdiy-gyer-1.411952?semester=HT24&eventcode=17286",
-"https://www.su.se/sok-kurser-och-program/lsdiy-gyes-1.411953?semester=VT24&eventcode=17255",
-"https://www.su.se/sok-kurser-och-program/lsdiy-gyes-1.411953?semester=HT24&eventcode=17310",
-"https://www.su.se/sok-kurser-och-program/lsdiy-gye2-1.411954?semester=VT24&eventcode=17229",
-"https://www.su.se/sok-kurser-och-program/lsdiy-gye2-1.411954?semester=HT24&eventcode=17330",
-"https://www.su.se/sok-kurser-och-program/lsdiy-gyet-1.411955?semester=VT24&eventcode=17203",
-"https://www.su.se/sok-kurser-och-program/lsdiy-gyet-1.411955?semester=HT24&eventcode=17345",
-"https://www.su.se/sok-kurser-och-program/lsamy-gyeg-1.412585?semester=HT24&eventcode=17158",
-"https://www.su.se/sok-kurser-och-program/lsamy-gygh-1.412534?semester=HT24&eventcode=17162",
-"https://www.su.se/sok-kurser-och-program/lsamy-gygm-1.412533?semester=HT24&eventcode=17163",
-"https://www.su.se/sok-kurser-och-program/lsamy-gygr-1.412535?semester=HT24&eventcode=17164",
-"https://www.su.se/sok-kurser-och-program/luhsy-gyhe-1.412524?semester=VT24&eventcode=17259",
-"https://www.su.se/sok-kurser-och-program/luhsy-gyhe-1.412524?semester=HT24&eventcode=17147",
-"https://www.su.se/sok-kurser-och-program/luhsy-gyhg-1.412933?semester=VT24&eventcode=17261",
-"https://www.su.se/sok-kurser-och-program/luhsy-gyhm-1.412523?semester=HT24&eventcode=17148",
-"https://www.su.se/sok-kurser-och-program/luhsy-gyhr-1.412527?semester=VT24&eventcode=17269",
-"https://www.su.se/sok-kurser-och-program/luhsy-gyhr-1.412527?semester=HT24&eventcode=17150",
-"https://www.su.se/sok-kurser-och-program/luhsy-gyhs-1.412794?semester=VT24&eventcode=17265",
-"https://www.su.se/sok-kurser-och-program/luhsy-gyhs-1.412794?semester=HT24&eventcode=17149",
-"https://www.su.se/sok-kurser-och-program/luhsy-gyrn-1.412529?semester=VT24&eventcode=17257",
-"https://www.su.se/sok-kurser-och-program/luhsy-gyrn-1.412529?semester=HT24&eventcode=17151",
-"https://www.su.se/sok-kurser-och-program/luhsy-gyrh-1.412531?semester=VT24&eventcode=17279",
-"https://www.su.se/sok-kurser-och-program/luhsy-gyrh-1.412531?semester=HT24&eventcode=17152",
-"https://www.su.se/sok-kurser-och-program/luhsy-gyrm-1.412528?semester=HT24&eventcode=17157",
-"https://www.su.se/sok-kurser-och-program/luhsy-gyrs-1.412795?semester=VT24&eventcode=17273",
-"https://www.su.se/sok-kurser-och-program/luhsy-gyrs-1.412795?semester=HT24&eventcode=17471",
-"https://www.su.se/sok-kurser-och-program/lsamy-gyse-1.412610?semester=HT24&eventcode=17165",
-"https://www.su.se/sok-kurser-och-program/lsamy-gysh-1.412611?semester=HT24&eventcode=17166",
-"https://www.su.se/sok-kurser-och-program/lsamy-gysm-1.412609?semester=HT24&eventcode=17167",
-"https://www.su.se/sok-kurser-och-program/lsamy-gysr-1.412612?semester=HT24&eventcode=17168",
-"https://www.su.se/sok-kurser-och-program/lsamy-gyss-1.412614?semester=HT24&eventcode=17170",
-"https://www.su.se/sok-kurser-och-program/lsamy-gysv-1.412796?semester=HT24&eventcode=17169",
-"https://www.su.se/sok-kurser-och-program/lsdiy-gyce-1.411968?semester=VT24&eventcode=17251",
-"https://www.su.se/sok-kurser-och-program/lsdiy-gyce-1.411968?semester=HT24&eventcode=17464",
-"https://www.su.se/sok-kurser-och-program/lsdiy-gysm-1.411970?semester=HT24&eventcode=17466",
-"https://www.su.se/sok-kurser-och-program/lsdiy-gyc2-1.411969?semester=VT24&eventcode=17219",
-"https://www.su.se/sok-kurser-och-program/lsdiy-gyc2-1.411969?semester=HT24&eventcode=17465",
-"https://www.su.se/sok-kurser-och-program/lsdiy-gy2e-1.411963?semester=VT24&eventcode=17247",
-"https://www.su.se/sok-kurser-och-program/lsdiy-gy2e-1.411963?semester=HT24&eventcode=17450",
-"https://www.su.se/sok-kurser-och-program/lsdiy-gy2f-1.411966?semester=VT24&eventcode=17225",
-"https://www.su.se/sok-kurser-och-program/lsdiy-gy2f-1.411966?semester=HT24&eventcode=17452",
-"https://www.su.se/sok-kurser-och-program/lsdiy-gv2g-1.447429?semester=VT24&eventcode=17207",
-"https://www.su.se/sok-kurser-och-program/lsdiy-gy2m-1.411964?semester=HT24&eventcode=17460",
-"https://www.su.se/sok-kurser-och-program/lsdiy-gy2s-1.411965?semester=VT24&eventcode=17253",
-"https://www.su.se/sok-kurser-och-program/lsdiy-gy2s-1.411965?semester=HT24&eventcode=17462",
-"https://www.su.se/sok-kurser-och-program/lsdiy-gy2t-1.411967?semester=VT24&eventcode=17217",
-"https://www.su.se/sok-kurser-och-program/lsdiy-gy2t-1.411967?semester=HT24&eventcode=17463",
-"https://www.su.se/sok-kurser-och-program/lsdiy-gyse-1.411956?semester=VT24&eventcode=17227",
-"https://www.su.se/sok-kurser-och-program/lsdiy-gyse-1.411956?semester=HT24&eventcode=17358",
-"https://www.su.se/sok-kurser-och-program/lsdiy-gysf-1.411957?semester=VT24&eventcode=17249",
-"https://www.su.se/sok-kurser-och-program/lsdiy-gysf-1.411957?semester=HT24&eventcode=17362",
-"https://www.su.se/sok-kurser-och-program/lsdiy-gysg-1.413242?semester=VT24&eventcode=17215",
-"https://www.su.se/sok-kurser-och-program/lsdiy-gysh-1.411958?semester=VT24&eventcode=17245",
-"https://www.su.se/sok-kurser-och-program/lsdiy-gysh-1.411958?semester=HT24&eventcode=17382",
-"https://www.su.se/sok-kurser-och-program/lsdiy-gysr-1.411959?semester=VT24&eventcode=17209",
-"https://www.su.se/sok-kurser-och-program/lsdiy-gysr-1.411959?semester=HT24&eventcode=17397",
-"https://www.su.se/sok-kurser-och-program/lsdiy-gysn-1.411960?semester=VT24&eventcode=17235",
-"https://www.su.se/sok-kurser-och-program/lsdiy-gysn-1.411960?semester=HT24&eventcode=17406",
-"https://www.su.se/sok-kurser-och-program/lsdiy-gy22-1.411961?semester=VT24&eventcode=17201",
-"https://www.su.se/sok-kurser-och-program/lsdiy-gy22-1.411961?semester=HT24&eventcode=17407",
-"https://www.su.se/sok-kurser-och-program/lsdiy-gyst-1.411962?semester=VT24&eventcode=17221",
-"https://www.su.se/sok-kurser-och-program/lsdiy-gyst-1.411962?semester=HT24&eventcode=17408"
-]
+  "https://www.su.se/sok-kurser-och-program/sysdk-1.411896?semester=HT24&eventcode=43075", //
+  "https://www.su.se/sok-kurser-och-program/lföry-1.411794?semester=HT24&eventcode=61132", //
+  "https://www.su.se/sok-kurser-och-program/lgfry-1.674244", //
+  "https://www.su.se/sok-kurser-och-program/lgfry-bild-1.411795?semester=HT24&eventcode=61139", //
+  "https://www.su.se/sok-kurser-och-program/lgfry-idrh-1.411796?semester=HT24&eventcode=61140", //
+  "https://www.su.se/sok-kurser-och-program/lgfry-musi-1.411797?semester=HT24&eventcode=61141", //
+  "https://www.su.se/sok-kurser-och-program/lgf3y-1.412001?semester=HT24&eventcode=17134", //
+  "https://www.su.se/sok-kurser-och-program/lg46y-1.412349?semester=HT24&eventcode=17107", //
+  "https://www.su.se/sok-kurser-och-program/lf3ty-1.540434", //
+  "https://www.su.se/sok-kurser-och-program/hjook-1.411871?semester=HT24&eventcode=18020", //
+  "https://www.su.se/sok-kurser-och-program/jjupg-1.411373?semester=HT24&eventcode=29075", //
+  "https://www.su.se/sok-kurser-och-program/hmusk-1.412271?semester=HT24&eventcode=01120", //
+  "https://www.su.se/sok-kurser-och-program/sssak-1.412665?semester=HT24&eventcode=38032", //
+  "https://www.su.se/sok-kurser-och-program/hkm2k-1.600151?semester=HT24&eventcode=01119", //
+  "https://www.su.se/sok-kurser-och-program/saffk-1.411895?semester=HT24&eventcode=43028", //
+  "https://www.su.se/sok-kurser-och-program/hamnk-1.412567?semester=HT24&eventcode=28059", //
+  "https://www.su.se/sok-kurser-och-program/harak-1.411994?semester=HT24&eventcode=15023", //
+  "https://www.su.se/sok-kurser-och-program/nasak-1.601973?semester=HT24&eventcode=46024", //
+  "https://www.su.se/sok-kurser-och-program/sbksk-1.711355?semester=HT24&eventcode=61135", //
+  "https://www.su.se/sok-kurser-och-program/nbigk-1.411398?semester=HT24&eventcode=58104", //
+  "https://www.su.se/sok-kurser-och-program/nbiok-1.412288", //
+  "https://www.su.se/sok-kurser-och-program/nbiok-biol-1.642398?semester=HT24&eventcode=56093", //
+  "https://www.su.se/sok-kurser-och-program/nbiok-bike-1.642397?semester=HT24&eventcode=56094", //
+  "https://www.su.se/sok-kurser-och-program/sdavk-1.411897?semester=HT24&eventcode=43029", //
+  "https://www.su.se/sok-kurser-och-program/sgamk-1.411902?semester=HT24&eventcode=43046", //
+  "https://www.su.se/sok-kurser-och-program/sdimk-1.411898", //
+  "https://www.su.se/sok-kurser-och-program/sitek-1.411899?semester=HT24&eventcode=43072", //
+  "https://www.su.se/sok-kurser-och-program/hfolk-1.412689?semester=HT24&eventcode=10053", //
+  "https://www.su.se/sok-kurser-och-program/hppek-1.411913?semester=HT24&eventcode=10043", //
+  "https://www.su.se/sok-kurser-och-program/phsgn-1.564479?semester=HT24&eventcode=71049", //
+  "https://www.su.se/sok-kurser-och-program/nfysk-1.536413?semester=HT24&eventcode=47055", //
+  "https://www.su.se/sok-kurser-och-program/nfysk-lära-1.650486?semester=HT24&eventcode=47057", //
+  "https://www.su.se/sok-kurser-och-program/sfekk-1.411779?semester=HT24&eventcode=31120", //
+  "https://www.su.se/sok-kurser-och-program/sfehk-1.521186?semester=HT24&eventcode=31155", //
+  "https://www.su.se/sok-kurser-och-program/h1gvk-1.694379?semester=HT24&eventcode=01147", //
+  "https://www.su.se/sok-kurser-och-program/nkigk-1.411361?semester=HT24&eventcode=58103", //
+  "https://www.su.se/sok-kurser-och-program/ngegk-1.596264?semester=HT24&eventcode=58105", //
+  "https://www.su.se/sok-kurser-och-program/ngdjk-1.596296?semester=HT24&eventcode=59010", //
+  "https://www.su.se/sok-kurser-och-program/sehgk-1.716018?semester=HT24&eventcode=30030", //
+  "https://www.su.se/sok-kurser-och-program/glutv-1.411601?semester=HT24&eventcode=37020", //
+  "https://www.su.se/sok-kurser-och-program/hhisk-1.483370?semester=HT24&eventcode=12038", //
+  "https://www.su.se/sok-kurser-och-program/hhpsk-1.430254?semester=HT24&eventcode=12037", //
+  "https://www.su.se/sok-kurser-och-program/siadk-1.411900?semester=HT24&eventcode=43050", //
+  "https://www.su.se/sok-kurser-och-program/sifpk-1.411529?semester=HT24&eventcode=31154", //
+  "https://www.su.se/sok-kurser-och-program/nkemk-1.412681?semester=HT24&eventcode=54057", //
+  "https://www.su.se/sok-kurser-och-program/hkonk-1.594542?semester=HT24&eventcode=14154", //
+  "https://www.su.se/sok-kurser-och-program/skrik-1.480671?semester=HT24&eventcode=40022", //
+  "https://www.su.se/sok-kurser-och-program/skgsk-1.425213?semester=HT24&eventcode=32057", //
+  "https://www.su.se/sok-kurser-och-program/hlask-1.673881", //
+  "https://www.su.se/sok-kurser-och-program/hlask-port-1.411469?semester=HT24&eventcode=07153", //
+  "https://www.su.se/sok-kurser-och-program/hlask-span-1.411470?semester=HT24&eventcode=07313", //
+  "https://www.su.se/sok-kurser-och-program/hlivk-1.412081?semester=HT24&eventcode=20115", //
+  "https://www.su.se/sok-kurser-och-program/hlfmk-1.412688?semester=HT24&eventcode=10048", //
+  "https://www.su.se/sok-kurser-och-program/mggek-1.597257?semester=HT24&eventcode=59011", //
+  "https://www.su.se/sok-kurser-och-program/nmark-1.412289?semester=HT24&eventcode=56095", //
+  "https://www.su.se/sok-kurser-och-program/smrpk-1.412472?semester=HT24&eventcode=31153", //
+  "https://www.su.se/sok-kurser-och-program/smark-1.411901?semester=HT24&eventcode=43074", //
+  "https://www.su.se/sok-kurser-och-program/nmatk-1.412172?semester=HT24&eventcode=48109", //
+  "https://www.su.se/sok-kurser-och-program/nmdvk-1.425699?semester=HT24&eventcode=48111", //
+  "https://www.su.se/sok-kurser-och-program/nmmlk-1.653168?semester=HT24&eventcode=48112", //Tillagd
+  "https://www.su.se/sok-kurser-och-program/nmesk-1.632169?semester=HT24&eventcode=48110", //Tillagd
+  "https://www.su.se/sok-kurser-och-program/hmesk-1.412568", //Tillagd
+  "https://www.su.se/sok-kurser-och-program/nmttk-1.490680?semester=HT24&eventcode=49022", //Tillagd
+  "https://www.su.se/sok-kurser-och-program/nmvek-1.411457?semester=HT24&eventcode=70019", //Tillagd
+  "https://www.su.se/sok-kurser-och-program/nmolk-1.412290?semester=HT24&eventcode=56096", //Tillagd
+  "https://www.su.se/sok-kurser-och-program/hmpmk-1.411626?semester=HT24&eventcode=14187", //Tillagd
+  "https://www.su.se/sok-kurser-och-program/snest-1.411943?semester=HT24&eventcode=33052", //Tillagd
+  "https://www.su.se/sok-kurser-och-program/nmnuk-1.599073?semester=HT24&eventcode=54046", //Tillagd
+  "https://www.su.se/sok-kurser-och-program/slekk-1.640507?semester=HT24&eventcode=34127", //Tillagd
+  "https://www.su.se/sok-kurser-och-program/spofk-1.416833?semester=HT24&eventcode=34129", //Tillagd
+  "https://www.su.se/sok-kurser-och-program/skand-1.411602?semester=HT24&eventcode=37019", //Tillagd
+  "https://www.su.se/sok-kurser-och-program/soaak-1.412663?semester=HT24&eventcode=38033", //Tillagd
+  "https://www.su.se/sok-kurser-och-program/h%C3%B6vka-enka-1.412140?semester=HT24&eventcode=21220", //Tillagd
+  "https://www.su.se/sok-kurser-och-program/h%C3%B6vka-fink-1.412142?semester=HT24&eventcode=21222", //Tillagd
+  "https://www.su.se/sok-kurser-och-program/h%C3%B6vka-frak-1.412143?semester=HT24&eventcode=21223", //Tillagd
+  "https://www.su.se/sok-kurser-och-program/h%C3%B6vka-itak-1.412144?semester=HT24&eventcode=21224", //Tillagd
+  "https://www.su.se/sok-kurser-och-program/h%C3%B6vka-latk-1.424209?semester=HT24&eventcode=21225", //Tillagd
+  "https://www.su.se/sok-kurser-och-program/h%C3%B6vka-litk-1.424211?semester=HT24&eventcode=21226", //Tillagd
+  "https://www.su.se/sok-kurser-och-program/hövka-polk-1.412167?semester=HT24&eventcode=21228",
+  "https://www.su.se/sok-kurser-och-program/hövka-port-1.412168?semester=HT24&eventcode=21230",
+  "https://www.su.se/sok-kurser-och-program/hövka-rysk-1.412170?semester=HT24&eventcode=21232",
+  "https://www.su.se/sok-kurser-och-program/hövka-spak-1.412174?semester=HT24&eventcode=21233",
+  "https://www.su.se/sok-kurser-och-program/hövka-tysk-1.412185?semester=HT24&eventcode=21235",
+  "https://www.su.se/sok-kurser-och-program/htvds-1.411629?semester=HT24&eventcode=14080",
+  "https://www.su.se/sok-kurser-och-program/snsvk-1.411586?semester=HT24&eventcode=42056",
+  "https://www.su.se/sok-kurser-och-program/h%C3%B6vka-nedk-1.424212?semester=HT24&eventcode=21227", //Tillagd
+  "https://www.su.se/sok-kurser-och-program/h%C3%B6vka-polk-1.412167?semester=HT24&eventcode=21228", //Tillagd
+  "https://www.su.se/sok-kurser-och-program/h%C3%B6vka-rysk-1.412170?semester=HT24&eventcode=21232", //Tillagd
+  "https://www.su.se/sok-kurser-och-program/h%C3%B6vka-tysk-1.412185?semester=HT24&eventcode=21235",
+  "https://www.su.se/sok-kurser-och-program/sfsvk-1.411587",
+  "https://www.su.se/sok-kurser-och-program/skops-1.645190?semester=HT24&eventcode=42073",
+  "https://www.su.se/sok-kurser-och-program/httok-1.645742",
+  "https://www.su.se/sok-kurser-och-program/htotk-1.412328",
+  "https://www.su.se/sok-kurser-och-program/httok-inte-1.645469",
+  "https://www.su.se/sok-kurser-och-program/httok-tosv-1.645468?semester=HT24&eventcode=21183",
+  "https://www.su.se/sok-kurser-och-program/hvffk-1.721518?semester=HT24&eventcode=10019",
+  "https://www.su.se/sok-kurser-och-program/sperk-1.481832?semester=HT24&eventcode=34128",
+  "https://www.su.se/sok-kurser-och-program/hkopk-1.424769?semester=HT24&eventcode=21250",
+  "https://www.su.se/sok-kurser-och-program/lkp46-1.620398?semester=VT24&eventcode=17009",
+  "https://www.su.se/sok-kurser-och-program/socku-1.570802?semester=HT24&eventcode=41071",
+  "https://www.su.se/sok-kurser-och-program/jjkom-1.411917?semester=HT24&eventcode=29120",
+  "https://www.su.se/sok-kurser-och-program/hvetk-1.412108?semester=HT24&eventcode=12036",
+  "https://www.su.se/sok-kurser-och-program/snekp-1.538514?semester=HT24&eventcode=33053",
+  "https://www.su.se/sok-kurser-och-program/pspro-1.412604?semester=HT24&eventcode=36072",
+  "https://www.su.se/sok-kurser-och-program/splak-1.411818?semester=HT24&eventcode=32058",
+  "https://www.su.se/sok-kurser-och-program/nsfky-1.412521?semester=HT24&eventcode=47056",
+  "https://www.su.se/sok-kurser-och-program/socmy-1.411368?semester=HT24&eventcode=41041",
+  "https://www.su.se/sok-kurser-och-program/hlank-1.412021",
+  "https://www.su.se/sok-kurser-och-program/styrk-1.411655?semester=HT24&eventcode=34125",
+  "https://www.su.se/sok-kurser-och-program/valf%C3%B6-1.547643?semester=HT24&eventcode=61142",
+  "https://www.su.se/sok-kurser-och-program/valny-1.663748?semester=VT24&eventcode=34003",
+  "https://www.su.se/sok-kurser-och-program/lsy2y-yrk2-1.567163?semester=VT24&eventcode=34979",
+  "https://www.su.se/sok-kurser-och-program/lsy2y-v%C3%A5r2-1.567155?semester=VT24&eventcode=34977",
+  "https://www.su.se/sok-kurser-och-program/lsdiy-79e2-1.413240?semester=HT24&eventcode=17467",
+  "https://www.su.se/sok-kurser-och-program/lsamy-79gh-1.424445?semester=HT24&eventcode=17138",
+  "https://www.su.se/sok-kurser-och-program/lsamy-79gr-1.425081?semester=HT24&eventcode=17139",
+  "https://www.su.se/sok-kurser-och-program/lsamy-79gs-1.425082?semester=HT24&eventcode=17140",
+  "https://www.su.se/sok-kurser-och-program/luhsy-79he-1.412935?semester=HT24&eventcode=17141",
+  "https://www.su.se/sok-kurser-och-program/luhsy-79hr-1.595139?semester=HT24&eventcode=17142",
+  "https://www.su.se/sok-kurser-och-program/luhsy-79hs-1.412936?semester=HT24&eventcode=17143",
+  "https://www.su.se/sok-kurser-och-program/luhsy-79rn-1.412937?semester=HT24&eventcode=17144",
+  "https://www.su.se/sok-kurser-och-program/luhsy-79rh-1.595252?semester=HT24&eventcode=17145",
+  "https://www.su.se/sok-kurser-och-program/luhsy-79rs-1.412938?semester=HT24&eventcode=17146",
+  "https://www.su.se/sok-kurser-och-program/lsdiy-792e-1.413239?semester=HT24&eventcode=17470",
+  "https://www.su.se/sok-kurser-och-program/lsdiy-79se-1.412809?semester=HT24&eventcode=17468",
+  "https://www.su.se/sok-kurser-och-program/lsdiy-79ss-1.412810?semester=HT24&eventcode=17469",
+  "https://www.su.se/sok-kurser-och-program/lsamy-79ga-1.595258",
+  "https://www.su.se/sok-kurser-och-program/lsdiy-gv2h-1.412811?semester=HT24&eventcode=17453",
+  "https://www.su.se/sok-kurser-och-program/lsdiy-gv2r-1.412812?semester=HT24&eventcode=17461",
+  "https://www.su.se/sok-kurser-och-program/lsdiy-gvsm-1.412813?semester=HT24&eventcode=17411",
+  "https://www.su.se/sok-kurser-och-program/lsdiy-gyef-1.411949?semester=HT24&eventcode=17171",
+  "https://www.su.se/sok-kurser-och-program/lsdiy-gyeg-1.413241?semester=VT24&eventcode=17223",
+  "https://www.su.se/sok-kurser-och-program/lsdiy-gyeh-1.411950?semester=HT24&eventcode=17178",
+  "https://www.su.se/sok-kurser-och-program/lsdiy-gyem-1.411951?semester=HT24&eventcode=17177",
+  "https://www.su.se/sok-kurser-och-program/lsdiy-gyer-1.411952?semester=HT24&eventcode=17286",
+  "https://www.su.se/sok-kurser-och-program/lsdiy-gyes-1.411953?semester=HT24&eventcode=17310",
+  "https://www.su.se/sok-kurser-och-program/lsdiy-gye2-1.411954?semester=VT24&eventcode=17229",
+  "https://www.su.se/sok-kurser-och-program/lsdiy-gyet-1.411955?semester=VT24&eventcode=17203",
+  "https://www.su.se/sok-kurser-och-program/lsamy-gyeg-1.412585?semester=HT24&eventcode=17158",
+  "https://www.su.se/sok-kurser-och-program/lsamy-gygh-1.412534?semester=HT24&eventcode=17162",
+  "https://www.su.se/sok-kurser-och-program/lsamy-gygm-1.412533?semester=HT24&eventcode=17163",
+  "https://www.su.se/sok-kurser-och-program/lsamy-gygr-1.412535?semester=HT24&eventcode=17164",
+  "https://www.su.se/sok-kurser-och-program/luhsy-gyhe-1.412524?semester=VT24&eventcode=17259",
+  "https://www.su.se/sok-kurser-och-program/luhsy-gyhg-1.412933?semester=VT24&eventcode=17261",
+  "https://www.su.se/sok-kurser-och-program/luhsy-gyhm-1.412523?semester=HT24&eventcode=17148",
+  "https://www.su.se/sok-kurser-och-program/luhsy-gyhr-1.412527?semester=HT24&eventcode=17150",
+  "https://www.su.se/sok-kurser-och-program/luhsy-gyhs-1.412794?semester=HT24&eventcode=17149",
+  "https://www.su.se/sok-kurser-och-program/luhsy-gyrn-1.412529?semester=HT24&eventcode=17151",
+  "https://www.su.se/sok-kurser-och-program/luhsy-gyrg-1.412934",
+  "https://www.su.se/sok-kurser-och-program/luhsy-gyrh-1.412531?semester=VT24&eventcode=17279",
+  "https://www.su.se/sok-kurser-och-program/luhsy-gyrm-1.412528?semester=HT24&eventcode=17157",
+  "https://www.su.se/sok-kurser-och-program/luhsy-gyrs-1.412795?semester=HT24&eventcode=17471",
+  "https://www.su.se/sok-kurser-och-program/lsamy-gyse-1.412610?semester=HT24&eventcode=17165",
+  "https://www.su.se/sok-kurser-och-program/lsamy-gysh-1.412611?semester=HT24&eventcode=17166",
+  "https://www.su.se/sok-kurser-och-program/lsamy-gysm-1.412609?semester=HT24&eventcode=17167",
+  "https://www.su.se/sok-kurser-och-program/lsamy-gysr-1.412612?semester=HT24&eventcode=17168",
+  "https://www.su.se/sok-kurser-och-program/lsamy-gyss-1.412614?semester=HT24&eventcode=17170",
+  "https://www.su.se/sok-kurser-och-program/lsamy-gysv-1.412796?semester=HT24&eventcode=17169",
+  "https://www.su.se/sok-kurser-och-program/lsdiy-gyce-1.411968?semester=VT24&eventcode=17251",
+  "https://www.su.se/sok-kurser-och-program/lsdiy-gysm-1.411970?semester=HT24&eventcode=17466",
+  "https://www.su.se/sok-kurser-och-program/lsdiy-gyc2-1.411969?semester=HT24&eventcode=17465",
+  "https://www.su.se/sok-kurser-och-program/lsdiy-gy2e-1.411963?semester=HT24&eventcode=17450",
+  "https://www.su.se/sok-kurser-och-program/lsdiy-gy2f-1.411966?semester=HT24&eventcode=17452",
+  "https://www.su.se/sok-kurser-och-program/lsdiy-gv2g-1.447429?semester=VT24&eventcode=17207",
+  "https://www.su.se/sok-kurser-och-program/lsdiy-gy2m-1.411964?semester=HT24&eventcode=17460",
+  "https://www.su.se/sok-kurser-och-program/lsdiy-gy2s-1.411965?semester=HT24&eventcode=17462",
+  "https://www.su.se/sok-kurser-och-program/lsdiy-gy2t-1.411967?semester=HT24&eventcode=17463",
+  "https://www.su.se/sok-kurser-och-program/lsdiy-gyse-1.411956?semester=HT24&eventcode=17358",
+  "https://www.su.se/sok-kurser-och-program/lsdiy-gysf-1.411957?semester=VT24&eventcode=17249",
+  "https://www.su.se/sok-kurser-och-program/lsdiy-gysg-1.413242?semester=VT24&eventcode=17215",
+  "https://www.su.se/sok-kurser-och-program/lsdiy-gysh-1.411958?semester=HT24&eventcode=17382",
+  "https://www.su.se/sok-kurser-och-program/lsdiy-gysr-1.411959?semester=HT24&eventcode=17397",
+  "https://www.su.se/sok-kurser-och-program/lsdiy-gysn-1.411960?semester=HT24&eventcode=17406",
+  "https://www.su.se/sok-kurser-och-program/lsdiy-gy22-1.411961?semester=HT24&eventcode=17407",
+  "https://www.su.se/sok-kurser-och-program/lsdiy-gyst-1.411962?semester=HT24&eventcode=17408",
+];
 
 const ltuArray = [
   "https://www.ltu.se/utbildning/program/tciea-civilingenjor-industriell-ekonomi",
@@ -997,7 +979,7 @@ const ltuArray = [
   "https://www.ltu.se/utbildning/program/lyspg-sarskild-kompletterande-pedagogisk-utbildning",
   "https://www.ltu.se/utbildning/program/fktsg-scenproduktion-kandidat-tvarkonstnarlig",
   "https://www.ltu.se/utbildning/program/tkdsg-datorgrafik-for-spel-och-film-kandidat",
-  "https://www.ltu.se/utbildning/program/tctda-civilingenjor-teknisk-design"
+  "https://www.ltu.se/utbildning/program/tctda-civilingenjor-teknisk-design",
 ];
 
 const uuArray = [
@@ -1120,7 +1102,7 @@ const uuArray = [
   "https://www.uu.se/utbildning/program/amneslararprogrammet-biologi",
   "https://www.uu.se/utbildning/program/amneslararprogrammet-filosofi",
   "https://www.uu.se/utbildning/program/amneslararprogrammet-geografi",
-  "https://www.uu.se/utbildning/program/amneslararprogrammet-historia"
+  "https://www.uu.se/utbildning/program/amneslararprogrammet-historia",
 ];
 
 const guArray = [
@@ -1368,7 +1350,7 @@ const umuArray = [
   "https://www.umu.se/utbildning/program/tranarprogrammet/",
   "https://www.umu.se/utbildning/program/vardadministrativa-programmet/",
   "https://www.umu.se/utbildning/program/yrkeslararprogrammet/",
-  "https://www.umu.se/utbildning/program/amneslararprogrammet---gymnasieskolan2/"
+  "https://www.umu.se/utbildning/program/amneslararprogrammet---gymnasieskolan2/",
 ];
 
 const lnuArray = [
@@ -1506,8 +1488,565 @@ const lnuArray = [
   "https://www.lnu.se/program/amneslararprogrammet/ingang-svenska-vaxjo-ht/",
   "https://www.lnu.se/program/amneslararprogrammet/ingang-svenska-som-andrasprak-vaxjo-ht/",
   "https://www.lnu.se/program/amneslararprogrammet/ingang-tyska-vaxjo-ht/",
-  "https://www.lnu.se/program/amneslararprogrammet/ingang-tyska-i-berlin-vaxjo-ht/"
+  "https://www.lnu.se/program/amneslararprogrammet/ingang-tyska-i-berlin-vaxjo-ht/",
 ];
 
+/* LOVES MEGA ARRAYS */
+
+/* HOGSKOLOR BELOW */
+
+const bthArray = [
+  "https://www.bth.se/utbildning/program-och-kurser/tegct",
+  "https://www.bth.se/utbildning/program-och-kurser/tegdt",
+  "https://www.bth.se/utbildning/program-och-kurser/dvaam",
+  "https://www.bth.se/utbildning/program-och-kurser/dvasa",
+  "https://www.bth.se/utbildning/program-och-kurser/iyaci",
+  "https://www.bth.se/utbildning/program-och-kurser/mtamn",
+  "https://www.bth.se/utbildning/program-och-kurser/mtacv",
+  "https://www.bth.se/utbildning/program-och-kurser/paamv",
+  "https://www.bth.se/utbildning/program-och-kurser/dvasp",
+  "https://www.bth.se/utbildning/program-och-kurser/megul",
+  "https://www.bth.se/utbildning/program-och-kurser/fmgfp",
+  "https://www.bth.se/utbildning/program-och-kurser/dvghi",
+  "https://www.bth.se/utbildning/program-och-kurser/mtghm",
+  "https://www.bth.se/utbildning/program-och-kurser/dvghg",
+  "https://www.bth.se/utbildning/program-och-kurser/mtgpo",
+  "https://www.bth.se/utbildning/program-och-kurser/omgsp",
+  "https://www.bth.se/utbildning/program-och-kurser/pagpt",
+  "https://www.bth.se/utbildning/program-och-kurser/pagwg",
+  "https://www.bth.se/utbildning/program-och-kurser/pagwe",
+];
+
+const gihArray = [
+  "https://www.gih.se/utbildning/vara-utbildningar/program/amneslararprogrammet-mot-arskurs-7-9---ingangsamne-idrott-och-halsa",
+  "https://www.gih.se/utbildning/vara-utbildningar/program/amneslararprogrammet-mot-gymnasieskolan---ingangsamne-idrott-och-halsa",
+  "https://www.gih.se/utbildning/vara-utbildningar/program/halsopromotionsprogrammet",
+  "https://www.gih.se/utbildning/vara-utbildningar/program/idrott-och-halsa",
+  "https://www.gih.se/utbildning/varautbildningar/program/kompletterandepedagogiskutbildningtillamneslarare.4.1ea6770718c809d5d8549cb.html",
+  "https://www.gih.se/utbildning/vara-utbildningar/program/kompletterande-pedagogisk-utbildning-till-amneslarare",
+  "https://www.gih.se/utbildning/vara-utbildningar/program/tranarprogrammet",
+];
+
+const hbArray = [
+  "https://www.hb.se/utbildning/program-och-kurser/program/affarsutvecklarprogrammet-bygg-och-fastighet/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/baskompletteringspaket--matematikfysik/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/baskompletteringspaket-for-ingenjorsstudier/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/baskompletteringspaket-matematik/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/bibliotekarie/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/bibliotekarie-distansutbildning/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/byggingenjor/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/civilekonomprogrammet/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/dataekonomutbildningen/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/ekonomutbildning/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/energiingenjor/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/event-management/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/forskollararutbildning/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/forskollararutbildning-for-pedagogiskt-verksamma-distansutbildning2/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/grundlararutbildning-med-inriktning-mot-arbete-i-forskoleklass-och-grundskolans-arskurs-1-3/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/grundlararutbildning-med-inriktning-mot-arbete-i-grundskolans-arskurs-4-6/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/industriell-ekonomi---affarsingenjor/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/industriell-ekonomi---arbetsorganisation-och-ledarskap/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/industriell-ekonomi---logistikingenjor/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/it-ingenjor---digital-infrastruktur-och-cybersakerhet/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/kandidatprogram-i-digital-informationsdesign-och-utveckling/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/kandidatprogram-i-offentlig-forvaltning-distansutbildning/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/kandidatprogram-i-polisiart-arbete-med-inriktning-mot-brottsutredning-distansutbildning/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/kandidatprogram-i-strategisk-information-och-kommunikation/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/kandidatprogram-i-textilt-management-inriktning-mode-och-handel/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/kemiingenjor---tillampad-bioteknik/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/maskiningenjor---automation-och-ai/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/modedesign/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/organisations--och-personalutvecklare-i-samhallet/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/sjukskoterskeutbildning/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/systemarkitekturutbildning-med-inriktning-mot-programutveckling/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/systemvetarutbildning/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/tekniskt-basar/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/textil-produktion-och-innovation/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/textil-produktutveckling-och-entreprenorskap/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/textildesign/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/textilekonomutbildning/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/textilingenjorsutbildning/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/affarsutvecklarprogrammet-bygg-och-fastighet/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/baskompletteringspaket--matematikfysik/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/baskompletteringspaket-for-ingenjorsstudier/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/baskompletteringspaket-matematik/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/bibliotekarie/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/bibliotekarie-distansutbildning/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/byggingenjor/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/civilekonomprogrammet/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/dataekonomutbildningen/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/ekonomutbildning/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/energiingenjor/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/event-management/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/forskollararutbildning/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/forskollararutbildning-for-pedagogiskt-verksamma-distansutbildning2/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/grundlararutbildning-med-inriktning-mot-arbete-i-forskoleklass-och-grundskolans-arskurs-1-3/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/grundlararutbildning-med-inriktning-mot-arbete-i-grundskolans-arskurs-4-6/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/industriell-ekonomi---affarsingenjor/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/industriell-ekonomi---arbetsorganisation-och-ledarskap/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/industriell-ekonomi---logistikingenjor/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/it-ingenjor---digital-infrastruktur-och-cybersakerhet/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/kandidatprogram-i-digital-informationsdesign-och-utveckling/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/kandidatprogram-i-offentlig-forvaltning-distansutbildning/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/kandidatprogram-i-polisiart-arbete-med-inriktning-mot-brottsutredning-distansutbildning/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/kandidatprogram-i-strategisk-information-och-kommunikation/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/kandidatprogram-i-textilt-management-inriktning-mode-och-handel/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/kemiingenjor---tillampad-bioteknik/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/maskiningenjor---automation-och-ai/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/modedesign/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/organisations--och-personalutvecklare-i-samhallet/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/sjukskoterskeutbildning/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/systemarkitekturutbildning-med-inriktning-mot-programutveckling/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/systemvetarutbildning/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/tekniskt-basar/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/textil-produktion-och-innovation/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/textil-produktutveckling-och-entreprenorskap/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/textildesign/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/textilekonomutbildning/",
+  "https://www.hb.se/utbildning/program-och-kurser/program/textilingenjorsutbildning/",
+];
+
+const hhArray = [
+  "https://www.hh.se/utbildning/program/arbetsvetenskap",
+  "https://www.hh.se/utbildning/program/biomedicin---inriktning-traningsfysiologi",
+  "https://www.hh.se/utbildning/program/byggingenjor",
+  "https://www.hh.se/utbildning/program/bygg--och-fastighetsekonomprogrammet",
+  "https://www.hh.se/utbildning/program/civilekonomprogrammet",
+  "https://www.hh.se/utbildning/program/civilingenjor-i-datateknik",
+  "https://www.hh.se/utbildning/program/civilingenjor-i-intelligenta-system",
+  "https://www.hh.se/utbildning/program/civilingenjor-i-maskinteknik-hallbar-design-och-innovation",
+  "https://www.hh.se/utbildning/program/dataingenjor",
+  "https://www.hh.se/utbildning/program/digital-design-och-innovation",
+  "https://www.hh.se/utbildning/program/digital-verksamhetsutveckling",
+  "https://www.hh.se/utbildning/program/ekonomprogrammet",
+  "https://www.hh.se/utbildning/program/elektroingenjor",
+  "https://www.hh.se/utbildning/program/forskollararutbildning",
+  "https://www.hh.se/utbildning/program/grundlararutbildning-ak-4-6",
+  "https://www.hh.se/utbildning/program/grundlararutbildning-ak-f-3",
+  "https://www.hh.se/utbildning/program/halsopedagogiskt-program",
+  "https://www.hh.se/utbildning/program/it-forensik-och-informationssakerhet",
+  "https://www.hh.se/utbildning/program/ingenjor-i-hallbar-energi",
+  "https://www.hh.se/utbildning/program/internationella-marknadsforingsprogrammet",
+  "https://www.hh.se/utbildning/program/kompletterande-pedagogisk-utbildning-kpu---amneslarare-gymnasieskolan",
+  "https://www.hh.se/utbildning/program/kompletterande-pedagogisk-utbildning-kpu---amneslarare-arskurs-7-9",
+  "https://www.hh.se/utbildning/program/kriminologi-och-kultur",
+  "https://www.hh.se/utbildning/program/medier-och-kommunikation-i-teori-och-praktik",
+  "https://www.hh.se/utbildning/program/mekatronikingenjor",
+  "https://www.hh.se/utbildning/program/miljo-innovation-och-hallbarhet",
+  "https://www.hh.se/utbildning/program/naturvard-och-artmangfald",
+  "https://www.hh.se/utbildning/program/professionell-idrottskarriar-och-arbetsliv",
+  "https://www.hh.se/utbildning/program/psykologi---inriktning-idrott-och-motion",
+  "https://www.hh.se/utbildning/program/pabyggnadsutbildning-med-fastighetsmaklarinriktning",
+  "https://www.hh.se/utbildning/program/senare-del-av-program",
+  "https://www.hh.se/utbildning/program/sjukskoterskeprogrammet",
+  "https://www.hh.se/utbildning/program/sociologi-for-social-hallbarhet",
+  "https://www.hh.se/utbildning/program/socionomprogrammet",
+  "https://www.hh.se/utbildning/program/statsvetenskap---samhallsanalys-och-kommunikation",
+  "https://www.hh.se/utbildning/program/strategisk-svenska---digital-kommunikation-forensik-och-marknadsforing",
+  "https://www.hh.se/utbildning/program/tekniskt-basar",
+  "https://www.hh.se/utbildning/program/tillampad-artificiell-intelligens-ai",
+  "https://www.hh.se/utbildning/program/utvecklingsingenjorsprogrammet",
+  "https://www.hh.se/utbildning/program/amneslarare-i-gymnasieskolan---ingang-svenska",
+  "https://www.hh.se/utbildning/program/forskollararutbildning",
+  "https://www.hh.se/utbildning/program/sjukskoterskeprogrammet",
+  "https://www.hh.se/utbildning/program/teknisk-bastermin",
+];
+
+const hisArray = [
+  "https://www.his.se/utbildning/ingenjor-och-teknik/automatiseringstekniker-ateeg/",
+  "https://www.his.se/utbildning/halsa-och-vard/biomedicinprogrammet-bmepg/",
+  "https://www.his.se/utbildning/dataspelsutveckling/dataspelsutveckling-design-dspdg/",
+  "https://www.his.se/utbildning/dataspelsutveckling/dataspelsutveckling-game-writing-dsgwg/",
+  "https://www.his.se/utbildning/dataspelsutveckling/dataspelsutveckling-grafik-dsgpg/",
+  "https://www.his.se/utbildning/dataspelsutveckling/dataspelsutveckling-ljud-dslpg/",
+  "https://www.his.se/utbildning/dataspelsutveckling/dataspelsutveckling-musik-dsmpg/",
+  "https://www.his.se/utbildning/dataspelsutveckling/dataspelsutveckling-programmering-dsppg/",
+  "https://www.his.se/utbildning/data-och-it/datavetenskap-inriktning-systemutveckling-dvsug/",
+  "https://www.his.se/utbildning/ingenjor-och-teknik/designingenjor-dsipg/",
+  "https://www.his.se/utbildning/biovetenskap/ekologi-och-hallbar-utveckling-ekohg/",
+  "https://www.his.se/utbildning/ekonomi/ekonomprogrammet-ekong/",
+  "https://www.his.se/utbildning/ekonomi/ekonomprogrammet-ekonomi-och-hallbarhet-ekhag/",
+  "https://www.his.se/utbildning/ekonomi/ekonomprogrammet-ledarskap-och-verksamhetsutveckling-ekleg/",
+  "https://www.his.se/utbildning/ekonomi/ekonomprogrammet-redovisning-och-revision-ekreg/",
+  "https://www.his.se/utbildning/halsa-och-vard/folkhalsovetenskapligt-program-fhvpg/",
+  "https://www.his.se/utbildning/ingenjor-och-teknik/hogskoleingenjor-bred-ingang-hibeg/",
+  "https://www.his.se/utbildning/ingenjor-och-teknik/hogskoleingenjor-industriell-digitalisering-indig/",
+  "https://www.his.se/utbildning/ekonomi/handelsekonomiprogrammet-hekpg/",
+  "https://www.his.se/utbildning/data-och-it/informationsteknologi-business-intelligence-itbig/",
+  "https://www.his.se/utbildning/beteendevetenskap/kognitiv-neurovetenskap-neuropsykologi-och-medvetandestudier-knmpg/",
+  "https://www.his.se/utbildning/beteendevetenskap/kognitiv-neurovetenskap-tillampad-positiv-psykologi-knppg/",
+  "https://www.his.se/utbildning/ingenjor-och-teknik/maskiningenjor-maing/",
+  "https://www.his.se/utbildning/biovetenskap/molekylar-biodesign-molbg/",
+  "https://www.his.se/utbildning/biovetenskap/molekylar-bioinformatik-mobig/",
+  "https://www.his.se/utbildning/data-och-it/natverks--och-systemadministration-nsarg/",
+  "https://www.his.se/utbildning/forutbildning/naturvetenskapligt-och-tekniskt-basar-natab/",
+  "https://www.his.se/utbildning/ekonomi/personal-organisation-och-ledarskap-polpg/",
+  "https://www.his.se/utbildning/ingenjor-och-teknik/produktionsingenjor-prodg/",
+  "https://www.his.se/utbildning/halsa-och-vard/sjukskoterskeprogrammet-sskpg/",
+  "https://www.his.se/utbildning/beteendevetenskap/socialpsykologiskt-program-spspg/",
+  "https://www.his.se/utbildning/data-och-it/systemvetenskap-syveg/",
+  "https://www.his.se/utbildning/forutbildning/teknisk-bastermin-termb/",
+  "https://www.his.se/utbildning/data-och-it/user-experience-design-uxdpg/",
+  "https://www.his.se/utbildning/data-och-it/webbutvecklare-programmering-webug/",
+];
+
+const hkrArray = [
+  "https://www.hkr.se/kompletterande-programinfo/beteendevetenskapligt-program/",
+  "https://www.hkr.se/kompletterande-programinfo/Biomedicinsk-analytiker/",
+  "https://www.hkr.se/kompletterande-programinfo/datasystemutveckling/",
+  "https://www.hkr.se/kompletterande-programinfo/digitaldesign/",
+  "https://www.hkr.se/ekonomprogrammet",
+  "https://www.hkr.se/program/ekonomprogrammet-business-intelligence",
+  "https://www.hkr.se/kompletterande-programinfo/ekonomprogrammet-bankochfinans/",
+  "https://www.hkr.se/kompletterande-programinfo/ekonomprogrammet-internationell-marknadsforing/",
+  "https://www.hkr.se/kompletterande-programinfo/ekonomprogrammet-redovisning-och-revision/",
+  "https://www.hkr.se/kompletterande-programinfo/ekonomprogrammet-valfri-inriktning/",
+  "https://www.hkr.se/program/kompletteringsutbildning-bma",
+  "https://www.hkr.se/folkhalsa",
+  "https://www.hkr.se/program/forskollarare",
+  "https://www.hkr.se/program/forskollarare-erfarenhet",
+  "https://www.hkr.se/kompletterande-programinfo/gastronomi/",
+  "https://www.hkr.se/kompletterande-programinfo/grundlarare/",
+  "https://www.hkr.se/kompletterande-programinfo/larare-grundskola/",
+  "https://www.hkr.se/program/grundlarare-arbetsplats",
+  "https://www.hkr.se/kompletterande-programinfo/grundlararefritidshem/",
+  "https://www.hkr.se/kompletterande-programinfo/grundlararefritidshem-erfarenhet/",
+  "https://www.hkr.se/datateknik",
+  "https://www.hkr.se/program/tgit1",
+  "https://www.hkr.se/kompletterande-programinfo/it-driftteknikerprogrammet/",
+  "https://www.hkr.se/program/bma-kompletteringsutbildning",
+  "https://www.hkr.se/program/landskapsvetare-forvaltning",
+  "https://www.hkr.se/program/landskapsvetare-kommunikation",
+  "https://www.hkr.se/kompletterande-programinfo/miljostrateg/",
+  "https://www.hkr.se/kompletterande-programinfo/personal-och-arbetslivsprogrammet/",
+  "https://www.hkr.se/kompletterande-programinfo/sjukskoterskeprogrammet/",
+  "https://www.hkr.se/kompletterande-programinfo/tandhygienistprogrammet/",
+  "https://www.hkr.se/kompletterande-programinfo/VAkretsloppstekniker/",
+  "https://www.hkr.se/kompletterande-programinfo/yrkeslararutbildning/",
+  "https://www.hkr.se/amneslararehogstadiet",
+  "https://www.hkr.se/kompletterande-programinfo/amneslarare-arbetsplats/",
+];
+
+const hvArray = [
+  "https://www.hv.se/utbildning/program/3d-animation-och-visualisering-heltid-campus-sg3dv/",
+  "https://www.hv.se/utbildning/program/automationsingenjor-heltid-campus-tgaut/",
+  "https://www.hv.se/utbildning/program/datateknik-hogskoleingenjor---programmering-och-natverksteknik-heltid-campus-tgdta/",
+  "https://www.hv.se/utbildning/program/digitala-medier-heltid-campus-sgdim/",
+  "https://www.hv.se/utbildning/program/ekonomprogrammet-heltid-campus-sgeka/",
+  "https://www.hv.se/utbildning/program/elektroingenjor-elektriska-fordon-heltid-campus-tgelf/",
+  "https://www.hv.se/utbildning/program/elektroingenjor-elkraft-och-hallbara-elsystem-heltid-campus-tgelk/",
+  "https://www.hv.se/utbildning/program/forskollararprogrammet-heltid-campus-lgfor/",
+  "https://www.hv.se/utbildning/program/grundlararprogrammet-med-inriktning-mot-arbete-i-forskoleklass-och-grundskolans-arskurs-1-3-heltid-campus-lafog/",
+  "https://www.hv.se/utbildning/program/grundlararprogrammet-med-inriktning-mot-arbete-i-fritidshem-idrott-och-halsa-arbetsintegrerad-lararutbildning-heltid-campus-lgfri/",
+  "https://www.hv.se/utbildning/program/grundlararprogrammet-med-inriktning-arskurs-4-6-arbetsintegrerad-lararutbildning-heltid-campus-lagra/",
+  "https://www.hv.se/utbildning/program/industriell-ekonomi-heltid-campus-tgiem/",
+  "https://www.hv.se/utbildning/program/internationell-maskiningenjor-heltid-campus-tgmec/",
+  "https://www.hv.se/utbildning/program/internationella-programmet-for-politik-och-ekonomi---ippe-heltid-campus-sgipe/",
+  "https://www.hv.se/utbildning/program/kandidatprogram-i-human-resources-heltid-campus-sgphr/",
+  "https://www.hv.se/utbildning/program/kompletterande-pedagogisk-utbildning-kpu-deltid-campus-lgkpu/",
+  "https://www.hv.se/utbildning/program/kompletterande-pedagogisk-utbildning-amneslarare-7-9-kpu-heltid-distans-kpugr/",
+  "https://www.hv.se/utbildning/program/kompletterande-pedagogisk-utbildning-amneslarare-gy-kpu-heltid-distans-kpugy/",
+  "https://www.hv.se/utbildning/program/maskiningenjor-heltid-campus-tgmtk/",
+  "https://www.hv.se/utbildning/program/natverksteknik-med-it-sakerhet-heltid-campus-tgnit/",
+  "https://www.hv.se/utbildning/program/programmet-for-socialpsykiatrisk-vard-heltid-campus-vgspv/",
+  "https://www.hv.se/utbildning/program/sjukskoterskeprogrammet-heltid-campus-vgsju/",
+  "https://www.hv.se/utbildning/program/socionomprogrammet-med-socialpedagogisk-profil-heltid-campus-sgsoc/",
+  "https://www.hv.se/utbildning/program/systemutveckling---it-och-samhalle-heltid-campus-sgsis/",
+  "https://www.hv.se/utbildning/program/tekniskt-basar-deltid-distans-tzb60/",
+  "https://www.hv.se/utbildning/program/tekniskt-basar-heltid-campus-tzb60/",
+  "https://www.hv.se/utbildning/program/tekniskt-basar-heltid-distans-tzb60/",
+  "https://www.hv.se/utbildning/program/tillampad-samhallsplanering-heltid-campus-sgtil/",
+  "https://www.hv.se/utbildning/program/webmaster-heltid-distans-tgwem/",
+  "https://www.hv.se/utbildning/program/webmaster-heltid-campus-tgwem/",
+  "https://www.hv.se/utbildning/program/yrkeslararprogrammet-deltid-campus-layrk/",
+  "https://www.hv.se/utbildning/program/amneslararprogrammet-med-inriktning-mot-arbete-i-gymnasieskolan---ingangsamne-samhallskunskap-heltid-campus-lgysh/",
+  "https://www.hv.se/utbildning/program/amneslararprogrammet-med-inriktning-mot-arbete-i-gymnasieskolan---ingangsamne-svenska-heltid-campus-lgysv/",
+  "https://www.hv.se/utbildning/program/amneslararprogrammet-med-inriktning-mot-arbete-i-grundskolans-arskurs-7-9-ingangsamne-svenska-heltid-campus-lgrsv/",
+  "https://www.hv.se/utbildning/program/amneslararprogrammet-med-inriktning-mot-arbete-i-gymnasieskolan---ingangsamne-engelska-heltid-campus-lgyen/",
+  "https://www.hv.se/utbildning/program/amneslararprogrammet-med-inriktning-mot-arbete-i-grundskolans-arskurs-7-9-ingangsamne-engelska-heltid-campus-lgren/",
+  "https://www.hv.se/utbildning/program/amneslararprogrammet-med-inriktning-mot-arbete-i-grundskolans-arskurs-7-9-ingangsamne-samhallskunskap-heltid-campus-lgrsh/",
+];
+
+const shArray = [
+  "https://www.sh.se/program--kurser/program/grund/arkivarie--och-informationsforvaltningsprogrammet/inriktningar/foretagsekonomi",
+  "https://www.sh.se/program--kurser/program/grund/arkivarie--och-informationsforvaltningsprogrammet/inriktningar/journalistik",
+  "https://www.sh.se/program--kurser/program/grund/arkivarie--och-informationsforvaltningsprogrammet/inriktningar/statsvetenskap",
+  "https://www.sh.se/program--kurser/program/grund/arkivarie--och-kulturarvsprogrammet/inriktningar/arkeologi",
+  "https://www.sh.se/program--kurser/program/grund/arkivarie--och-kulturarvsprogrammet/inriktningar/etnologi",
+  "https://www.sh.se/program--kurser/program/grund/arkivarie--och-kulturarvsprogrammet/inriktningar/historia",
+  "https://www.sh.se/program--kurser/program/grund/arkivarie--och-kulturarvsprogrammet/inriktningar/idehistoria",
+  "https://www.sh.se/program--kurser/program/grund/arkivarie--och-kulturarvsprogrammet/inriktningar/konstvetenskap",
+  "https://www.sh.se/program--kurser/program/grund/arkivarie--och-kulturarvsprogrammet/inriktningar/religionsvetenskap",
+  "https://www.sh.se/program--kurser/program/grund/bibliotekarieprogrammet",
+  "https://www.sh.se/program--kurser/program/grund/digital-affarsutveckling-inom-event-och-projekt",
+  "https://www.sh.se/program--kurser/program/grund/ekonomi-teknik-och-design",
+  "https://www.sh.se/program--kurser/program/grund/ekonomie-kandidatprogrammet/inriktningar/foretagsekonomi",
+  "https://www.sh.se/program--kurser/program/grund/ekonomie-kandidatprogrammet/inriktningar/nationalekonomi",
+  "https://www.sh.se/program--kurser/program/grund/entreprenorskap-innovation-och-marknad",
+  "https://www.sh.se/program--kurser/program/grund/estetikprogrammet",
+  "https://www.sh.se/program--kurser/program/grund/europaprogrammet/inriktningar/etnologi",
+  "https://www.sh.se/program--kurser/program/grund/europaprogrammet/inriktningar/offentlig-ratt",
+  "https://www.sh.se/program--kurser/program/grund/europaprogrammet/inriktningar/religionsvetenskap",
+  "https://www.sh.se/program--kurser/program/grund/europaprogrammet/inriktningar/statsvetenskap",
+  "https://www.sh.se/program--kurser/program/grund/europaprogrammet/inriktningar/miljovetenskap",
+  "https://www.sh.se/program--kurser/program/grund/filosofi-politik-och-ekonomi/inriktningar/filosofi",
+  "https://www.sh.se/program--kurser/program/grund/filosofi-politik-och-ekonomi/inriktningar/statsvetenskap",
+  "https://www.sh.se/program--kurser/program/grund/filosofi-politik-och-ekonomi/inriktningar/nationalekonomi",
+  "https://www.sh.se/program--kurser/program/grund/forskollararutbildning-med-interkulturell-profil",
+  "https://www.sh.se/program--kurser/program/grund/forskollararutbildning-med-interkulturell-profil-erfarenhetsbaserad",
+  "https://www.sh.se/program--kurser/program/grund/forvaltningsprogrammet---offentlig-organisation-och-ledning",
+  "https://www.sh.se/program--kurser/program/grund/genusvetarprogrammet",
+  "https://www.sh.se/program--kurser/program/grund/globala-utvecklingsstudier",
+  "https://www.sh.se/program--kurser/program/grund/grundlararutbildning-med-interkulturell-profil-med-inriktning-mot-fritidshem",
+  "https://www.sh.se/program--kurser/program/grund/grundlararutbildning-med-interkulturell-profil-med-inriktning-mot-fritidshem-arbetsintegrerad",
+  "https://www.sh.se/program--kurser/program/grund/grundlararutbildning-med-interkulturell-profil-med-inriktning-mot-fritidshem-erfarenhetsbaserad",
+  "https://www.sh.se/program--kurser/program/grund/grundlararutbildning-med-interkulturell-profil-med-inriktning-mot-forskoleklass-och-arskurs-1-3",
+  "https://www.sh.se/program--kurser/program/grund/grundlararutbildning-med-interkulturell-profil-mot-arskurs-4-6",
+  "https://www.sh.se/program--kurser/program/grund/historikerprogrammet",
+  "https://www.sh.se/program--kurser/program/grund/hallbarhetsstrateg",
+  "https://www.sh.se/program--kurser/program/grund/interkulturellt-foretagande/inriktningar/etnologi",
+  "https://www.sh.se/program--kurser/program/grund/interkulturellt-foretagande/inriktningar/religionsvetenskap",
+  "https://www.sh.se/program--kurser/program/grund/interkulturellt-foretagande/inriktningar/foretagsekonomi",
+  "https://www.sh.se/program--kurser/program/grund/internationell-migration-och-etniska-relationer-imer/inriktningar/etnologi",
+  "https://www.sh.se/program--kurser/program/grund/internationell-migration-och-etniska-relationer-imer/inriktningar/historia",
+  "https://www.sh.se/program--kurser/program/grund/internationell-migration-och-etniska-relationer-imer/inriktningar/offentlig-ratt",
+  "https://www.sh.se/program--kurser/program/grund/internationell-migration-och-etniska-relationer-imer/inriktningar/religionsvetenskap",
+  "https://www.sh.se/program--kurser/program/grund/internationell-migration-och-etniska-relationer-imer/inriktningar/sociologi",
+  "https://www.sh.se/program--kurser/program/grund/internationell-migration-och-etniska-relationer-imer/inriktningar/statsvetenskap",
+  "https://www.sh.se/program--kurser/program/grund/internationella-ekonomprogrammet",
+  "https://www.sh.se/program--kurser/program/grund/it-medier-och-design",
+  "https://www.sh.se/program--kurser/program/grund/journalistik-med-samhallsstudier/inriktningar/etnologi",
+  "https://www.sh.se/program--kurser/program/grund/journalistik-med-samhallsstudier/inriktningar/historia",
+  "https://www.sh.se/program--kurser/program/grund/journalistik-med-samhallsstudier/inriktningar/idehistoria",
+  "https://www.sh.se/program--kurser/program/grund/journalistik-med-samhallsstudier/inriktningar/religionsvetenskap",
+  "https://www.sh.se/program--kurser/program/grund/journalistik-med-samhallsstudier/inriktningar/sociologi",
+  "https://www.sh.se/program--kurser/program/grund/journalistik-med-samhallsstudier/inriktningar/statsvetenskap",
+  "https://www.sh.se/program--kurser/program/grund/journalistik-och-digitala-medier",
+  "https://www.sh.se/program--kurser/program/grund/kandidatprogram-i-juridik-med-inriktning-mot-affarsratt-och-offentlig-ratt",
+  "https://www.sh.se/program--kurser/program/grund/kandidatprogram-i-liberal-arts",
+  "https://www.sh.se/program--kurser/program/grund/kommunikatorsprogrammet",
+  "https://www.sh.se/program--kurser/program/grund/kompletterande-pedagogisk-utbildning-med-inriktning-mot-gymnasieskolan/inriktningar/biologi",
+  "https://www.sh.se/program--kurser/program/grund/kompletterande-pedagogisk-utbildning-med-inriktning-mot-gymnasieskolan/inriktningar/engelska",
+  "https://www.sh.se/program--kurser/program/grund/kompletterande-pedagogisk-utbildning-med-inriktning-mot-gymnasieskolan/inriktningar/filosofi",
+  "https://www.sh.se/program--kurser/program/grund/kompletterande-pedagogisk-utbildning-med-inriktning-mot-gymnasieskolan/inriktningar/foretagsekonomi",
+  "https://www.sh.se/program--kurser/program/grund/kompletterande-pedagogisk-utbildning-med-inriktning-mot-gymnasieskolan/inriktningar/geografi",
+  "https://www.sh.se/program--kurser/program/grund/kompletterande-pedagogisk-utbildning-med-inriktning-mot-gymnasieskolan/inriktningar/historia",
+  "https://www.sh.se/program--kurser/program/grund/kompletterande-pedagogisk-utbildning-med-inriktning-mot-gymnasieskolan/inriktningar/psykologi",
+  "https://www.sh.se/program--kurser/program/grund/kompletterande-pedagogisk-utbildning-med-inriktning-mot-gymnasieskolan/inriktningar/religionskunskap",
+  "https://www.sh.se/program--kurser/program/grund/kompletterande-pedagogisk-utbildning-med-inriktning-mot-gymnasieskolan/inriktningar/samhallskunskap",
+  "https://www.sh.se/program--kurser/program/grund/kompletterande-pedagogisk-utbildning-med-inriktning-mot-gymnasieskolan/inriktningar/svenska",
+  "https://www.sh.se/program--kurser/program/grund/konst-kultur-och-ekonomi/inriktningar/idehistoria",
+  "https://www.sh.se/program--kurser/program/grund/konst-kultur-och-ekonomi/inriktningar/foretagsekonomi",
+  "https://www.sh.se/program--kurser/program/grund/kulturanalys-med-inriktning-hallbar-utveckling",
+  "https://www.sh.se/program--kurser/program/grund/logistik-och-ekonomi",
+  "https://www.sh.se/program--kurser/program/grund/management-med-it",
+  "https://www.sh.se/program--kurser/program/grund/medier-engelska-och-globalisering",
+  "https://www.sh.se/program--kurser/program/grund/medievetarprogrammet",
+  "https://www.sh.se/program--kurser/program/grund/miljo-och-utveckling",
+  "https://www.sh.se/program--kurser/program/grund/personalvetarprogrammet/inriktningar/psykologi",
+  "https://www.sh.se/program--kurser/program/grund/personalvetarprogrammet/inriktningar/sociologi",
+  "https://www.sh.se/program--kurser/program/grund/polisprogrammet",
+  "https://www.sh.se/program--kurser/program/grund/religionsvetenskapligt-program",
+  "https://www.sh.se/program--kurser/program/grund/retorikkonsultprogrammet-inriktning-mot-politisk-kommunikation-och-hallbar-utveckling",
+  "https://www.sh.se/program--kurser/program/grund/retorikkonsultprogrammet-inriktning-mot-radgivning-och-utbildning",
+  "https://www.sh.se/program--kurser/program/grund/samhallsplanering-och-gis",
+  "https://www.sh.se/program--kurser/program/grund/socionomprogrammet-med-storstadsprofil",
+  "https://www.sh.se/program--kurser/program/grund/spelprogrammet/inriktningar/grafik",
+  "https://www.sh.se/program--kurser/program/grund/spelprogrammet/inriktningar/speldesign-och-scripting",
+  "https://www.sh.se/program--kurser/program/grund/sport-management",
+  "https://www.sh.se/program--kurser/program/grund/turismprogrammet",
+  "https://www.sh.se/program--kurser/program/grund/amneslararutbildning-med-interkulturell-profil-med-inriktning-mot-gymnasieskolan/inriktningar/engelska",
+  "https://www.sh.se/program--kurser/program/grund/amneslararutbildning-med-interkulturell-profil-med-inriktning-mot-gymnasieskolan/inriktningar/svenska",
+  "https://www.sh.se/program--kurser/program/grund/amneslararutbildning-med-interkulturell-profil-med-inriktning-mot-gymnasieskolan/inriktningar/religionsvetenskap",
+  "https://www.sh.se/program--kurser/program/grund/amneslararutbildning-med-interkulturell-profil-med-inriktning-mot-gymnasieskolan/inriktningar/historia",
+  "https://www.sh.se/program--kurser/program/grund/amneslararutbildning-med-interkulturell-profil-med-inriktning-mot-gymnasieskolan/inriktningar/samhallsvetenskap",
+  "https://www.sh.se/program--kurser/program/grund/amneslararutbildning-med-interkulturell-profil-med-inriktning-mot-gymnasieskolan/inriktningar/svenska-som-andrasprak",
+];
+
+const higArray = [
+  "https://www.hig.se/utbildning/intresseomraden-och-program/hogskoleingenjor/automationsingenjor-co-op-180-hp",
+  "https://www.hig.se/utbildning/intresseomraden-och-program/hogskoleingenjor/byggnadsingenjor-180-hp",
+  "https://www.hig.se/utbildning/intresseomraden-och-program/civilingenjor/civilingenjorsprogram-i-lantmateriteknik-300-hp",
+  "https://www.hig.se/utbildning/intresseomraden-och-program/hogskoleingenjor/dataingenjorsprogrammet-180-hp",
+  "https://www.hig.se/utbildning/intresseomraden-och-program/teknik-och-samhallsbyggnad/datavetenskapliga-programmet-180-hp",
+  "https://www.hig.se/utbildning/intresseomraden-och-program/ekonomi/ekonomprogrammet",
+  "https://www.hig.se/utbildning/intresseomraden-och-program/hogskoleingenjor/energisystemingenjor-co-op-180-hp",
+  "https://www.hig.se/utbildning/intresseomraden-och-program/ekonomi/fastighetsmaklarprogrammet",
+  "https://www.hig.se/utbildning/intresseomraden-och-program/larare/forskollararprogrammet-210-hp",
+  "https://www.hig.se/utbildning/intresseomraden-och-program/larare/grundlararprogrammet-med-inriktning-mot-arbete-i-fritidshem-180-hp",
+  "https://www.hig.se/utbildning/intresseomraden-och-program/larare/grundlararprogrammet-med-inriktning-mot-arbete-i-forskoleklass-och-grundskolans-arskurs-1---3-240-hp-240-hp",
+  "https://www.hig.se/utbildning/intresseomraden-och-program/larare/grundlararprogrammet-med-inriktning-mot-arbete-i-grundskolans-arskurs-4---6-240-hp",
+  "https://www.hig.se/utbildning/intresseomraden-och-program/halsa-och-arbetsliv/idrottsvetenskapliga-programmet-inriktning-halsoframjande-livsstil-180-hp",
+  "https://www.hig.se/utbildning/intresseomraden-och-program/design/industridesign-180-hp",
+  "https://www.hig.se/utbildning/intresseomraden-och-program/teknik-och-samhallsbyggnad/industriell-ekonomi---industrial-management-and-logistics-180-hp",
+  "https://www.hig.se/utbildning/intresseomraden-och-program/hogskoleingenjor/industriell-ekonomi---hogskoleingenjor-180-hp",
+  "https://www.hig.se/utbildning/intresseomraden-och-program/vard-och-socialt-arbete/kandidatprogram-i-socialt-arbete-med-inriktning-internationellt-socialt-arbete-180-hp",
+  "https://www.hig.se/utbildning/intresseomraden-och-program/vard-och-socialt-arbete/kandidatprogram-i-utredningskriminologi-180-hp",
+  "https://www.hig.se/utbildning/intresseomraden-och-program/larare/kompletterande-pedagogisk-utbildning-90-hp",
+  "https://www.hig.se/utbildning/intresseomraden-och-program/larare/kompletterande-pedagogisk-utbildning-for-grundlarare-i-matematik-no-och-teknik-for-arskurs-4-6-75-hp",
+  "https://www.hig.se/utbildning/intresseomraden-och-program/larare/kompletterande-pedagogisk-utbildning-med-inriktning-mot-gymnasiet---matematik-60-hp",
+  "https://www.hig.se/utbildning/intresseomraden-och-program/larare/kompletterande-pedagogisk-utbildning-med-inriktning-mot-gymnasiet---engelska-60-hp",
+  "https://www.hig.se/utbildning/intresseomraden-och-program/larare/kompletterande-pedagogisk-utbildning-med-inriktning-mot-arskurs-7-9---engelska-60-hp",
+  "https://www.hig.se/utbildning/intresseomraden-och-program/larare/kompletterande-pedagogisk-utbildning-med-inriktning-mot-arskurs-7-9---matematik-60-hp",
+  "https://www.hig.se/utbildning/intresseomraden-och-program/teknik-och-samhallsbyggnad/lantmatarprogrammet-ekonomisk-juridisk-inriktning-180-hp",
+  "https://www.hig.se/utbildning/intresseomraden-och-program/teknik-och-samhallsbyggnad/lantmatarprogrammet-teknisk-inriktning-180-hp",
+  "https://www.hig.se/utbildning/intresseomraden-och-program/teknik-och-samhallsbyggnad/magister-i-logistik-och-innovationsledning-60-hp",
+  "https://www.hig.se/utbildning/intresseomraden-och-program/hogskoleingenjor/maskiningenjor-co-op-180-hp",
+  "https://www.hig.se/utbildning/intresseomraden-och-program/teknik-och-samhallsbyggnad/master-programme-in-energy-engineering-energy-online-60-hp",
+  "https://www.hig.se/utbildning/intresseomraden-och-program/teknik-och-samhallsbyggnad/master-i-miljovetenskap---beslutsfattande-for-hallbar-utveckling-120-hp",
+  "https://www.hig.se/utbildning/intresseomraden-och-program/teknik-och-samhallsbyggnad/masterprogram-i-energisystem-online-120-hp",
+  "https://www.hig.se/utbildning/intresseomraden-och-program/teknik-och-samhallsbyggnad/masterprogram-i-geospatial-informationsvetenskap-120-hp",
+  "https://www.hig.se/utbildning/intresseomraden-och-program/halsa-och-arbetsliv/masterprogram-i-arbetshalsovetenskap-120-hp",
+  "https://www.hig.se/utbildning/intresseomraden-och-program/teknik-och-samhallsbyggnad/masterprogram-i-elektronik-med-inriktning-mot-automationsteknik-120-hp",
+  "https://www.hig.se/utbildning/intresseomraden-och-program/kultur-och-religion/masterprogram-i-religionsvetenskap-120-hp",
+  "https://www.hig.se/utbildning/intresseomraden-och-program/teknik-och-samhallsbyggnad/miljovetenskap---teknik-beteende-och-samhalle-co-op-180-hp",
+  "https://www.hig.se/utbildning/intresseomraden-och-program/kultur-och-religion/manniska-kultur-religionsprogrammet-180-hp",
+  "https://www.hig.se/utbildning/intresseomraden-och-program/halsa-och-arbetsliv/personal--och-arbetslivsprogrammet-180-hp",
+  "https://www.hig.se/utbildning/intresseomraden-och-program/teknik-och-samhallsbyggnad/samhallsplanerarprogrammet-180-hp",
+  "https://www.hig.se/utbildning/intresseomraden-och-program/vard-och-socialt-arbete/sjukskoterskeprogrammet-180-hp",
+  "https://www.hig.se/utbildning/intresseomraden-och-program/vard-och-socialt-arbete/socionomprogrammet-210-hp",
+  "https://www.hig.se/utbildning/intresseomraden-och-program/vard-och-socialt-arbete/specialistsjukskoterskeprogrammet---inriktning-distriktsskoterska-75-hp",
+  "https://www.hig.se/utbildning/intresseomraden-och-program/vard-och-socialt-arbete/specialistsjukskoterskeprogrammet---inriktning-vard-av-aldre-60-hp",
+  "https://www.hig.se/utbildning/intresseomraden-och-program/larare/amneslararprogrammet-med-inriktning-mot-arskurs-7--9-eller-gymnasiet-ingangsamne-svenska-300-hp",
+  "https://www.hig.se/utbildning/intresseomraden-och-program/larare/amneslararprogrammet-med-inriktning-mot-arskurs-7-9-eller-gymnasiet-ingangsamne-engelska-300-hp",
+  "https://www.hig.se/utbildning/intresseomraden-och-program/larare/amneslararprogrammet-med-inriktning-mot-arskurs-7-9-eller-gymnasiet-ingangsamne-matematik-300-hp",
+  "https://www.hig.se/utbildning/intresseomraden-och-program/larare/amneslararprogrammet-med-inriktning-mot-arskurs-7-9-eller-gymnasiet-ingangsamne-religionsvetenskap-300-hp",
+];
+
+const hdaArray = [
+  "https://www.du.se/sv/Utbildning/Program/audiovisuell-produktion---kandidatprogram/",
+  "https://www.du.se/sv/Utbildning/Program/businessmanagement/",
+  "https://www.du.se/sv/Utbildning/Program/bygg--och-samhallsplanerarprogrammet/",
+  "https://www.du.se/sv/Utbildning/Program/byggingenjorsprogram/",
+  "https://www.du.se/sv/Utbildning/Program/byggteknik---produktion-och-forvaltning/",
+  "https://www.du.se/sv/Utbildning/Program/digitala-tjanster---program-for-hogskoleexamen/",
+  "https://www.du.se/sv/Utbildning/Program/ekonomprogrammet/",
+  "https://www.du.se/sv/Utbildning/Program/entreprenoriellt-foretagande/",
+  "https://www.du.se/sv/Utbildning/Program/film--och-tv-produktion/",
+  "https://www.du.se/sv/Utbildning/Program/filmproduktion/",
+  "https://www.du.se/sv/Utbildning/Program/grafisk-design-och-webbutveckling-kandidatprogram/",
+  "https://www.du.se/sv/Utbildning/Program/grundlararprogrammet---forskoleklass-och-grundskolans-arskurs-13/",
+  "https://www.du.se/sv/Utbildning/Program/grundlararprogrammet-forskoleklass-och-grundskolans-arskurs-1-3/",
+  "https://www.du.se/sv/Utbildning/Program/grundlararprogrammet-forskoleklass-och-grundskolans-arskurs-1-3-arbetsintegrerad-utbildning/",
+  "https://www.du.se/sv/Utbildning/Program/grundlararprogrammet-grundskolans-arskurs-46/",
+  "https://www.du.se/sv/Utbildning/Program/grundlararprogrammet-grundskolans-arskurs-4-6/",
+  "https://www.du.se/sv/Utbildning/Program/grundlararprogrammet-ak-4-6-arbetsintegrerad/",
+  "https://www.du.se/sv/Utbildning/Program/energi---hogskoleingenjorsprogram/",
+  "https://www.du.se/sv/Utbildning/Program/tranarprogrammet/",
+  "https://www.du.se/sv/Utbildning/Program/industriell-ekonomi/",
+  "https://www.du.se/sv/Utbildning/Program/international-tourism-management/",
+  "https://www.du.se/sv/Utbildning/Program/it-sakerhet-och-mjukvarutestningsprogrammet/",
+  "https://www.du.se/sv/Utbildning/Program/kompletterande-pedagogisk-utbildning-gymnasiet/",
+  "https://www.du.se/sv/Utbildning/Program/kompletterande-pedagogisk-utbildning/",
+  "https://www.du.se/sv/Utbildning/Program/kompletterande-utbildning-for-ekonomer-med-utlandsk-examen/",
+  "https://www.du.se/sv/Utbildning/Program/kompletterande-utbildning-for-systemvetare-med-utlandsk-examen/",
+  "https://www.du.se/sv/Utbildning/Program/ljud-och-musikproduktionsprogrammet/",
+  "https://www.du.se/sv/Utbildning/Program/manus-for-film-och-tv-180-hogskolepoang/",
+  "https://www.du.se/sv/Utbildning/Program/maskinteknik-produkt--och-konstruktionsutveckling---hogskoleingenjorsprogram/",
+  "https://www.du.se/sv/Utbildning/Program/musik--och-ljuddesign/",
+  "https://www.du.se/sv/Utbildning/Program/personal--och-arbetslivsprogrammet/",
+  "https://www.du.se/sv/Utbildning/Program/produktionstekniker-inom-maskinteknik--hogskoleexamensprogram/",
+  "https://www.du.se/sv/Utbildning/Program/samhallsvetarprogrammet/",
+  "https://www.du.se/sv/Utbildning/Program/sjukskoterskeprogrammet/",
+  "https://www.du.se/sv/Utbildning/Program/socionomprogrammet/",
+  "https://www.du.se/sv/Utbildning/Program/sport-management/",
+  "https://www.du.se/sv/Utbildning/Program/systemvetenskapliga-programmet/",
+  "https://www.du.se/sv/Utbildning/Program/teknisk-bastermin/",
+  "https://www.du.se/sv/Utbildning/Program/tekniskt-basar/",
+  "https://www.du.se/sv/Utbildning/Program/upplevelseproduktion/",
+  "https://www.du.se/sv/Utbildning/Program/utveckling-av-etjanster/",
+  "https://www.du.se/sv/Utbildning/Program/yrkeslarare/",
+  "https://www.du.se/sv/Utbildning/Program/amneslararprogrammet--inriktning-grundskolan-arskurs-7-9/amneslararprogrammet--inriktning-grundskolan-arskurs-7-9---bild/",
+  "https://www.du.se/sv/Utbildning/Program/amneslararprogrammet--inriktning-grundskolan-arskurs-7-9/amneslararprogrammet--inriktning-grundskolan-arskurs-7-9---religion/",
+  "https://www.du.se/sv/Utbildning/Program/amneslararprogrammet--inriktning-grundskolan-arskurs-7-9/amneslararprogrammet---inriktning-grundskolan-arskurs-7-9---svenska-som-andrasprak/",
+  "https://www.du.se/sv/Utbildning/Program/amneslararprogrammet--inriktning-grundskolan-arskurs-7-9/amneslararprogrammet---inriktning-grundskolan-arskurs-7-9---matematik/",
+  "https://www.du.se/sv/Utbildning/Program/amneslararprogrammet--inriktning-grundskolan-arskurs-7-9/amneslararprogrammet--inriktning-grundskolan-arskurs-7-9--idrott-och-halsa/",
+  "https://www.du.se/sv/Utbildning/Program/amneslararprogrammet--inriktning-grundskolan-arskurs-7-9/amneslararprogrammet--inriktning-grundskolan-arskurs-7-9--tyska/",
+
+  "https://www.du.se/sv/Utbildning/Program/amneslararprogrammet--inriktning-grundskolan-arskurs-7-9/amneslararprogrammet---inriktning-grundskolan-arskurs-7-9---historia/",
+  "https://www.du.se/sv/Utbildning/Program/amneslararprogrammet--inriktning-grundskolan-arskurs-7-9/amneslararprogrammet--inriktning-grundskolan-arskurs-7-9---franska/",
+  "https://www.du.se/sv/Utbildning/Program/amneslararprogrammet--inriktning-grundskolan-arskurs-7-9/amneslararprogrammet--inriktning-grundskolan-arskurs-7-9---svenska/",
+  "https://www.du.se/sv/Utbildning/Program/amneslararprogrammet--inriktning-grundskolan-arskurs-7-9/amneslararprogrammet--inriktning-grundskolan-arskurs-7-9---engelska/",
+  "https://www.du.se/sv/Utbildning/Program/amneslararprogrammet--inriktning-grundskolan-arskurs-7-9/amneslararprogrammet--inriktning-grundskolan-arskurs-7-9---spanska/",
+  "https://www.du.se/sv/Utbildning/Program/amneslararprogrammet--inriktning-grundskolan-arskurs-7-9/",
+  "https://www.du.se/sv/Utbildning/Program/amneslararprogrammet-inriktning-grundskolans-arskurs-79---matematik-och-idrott-och-halsa-arbetsintegrerad-utbildning/",
+  "https://www.du.se/sv/Utbildning/Program/amneslararprogrammet---inriktning-gymnasieskolan/spanska---natbaserad-utbildning/",
+  "https://www.du.se/sv/Utbildning/Program/amneslararprogrammet---inriktning-gymnasieskolan/engelska---natbaserad-utbildning/",
+  "https://www.du.se/sv/Utbildning/Program/amneslararprogrammet---inriktning-gymnasieskolan/matematik---natbaserad-utbildning/",
+  "https://www.du.se/sv/Utbildning/Program/amneslararprogrammet---inriktning-gymnasieskolan/bild---natbaserad-utbildning/",
+  "https://www.du.se/sv/Utbildning/Program/amneslararprogrammet---inriktning-gymnasieskolan/religion---natbaserad-utbildning/",
+  "https://www.du.se/sv/Utbildning/Program/amneslararprogrammet---inriktning-gymnasieskolan/kinesiska---natbaserad-utbildning/",
+  "https://www.du.se/sv/Utbildning/Program/amneslararprogrammet---inriktning-gymnasieskolan/historia---natbaserad-utbildning/",
+  "https://www.du.se/sv/Utbildning/Program/amneslararprogrammet---inriktning-gymnasieskolan/idrott-och-halsa/",
+  "https://www.du.se/sv/Utbildning/Program/amneslararprogrammet---inriktning-gymnasieskolan/tyska---natbaserad-utbildning/",
+  "https://www.du.se/sv/Utbildning/Program/amneslararprogrammet---inriktning-gymnasieskolan/ny-svenska-som-andrasprak---natbaserad-utbildningsida/",
+  "https://www.du.se/sv/Utbildning/Program/amneslararprogrammet---inriktning-gymnasieskolan/franska---natbaserad-utbildning/",
+  "https://www.du.se/sv/Utbildning/Program/amneslararprogrammet---inriktning-gymnasieskolan/svenska---natbaserad-utbildning/",
+  "https://www.du.se/sv/Utbildning/Program/amneslararprogrammet---inriktning-gymnasieskolan/",
+];
+
+// Manually
+const fhsArray = [
+  "https://www.fhs.se/utbildningar/officersprogrammet-inriktning-krigsvetenskap.html",
+  "https://www.fhs.se/utbildningar/officersprogrammet-inriktning-militarteknik.html",
+  "https://www.fhs.se/utbildningar/officersprogrammet-inriktning-sjokrigsvetenskap.html",
+  "https://www.fhs.se/utbildningar/krig-kultur-och-samhalle---kandidatprogram.html",
+  "https://www.fhs.se/utbildningar/statsvetenskap-inriktning-krishantering-och-sakerhet---kandidatprogram.html",
+];
+
+// Not yet done, Manually?
+const skhArray = [
+  "https://www.uniarts.se/utbildningar/kandidatprogram/kandidatprogram-i-cirkus/",
+  "https://www.uniarts.se/utbildningar/kandidatprogram/kandidatprogram-i-dans/",
+  "https://www.uniarts.se/utbildningar/kandidatprogram/kandidatprogram-i-danspedagogik/",
+  "https://www.uniarts.se/utbildningar/kandidatprogram/kandidatprogram-i-film-och-media-bild-filmfoto-animation-och-design/",
+  "https://www.uniarts.se/utbildningar/kandidatprogram/kandidatprogram-i-film-och-media-ide-koncept-manus-och-projektledning/",
+  "https://www.uniarts.se/utbildningar/kandidatprogram/kandidatprogram-i-film-och-media-montage-ljuddesign-och-filmklippning/",
+  "https://www.uniarts.se/utbildningar/kandidatprogram/kandidatprogram-i-film-och-media-radio-ide-regi-och-montage/",
+  "https://www.uniarts.se/utbildningar/kandidatprogram/kandidatprogram-i-film-och-media-regi-dokumentar-och-fiktion/",
+  "https://www.uniarts.se/utbildningar/kandidatprogram/kandidatprogram-i-mimskadespeleri/",
+  "https://www.uniarts.se/utbildningar/kandidatprogram/kandidatprogram-i-opera-med-inriktning-sang/",
+  "https://www.uniarts.se/utbildningar/kandidatprogram/kandidatprogram-i-scenkonst/",
+  "https://www.uniarts.se/utbildningar/kandidatprogram/kandidatprogram-i-skadespeleri/",
+  "https://www.uniarts.se/utbildningar/amneslararprogram/amneslararprogram-i-dans/",
+];
+
+const kfArray = [
+  "https://www.konstfack.se/sv/Utbildning/Kandidatprogram/Grafisk-formgivning-Illustration-180-hp/",
+  "https://www.konstfack.se/sv/Utbildning/Kandidatprogram/Industridesign-180-hp/",
+  "https://www.konstfack.se/sv/Utbildning/Kandidatprogram/Inredningsarkitektur--Mobeldesign-180-hp/",
+  "https://www.konstfack.se/sv/Utbildning/Kandidatprogram/Keramik--Glas-180-hp/",
+  "https://www.konstfack.se/sv/Utbildning/Kandidatprogram/Konst-180-hp/",
+  "https://www.konstfack.se/sv/Utbildning/Kandidatprogram/Adellab-180-hp/",
+  "https://www.konstfack.se/sv/Utbildning/Kandidatprogram/Textil-180-hp/",
+  "https://www.konstfack.se/sv/Utbildning/Lararutbildning/Amneslararprogrammet-med-inriktning-mot-grundskolans-ak-7-9-270-hp/",
+  "https://www.konstfack.se/sv/Utbildning/Lararutbildning/Amneslararprogrammet-med-inriktning-mot-gymnasieskolan-300-hp/",
+];
+
+// Manually?
+const kkhArray = ["https://kkh.se/sv/utbildning/program-i-fri-konst/"];
+
+const kmhArray = [
+  "https://www.kmh.se/utbildningar/alla-utbildningar/kandidatprogram/dirigering---kor.html",
+  "https://www.kmh.se/utbildningar/alla-utbildningar/kandidatprogram/dirigering---orkester.html",
+  "https://www.kmh.se/utbildningar/alla-utbildningar/kandidatprogram/komposition---elektroakustisk-musik.html",
+  "https://www.kmh.se/utbildningar/alla-utbildningar/kandidatprogram/komposition---konstmusik.html",
+  "https://www.kmh.se/utbildningar/alla-utbildningar/kandidatprogram/musiker-jazz.html",
+  "https://www.kmh.se/utbildningar/alla-utbildningar/kandidatprogram/musiker-klassisk-musik.html",
+  "https://www.kmh.se/utbildningar/alla-utbildningar/kandidatprogram/musiker-klassisk-musik---edsberg.html",
+  "https://www.kmh.se/utbildningar/alla-utbildningar/kandidatprogram/musiker-kyrkomusik.html",
+  "https://www.kmh.se/utbildningar/alla-utbildningar/kandidatprogram/musiker-svensk-folkmusik.html",
+  "https://www.kmh.se/utbildningar/alla-utbildningar/kandidatprogram/musiker-tidig-musik.html",
+  "https://www.kmh.se/utbildningar/alla-utbildningar/kandidatprogram/musiker-utomskandinavisk-folkmusik-utomeuropeisk-konstmusik.html",
+  "https://www.kmh.se/utbildningar/alla-utbildningar/kandidatprogram/musikproduktion.html",
+  "https://www.kmh.se/utbildningar/alla-utbildningar/kandidatprogram/musikterapeut.html",
+  "https://www.kmh.se/utbildningar/alla-utbildningar/lararprogram/amneslarare-i-musik-och-annat-amne.html",
+  "https://www.kmh.se/utbildningar/alla-utbildningar/lararprogram/amneslarare-i-musik---fordjupning-instrument-sang-och-ensemble.html",
+  "https://www.kmh.se/utbildningar/alla-utbildningar/lararprogram/amneslarare-i-musik---fordjupning-kor.html",
+  "https://www.kmh.se/utbildningar/alla-utbildningar/lararprogram/amneslarare-i-musik---fordjupning-musikteori.html",
+  "https://www.kmh.se/utbildningar/alla-utbildningar/lararprogram/amneslarare-i-musik---fordjupning-musik--och-medieproduktion.html",
+  "https://www.kmh.se/utbildningar/alla-utbildningar/lararprogram/amneslarare-i-musik---fordjupning-rytmik.html",
+  "https://www.kmh.se/utbildningar/alla-utbildningar/lararprogram/kompletterande-pedagogisk-utbildning-kpu.html",
+];
 
 mainScraper();
