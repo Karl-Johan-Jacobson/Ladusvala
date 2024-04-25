@@ -31,11 +31,34 @@ body {
 }
 /* Is the font for the text for instance question title and greetings, etc */
 @font-face {
-  font-family: 'Tomorrow';
+  font-family: 'Tomorrow-Medium';
   src: url(./../public/fonts/Tomorrow-Medium.ttf);
+  font-weight: medium;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Tomorrow-MediumItalic';
+  src: url(./../public/fonts/Tomorrow-MediumItalic.ttf);
+  font-weight: medium;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Tomorrow-Regular';
+  src: url(./../public/fonts/Tomorrow-Regular.ttf);
   font-weight: normal;
   font-style: normal;
 }
+
+@font-face {
+  font-family: 'Tomorrow-SemiBold';
+  src: url(./../public/fonts/Tomorrow-SemiBold.ttf);
+  font-weight: bold;
+  font-style: normal;
+}
+
+
 /* Class for the text */
 .bot {
   color: var(--primary-dark-purple);
@@ -50,7 +73,7 @@ body {
 }
 /* Standard styling for text */
 p {
-  font-family: 'Tomorrow', sans-serif;
+  font-family: 'Tomorrow-MediumItalic', sans-serif;
   text-align: center;
 }
 /*Used for formating HTTP response code page*/
@@ -97,7 +120,7 @@ header {
 .titleTypewriter {
   margin: 0 auto;
   line-height: 1.5em;
-  font-family: 'Tomorrow';
+  font-family: 'Tomorrow-Medium';
   color: var(--primary-dark-purple);
   font-size: 5vh;
   transition: padding-top 0.2s ease;
@@ -150,16 +173,21 @@ header {
 }
 /* Text inside the buttons color and font size */
 .answerButton p {
-  color: #61855A;
+  color: #9ECB98;
   font-size: 4vw;
 }
 /* hover color change buttons*/
 .answerButton:hover {
-  background-color: #61855A;
+ /* background-color: #61855A;*/
 }
-/* hover color change text */
+/* hover change text outer shadow */
 .answerButton:hover p {
-  color: var(--primary-light-green);
+  text-shadow: 2px 1px #61855A
+}
+/* click change text inner shadow */
+.answerButton:active p {
+  color: transparent;
+  text-shadow: 2px 0.5px #9ECB98, 0px 0px #61855A;
 }
 /*
   End of Main
@@ -235,7 +263,7 @@ header {
   display: inline-block;
 }
 .iconText {
-  font-family: 'Tomorrow';
+  font-family: 'Tomorrow-MediumItalic';
   font-style: italic;
   position: absolute;
   top: 50%;
@@ -283,7 +311,7 @@ header {
 }
 
 .addInterestField::placeholder{
-  font-family: 'Tomorrow';
+  font-family: 'Tomorrow-MediumItalic';
   font-size: 20px;
   color: #9ECB98;
   text-align: center;
@@ -324,8 +352,7 @@ header {
 
 .recommendationButton p{
   font-size: 30px;
-  font-family: 'Tomorrow';
-  font-style: italic;
+  font-family: 'Tomorrow-MediumItalic';
   color: #9ECB98;
 }
 
