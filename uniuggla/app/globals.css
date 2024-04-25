@@ -173,16 +173,21 @@ header {
 }
 /* Text inside the buttons color and font size */
 .answerButton p {
-  color: #61855A;
+  color: #9ECB98;
   font-size: 4vw;
 }
 /* hover color change buttons*/
 .answerButton:hover {
-  background-color: #61855A;
+ /* background-color: #61855A;*/
 }
-/* hover color change text */
+/* hover change text outer shadow */
 .answerButton:hover p {
-  color: var(--primary-light-green);
+  text-shadow: 2px 1px #61855A
+}
+/* click change text inner shadow */
+.answerButton:active p {
+  color: transparent;
+  text-shadow: 2px 0.5px #9ECB98, 0px 0px #61855A;
 }
 /*
   End of Main
