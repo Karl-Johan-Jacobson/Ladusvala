@@ -2,9 +2,11 @@
   --primary-light-green: #DFFDE0;
   --primary-medium-green: #C6F0C3;
   --medium-green: #9ECB98;
+  --medium-green-shadow: #61855A;
   --primary-dark-green: #37552B;
+  --primary-dark-green-shadow: #37552b64;
   --primary-dark-purple: #4F1EB0;
-  --primary-border-width: 0.2vw;
+  --primary-border-width: 0.1vw;
   --primary-border-radius: 0.5vw;
   margin: 0;
   padding: 0;
@@ -22,34 +24,35 @@ html::-webkit-scrollbar {
 body {      
   background-color: var(--primary-light-green);
 }
-.hide {
+.hide, .hide p, .hide a, .hide * p, .hide * a {
   transition: 0.0s ease !important;
   height: 0px !important;
   opacity: 0 !important;
   margin: 0px !important;
   padding: 0px !important;
+  font-size: 0px !important;
 }
 /* Is the font for the text for instance question title and greetings, etc */
 @font-face {
-  font-family: 'Tomorrow';
+  font-family: 'Tomorrow-Medium';
   src: url(./../public/fonts/Tomorrow-Medium.ttf);
   font-weight: medium;
   font-style: normal;
 }
 @font-face {
-  font-family: 'Tomorrow';
+  font-family: 'Tomorrow-MediumItalic';
   src: url(./../public/fonts/Tomorrow-MediumItalic.ttf);
   font-weight: medium;
   font-style: italic;
 }
 @font-face {
-  font-family: 'Tomorrow';
+  font-family: 'Tomorrow-Regular';
   src: url(./../public/fonts/Tomorrow-Regular.ttf);
-  font-weight: light;
+  font-weight: 400;
   font-style: normal;
 }
 @font-face {
-  font-family: 'Tomorrow';
+  font-family: 'Tomorrow-SemiBold';
   src: url(./../public/fonts/Tomorrow-SemiBold.ttf);
   font-weight: bold;
   font-style: medium;
@@ -68,9 +71,7 @@ body {
 }
 /* Standard styling for text */
 p {
-  font-family: 'Tomorrow';
-  font-weight: normal;
-  font-style: normal;
+  font-family: 'Tomorrow-Medium', sans-serif;
   text-align: center;
 }
 /*Used for formating HTTP response code page*/
@@ -117,6 +118,10 @@ header {
 .titleTypewriter {
   margin: 0 auto;
   line-height: 1.5em;
+  font-family: 'Tomorrow-SemiBold' !important;
+  color: var(--primary-dark-purple);
+  font-size: 5vh;
+  transition: padding-top 0.2s ease;
 }
 .container {
   height: 100vh;
@@ -139,7 +144,6 @@ header {
   transition: 0.5s ease;
   overflow-y: auto;
 }
-
 .wrapper::-webkit-scrollbar {
   display: none;
 }
@@ -166,29 +170,23 @@ header {
 }
 /* Text inside the buttons color and font size */
 .answerButton p {
-  color: #61855A;
+  font-family: 'Tomorrow-MediumItalic';
+  color: var(--medium-green);
   font-size: 4vw;
-}
-/* hover color change buttons*/
-.answerButton:hover {
-  background-color: #61855A;
 }
 /* hover color change text */
 .answerButton:hover p {
-  color: var(--primary-light-green);
+  text-shadow: 2px 1px var(--medium-green-shadow);
+}
+.answerButton:active p {
+  color: transparent;
+  text-shadow: 2px 0.5px var(--medium-green), 0px 0px var(--medium-green-shadow);
 }
 /*
   End of Main
 ---===---===---===---===---===---===---===---===---===---
   Start of Welcome
 */
-/* Styling for the question and greeting class */
-.titleTypewriter {
-  font-family: 'Tomorrow';
-  color: var(--primary-dark-purple);
-  font-size: 5vh;
-  transition: padding-top 0.2s ease;
-}
 /*
   End of Welcome
   ---===---===---===---===---===---===---===---===---===---
@@ -214,7 +212,6 @@ header {
   transition: 0.5s ease;
   overflow-y: auto;
 }
-
 .notSelectedInterestList {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -224,7 +221,6 @@ header {
   bottom: 7vw;
   width: 60%;
 }
-
 
 
 .selectedInterestList {
@@ -237,7 +233,6 @@ header {
   bottom: 18vw;
   width: 60%;
 }
-
 .customInterestForm{
   width: 35vw;
   margin-left: auto;
@@ -246,7 +241,6 @@ header {
   position: absolute;
   bottom: 1vw;
 }
-
 .iconButton {
   position: relative;
   left: 20%;
@@ -256,9 +250,8 @@ header {
   cursor: pointer;
   display: inline-block;
 }
-
 .iconText {
-  font-family: 'Tomorrow';
+  font-family: 'Tomorrow-MediumItalic';
   font-style: italic;
   font-size: medium;
   position: absolute;
@@ -270,37 +263,31 @@ header {
   color: #DFFDE0;
 }
 
-
 .iconButton svg {
   width: 8vw;
   height: 8vw; 
 }
-
 .notSelectedInterestButton:hover {
   stroke: #4F1EB0;
   stroke-width: 2px;
   stroke-linejoin: round;
   filter: drop-shadow(2px 2px 0px #4F1EB0);
 }
-
 .selectedInterestButton:hover {
   stroke: #9ECB98;
   stroke-width: 2px;
   stroke-linejoin: round;
   filter: drop-shadow(2px 2px 0px #9ECB98);
 }
-
 .notSelectedInterestButton:hover .iconText {
   color: #4F1EB0;
 }
-
 .selectedInterestButton:hover .iconText {
   color: #9ECB98;
 }
-
 .addInterestField{
   font-size: 30px;
-  font-family: 'Tomorrow';
+  font-family: 'Tomorrow-MediumItalic';
   color: #61855A;
   border: 1px solid grey;
   width: 91%;
@@ -314,20 +301,17 @@ header {
   box-shadow:inset 0 0 1px 1px gray;
   margin-bottom: 1vw;
 }
-
 .addInterestField::placeholder{
-  font-family: 'Tomorrow';
+  font-family: 'Tomorrow-MediumItalic';
   font-size: 20px;
   color: #9ECB98;
   text-align: center;
   font-style: italic;
 }
-
 .addInterestField:focus{
   outline: none;
   box-shadow:inset 0 0 2px 2px gray;
 }
-
 .addInterestButton{
   width: 8%;
   background: #9ECB98;
@@ -340,7 +324,6 @@ header {
   border-bottom-right-radius: 5px;
   box-shadow: -2px 0px 2px 0px grey;
 }
-
 .shuffleButton{
   left: 70%;
   transform: translateX(-50%);
@@ -350,23 +333,19 @@ header {
   position: absolute;
   bottom: 1vw;
 }
-
 .shuffleButton:hover{
   filter: drop-shadow(2px 2px 0px gray);
 }
-
 .recommendationButton{
   cursor: pointer;
   width: 36vw;
 }
-
 .recommendationButton p{
   font-size: 30px;
-  font-family: 'Tomorrow';
+  font-family: 'Tomorrow-MediumItalic';
   font-style: italic;
   color: #9ECB98;
 }
-
 /* Interests fade-in and fade-out animations */
 
 .fadeInSelected {
@@ -374,20 +353,17 @@ header {
   animation-duration: 500ms;
   animation-timing-function: ease-in;
 }
-
 .fadeInNew {
   animation-name: inAnimationNew; 
   animation-duration: 1000ms;
   animation-timing-function: ease-in;
 }
-
 .fadeOut {
   animation-name: outAnimation;
   animation-duration: 300ms;
   animation-timing-function: ease-out;
   animation-fill-mode: forwards;
 }
-
 @keyframes inAnimationSelected {
   0% {
     transform: scale(0.1);
@@ -401,7 +377,6 @@ header {
     transform: scale(1);
   }
 }
-
 @keyframes inAnimationNew {
   0% {
     transform: scale(0);
@@ -419,7 +394,6 @@ header {
     transform: scale(1);
   }
 }
-
 @keyframes outAnimation {
   0% {
     opacity: 1;
@@ -432,7 +406,6 @@ header {
     opacity: 0;
   }
 }
-
 /*
   End of Intrest
  ---===---===---===---===---===---===---===---===---===---
@@ -444,12 +417,13 @@ header {
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 10px;
   max-width: fit-content;
-  margin: 0 auto;
+  margin: 0vw auto;
+  margin-top: 1vw;
 }
 .filter {
   height: inherit;
   display: flex;
-  border: var(--primary-border-width)solid #37552B;
+  border: var(--primary-border-width) solid #37552B;
   border-radius: var(--primary-border-radius);
   position: relative;
 }
@@ -459,22 +433,28 @@ header {
   width: 17vw;
   display: flex;
   border: none;
-  border-radius: var(--primary-border-radius);
+  border-radius: calc(var(--primary-border-radius)*0.85);
   padding-left: 1vw;
-  font-size: 120%;
+  font-size: 1.6vw;
+  background-color: var(--primary-light-green);
+  box-shadow: inset 0.2vw 0.3vw 0.4vw var(--primary-dark-green-shadow);
+}
+.filter input::placeholder{
+  font-family: Tomorrow-MediumItalic;
+  color: var(--medium-green);
 }
 .filterImgDiv {
   top: calc(-0.75*var(--primary-border-width));
   right: calc(-1*var(--primary-border-width));
   height: 3vw;
   width: 3vw;
-  border: var(--primary-border-width)solid var(--primary-dark-green);
+  border: var(--primary-border-width) solid var(--primary-dark-green);
   border-radius: var(--primary-border-radius);
   position: absolute;
   background-color: var(--medium-green);
 }
 .filterImg {
-  height: 70%;
+  height: 60%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -482,42 +462,58 @@ header {
 }
 .recommendedWrapper{
   width: 80%;
-  margin: 4vw auto 0;
+  margin: 2vw auto 0;
   position: relative;
+}
+.recommendedWrapper * p, .recommendedWrapper * a {
+  line-height: 1em;
+  text-align: left;
 }
 .recommendedBox {
   margin-bottom: 1vw;
-  border: var(--primary-border-width)solid var(--primary-dark-purple);
+  border: var(--primary-border-width) solid var(--primary-dark-purple);
   border-radius: var(--primary-border-radius);
   border-color: var(--primary-dark-purple);
   background-color: var(--primary-medium-green);
   padding: 1vw;
 }
-.recommendedHead {
-}
-.recommendedHead p {
-  text-align: left;
-}
-.recommendedDescription {
+.reqHead {
 }
 .tilteReq {
   font-size: 1.6vw;
+  font-family: Tomorrow-SemiBold !important;
   color: var(--primary-dark-purple);
+}
+.descriptionReq, .reqDescription, .reqDescriptionDescription{
+  font-family: Tomorrow-Medium;
+  font-size: 1.2vw;
 }
 .descriptionReq {
   display: inline-block;
-  font-size: 1.2vw;
   color: var(--primary-dark-green);
 }
-.schoolReq, .degreeReq, .pointsReq {
-  border-right:var(--primary-border-width)solid var(--medium-green);
+.schoolReq, .degreeReq, .pointsReq, .reqDescriptionLink {
+  border-right: var(--primary-border-width) solid var(--medium-green);
   padding-right: 0.5em;
 }
-.degreeReq, .pointsReq, .yearsReq {
+.degreeReq, .pointsReq, .yearsReq, .reqDescriptionTitle {
   padding-left: 0.5em;
 }
-.motiveReq:hover {
-  color: var(--primary-light-purple);
+.reqDescription {
+  display: inline-block;
+  color: var(--primary-dark-purple);
+}
+.reqDescriptionLink {
+  text-decoration: underline;
+  text-decoration-color: var(--primary-dark-purple);
+}
+.reqDescriptionDescription {
+  font-family: Tomorrow-Regular !important;
+  margin-top: 0.5em;
+}
+.recommendedFoot {
+  display: flex;
+  margin-top: 0.5em;
 }
 .showDescription {
   border: 0;
@@ -532,6 +528,12 @@ header {
   height: 60%;
   margin: auto 1vw auto 0;
 
+}
+.showDescription p {
+  padding-left: 0.5em;
+}
+.showDescription p {
+  padding-left: 0.5em;
 }
 /*
   End of Recommendation

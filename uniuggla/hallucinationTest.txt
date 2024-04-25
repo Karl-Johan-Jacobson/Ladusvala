@@ -1384,4 +1384,29 @@ Based on your interests in Medicine, Gym, Design, Jewelry, and Vintage, I recomm
 2. ProgramId: 10057 (Idrottsvetenskapligt program)
 3. ProgramId: 10056 (Grafisk design)
 4. ProgramId: 10029 (Trädgårdsingenjör - design)
-5. ProgramId: 10015 (Etologi och djurskydd)
+5. ProgramId: 10015 (Etologi och djurskydd)10000
+10001
+10002
+10003
+10004
+10000, 10001, 10002, 10003, 1000410044
+10061
+10047
+10034
+10088
+ProgramId: 10044 (Civilingenjör i teknisk fysik)
+ProgramId: 10061 (Kandidatprogram i kemi med inriktning kemisk analys)
+ProgramId: 10047 (Datateknik)
+ProgramId: 10034 (Additiv tillverkning - högskoleingenjör maskinteknik)
+ProgramId: 10088 (Webbutveckling)10025
+10061
+10063
+10085
+10076
+Based on your interests in English, Physics, Swedish, and Religion, here are 5 programs that are relevant to your interests:
+
+1. ProgramId: 10025 (Politices kandidat - hållbar utveckling)
+2. ProgramId: 10061 (Kandidatprogram i kemi med inriktning kemisk analys)
+3. ProgramId: 10063 (Kommunikations- och PR-programmet)
+4. ProgramId: 10085 (Socionomutbildning)
+5. ProgramId: 10076 (Programmet för litteratur och skrivande)
