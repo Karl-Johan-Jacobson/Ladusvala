@@ -3,13 +3,13 @@ const cheerio = require("cheerio");
 const fs = require("fs");
 //   "type": "commonjs", i package.json för scrape
 
-let titleReturn = {programTitle_sv:"" , programPoints: "", programDesciption_sv: "", programLink: "",programId:""};
+let titleReturn = {programTitle_sv:"" , programPoints: "", programDesciption_sv: "", programLink: "",programId:"",schoolName:""};
 
 
 // Take list of urls as arg and parse, will make ID work better.
 // build master scraper?, with all school scrapers that parse "school" from list and uses correct scraper.
-async function scrapeUmeå(url,programId) {
-  await new Promise(r => setTimeout(r, 100));
+async function scrapeUmeå(url,programId,schoolName) {
+  await new Promise(r => setTimeout(r, 1000));
 
   request(url, (error, response, html) => {
     if (!error && response.statusCode == 200) {
@@ -43,6 +43,7 @@ async function scrapeUmeå(url,programId) {
       titleReturn.programDesciption_sv = shortDesc;
       titleReturn.programLink = url;
       titleReturn.programId = programId;
+      titleReturn.schoolName = schoolName;
       
       //console.log(titleFinal);
       //console.log("titleReturn: "+titleReturn);

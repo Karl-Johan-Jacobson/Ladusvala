@@ -7,11 +7,12 @@ let titleReturn = {
   programPoints: "",
   programDesciption_sv: "",
   programLink: "",
-  programId: ""
+  programId: "",
+  schoolName: ""
 };
 
-async function scrapeHV(url, programId) {
-  await new Promise(r => setTimeout(r, 100));
+async function scrapeHV(url, programId,schoolName) {
+  await new Promise(r => setTimeout(r, 1000));
 
   request(url, (error, response, html) => {
     if (!error && response.statusCode == 200) {
@@ -21,8 +22,8 @@ async function scrapeHV(url, programId) {
       // Regex to capture the title without comma and hp separately
       const titleRegex = /(.+?),?\s?(\d+)\s*hp/;
       const matches = fullTitle.match(titleRegex);
-      const title = matches && matches[1] ? matches[1].trim() : 'Unknown Title';
-      const hp = matches && matches[2] ? matches[2].trim() : 'Unknown HP';
+      const title = matches && matches[1] ? matches[1].trim() : 'Unknown Title'; // This can not be used. Can not default to unknown title
+      const hp = matches && matches[2] ? matches[2].trim() : 'Unknown HP'; // This can not be used. Can not default to unknown HP
       
       console.log("TITLE:", title);
       console.log("HP:", hp);
@@ -35,7 +36,8 @@ async function scrapeHV(url, programId) {
         programPoints: hp,
         programDesciption_sv: shortDesc,
         programLink: url,
-        programId: programId
+        programId: programId,
+        schoolName: schoolName
       };
       
       fs.appendFile("test.json", JSON.stringify(titleReturn, null, 2) + ",\n", (err) => {

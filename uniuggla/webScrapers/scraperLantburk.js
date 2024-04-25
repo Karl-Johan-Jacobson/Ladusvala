@@ -1,3 +1,8 @@
+// FIXED MANUALLY
+
+
+
+
 const request = require("request");
 const cheerio = require("cheerio");
 const fs = require("fs");
@@ -9,7 +14,7 @@ let titleReturn = {programTitle_sv:"" , programPoints: "", programDesciption_sv:
 // Take list of urls as arg and parse, will make ID work better.
 // build master scraper?, with all school scrapers that parse "school" from list and uses correct scraper.
 async function scrape(url) {
-  await new Promise(r => setTimeout(r, 100));
+  await new Promise(r => setTimeout(r, 1000));
 
   request(url, (error, response, html) => {
     

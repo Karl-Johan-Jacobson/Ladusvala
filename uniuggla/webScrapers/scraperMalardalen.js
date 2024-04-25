@@ -8,13 +8,14 @@ let titleReturn = {
   programDesciption_sv: "",
   programLink: "",
   programId: "",
+  schoolName:""
 };
 
 // Take list of urls as arg and parse, will make ID work better.
 // build master scraper?, with all school scrapers that parse "school" from list and uses correct scraper. Will make ID work easier.
-async function scrapeMalardalen(url,programId) {
+async function scrapeMalardalen(url,programId,schoolName) {
   
-  await new Promise(r => setTimeout(r, 500));
+  await new Promise(r => setTimeout(r, 1000));
   request(url, (error, response, html) => {
     if (!error && response.statusCode == 200) {
       const $ = cheerio.load(html);
@@ -40,6 +41,7 @@ async function scrapeMalardalen(url,programId) {
       titleReturn.programDesciption_sv = description;
       titleReturn.programLink = url;
       titleReturn.programId = programId;
+      titleReturn.schoolName = schoolName;
       console.log(titleReturn);
     } else {
       console.log(response.statusCode);
