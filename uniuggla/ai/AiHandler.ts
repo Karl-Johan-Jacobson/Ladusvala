@@ -1,6 +1,5 @@
 "use server";
 import * as fs from "fs";
-import * as fs from "fs";
 import OpenAI from "openai";
 import { ChatCompletionMessageParam } from "openai/resources/index.mjs";
 import type Interest from "../types/interest";
@@ -70,7 +69,6 @@ function turnInterestToPrompt(selectedInterests: Interest[]): string {
 //Take in one argument, all the programs form database
 //Function only used to turn type Program to a string
 
-function turnProgramToPrompt(allPrograms: ProgramNameAndId[]): string {
 function turnProgramToPrompt(allPrograms: ProgramNameAndId[]): string {
   let generatedString: string = "";
 
@@ -155,29 +153,7 @@ console.log(numbers);
   });
   
   
-  let idFromRespArray: string[] = []; // this will now hold all the IDs of programs extracted from the ai response.
 
-  const numbers = text.match(regex);  // extract numbers from the string
-console.log(numbers);
-  // Check if numbers is defined
-  if (numbers !== null) {
-    numbers.forEach((num) => {
-      if (num.length === 5) { // check if the length of the sequence is exactly 5, matches our chosen numbering of programs.
-        idFromRespArray.push(num); // push the sequence of IDs into the idFromRespArray array
-      }
-    });
-  } // send id's to func which can display proper program info from them.
-
-  // Append to file to check if hallucinations occur
-  const contentToWrite = idFromRespArray.join('\n') + '\n' + completion.choices[0].message.content;
-  fs.appendFile('hallucinationTest.txt', contentToWrite, (err) => {
-    if (err) {
-      console.error('Error writing to file:', err);
-      return;
-    }
-    console.log('Content has been written to output.txt');
-  });
-  
   
   //DEBUG PURPOSE
   console.log(idFromRespArray);

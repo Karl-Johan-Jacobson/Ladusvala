@@ -74,12 +74,8 @@ body {
 /* Class for the user interaction */
 .user {
   color: var(--medium-green);
-.user {
-  color: var(--medium-green);
 }
 /* Class for the alternatives "Hitta program", "Räkna antagningspoäng", "Se behörighetskrav", and "Om oss" */
-.siteNavigation {
-  color: var(--medium-green);
 .siteNavigation {
   color: var(--medium-green);
 }
@@ -98,8 +94,9 @@ p {
 .next-error-h1 {
   border-right-color: var(--primary-dark-purple) !important;
 }
-.__className_aaf875 div div  div h2 {
+.__className_aaf875 div div div h2 {
  color: var(--primary-dark-purple);
+}
 /*Used for formating HTTP response code page*/
 .__className_aaf875{
   background-color: var(--primary-light-green) !important;
@@ -127,8 +124,7 @@ header {
    top: 0;
    left: 0;
    position: fixed; 
-   background-image: linear-gradient(var(--primary-light-green) 10%, transparent)   
-   background-image: linear-gradient(var(--primary-light-green) 10%, transparent)   
+   background-image: linear-gradient(var(--primary-light-green) 10%, transparent);   
  }
  /* Fixes the position of the uniu logo */
  header img{
@@ -143,8 +139,6 @@ header {
   Start of Main
   Start of Main
 */
-/* Positioning of the typewriter animation*/
-.titleTypewriter {
 /* Positioning of the typewriter animation*/
 .titleTypewriter {
   margin: 0 auto;

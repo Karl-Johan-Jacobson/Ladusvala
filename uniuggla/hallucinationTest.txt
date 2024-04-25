@@ -1425,4 +1425,19 @@ Based on your interests in Engelska, Historia, Hälsovård, Idrott och hälsa, a
 2. ProgramId: 10057 - Idrottsvetenskapligt program
 3. ProgramId: 10062 - Kandidatprogram i Kriminologi
 4. ProgramId: 10064 - Kompletterande pedagogisk utbildning
-5. ProgramId: 10077 - Programmet för psykisk hälsa/ohälsa - särskild komplicerad problematik
+5. ProgramId: 10077 - Programmet för psykisk hälsa/ohälsa - särskild komplicerad problematik10000
+10001
+10003
+10025
+10061
+ProgramIds based on your interests:
+- ProgramId: 10000 (Officersprogrammet inriktning krigsvetenskap)
+- ProgramId: 10001 (Officersprogrammet inriktning militärteknik)
+- ProgramId: 10003 (Krig, kultur och samhälle – kandidatprogram)
+- ProgramId: 10025 (Politices kandidat - hållbar utveckling)
+- ProgramId: 10061 (Kandidatprogram i kemi med inriktning kemisk analys)10001
+10011
+10017
+10037
+10057
+10001, 10011, 10017, 10037, 10057
