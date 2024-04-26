@@ -11,7 +11,7 @@ const Recommendation: React.FC<RecommendationProps & {}> = () => {
 	//HTML code
 	return (
 		<div id="recommmendation" className="wrapper recommmendationWrapper recommmendation">
-			<p className="bot titleTypewriter recommmendationText" style={{ paddingTop: "15vh" }}></p>
+			<p className="bot titleTypewriter recommmendationText" style={{ paddingTop: "10vh" }}></p>
 			<div className="filterContainer ">
 				<form className="filterWrapper" action="">
 					<div className="filter schoolFilter">

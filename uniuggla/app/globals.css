@@ -120,7 +120,6 @@ header {
   z-index: 10;
    width: 100vw;
    height: 15vh;
-   height: 15vh;
    top: 0;
    left: 0;
    position: fixed; 
@@ -143,7 +142,7 @@ header {
 .titleTypewriter {
   margin: 0 auto;
   line-height: 1.5em;
-  font-family: 'Tomorrow-SemiBold' !important;
+  font-family: 'Tomorrow-Medium' !important;
   color: var(--primary-dark-purple);
   font-size: 5vh;
   transition: padding-top 0.2s ease;
@@ -216,8 +215,7 @@ header {
   text-shadow: 2px 1px var(--medium-green-shadow);
 }
 .answerButton:active p {
-  color: transparent;
-  text-shadow: 2px 0.5px var(--medium-green), 0px 0px var(--medium-green-shadow);
+  text-shadow: none;
 }
 /*
   End of Main
@@ -502,8 +500,7 @@ header {
   margin: 2vw auto 0;
   position: relative;
 }
-.recommendedWrapper * p, .recommendedWrapper * a {
-  line-height: 1em;
+.recommendedWrapper * p, .recommendedWrapper * a, .recommendedWrapper p, .recommendedWrapper a {
   text-align: left;
 }
 .recommendedBox {
@@ -514,20 +511,21 @@ header {
   background-color: var(--primary-medium-green);
   padding: 1vw;
 }
-.reqHead {
+.recommendedHead {
+  margin-bottom: 0.5em;
 }
 .tilteReq {
   font-size: 1.6vw;
   font-family: Tomorrow-SemiBold !important;
   color: var(--primary-dark-purple);
 }
-.descriptionReq, .reqDescription, .reqDescriptionDescription{
+.descriptionReq, .reqDescription, .reqDescriptionContent{
   font-family: Tomorrow-Medium;
   font-size: 1.2vw;
 }
 .descriptionReq {
   display: inline-block;
-  color: var(--primary-dark-green);
+  color: var(--medium-green-shadow);
 }
 .schoolReq, .degreeReq, .pointsReq, .reqDescriptionLink {
   border-right: var(--primary-border-width) solid var(--medium-green);
@@ -536,21 +534,29 @@ header {
 .degreeReq, .pointsReq, .yearsReq, .reqDescriptionTitle {
   padding-left: 0.5em;
 }
+.reqDescriptionBox {
+  border: var(--primary-border-width) dashed var(--medium-green);
+  border-radius: var(--primary-border-radius);
+  padding: 0 1vw 0.5vw 1vw;
+  margin-bottom: 0.5em;
+}
 .reqDescription {
   display: inline-block;
   color: var(--primary-dark-purple);
+  white-space: nowrap;
 }
 .reqDescriptionLink {
   text-decoration: underline;
   text-decoration-color: var(--primary-dark-purple);
 }
-.reqDescriptionDescription {
+.reqDescriptionContent {
+  color: var(--medium-green-shadow);
   font-family: Tomorrow-Regular !important;
-  margin-top: 0.5em;
+  margin-top: 0.25em;
 }
 .recommendedFoot {
   display: flex;
-  margin-top: 0.5em;
+padding-left: 0.5vw;
 }
 .showDescription {
   border: 0;

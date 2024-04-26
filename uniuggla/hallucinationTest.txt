@@ -1440,4 +1440,75 @@ ProgramIds based on your interests:
 10017
 10037
 10057
-10001, 10011, 10017, 10037, 10057
+10001, 10011, 10017, 10037, 1005710003
+10025
+10057
+10061
+10079
+ProgramId: 10003
+ProgramId: 10025
+ProgramId: 10057
+ProgramId: 10061
+ProgramId: 1007910005
+10036
+10040
+10061
+10086
+ProgramId: 10005
+ProgramId: 10036
+ProgramId: 10040
+ProgramId: 10061
+ProgramId: 1008610003
+10004
+10025
+10061
+10062
+Based on your interests in Samhällskunskap, Matematik, Svenska, and Historia, here are 5 relevant programs for you:
+
+1. Program ID: 10003
+2. Program ID: 10004
+3. Program ID: 10025
+4. Program ID: 10061
+5. Program ID: 1006210046
+10061
+10040
+10044
+10045
+Based on your interests in mathematics, Swedish, English, physics, and chemistry, here are 5 relevant programs for you:
+
+1. ProgramID: 10046
+2. ProgramID: 10061
+3. ProgramID: 10040
+4. ProgramID: 10044
+5. ProgramID: 10045
+
+These programs should align well with your academic interests.10003
+10004
+10061
+10086
+10036
+Based on your interests in Svenska, Engelska, Fysik, and Kemi, here are 5 relevant programs for you:
+
+1. ProgramId: 10003
+2. ProgramId: 10004
+3. ProgramId: 10061
+4. ProgramId: 10086
+5. ProgramId: 1003610057
+10030
+10015
+10078
+10080
+- ProgramId: 10057 (Idrottsvetenskapligt program)
+- ProgramId: 10030 (Skogsvetarprogrammet)
+- ProgramId: 10015 (Etologi och djurskydd)
+- ProgramId: 10078 (Programvaruteknik)
+- ProgramId: 10080 (Risk- och krishanteringsprogrammet)10010
+10011
+10030
+10059
+10061
+10010
+10011
+10030
+10059
+10061

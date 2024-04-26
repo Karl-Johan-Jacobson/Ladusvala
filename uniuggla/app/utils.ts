@@ -97,10 +97,10 @@ export function aiTypeAnswer(programs: ProgramNameAndId[], htmlClass: string): v
 		reqDescriptionTitle.textContent = "Programbeskrivning:";
 		reqDescriptionBox.appendChild(reqDescriptionTitle);
 
-		const reqDescriptionDescription = document.createElement("p");
-		reqDescriptionDescription.className = `reqDescriptionDescription reqDescriptionDescription${i}`;
-		reqDescriptionDescription.textContent = program.programDesciption_sv;
-		reqDescriptionBox.appendChild(reqDescriptionDescription);
+		const reqDescriptionContent = document.createElement("p");
+		reqDescriptionContent.className = `reqDescriptionContent reqDescriptionContent${i}`;
+		reqDescriptionContent.textContent = program.programDesciption_sv;
+		reqDescriptionBox.appendChild(reqDescriptionContent);
 
 		const recommendedFoot = document.createElement("div");
 		recommendedFoot.className = `recommendedFoot`;
@@ -146,7 +146,7 @@ export function aiTypeAnswer(programs: ProgramNameAndId[], htmlClass: string): v
 }
 
 export function handleYesButtonClick(): void {
-	TypewriterForTitle("Berätta vad du har för intressen, så föreslår jag ett par program som kan passar dig! :)", "interestText");
+	TypewriterForTitle("Berätta vad du har för intressen, så föreslår<br />jag ett par program som kan passar dig! :)", "interestText");
 	modifyOverflow("visible", "main");
 	removeClass("hide", "interestContainer");
 	scrollToId("interestContainer");

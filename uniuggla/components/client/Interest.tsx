@@ -113,7 +113,7 @@ const Interest: React.FC<InterestProps> = ({ interests, handleRecommendationButt
 
 	return (
 		<div className="wrapper interestWrapper interest">
-			<p className="bot titleTypewriter interestText" style={{ paddingTop: "15vh" }}></p>
+			<p className="bot titleTypewriter interestText" style={{ paddingTop: "10vh" }}></p>
 			<div className="selectedInterestList">
 				{selectedInterests.map((interest) => (
 					<InterestItem updateParent={handleDeselect} interest={interest} mounted={true} isSelected={true} key={interest.interestId} />
