@@ -5,12 +5,12 @@ import InterestType from "@/types/interest";
 import InterestItem from "./InterestItem";
 import { v4 as uuidv4 } from "uuid";
 import Link from "next/link";
-import { RandomBlob }  from "../Blob";
+import { RandomBlob } from "../Blob";
 export const NUMBER_OF_INTERESTS = 12;
 
 interface InterestProps {
-	interests: InterestType[];
-	handleRecommendationButtonClick: (interest: string[]) => void;
+  interests: InterestType[];
+  handleRecommendationButtonClick: (interest: string[]) => void;
 }
 
 const Interest: React.FC<InterestProps> = ({ interests, handleRecommendationButtonClick }) => {
@@ -19,95 +19,106 @@ const Interest: React.FC<InterestProps> = ({ interests, handleRecommendationButt
 	const [customInterest, setCustomInterest] = useState<string>("");
 
 
-	const updateLists = (selectedInterest: InterestType, isMounted: boolean) => {
-		if (isMounted) {
+  const updateLists = (selectedInterest: InterestType, isMounted: boolean) => {
+    if (isMounted) {
       // This will be true after the fade-in animation has run
       return;
     }
 
-		// Find index of interest to "remove" from non-selected interests
-		let index = 0;
-		while (notSelected[index] !== selectedInterest) {
-			index++;
-		}
+    // Find index of interest to "remove" from non-selected interests
+    let index = 0;
+    while (notSelected[index] !== selectedInterest) {
+      index++;
+    }
 
-		// Find index of an interest that isn't currently being displayed
-		let freeIndex = Math.floor(Math.random() * interests.length); // Index of the new interest
-		while (notSelected.includes(interests[freeIndex]) || selectedInterests.includes(interests[freeIndex])) {
-			freeIndex = Math.floor(Math.random() * interests.length);
-		}
+    // Find index of an interest that isn't currently being displayed
+    let freeIndex = Math.floor(Math.random() * interests.length); // Index of the new interest
+    while (
+      notSelected.includes(interests[freeIndex]) ||
+      selectedInterests.includes(interests[freeIndex])
+    ) {
+      freeIndex = Math.floor(Math.random() * interests.length);
+    }
 
-		// Insert a new interest at the same index as the removed one
-		const temp = [
-			...notSelected.slice(0, index),
-			interests[freeIndex],
-			...notSelected.slice(index + 1), // Remove the selected interest
-		];
-		setNotSelected([...temp]);
+    // Insert a new interest at the same index as the removed one
+    const temp = [
+      ...notSelected.slice(0, index),
+      interests[freeIndex],
+      ...notSelected.slice(index + 1), // Remove the selected interest
+    ];
+    setNotSelected([...temp]);
 
-		// Adds the interest to selectedInterest
-		setSelectedInterests([...selectedInterests, selectedInterest]);
-	};
+    // Adds the interest to selectedInterest
+    setSelectedInterests([...selectedInterests, selectedInterest]);
+  };
 
-	const handleDeselect = (selectedInterest: InterestType, isMounted: boolean) => {
-		// Remove from selected interest
+  const handleDeselect = (
+    selectedInterest: InterestType,
+    isMounted: boolean
+  ) => {
+    // Remove from selected interest
     setSelectedInterests(
       selectedInterests.filter((interest) => interest !== selectedInterest)
     );
-	};
+  };
 
-	const addCustomInterest = (event: FormEvent<HTMLFormElement>) => {
-		// Take an input
-		event.preventDefault();
-		// Creates a randomized id for the new interest
-		const randId = uuidv4();
-		// Create an interest "object"
-		const interest: InterestType = {
-			interestId: randId,
-			interestTitle: customInterest,
-			interestDescription: "No interest description for custom interests (user added interests)",
-		};
-		// Reset the input field
-		setCustomInterest("");
-		// Adds it to the list of selected interests
-		setSelectedInterests([...selectedInterests, interest]);
-	};
+  const addCustomInterest = (event: FormEvent<HTMLFormElement>) => {
+    // Take an input
+    event.preventDefault();
+    // Creates a randomized id for the new interest
+    const randId = uuidv4();
+    // Create an interest "object"
+    const interest: InterestType = {
+      interestId: randId,
+      interestTitle: customInterest,
+      interestDescription:
+        "No interest description for custom interests (user added interests)",
+    };
+    // Reset the input field
+    setCustomInterest("");
+    // Adds it to the list of selected interests
+    setSelectedInterests([...selectedInterests, interest]);
+  };
 
-	const handleUpdate = (event: ChangeEvent<HTMLInputElement>) => {
-		setCustomInterest(event.target.value);
-	};
+  const handleUpdate = (event: ChangeEvent<HTMLInputElement>) => {
+    setCustomInterest(event.target.value);
+  };
 
-	const shuffle = () => {
-		// Copy of the non-selected interests that can be modified
-		const temp: InterestType[] = [...notSelected];
+  // Method that refreshes the displayed interests
+  const refresh = () => {
+    // Copy of the non-selected interests that can be modified
+    const newNonSelected: InterestType[] = [...notSelected];
 
-		let displayIndex = 0; // Index of the displayed interest
-		while (displayIndex < NUMBER_OF_INTERESTS) {
-			let newIndex = Math.floor(Math.random() * interests.length); // Index of the new interest
+    for (
+      let displayIndex = 0;
+      displayIndex < NUMBER_OF_INTERESTS;
+      displayIndex++
+    ) {
+      let newIndex = Math.floor(Math.random() * interests.length); // Index of the new interest
 
-			// Check if the interest at displayIndex is selected
-			if (selectedInterests.includes(notSelected[displayIndex])) {
-				displayIndex++; // Goto the next display interest and start over
-				continue;
-			}
+      // Find a new interest (index) that wasn't previously displayed and that hasn't already been added
+      while (
+        selectedInterests.includes(interests[newIndex]) || // Selected interests
+        notSelected.includes(interests[newIndex]) || // Previously shown interests
+        newNonSelected.includes(interests[newIndex]) // New interests
+      ) {
+        newIndex = Math.floor(Math.random() * interests.length);
+      }
 
-			// Find a new interest (index) that wasn't previously displayed and that hasn't already been added
-			while (notSelected.includes(interests[newIndex]) || temp.includes(interests[newIndex])) {
-				newIndex = Math.floor(Math.random() * interests.length);
-			}
-			temp[displayIndex++] = interests[newIndex];
-		}
-		setNotSelected([...temp]);
-	};
+      newNonSelected[displayIndex] = interests[newIndex];
+    }
+    setNotSelected([...newNonSelected]);
+  };
 
-	async function handleRecommend() {
-		if (selectedInterests.length >= 4) {
-			handleRecommendationButtonClick(selectedInterests.map((interest) => interest.interestTitle));
-		} else {
-
-		}
-		//Say something to user, that they have to select interests
-	}
+  async function handleRecommend() {
+    if (selectedInterests.length >= 4) {
+      handleRecommendationButtonClick(
+        selectedInterests.map((interest) => interest.interestTitle)
+      );
+    } else {
+    }
+    //Say something to user, that they have to select interests
+  }
 
   console.log(selectedInterests);
 
@@ -137,7 +148,7 @@ const Interest: React.FC<InterestProps> = ({ interests, handleRecommendationButt
             <p className="user"> &gt;&gt; Hitta min drömutbildning &lt;&lt; </p>
           </button>
         </div>
-        <button onClick={shuffle} className="shuffleButton iconButton">
+        <button onClick={refresh} className="shuffleButton iconButton">
           <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="">
             <defs>
               <linearGradient id="iconGradient" gradientTransform="rotate(90)">
