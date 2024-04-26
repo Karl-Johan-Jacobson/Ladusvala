@@ -1511,4 +1511,78 @@ Based on your interests in Svenska, Engelska, Fysik, and Kemi, here are 5 releva
 10011
 10030
 10059
+1006110000
+10001
+10003
+10030
+10044
+Based on your interests in Svenska, Engelska, Fysik, and Logik, the following programs are relevant for you:
+
+1. ProgramId: 10000 (Officersprogrammet inriktning krigsvetenskap)
+2. ProgramId: 10001 (Officersprogrammet inriktning militärteknik)
+3. ProgramId: 10003 (Krig, kultur och samhälle – kandidatprogram)
+4. ProgramId: 10030 (Skogsvetarprogrammet - kandidat)
+5. ProgramId: 10044 (Civilingenjör i teknisk fysik)10003
+10004
 10061
+10079
+10080
+ProgramId: 10003
+ProgramId: 10004
+ProgramId: 10061
+ProgramId: 10079
+ProgramId: 1008010003
+10025
+10046
+10061
+10044
+Based on your interests in Svenska, Engelska, Fysik, and Kemi, here are 5 programs that are relevant to your interests:
+
+1. ProgramId: 10003 - Krig, kultur och samhälle – kandidatprogram
+2. ProgramId: 10025 - Politices kandidat - hållbar utveckling
+3. ProgramId: 10046 - Civilingenjörsutbildning i teknisk kemi Mittuniversitetet-KTH
+4. ProgramId: 10061 - Kandidatprogram i kemi med inriktning kemisk analys
+5. ProgramId: 10044 - Civilingenjör i teknisk fysik10009
+10030
+10043
+10061
+10031
+Based on your interests in Engelska, Fysik, Kemi, and Biologi, here are 5 relevant program IDs for you:
+
+1. Program ID: 10009 (Biologi och miljövetenskap)
+2. Program ID: 10030 (Skogsvetarprogrammet - kandidat)
+3. Program ID: 10043 (Civilingenjör i teknisk fysik)
+4. Program ID: 10061 (Kandidatprogram i kemi med inriktning kemisk analys)
+5. Program ID: 10031 (Veterinär)10025
+10057
+10062
+10054
+10077
+ProgramId: 10025  
+ProgramId: 10057  
+ProgramId: 10062  
+ProgramId: 10054  
+ProgramId: 10077  10003
+10004
+10057
+10061
+10084
+ProgramId: 10003, ProgramId: 10004, ProgramId: 10057, ProgramId: 10061, ProgramId: 1008410003
+10004
+10057
+10062
+10079
+- Program ID: 10003
+- Program ID: 10004
+- Program ID: 10057
+- Program ID: 10062
+- Program ID: 1007910009
+10030
+10037
+10061
+10072
+- ProgramId: 10009 (Biologi och miljövetenskap)
+- ProgramId: 10030 (Skogsvetarprogrammet)
+- ProgramId: 10037 (Biomedicinsk analytiker)
+- ProgramId: 10061 (Kemi med inriktning kemisk analys)
+- ProgramId: 10072 (Musik- och ljuddesign)

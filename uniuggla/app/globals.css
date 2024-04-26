@@ -455,12 +455,19 @@ header {
   margin: 0vw auto;
   margin-top: 1vw;
 }
+.filterWrapper * p, .filterWrapper p{
+  text-align: left;
+}
 .filter {
   height: inherit;
   display: flex;
   border: var(--primary-border-width) solid #37552B;
+  /* border: none; */
   border-radius: var(--primary-border-radius);
   position: relative;
+}
+.filter input:focus{
+  outline:none;
 }
 .filter input {
   top: calc(-0.75*var(--primary-border-width));
@@ -477,6 +484,7 @@ header {
 .filter input::placeholder{
   font-family: Tomorrow-MediumItalic;
   color: var(--medium-green);
+  
 }
 .filterImgDiv {
   top: calc(-0.75*var(--primary-border-width));
@@ -615,8 +623,8 @@ footer {
 /* Dividing line footer */
 .footerLine {
   top: 0;
-  height: 0.6vh;
-  height: 0.6vh;
+  width: 98vw;
+  height: 0.4vh;
   position: relative;
   background-color: var(--primary-dark-purple);
   background-color: var(--primary-dark-purple);
@@ -630,18 +638,17 @@ footer {
 .footerList {
   list-style: none;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 1vw;
+  grid-auto-flow: column;
+  gap: 1vw; 
   margin-top: 2%;
 }
 /* Text logo wrapper dimetion and position */
-.footerLogoDiv {
-  height: 100%;
-  width: auto;
-  bottom: 0;
-  right: 0;
-  height: 100%;
-  float: right;
+.footerLogoDiv p {
+font-size: 3.5em;
+position: fixed; 
+right: 0.6vw; 
+bottom: 0; 
+color: var(--primary-dark-purple);
 }
 /* Text logo size */
 .footerLogoDiv img {

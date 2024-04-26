@@ -29,7 +29,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="footerLogoDiv">
-        <img src="../../text_logo.png" alt="Logo_Text" />
+        <p> UNIU </p>
       </div>
     </footer>
   );
