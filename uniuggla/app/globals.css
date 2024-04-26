@@ -556,7 +556,6 @@ header {
 }
 .recommendedFoot {
   display: flex;
-padding-left: 0.5vw;
 }
 .showDescription {
   border: 0;
