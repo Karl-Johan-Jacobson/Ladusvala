@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 export default function Footer() {
   return (
     <footer>
@@ -8,24 +6,24 @@ export default function Footer() {
         <div className="footerListDiv">
           <ul className="footerList">
             <li>
-              <Link href="/" className="siteNavigation">
+              <a href="/" className="siteNavigation">
                 Hitta program
-              </Link>
+              </a>
             </li>
             <li>
-              <Link href="/count" className="siteNavigation">
+              <a href="/count" className="siteNavigation">
                 Räkna antagningspoäng
-              </Link>
+              </a>
             </li>
             <li>
-              <Link href="/req" className="siteNavigation">
+              <a href="/req" className="siteNavigation">
                 Se behörighetskrav
-              </Link>
+              </a>
             </li>
             <li>
-              <Link href="/about" className="siteNavigation">
+              <a href="/about" className="siteNavigation">
                 Om oss
-              </Link>
+              </a>
             </li>
           </ul>
         </div>
