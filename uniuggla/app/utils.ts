@@ -158,7 +158,7 @@ export function aiTypeAnswer(programs: ProgramNameAndId[], htmlClass: string): v
 }
 
 export function handleYesButtonClick(): void {
-	TypewriterForTitle("Berätta vad du har för intressen, så föreslår<br />jag ett par program som kan passar dig! :)", "interestText");
+	TypewriterForTitle("Berätta vad du har för intressen, så föreslår<br />jag ett par program som kan passa dig! :)", "interestText");
 	modifyOverflow("visible", "main");
 	removeClass("hide", "interestContainer");
 	scrollToId("interestContainer");
