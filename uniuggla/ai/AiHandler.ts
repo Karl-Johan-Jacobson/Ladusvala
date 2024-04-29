@@ -106,7 +106,7 @@ async function recommendProgramFromInterest(
   return idFromRespArray;
 }
 
-const filePath: string = "filtered_programsTEST.json";
+const filePath: string = "demoPrograms.json";
 
 // programDesciption name will be fixed when actual file is used.
 export type ProgramNameAndId = {

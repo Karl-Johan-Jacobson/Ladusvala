@@ -29,8 +29,8 @@ const Recommendation: React.FC<RecommendationProps & {}> = () => {
 				</form>
 			</div>
 			<div className="recommendedWrapper">
-				<div className="aiAnswer">
-					<p>Loading...</p>
+				<div className="loadingGIF">
+					<img src="../../uniugglan.gif" alt="" />
 				</div>
 			</div>
 			

@@ -599,14 +599,18 @@ header {
 .showDescription p {
   padding-left: 0.5em;
 }
-
 .showInterestBox {
   padding: 0.4vw 0.8vw;
   display: flex;
   justify-content: center; /* Center horizontally */
   flex-wrap: wrap; /* Allow wrapping */
 }
-
+.showMoreBox {
+  padding: 0.4vw 0.8vw;
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  flex-wrap: wrap; /* Allow wrapping */
+}
 .interestReq {
   font-family: "Tomorrow-MediumItalic";
   padding: 0.5em 1em; 
@@ -616,6 +620,11 @@ header {
   border: var(--primary-border-width);
   color: var(--primary-light-green);
   margin: 0.25em
+}
+.loadingGIF img {
+  display: block;
+  margin: 0 auto;
+  width: 10vw;
 }
 /*
   End of Recommendation
