@@ -111,11 +111,12 @@ const Interest: React.FC<InterestProps> = ({ interests, handleRecommendationButt
   };
 
   async function handleRecommend() {
-    if (selectedInterests.length >= 4) {
+    if (selectedInterests.length >= 4 && selectedInterests.length <= 11) {
       handleRecommendationButtonClick(
         selectedInterests.map((interest) => interest.interestTitle)
       );
     } else {
+      
     }
     //Say something to user, that they have to select interests
   }

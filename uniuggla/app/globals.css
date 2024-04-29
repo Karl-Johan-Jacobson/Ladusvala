@@ -79,10 +79,7 @@ body {
 .user {
   color: var(--medium-green);
 }
-/* Class for the alternatives "Hitta program", "Räkna antagningspoäng", "Se behörighetskrav", and "Om oss" */
-.siteNavigation {
-  color: var(--medium-green);
-}
+
 /* Standard styling for text */
 p {
   font-family: 'Tomorrow-Medium', sans-serif;
@@ -260,7 +257,8 @@ header {
   gap: 1vw;
   position: absolute;
   left: 6%;
-  bottom: 25vw;
+  bottom: 24vw;
+  height: 5vw;
 }
 
 .notSelectedInterestList {
@@ -389,6 +387,7 @@ header {
   width: 10vw;
   background-color: var(--medium-green);
   border-radius: var(--primary-border-radius);
+  border: none;
   cursor: pointer;
   position:absolute;
   left: 100%;
@@ -399,6 +398,9 @@ header {
 .recommendationButton{
   cursor: pointer;
   width: 36vw;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .recommendationButton p{
   font-size: 30px;
@@ -426,11 +428,11 @@ header {
 }
 @keyframes inAnimationSelected {
   0% {
-    transform: scale(0.1);
+    transform: scale(0);
     opacity: 0;
   }
   60% {
-    transform: scale(1.2);
+    transform: scale(1.1);
     opacity: 1;
   }
   100% {
@@ -447,7 +449,7 @@ header {
     opacity: 0;
   }
   80% {
-    transform: scale(1.2);
+    transform: scale(1.1);
     opacity: 1;
   }
   100% {
@@ -459,7 +461,7 @@ header {
     opacity: 1;
   }
   20% {
-    transform: scale(1.2);
+    transform: scale(1.1);
   }
   100% {
     transform: scale(0);
@@ -673,16 +675,21 @@ footer {
 }
 /* Navbar wrapper */
 .footerListDiv {
-  margin-left: 2%;
+  margin-left: 3%;
   margin-right: 2%;
 }
 /* Footer navbar grid */
 .footerList {
   list-style: none;
-  display: grid;
-  grid-auto-flow: column;
-  gap: 1vw; 
-  margin-top: 2%;
+  display: flex;
+  justify-content: space-between; 
+  margin-top: 2vw;
+
+}
+/* Class for the alternatives "Hitta program", "Räkna antagningspoäng", "Se behörighetskrav", and "Om oss" */
+.siteNavigation {
+  color: var(--medium-green);
+  font-family: 'Tomorrow-Medium';
 }
 /* Text logo wrapper dimetion and position */
 .footerLogoDiv p {
@@ -691,6 +698,7 @@ position: fixed;
 right: 0.6vw; 
 bottom: 0; 
 color: var(--primary-dark-purple);
+cursor: default
 }
 /* Text logo size */
 .footerLogoDiv img {
