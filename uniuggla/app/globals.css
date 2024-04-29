@@ -608,14 +608,14 @@ header {
 }
 
 .interestReq {
+  font-family: "Tomorrow-MediumItalic";
   padding: 0.5em 1em; 
-  font-size: 1vw;
+  font-size: 0.8vw;
   background-color: var(--medium-green);
   border-radius: var(--primary-border-radius);
   border: var(--primary-border-width);
   color: var(--primary-light-green);
-  margin-left: 1em;
-  margin-bottom: 1em;
+  margin: 0.25em
 }
 /*
   End of Recommendation
