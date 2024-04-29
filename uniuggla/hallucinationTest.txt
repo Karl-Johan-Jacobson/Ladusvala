@@ -1639,3 +1639,26 @@ ProgramId: 10025
 ProgramId: 10037
 ProgramId: 10057
 ProgramId: 10061
+10056
+10036
+10060
+10061
+10076
+Based on your interests in painting, board games, drinking alcohol, and walking, here are 5 programs that may align with your interests:
+
+1. ProgramId: 10056
+2. ProgramId: 10036
+3. ProgramId: 10060
+4. ProgramId: 10061
+5. ProgramId: 1007610044
+10047
+10054
+10059
+10061
+Based on your interests in Mathematics, Physics, walking, and talking to people, here are 5 programs that are relevant to your interests:
+
+1. ProgramID: 10044 - Civilingenjör i teknisk fysik
+2. ProgramID: 10047 - Datateknik
+3. ProgramID: 10054 - Folkhälsovetenskapliga programmet
+4. ProgramID: 10059 - Informatik med inriktning systemutveckling
+5. ProgramID: 10061 - Kandidatprogram i kemi med inriktning kemisk analys

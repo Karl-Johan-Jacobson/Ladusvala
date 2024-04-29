@@ -13,7 +13,6 @@ interface InterestListItemProps {
 
 export default function InterestListItem({ interest, isSelected, mounted, updateParent }: InterestListItemProps) {
   const [isMounted, setIsMounted] = useState<boolean>(mounted);
-  const [isHovered, setIsHovered] = useState<boolean>(false);
 
   // This function is called when an animation has ended, i.e when the component has either faded in or ou
   const handleParentUpdate = () => {
@@ -31,32 +30,28 @@ export default function InterestListItem({ interest, isSelected, mounted, update
   }
 
   return (
-    <div>
+    <div className="interestItem">
       {isSelected ?
         <button 
           onClick={handleClick}
           className={
             isMounted ?
-              "iconButton selectedInterestButton fadeInSelected" :
-              "iconButton selectedInterestButton fadeOut"
+              "selectedButton fadeInSelected" :
+              "selectedButton fadeOut"
           }
           onAnimationEnd={handleParentUpdate}
         >
-          <RandomAnimatedSelectedBlob/>
           <span className="iconText">{interest.interestTitle}</span>
         </button> : 
         <button // If not selected
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
           onClick={handleClick}
           onAnimationEnd={handleParentUpdate}
           className={
             isMounted ?
-              "iconButton notSelectedInterestButton fadeInNew" :
-              "iconButton notSelectedInterestButton fadeOut"
+              "notSelectedButton fadeInNew" :
+              "notSelectedButton fadeOut"
           }
         >
-          {isHovered ? <RandomAnimatedBlob/> : <RandomBlob/> }
           <span className="iconText">{interest.interestTitle}</span>
         </button>
       }

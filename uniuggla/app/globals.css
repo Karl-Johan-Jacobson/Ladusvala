@@ -253,27 +253,91 @@ header {
   transition: 0.5s ease;
   overflow-y: auto;
 }
-.notSelectedInterestList {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  position: absolute;
-  left: 18%;
-  bottom: 7vw;
-  width: 60%;
-}
-
 
 .selectedInterestList {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  margin-top: 4vw;
+  flex-direction: column;
+  gap: 1vw;
   position: absolute;
-  left: 18%;
-  bottom: 17vw;
-  width: 60%;
+  left: 6%;
+  bottom: 25vw;
 }
+
+.notSelectedInterestList {
+  display: grid;
+  flex-direction: column;
+  gap: 1vw;
+  position: absolute;
+  left: 6%;
+  bottom: 8vw;
+  box-sizing: border-box;
+}
+
+.interestRow {
+  display: flex;
+  justify-content: space-between;
+}
+
+.row2 {
+  max-width: 70vw;
+  margin: 0 auto; /* This will center the row */
+}
+
+.interestItem {
+  width: 10vw;
+  margin-left: 2vw;
+  margin-right: 2vw;
+}
+
+
+.iconText {
+  font-family: 'Tomorrow-MediumItalic';
+  font-style: italic;
+  font-size: medium;
+  color: #DFFDE0;
+}
+
+.notSelectedButton {
+  width: 13vw;
+  height: 4vw;
+  background-color: var(--medium-green);
+  border-radius: var(--primary-border-radius);
+  cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border: none;  
+}
+
+.selectedButton{
+  width: 13vw;
+  height: 4vw;
+  background-color: var(--primary-dark-purple);
+  border-radius: var(--primary-border-radius);
+  cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border: none;
+}
+
+.notSelectedButton:hover {
+  border-color: var(--primary-dark-purple);
+  filter: drop-shadow(0px 4px 0px var(--primary-dark-purple));
+
+}
+
+.selectedButton:hover {
+  border-color: var(--medium-green);
+  filter: drop-shadow(0px 4px 0px var(--medium-green));
+}
+
+.notSelectedButton:hover .iconText {
+  color: var(--primary-dark-purple);
+}
+
+.selectedButton:hover .iconText {
+  color: var(--medium-green);
+}
+
 .customInterestForm{
   width: 35vw;
   margin-left: auto;
@@ -281,50 +345,6 @@ header {
   left: 30%;
   position: absolute;
   bottom: 1vw;
-}
-.iconButton {
-  position: relative;
-  left: 20%;
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  display: inline-block;
-}
-.iconText {
-  font-family: 'Tomorrow-MediumItalic';
-  font-style: italic;
-  font-size: medium;
-  position: absolute;
-  width: 80px;
-  word-break: break-all;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: #DFFDE0;
-}
-
-.iconButton svg {
-  width: 8vw;
-  height: 8vw; 
-}
-.notSelectedInterestButton:hover {
-  stroke: #4F1EB0;
-  stroke-width: 2px;
-  stroke-linejoin: round;
-  filter: drop-shadow(2px 2px 0px #4F1EB0);
-}
-.selectedInterestButton:hover {
-  stroke: #9ECB98;
-  stroke-width: 2px;
-  stroke-linejoin: round;
-  filter: drop-shadow(2px 2px 0px #9ECB98);
-}
-.notSelectedInterestButton:hover .iconText {
-  color: #4F1EB0;
-}
-.selectedInterestButton:hover .iconText {
-  color: #9ECB98;
 }
 .addInterestField{
   font-size: 25px;
@@ -366,13 +386,12 @@ header {
   box-shadow: -2px 0px 2px 0px grey;
 }
 .shuffleButton{
-  left: 70%;
-  transform: translateX(-50%);
-  stroke: #646464;
-  stroke-width: 3px;
-  stroke-linejoin: round;
-  position: absolute;
-  bottom: 1vw;
+  width: 10vw;
+  background-color: var(--medium-green);
+  border-radius: var(--primary-border-radius);
+  cursor: pointer;
+  position:absolute;
+  left: 100%;
 }
 .shuffleButton:hover{
   filter: drop-shadow(2px 2px 0px gray);
