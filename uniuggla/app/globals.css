@@ -549,9 +549,7 @@ header {
 .schoolReq, .degreeReq, .pointsReq, .reqDescriptionLink {
   border-right: var(--primary-border-width) solid var(--medium-green);
   padding-right: 0.5em;
-}
-.degreeReq, .pointsReq, .yearsReq, .reqDescriptionTitle {
-  padding-left: 0.5em;
+  margin-right: 0.5em;
 }
 .reqDescriptionBox {
   border: var(--primary-border-width) dashed var(--medium-green);
