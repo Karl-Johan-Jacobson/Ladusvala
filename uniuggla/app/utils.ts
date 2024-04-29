@@ -35,7 +35,6 @@ export function scrollToId(id: string): void {
 }
 
 export function aiTypeAnswer(programs: ProgramNameAndId[], htmlClass: string): void {
-
 	//create a contianer where every box will be in
 	const container = document.querySelector("." + htmlClass);
 	//null check
@@ -66,7 +65,7 @@ export function aiTypeAnswer(programs: ProgramNameAndId[], htmlClass: string): v
 		//school.textContent = program.school;
 		school.textContent = "LÄROSÄTE: " + "Kungliga Tekniska Högskolan";
 		recommendedHead.appendChild(school);
-		//create a p elemnt to write degree in 
+		//create a p elemnt to write degree in
 		const degree = document.createElement("p");
 		degree.className = "degreeReq descriptionReq";
 		//degree.textContent = program.;
@@ -85,7 +84,7 @@ export function aiTypeAnswer(programs: ProgramNameAndId[], htmlClass: string): v
 		years.textContent = numberOfYears + " ÅR";
 		recommendedHead.appendChild(years);
 		//create the div for the show more info
-		const reqDescriptionBox = document.createElement("div");	
+		const reqDescriptionBox = document.createElement("div");
 		reqDescriptionBox.className = `reqDescriptionBox reqDescriptionBox${i} hide`;
 		recommendedBox.appendChild(reqDescriptionBox);
 		//create the link
@@ -107,7 +106,7 @@ export function aiTypeAnswer(programs: ProgramNameAndId[], htmlClass: string): v
 		reqDescriptionContent.className = `reqDescriptionContent reqDescriptionContent${i}`;
 		reqDescriptionContent.textContent = program.programDesciption_sv;
 		reqDescriptionBox.appendChild(reqDescriptionContent);
-		
+
 		const recommendedFoot = document.createElement("div");
 		recommendedFoot.className = `recommendedFoot`;
 		recommendedBox.appendChild(recommendedFoot);
@@ -124,7 +123,7 @@ export function aiTypeAnswer(programs: ProgramNameAndId[], htmlClass: string): v
 				removeClass("hide", `reqDescriptionBox${i}`);
 				removeClass("expandArrow", `arrow${i}`);
 				addClass("contractArrow", `arrow${i}`);
-			} 
+			}
 			//if button is pressed again it should contract
 			else {
 				addClass("hide", `reqDescriptionBox${i}`);
@@ -136,7 +135,7 @@ export function aiTypeAnswer(programs: ProgramNameAndId[], htmlClass: string): v
 		recommendedFoot.appendChild(button);
 		//create the arrow image
 		const expandArrow = document.createElement("img");
-		expandArrow.className = `arrow${i} expandArrow`;
+		expandArrow.className = `arrow arrow${i} expandArrow`;
 		expandArrow.src = "../../arrow.svg";
 		expandArrow.alt = "";
 		button.appendChild(expandArrow);
@@ -169,10 +168,9 @@ export function handleYesButtonClick(): void {
 }
 
 export async function aiResponse(interests: string): Promise<void> {
-
 	//Send all interest to AiHandler and await response
 	const aiAnswer: string[] = await recommendProgramFromInterest(interests);
-	//fetch all programs 
+	//fetch all programs
 	const allPrograms: ProgramNameAndId[] = await fetchAllProgramsJson();
 
 	//convert aiAnswer to numbers so id can be matched
@@ -182,7 +180,7 @@ export async function aiResponse(interests: string): Promise<void> {
 	//create an empty array to store the selected programs
 	var selectedPrograms: ProgramNameAndId[] = [];
 
-	//loop through all programs to find the selected programs 
+	//loop through all programs to find the selected programs
 	for (var i = 0, n = 0; i < allPrograms.length; i++) {
 		for (var j = 0; j < aiAnswerAsNumber.length; j++) {
 			if (allPrograms[i].programId == aiAnswerAsNumber[j]) {
@@ -213,7 +211,6 @@ export async function aiResponse(interests: string): Promise<void> {
 	//Turn the programs to recommendedBoxes
 }
 
-
 //BUTTON WHEN THE USER HAVE SELECTED INTEREST AND WANTS RECOMMENDATIONS
 
 export async function handleRecommendationButtonClick(interestArr: string[]): Promise<void> {
@@ -223,11 +220,11 @@ export async function handleRecommendationButtonClick(interestArr: string[]): Pr
 		interests += "interest: " + item + "\n";
 	});
 	console.log(interests);
-	//send it to ai 
+	//send it to ai
 	aiResponse(interests);
 
 	//Write out the title for recommendations page
-	TypewriterForTitle("JAG ÄR AI OCH JAG REKOMMENDERAR THIS", "recommmendationText");
+	TypewriterForTitle("Tack! Hmm... låt mig se vad jag kan hitta!", "recommmendationText", true);
 
 	//move to recommendations page
 	modifyOverflow("visible", "main");

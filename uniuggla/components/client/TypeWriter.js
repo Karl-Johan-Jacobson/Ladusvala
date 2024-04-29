@@ -1,7 +1,7 @@
 import Typewriter from "typewriter-effect/dist/core";
 import { modifyTopPadding, modifyTopPaddingRelative } from "@/app/utils";
 
-export function TypewriterForTitle(text, htmlClass) {
+export function TypewriterForTitle(text, htmlClass, moveAfter) {
 	var charDelay = 70;
 	var brDelay = 300;
 	var time = 0;
@@ -14,7 +14,8 @@ export function TypewriterForTitle(text, htmlClass) {
 
 	var splitText = text.split("<br />");
 	console.log(text.length);
-	for (var i = 0; i < splitText.length; i++) {
+	var i = 0;
+	for (i = 0; i < splitText.length; i++) {
 		if (i != splitText.length - 1) {
 			splitText[i] += "<br />";
 			time += brDelay;
@@ -27,6 +28,11 @@ export function TypewriterForTitle(text, htmlClass) {
 				modifyTopPaddingRelative("-1.5em", htmlClass);
 			});
 		}
+	}
+	if (moveAfter && i != splitText.length - 1) {
+		typewriter.callFunction(function () {
+			modifyTopPaddingRelative("-1.5em", htmlClass);
+		});
 	}
 	console.log(time);
 	return time;
