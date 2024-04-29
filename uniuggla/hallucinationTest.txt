@@ -1887,4 +1887,50 @@ Based on your interests in Fysik, Kemi, Biologi, and Engelska, here are 5 progra
 10030
 10044
 10061
+1003110009
+10012
 10031
+10061
+10029
+Based on your interests, here are 5 relevant programs for you:
+
+1. ProgramID: 10009 (Biologi och miljövetenskap)
+2. ProgramID: 10012 (Djur och hållbarhet)
+3. ProgramID: 10031 (Veterinär)
+4. ProgramID: 10061 (Kandidatprogram i kemi med inriktning kemisk analys)
+5. ProgramID: 10029 (Trädgårdsingenjör - odling)10009
+10046
+10040
+10037
+10053
+Based on your interests in Fysik, Kemi, Biologi, Matematik, and Elektronik, here are 5 relevant programs for you:
+
+1. ProgramId: 10009 (Biologi och miljövetenskap)
+2. ProgramId: 10046 (Civilingenjörsutbildning i teknisk kemi Mittuniversitetet-KTH)
+3. ProgramId: 10040 (Civilingenjör i datateknik)
+4. ProgramId: 10037 (Biomedicinsk analytiker)
+5. ProgramId: 10053 (Energiingenjör)10009
+10036
+10056
+10061
+10079
+ProgramID: 10009
+
+ProgramID: 10036
+
+ProgramID: 10056
+
+ProgramID: 10061
+
+ProgramID: 1007910009
+10015
+10044
+10061
+10079
+Based on your interests in subjects like Fysik (Physics), Kemi (Chemistry), Biologi (Biology), Filosofi (Philosophy), and Astronomi (Astronomy), here are 5 relevant program IDs for you:
+
+1. Program ID: 10009 (Biologi och miljövetenskap)
+2. Program ID: 10015 (Etologi och djurskydd)
+3. Program ID: 10044 (Civilingenjör i teknisk fysik)
+4. Program ID: 10061 (Kandidatprogram i kemi med inriktning kemisk analys)
+5. Program ID: 10079 (Psykologprogrammet)
