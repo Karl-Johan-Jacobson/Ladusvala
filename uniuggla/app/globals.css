@@ -5,7 +5,9 @@
   --medium-green-shadow: #61855A;
   --primary-dark-green: #37552B;
   --primary-dark-green-shadow: #37552b64;
+  --primary-dark-green-shadow: #37552b64;
   --primary-dark-purple: #4F1EB0;
+  --primary-border-width: 0.1vw;
   --primary-border-width: 0.1vw;
   --primary-border-radius: 0.5vw;
   margin: 0;
@@ -40,6 +42,7 @@ body {
   margin: 0px !important;
   padding: 0px !important;
   font-size: 0px !important;
+  font-size: 0px !important;
 }
 /* Is the font for the text for instance question title and greetings, etc */
 @font-face {
@@ -57,6 +60,7 @@ body {
 @font-face {
   font-family: 'Tomorrow-Regular';
   src: url(./../public/fonts/Tomorrow-Regular.ttf);
+  font-weight: 400;
   font-weight: 400;
   font-style: normal;
 }
@@ -81,6 +85,7 @@ body {
 }
 /* Standard styling for text */
 p {
+  font-family: 'Tomorrow-Medium', sans-serif;
   font-family: 'Tomorrow-Medium', sans-serif;
   text-align: center;
 }
@@ -203,6 +208,7 @@ header {
   background-color: var(--primary-light-green);
   border: none;
   border-radius: 1vw;
+  cursor: pointer;
 }
 /* Text inside the buttons color and font size */
 .answerButton p {
@@ -265,7 +271,7 @@ header {
   margin-top: 4vw;
   position: absolute;
   left: 18%;
-  bottom: 18vw;
+  bottom: 17vw;
   width: 60%;
 }
 .customInterestForm{
@@ -321,7 +327,7 @@ header {
   color: #9ECB98;
 }
 .addInterestField{
-  font-size: 30px;
+  font-size: 25px;
   font-family: 'Tomorrow-MediumItalic';
   color: #61855A;
   border: 1px solid grey;
@@ -454,6 +460,8 @@ header {
   max-width: fit-content;
   margin: 0vw auto;
   margin-top: 1vw;
+  margin: 0vw auto;
+  margin-top: 1vw;
 }
 .filterWrapper * p, .filterWrapper p{
   text-align: left;
@@ -476,6 +484,7 @@ header {
   display: flex;
   border: none;
   border-radius: calc(var(--primary-border-radius)*0.85);
+  border-radius: calc(var(--primary-border-radius)*0.85);
   padding-left: 1vw;
   font-size: 1.6vw;
   background-color: var(--primary-light-green);
@@ -492,11 +501,13 @@ header {
   height: 3vw;
   width: 3vw;
   border: var(--primary-border-width) solid var(--primary-dark-green);
+  border: var(--primary-border-width) solid var(--primary-dark-green);
   border-radius: var(--primary-border-radius);
   position: absolute;
   background-color: var(--medium-green);
 }
 .filterImg {
+  height: 60%;
   height: 60%;
   top: 50%;
   left: 50%;
@@ -506,13 +517,19 @@ header {
 .recommendedWrapper{
   width: 80%;
   margin: 2vw auto 0;
+  margin: 2vw auto 0;
   position: relative;
 }
 .recommendedWrapper * p, .recommendedWrapper * a, .recommendedWrapper p, .recommendedWrapper a {
   text-align: left;
 }
+.recommendedWrapper * p, .recommendedWrapper * a {
+  line-height: 1em;
+  text-align: left;
+}
 .recommendedBox {
   margin-bottom: 1vw;
+  border: var(--primary-border-width) solid var(--primary-dark-purple);
   border: var(--primary-border-width) solid var(--primary-dark-purple);
   border-radius: var(--primary-border-radius);
   border-color: var(--primary-dark-purple);
@@ -525,9 +542,14 @@ header {
 .tilteReq {
   font-size: 1.6vw;
   font-family: Tomorrow-SemiBold !important;
+  font-family: Tomorrow-SemiBold !important;
   color: var(--primary-dark-purple);
 }
 .descriptionReq, .reqDescription, .reqDescriptionContent{
+  font-family: Tomorrow-Medium;
+  font-size: 1.2vw;
+}
+.descriptionReq, .reqDescription, .reqDescriptionDescription{
   font-family: Tomorrow-Medium;
   font-size: 1.2vw;
 }
@@ -539,6 +561,7 @@ header {
   border-right: var(--primary-border-width) solid var(--medium-green);
   padding-right: 0.5em;
 }
+
 .degreeReq, .pointsReq, .yearsReq, .reqDescriptionTitle {
   padding-left: 0.5em;
 }

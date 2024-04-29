@@ -5,7 +5,7 @@ import InterestType from "@/types/interest";
 import InterestItem from "./InterestItem";
 import { v4 as uuidv4 } from "uuid";
 import Link from "next/link";
-import { RandomBlob } from "../Blob";
+import { RandomBlob }  from "../server/Blob";
 export const NUMBER_OF_INTERESTS = 12;
 
 interface InterestProps {
