@@ -152,7 +152,7 @@ export async function fetchAllProgramsJson(): Promise<ProgramNameAndId[]> {
   });
 }
 
-async function callOpenaiInParts(interestString: string) {
+export default async function callOpenaiInParts(interestString: string) {
   try {
     const programs = await fetchAllProgramsJson();
     //console.log("programs");
@@ -167,7 +167,7 @@ async function callOpenaiInParts(interestString: string) {
 
     //console.log(test);
 
-    let programIds = []; // Will hold all program ids from the 5 calls to openAI. Use to make new call.
+    let programIds: string[] = []; // Will hold all program ids from the 5 calls to openAI. Use to make new call.
     for (let i = 0; i < 5; i++) {
       // Make 5 calls to openAI to split context.
       const startIndex = i * partition;
@@ -176,7 +176,7 @@ async function callOpenaiInParts(interestString: string) {
       const slicedPrograms = programs.slice(startIndex, endIndex);
       const partialProgramString = turnProgramToPrompt(slicedPrograms);
 
-      programIds.push(
+      programIds = programIds.concat(
         await recommendProgramFromInterest(
           partialProgramString,
           interestString
@@ -191,4 +191,3 @@ async function callOpenaiInParts(interestString: string) {
   }
 }
 
-callOpenaiInParts("test, test,test,test,test");
