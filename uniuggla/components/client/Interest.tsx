@@ -123,7 +123,7 @@ const Interest: React.FC<InterestProps> = ({ interests, handleRecommendationButt
 
 
 // Group the notSelected interests into rows
-  const interestRows = [notSelected.slice(0, 6), notSelected.slice(6, 11)];
+  const interestRows = [notSelected.slice(0, 5), notSelected.slice(5, 11)];
   const selectedInterestRows = selectedInterests.length >= 6 
   ? [selectedInterests.slice(0, 6), selectedInterests.slice(6, 11)]
   : [[...selectedInterests]];
@@ -131,14 +131,24 @@ const Interest: React.FC<InterestProps> = ({ interests, handleRecommendationButt
   return (
     <div className="wrapper interestWrapper interest">
       <p className="bot titleTypewriter interestText" style={{ paddingTop: "10vh" }}></p>
+      <div className="selectedInterestTitle">
+        <hr />
+        <span>Selected Interests</span>
+        <hr />
+      </div>
       <div className="selectedInterestList">
         {selectedInterestRows.map((row, rowIndex) => (
-          <div className={`interestRow row${rowIndex + 1}`}>
+          <div className={`interestRow selectedRow${rowIndex + 1}`}>
             {row.map((interest) => (
               <InterestItem updateParent={handleDeselect} interest={interest} mounted={true} isSelected={true} key={interest.interestId} />
             ))}
           </div>
         ))}
+      </div>
+      <div className="notSelectedInterestTitle">
+        <hr />
+        <span>Select your interests!</span>
+        <hr />
       </div>
       <div className="notSelectedInterestList">
         {interestRows.map((row, rowIndex) => (
@@ -149,7 +159,7 @@ const Interest: React.FC<InterestProps> = ({ interests, handleRecommendationButt
           </div>
         ))}
       </div>
-      <div className="customInterestForm">
+      <div className="interestControl">
         <form onSubmit={addCustomInterest} className="form">
           <input placeholder="Skriv ett intresse ..." type="text" value={customInterest} onChange={handleUpdate} required className="addInterestField" />
           <button title="Add interest!" type="submit" className="addInterestButton">

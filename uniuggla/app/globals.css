@@ -250,6 +250,25 @@ header {
   transition: 0.5s ease;
   overflow-y: auto;
 }
+.selectedInterestTitle {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--primary-dark-purple);
+  font-family: 'Tomorrow-MediumItalic';
+  font-size: large;
+}
+
+.selectedInterestTitle hr {
+  flex-grow: 1;
+  border-color: var(--primary-dark-purple);
+  border-width: 2px;
+}
+
+.selectedInterestTitle span {
+  margin: 1vw 20px;
+}
 
 .selectedInterestList {
   display: grid;
@@ -257,8 +276,28 @@ header {
   gap: 1vw;
   position: absolute;
   left: 6%;
-  bottom: 24vw;
+  bottom: 25vw;
   height: 5vw;
+}
+
+.notSelectedInterestTitle {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: var(--medium-green);
+  font-family: 'Tomorrow-MediumItalic';
+  font-size: large;
+}
+
+.notSelectedInterestTitle hr {
+  flex-grow: 1;
+  border-color: var(--medium-green);
+  border-width: 2px;
+  border-style: solid;
+}
+
+.notSelectedInterestTitle span {
+  margin: 9vw 20px;
 }
 
 .notSelectedInterestList {
@@ -266,7 +305,7 @@ header {
   flex-direction: column;
   gap: 1vw;
   position: absolute;
-  left: 6%;
+  left: 6.6%;
   bottom: 8vw;
   box-sizing: border-box;
 }
@@ -276,9 +315,14 @@ header {
   justify-content: space-between;
 }
 
-.row2 {
+.row1 {
   max-width: 70vw;
-  margin: 0 auto; /* This will center the row */
+  margin: 0 auto; 
+}
+
+.selectedRow2 {
+  max-width: 70vw;
+  margin: 0 auto; 
 }
 
 .interestItem {
@@ -336,7 +380,7 @@ header {
   color: var(--medium-green);
 }
 
-.customInterestForm{
+.interestControl{
   width: 35vw;
   margin-left: auto;
   margin-right: auto;
