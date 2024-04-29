@@ -1384,60 +1384,66 @@ Based on your interests in Medicine, Gym, Design, Jewelry, and Vintage, I recomm
 2. ProgramId: 10057 (Idrottsvetenskapligt program)
 3. ProgramId: 10056 (Grafisk design)
 4. ProgramId: 10029 (Trädgårdsingenjör - design)
-5. ProgramId: 10015 (Etologi och djurskydd)10000
-10001
-10002
-10003
-10004
-10000, 10001, 10002, 10003, 1000410044
-10061
-10047
-10034
-10088
-ProgramId: 10044 (Civilingenjör i teknisk fysik)
-ProgramId: 10061 (Kandidatprogram i kemi med inriktning kemisk analys)
-ProgramId: 10047 (Datateknik)
-ProgramId: 10034 (Additiv tillverkning - högskoleingenjör maskinteknik)
-ProgramId: 10088 (Webbutveckling)10025
-10061
-10063
-10085
-10076
-Based on your interests in English, Physics, Swedish, and Religion, here are 5 programs that are relevant to your interests:
-
-1. ProgramId: 10025 (Politices kandidat - hållbar utveckling)
-2. ProgramId: 10061 (Kandidatprogram i kemi med inriktning kemisk analys)
-3. ProgramId: 10063 (Kommunikations- och PR-programmet)
-4. ProgramId: 10085 (Socionomutbildning)
-5. ProgramId: 10076 (Programmet för litteratur och skrivande)10003
-10004
-10030
-10057
-10080
-10003, 10004, 10030, 10057, 1008010054
-10057
-10062
-10064
-10077
-Based on your interests in Engelska, Historia, Hälsovård, Idrott och hälsa, and Psykologi, here are 5 relevant programs:
-
-1. ProgramId: 10054 - Folkhälsovetenskapliga programmet
-2. ProgramId: 10057 - Idrottsvetenskapligt program
-3. ProgramId: 10062 - Kandidatprogram i Kriminologi
-4. ProgramId: 10064 - Kompletterande pedagogisk utbildning
-5. ProgramId: 10077 - Programmet för psykisk hälsa/ohälsa - särskild komplicerad problematik10000
-10001
-10003
+5. ProgramId: 10015 (Etologi och djurskydd)10018
+10019
+10032
+10042
+10049
+ProgramId: 10018
+ProgramId: 10019
+ProgramId: 10032
+ProgramId: 10042
+ProgramId: 1004910004
 10025
+10036
+10049
 10061
-ProgramIds based on your interests:
-- ProgramId: 10000 (Officersprogrammet inriktning krigsvetenskap)
-- ProgramId: 10001 (Officersprogrammet inriktning militärteknik)
+Based on your interests in Fodring, Investering, Religion, Brädspel, and Moderna språk, here are 5 relevant programs for you:
+
+1. ProgramId: 10004
+2. ProgramId: 10025
+3. ProgramId: 10036
+4. ProgramId: 10049
+5. ProgramId: 10061
+
+I hope you find these programs interesting and aligned with your passions! Good luck with your academic pursuits.10030
+10057
+10061
+10026
+10075
+Based on your interests in Idrott och hälsa, Fysik, Historia, and Svenska, here are 5 relevant programs for you:
+
+1. ProgramID: 10030 - Skogsvetarprogrammet (kandidat)
+2. ProgramID: 10057 - Idrottsvetenskapligt program
+3. ProgramID: 10061 - Kandidatprogram i kemi med inriktning kemisk analys
+4. ProgramID: 10026 - Samhällsutveckling - landsbygd
+5. ProgramID: 10075 - Programmet för Hälsa och Rehabilitering i arbetslivet10008
+10003
+10047
+10048
+10061
+- ProgramId: 10008 (Basår/Bastermin)
 - ProgramId: 10003 (Krig, kultur och samhälle – kandidatprogram)
-- ProgramId: 10025 (Politices kandidat - hållbar utveckling)
-- ProgramId: 10061 (Kandidatprogram i kemi med inriktning kemisk analys)10001
-10011
-10017
+- ProgramId: 10047 (Datateknik)
+- ProgramId: 10048 (Ekoentreprenör för hållbar utveckling)
+- ProgramId: 10061 (Kandidatprogram i kemi med inriktning kemisk analys)10041
+10043
+10059
+10061
+10079
+10041, 10043, 10059, 10061, 1007910025
+10061
+10062
+10077
+10084
+ProgramId: 10025
+ProgramId: 10061
+ProgramId: 10062
+ProgramId: 10077
+ProgramId: 1008410009
+10012
+10015
+10030
 10037
 10057
 10001, 10011, 10017, 10037, 1005710003
