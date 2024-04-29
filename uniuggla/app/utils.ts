@@ -34,7 +34,7 @@ export function scrollToId(id: string): void {
 	}
 }
 
-export function aiTypeAnswer(programs: ProgramNameAndId[], htmlClass: string): void {
+export function aiTypeAnswer(programs: ProgramNameAndId[], htmlClass: string, interestArr: string[]): void {
 	//create a contianer where every box will be in
 	const container = document.querySelector("." + htmlClass);
 	//null check
@@ -42,6 +42,24 @@ export function aiTypeAnswer(programs: ProgramNameAndId[], htmlClass: string): v
 		console.error(`Container element with class '${htmlClass}' not found.`);
 		return;
 	}
+	var interests: string = "";
+	interestArr.map((item) => {
+		interests += item + " ";
+	});
+	const interestBox = document.createElement("div");
+	interestBox.className = `showInterestBox`;
+	container.appendChild(interestBox);
+
+	for(let i = 0; i < interestArr.length; i++)
+		{
+			const selectedInterests = document.createElement("p");
+			selectedInterests.className = `interestReq`;
+			selectedInterests.innerText = interestArr[i];
+			interestBox.appendChild(selectedInterests);
+
+		}
+
+
 	//loop to make one box at a time
 	for (let i = 0; i < programs.length; i++) {
 		//take one program from selected programs array
@@ -167,7 +185,7 @@ export function handleYesButtonClick(): void {
 	}, 500);
 }
 
-export async function aiResponse(interests: string): Promise<void> {
+export async function aiResponse(interests: string, interestArr: string[]): Promise<void> {
 	//Send all interest to AiHandler and await response
 	const aiAnswer: string[] = await recommendProgramFromInterest(interests);
 	//fetch all programs
@@ -191,7 +209,7 @@ export async function aiResponse(interests: string): Promise<void> {
 	}
 
 	//send the programs to generate the recommendedboxes
-	aiTypeAnswer(selectedPrograms, "recommendedWrapper");
+	aiTypeAnswer(selectedPrograms, "recommendedWrapper", interestArr);
 
 	//USED for testing
 
@@ -221,11 +239,10 @@ export async function handleRecommendationButtonClick(interestArr: string[]): Pr
 	});
 	console.log(interests);
 	//send it to ai
-	aiResponse(interests);
+	aiResponse(interests, interestArr);
 
 	//Write out the title for recommendations page
 	TypewriterForTitle("Tack! Hmm... låt mig se vad jag kan hitta!", "recommmendationText", true);
-
 	//move to recommendations page
 	modifyOverflow("visible", "main");
 	removeClass("hide", "recommendationContainer");

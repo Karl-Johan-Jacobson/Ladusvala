@@ -131,7 +131,6 @@ input::placeholder{
   color: var(--medium-green);
 }
 input:focus{
-  outline:none;
 }
 /*
   End of General
@@ -599,6 +598,24 @@ header {
 }
 .showDescription p {
   padding-left: 0.5em;
+}
+
+.showInterestBox {
+  padding: 0.4vw 0.8vw;
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  flex-wrap: wrap; /* Allow wrapping */
+}
+
+.interestReq {
+  padding: 0.5em 1em; 
+  font-size: 1vw;
+  background-color: var(--medium-green);
+  border-radius: var(--primary-border-radius);
+  border: var(--primary-border-width);
+  color: var(--primary-light-green);
+  margin-left: 1em;
+  margin-bottom: 1em;
 }
 /*
   End of Recommendation
