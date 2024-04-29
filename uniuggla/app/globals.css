@@ -10,10 +10,16 @@
   --primary-border-width: 0.1vw;
   --primary-border-width: 0.1vw;
   --primary-border-radius: 0.5vw;
+  
+  --text-form-height: 3vw;
   margin: 0;
   padding: 0;
   text-decoration: none;
 }
+*:focus {
+  outline: none;
+}
+
  /* Is the main background for the whole hmtl and hides the scroll bar*/  
 html {
   scrollbar-width: none;
@@ -85,6 +91,59 @@ p {
   font-family: 'Tomorrow-Medium', sans-serif;
   font-family: 'Tomorrow-Medium', sans-serif;
   text-align: center;
+}
+/*text input*/
+.textInputWrapper {
+  height: var(--text-form-height);
+  margin: 0 auto;
+  display: flex;
+  border: var(--primary-border-width) solid #37552B;
+  border-radius: var(--primary-border-radius);
+  position: relative;
+}
+.textInput {
+  top: calc(-0.75*var(--primary-border-width));
+  left: calc(-1*var(--primary-border-width));
+  width: calc(100% - var(--text-form-height) - var(--primary-border-width));
+  display: flex;
+  border: none;
+  border-radius: calc(var(--primary-border-radius)*0.85);
+  padding-left: var(--primary-border-radius);
+  padding-right: calc(var(--text-form-height) + var(--primary-border-width) + var(--primary-border-radius));
+  font-family: 'Tomorrow-MediumItalic';
+  font-size: calc(var(--text-form-height) * 0.7);
+  color: var(--medium-green);
+  background-color: var(--primary-light-green);
+  box-shadow: inset 0.2vw 0.3vw 0.4vw var(--primary-dark-green-shadow);
+}
+.textInput::placeholder{
+  font-size: calc(var(--text-form-height) * 0.7);
+  font-family: 'Tomorrow-MediumItalic';
+  color: var(--medium-green);
+}
+.textInput:focus{
+  background-color: #37552B10;
+  transition: background-color 200ms ease-in;
+}
+.textButton {
+  top: calc(-1*var(--primary-border-width));
+  right: calc(-1*var(--primary-border-width));
+  height: calc(var(--text-form-height) + 2* var(--primary-border-width));
+  width: calc(var(--text-form-height) + 2 * var(--primary-border-width));
+  border: var(--primary-border-width) solid var(--primary-dark-green);
+  border-radius: var(--primary-border-radius);
+  position: absolute;
+  background-color: var(--medium-green);
+}
+.textButton:hover {
+  background-color: var(--medium-green-shadow);
+}
+.textButtonImg {
+  height: 60%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
 }
 /*Used for formating HTTP response code page*/
 .__className_aaf875{
@@ -380,7 +439,7 @@ header {
   color: var(--medium-green);
 }
 
-.interestControl{
+.interestControl {
   width: 35vw;
   margin-left: auto;
   margin-right: auto;
@@ -388,45 +447,74 @@ header {
   position: absolute;
   bottom: 1vw;
 }
-.addInterestField{
-  font-size: 25px;
-  font-family: 'Tomorrow-MediumItalic';
-  color: #61855A;
-  border: 1px solid grey;
-  width: 91%;
-  background: #DFFDE0;
+
+.customInterestForm,
+.customInterestForm::before,
+.customInterestForm::after {
+  display: flex;
+  box-sizing: border-box;
+  width: 300px;
+  height: 34px;
+  border-radius: var(--primary-border-radius);
+}
+
+.customInterestForm:focus-within {
+  background-color: #37552B20;
+  transition: background-color 100ms ease-in;
+}
+
+.customInterestField {
+  box-sizing: inherit;
+  width: 88%;
+  height: 100%;
+  padding: 4px 8px;
+
+  background-color: transparent;
+
+  border: var(--primary-border-width) solid var(--primary-dark-green);
   border-right: none;
-  height: 28px;
-  margin-top: none;
-  padding-top: none;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-  box-shadow:inset 0 0 1px 1px gray;
-  margin-bottom: 1vw;
-}
-.addInterestField::placeholder{
+  border-top-left-radius: var(--primary-border-radius);
+  border-bottom-left-radius: var(--primary-border-radius);
+
+  box-shadow: inset 3px 3px 5px #37552B40;
+
   font-family: 'Tomorrow-MediumItalic';
-  font-size: 20px;
-  color: #9ECB98;
-  text-align: center;
-  font-style: italic;
+  font-size: 16px;
+  color: var(--medium-green);
 }
-.addInterestField:focus{
-  outline: none;
-  box-shadow:inset 0 0 2px 2px gray;
+
+.customInterestField::placeholder {
+  font-family: 'Tomorrow-MediumItalic';
+  font-size: 16px;
+  color: var(--medium-green);
+} 
+
+.customInterestButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  box-sizing: inherit;
+  width: 12%;
+  height: 100%;
+
+  border: var(--primary-border-width) solid var(--primary-dark-green);
+  border-top-right-radius: var(--primary-border-radius);
+  border-bottom-right-radius: var(--primary-border-radius);
+
+  background-color: var(--medium-green);
 }
-.addInterestButton{
-  width: 8%;
-  background: #9ECB98;
-  height: 29px;
-  font-size: 17px;
-  border: 1px solid grey;
-  border-left: none; 
-  cursor: pointer;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-  box-shadow: -2px 0px 2px 0px grey;
+
+.customInterestButton:hover {
+  background-color: var(--medium-green-shadow);
 }
+
+.customInterestBtnImg {
+  width: 100%;
+  height: 100%;
+  fill: var(--primary-medium-green);
+}
+
 .shuffleButton{
   width: 10vw;
   background-color: var(--medium-green);
@@ -519,65 +607,12 @@ header {
 */
 .filterWrapper {
   height: 3vw;
+  width: 60%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 10px;
   max-width: fit-content;
-  margin: 0vw auto;
-  margin-top: 1vw;
-  margin: 0vw auto;
-  margin-top: 1vw;
-}
-.filterWrapper * p, .filterWrapper p{
-  text-align: left;
-}
-.filter {
-  height: inherit;
-  display: flex;
-  border: var(--primary-border-width) solid #37552B;
-  /* border: none; */
-  border-radius: var(--primary-border-radius);
-  position: relative;
-}
-.filter input:focus{
-  outline:none;
-}
-.filter input {
-  top: calc(-0.75*var(--primary-border-width));
-  left: calc(-1*var(--primary-border-width));
-  width: 17vw;
-  display: flex;
-  border: none;
-  border-radius: calc(var(--primary-border-radius)*0.85);
-  border-radius: calc(var(--primary-border-radius)*0.85);
-  padding-left: 1vw;
-  font-size: 1.6vw;
-  background-color: var(--primary-light-green);
-  box-shadow: inset 0.2vw 0.3vw 0.4vw var(--primary-dark-green-shadow);
-}
-.filter input::placeholder{
-  font-family: Tomorrow-MediumItalic;
-  color: var(--medium-green);
-  
-}
-.filterImgDiv {
-  top: calc(-0.75*var(--primary-border-width));
-  right: calc(-1*var(--primary-border-width));
-  height: 3vw;
-  width: 3vw;
-  border: var(--primary-border-width) solid var(--primary-dark-green);
-  border: var(--primary-border-width) solid var(--primary-dark-green);
-  border-radius: var(--primary-border-radius);
-  position: absolute;
-  background-color: var(--medium-green);
-}
-.filterImg {
-  height: 60%;
-  height: 60%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  position: absolute;
+  margin: 1vw auto 0vw;
 }
 .recommendedWrapper{
   width: 80%;
@@ -752,3 +787,41 @@ cursor: default
   End of Footer
   ---===---===---===---===---===---===---===---===---===---
 */
+
+.centerDiv {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 200px;
+}
+
+.refreshButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  padding: 4px;
+  background-color: var(--medium-green);
+  border: 2px solid var(--primary-dark-green);
+  border-radius: 6px;
+}
+
+.refreshButton:hover {
+  cursor: pointer;
+  background-color: var(--medium-green-shadow);
+}
+
+.refreshIcon {
+  fill: var(--primary-medium-green);
+}
+
+.refreshAnimation {
+  animation: spin 500ms ease-in-out;
+}
+
+@keyframes spin { 
+  100% { 
+      -webkit-transform: rotate(360deg); 
+      transform:rotate(360deg); 
+  } 
+}

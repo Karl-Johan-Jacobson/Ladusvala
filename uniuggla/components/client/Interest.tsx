@@ -6,6 +6,7 @@ import InterestItem from "./InterestItem";
 import { v4 as uuidv4 } from "uuid";
 import Link from "next/link";
 import { RandomBlob }  from "../server/Blob";
+import path from "path";
 export const NUMBER_OF_INTERESTS = 11;
 
 interface InterestProps {
@@ -17,7 +18,6 @@ const Interest: React.FC<InterestProps> = ({ interests, handleRecommendationButt
 	const [selectedInterests, setSelectedInterests] = useState<InterestType[]>([]);
 	const [notSelected, setNotSelected] = useState<InterestType[]>(interests.filter((interest, index) => index < NUMBER_OF_INTERESTS));
 	const [customInterest, setCustomInterest] = useState<string>("");
-
 
   const updateLists = (selectedInterest: InterestType, isMounted: boolean) => {
     if (isMounted) {
@@ -160,12 +160,10 @@ const Interest: React.FC<InterestProps> = ({ interests, handleRecommendationButt
         ))}
       </div>
       <div className="interestControl">
-        <form onSubmit={addCustomInterest} className="form">
-          <input placeholder="Skriv ett intresse ..." type="text" value={customInterest} onChange={handleUpdate} required className="addInterestField" />
-          <button title="Add interest!" type="submit" className="addInterestButton">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#DFFDE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24">
-              <path d="M12 5v14M5 12h14" />
-            </svg>
+        <form onSubmit={addCustomInterest} className="textInputWrapper">
+          <input placeholder="Skriv ett intresse ..." type="text" value={customInterest} onChange={handleUpdate} required className="textInput" />
+          <button title="Add interest!" type="submit" className="textButton">
+            <img src="../../plus.svg" alt="" className="textButtonImg" />
           </button>
         </form>
         <button onClick={refresh} className="shuffleButton">
