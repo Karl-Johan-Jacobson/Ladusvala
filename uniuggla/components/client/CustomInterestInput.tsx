@@ -1,18 +1,43 @@
-"use client"
+"use client";
 
 import { ChangeEvent, FormEvent, useState } from "react";
 
-export const CustomInterestInput = ({addInterest}: {addInterest: (event: FormEvent<HTMLFormElement>) => void}) => {
-  const [customInterest, setCustomInterest] = useState<string>("");
+export default function CustomInterestInput({
+  children,
+  onSubmit,
+}: {
+  children: React.ReactNode;
+  onSubmit: (input: string) => void;
+}) {
+  const [inputValue, setInputValue] = useState<string>("");
 
-  const handleUpdate = (event: ChangeEvent<HTMLInputElement>) => {
-    setCustomInterest(event.target.value);
-  }
+  const handleValueChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setInputValue(event.target.value);
+  };
+
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    onSubmit(inputValue);
+    setInputValue("");
+  };
 
   return (
-    <form className="" onSubmit={addInterest}>
-      <input type="text" value={customInterest} onChange={handleUpdate} required className=""/>
-      <button type="submit" className="">Add interest</button>
+    <form onSubmit={handleSubmit} className={"customInterestForm"}>
+      <input
+        placeholder="Skriv ett intresse ..."
+        type="text"
+        value={inputValue}
+        onChange={handleValueChange}
+        required
+        className="customInterestField"
+      />
+      <button
+        title="Add interest!"
+        type="submit"
+        className="customInterestButton"
+      >
+        {children}
+      </button>
     </form>
-  )
+  );
 }

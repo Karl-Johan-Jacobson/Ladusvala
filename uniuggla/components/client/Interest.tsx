@@ -7,6 +7,8 @@ import { v4 as uuidv4 } from "uuid";
 import Link from "next/link";
 import { RandomBlob }  from "../server/Blob";
 import path from "path";
+import RefreshButton from "./RefreshButton";
+import CustomInterestInput from "./CustomInterestInput";
 export const NUMBER_OF_INTERESTS = 11;
 
 interface InterestProps {
@@ -62,9 +64,7 @@ const Interest: React.FC<InterestProps> = ({ interests, handleRecommendationButt
     );
   };
 
-  const addCustomInterest = (event: FormEvent<HTMLFormElement>) => {
-    // Take an input
-    event.preventDefault();
+  const addCustomInterest = (customInterest: string) => {
     // Creates a randomized id for the new interest
     const randId = uuidv4();
     // Create an interest "object"
@@ -74,8 +74,6 @@ const Interest: React.FC<InterestProps> = ({ interests, handleRecommendationButt
       interestDescription:
         "No interest description for custom interests (user added interests)",
     };
-    // Reset the input field
-    setCustomInterest("");
     // Adds it to the list of selected interests
     setSelectedInterests([...selectedInterests, interest]);
   };
@@ -160,15 +158,14 @@ const Interest: React.FC<InterestProps> = ({ interests, handleRecommendationButt
         ))}
       </div>
       <div className="interestControl">
-        <form onSubmit={addCustomInterest} className="textInputWrapper">
-          <input placeholder="Skriv ett intresse ..." type="text" value={customInterest} onChange={handleUpdate} required className="textInput" />
-          <button title="Add interest!" type="submit" className="textButton">
-            <img src="../../plus.svg" alt="" className="textButtonImg" />
-          </button>
-        </form>
-        <button onClick={refresh} className="shuffleButton">
-          <span className="iconText">Ge mig nya intressen</span>
-        </button>
+        <div className="customInterestWrapper">
+          <CustomInterestInput onSubmit={addCustomInterest}>
+            <img src="../../plus.svg" />
+          </CustomInterestInput>
+        </div>
+        <div className="refreshButtonWrapper">
+          <RefreshButton refresh={refresh}/>
+        </div>
         <button className="recommendationButton answerButton" onClick={handleRecommend}>
             <p className="user"> &gt;&gt; Hitta min drömutbildning &lt;&lt; </p>
         </button>
