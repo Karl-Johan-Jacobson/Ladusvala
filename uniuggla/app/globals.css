@@ -663,6 +663,7 @@ header {
   font-size: 1.2vw;
 }
 .descriptionReq {
+  margin-top: 0.4em;
   display: inline-block;
   color: var(--medium-green-shadow);
 }
@@ -675,7 +676,7 @@ header {
   border: var(--primary-border-width) dashed var(--medium-green);
   border-radius: var(--primary-border-radius);
   padding: 0 1vw 0.5vw 1vw;
-  margin-bottom: 0.5em;
+  margin-bottom: 0.4em;
 }
 .reqDescription {
   display: inline-block;
