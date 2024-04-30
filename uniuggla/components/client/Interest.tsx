@@ -18,7 +18,6 @@ const Interest: React.FC<InterestProps> = ({ interests, handleRecommendationButt
 	const [notSelected, setNotSelected] = useState<InterestType[]>(interests.filter((interest, index) => index < NUMBER_OF_INTERESTS));
 	const [customInterest, setCustomInterest] = useState<string>("");
 
-
   const updateLists = (selectedInterest: InterestType, isMounted: boolean) => {
     if (isMounted) {
       // This will be true after the fade-in animation has run
@@ -121,10 +120,10 @@ const Interest: React.FC<InterestProps> = ({ interests, handleRecommendationButt
   }
 
   console.log(selectedInterests);
-
+  
 	return (
 		<div className="wrapper interestWrapper interest">
-			<p className="bot titleTypewriter interestText" style={{ paddingTop: "10vh" }}></p>
+			<p className="bot titleTypewriterInterestPage interestText" style={{ paddingTop: "10vh" }}></p>
 			<div className="selectedInterestList">
 				{selectedInterests.map((interest) => (
 					<InterestItem updateParent={handleDeselect} interest={interest} mounted={true} isSelected={true} key={interest.interestId} />

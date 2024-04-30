@@ -11,12 +11,14 @@ import { handleYesButtonClick, handleRecommendationButtonClick } from "@/app/uti
 
 import Welcome from "@/components/client/Welcome";
 import Interest from "@/components/client/Interest";
+
 import Recommendation from "@/components/client/Recommendation";
+import HamburgerNavigationBar from "@/components/client/HamburgerNavigationBar";
 
 // Main function that returns the html and handles the animations
 export default function Home() {
+	let viewingWidth = "";
 	const router = useRouter();
-
 	function handleNoButtonClick(): void {
 		// Move useRouter inside the function
 		router.push("/about");
@@ -24,10 +26,22 @@ export default function Home() {
 	// values for js animations
 	const speed = 40;
 	const extraButtonDelay = 300;
-	const moveAnswer = ["8vw", "answers"];
+	let moveAnswer = [viewingWidth, "answers"];
 
 	// Starting animationn
 	useEffect(() => {
+
+
+		const updateStyle = () => { // User to update based on device screen size. 25 vw for phone, 8vw for computer
+			if (window.innerWidth <= 480) {
+				viewingWidth = "25vw";
+			} else {
+				viewingWidth = "8vw";
+			}
+			return viewingWidth;
+		};
+
+
 		let typeWriterInterval: ReturnType<typeof setInterval> | undefined;
 		// Typewriteranimationn input string and class of <p> element
 		const typeWriter = (textToType: string, htmlClass: string) => {
@@ -76,10 +90,12 @@ export default function Home() {
 				(element as HTMLElement).style.opacity = newOpacity;
 			});
 		};
+		
 		// Funciton for iniatal js animations
 		var typeWriterDelay = TypewriterForTitle("Hej!<br />Är du redo att hitta din drömutbildning?", "welcomeText");
 		const timeoutId = setTimeout(() => {
-			modifyTopMargin(moveAnswer[0], moveAnswer[1]);
+			let vwUpdated = updateStyle(); 
+			modifyTopMargin(vwUpdated, moveAnswer[1]); // Was previously moveAnswer[0]
 			modifyOpacity("1", moveAnswer[1]);
 		}, typeWriterDelay + extraButtonDelay);
 
@@ -95,7 +111,10 @@ export default function Home() {
 
 	// HTML code, within <main>
 	return (
+		<div className="container1">
 		<main className="main" style={{ overflow: "hidden" }}>
+
+
 			{/*
         Welcome page
       */}
@@ -115,5 +134,13 @@ export default function Home() {
 				<Recommendation />
 			</section>
 		</main>
+		<HamburgerNavigationBar />
+
+		</div>
+
+
+
 	);
+
+
 }

@@ -1,3 +1,4 @@
+@media all and (min-width: 481px) {
 * {
   --primary-light-green: #DFFDE0;
   --primary-medium-green: #C6F0C3;
@@ -678,3 +679,4 @@ color: var(--primary-dark-purple);
   End of Footer
   ---===---===---===---===---===---===---===---===---===---
 */
+}
