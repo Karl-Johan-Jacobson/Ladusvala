@@ -293,27 +293,31 @@ header img {
 	color: white;
 }
 .interestWrapper {
-	position: absolute;
-	z-index: 1;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	overflow-y: auto;
-	width: max-content;
-	height: auto;
-	margin: 0vw auto 6vw;
-	padding-bottom: 1vw;
-	transition: 0.5s ease;
+  display: flex;
+  justify-content: center; /* Add this line */
+  height: auto;
+  width: max-content;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: 0vw auto 6vw;
+  padding-bottom: 1vw;
+  z-index: 1;
+  transition: 0.5s ease;
+  overflow-y: auto;
+}
+
+.interestText {
+  height: 8vw;
 }
 .selectedInterestTitle {
-	display: flex;
-	align-items: center;
-	margin-bottom: 20px;
-	font-size: large;
-	font-family: "Tomorrow-MediumItalic";
-	color: var(--primary-dark-purple);
-	text-align: center;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: var(--primary-dark-purple);
+  font-family: 'Tomorrow-MediumItalic';
+  font-size: large;
 }
 
 .selectedInterestTitle hr {
@@ -323,17 +327,14 @@ header img {
 }
 
 .selectedInterestTitle span {
-	margin: 1vw 20px;
+  margin: 1vw 2vw;
 }
 
 .selectedInterestList {
-	display: grid;
-	flex-direction: column;
-	gap: 1vw;
-	position: absolute;
-	bottom: 25vw;
-	left: 6%;
-	height: 5vw;
+  display: grid;
+  place-items: center;
+  gap: 1vw;
+  height: 10vw;
 }
 
 .notSelectedInterestTitle {
@@ -353,38 +354,33 @@ header img {
 }
 
 .notSelectedInterestTitle span {
-	margin: 9vw 20px;
+  margin: 1vw 2vw;
 }
 
 .notSelectedInterestList {
-	display: grid;
-	flex-direction: column;
-	gap: 1vw;
-	position: absolute;
-	bottom: 8vw;
-	left: 6.6%;
-	box-sizing: border-box;
+  display: grid;
+  place-items: center;
+  gap: 1vw;
+  height: 10vw;
 }
 
 .interestRow {
-	display: flex;
-	justify-content: space-between;
+  display: flex;
+  gap: 1vw;
 }
 
 .row1 {
-	max-width: 70vw;
-	margin: 0 auto;
+  display: flex;
+  justify-content: center;
 }
 
 .selectedRow2 {
-	max-width: 70vw;
-	margin: 0 auto;
+  display: flex;
+  justify-content: center;
 }
 
 .interestItem {
-	width: 10vw;
-	margin-right: 2vw;
-	margin-left: 2vw;
+  width: 13vw;
 }
 
 .iconText {
@@ -395,25 +391,26 @@ header img {
 }
 
 .notSelectedButton {
-	overflow: hidden;
-	width: 13vw;
-	height: 4vw;
-	background-color: var(--medium-green);
-	cursor: pointer;
-	border: none;
-	border-radius: var(--primary-border-radius);
-	text-overflow: ellipsis;
+  width: 13vw;
+  height: 4vw;
+  background-color: var(--medium-green);
+  border-radius: var(--primary-border-radius);
+  cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border: none;  
 }
 
-.selectedButton {
-	overflow: hidden;
-	width: 13vw;
-	height: 4vw;
-	background-color: var(--primary-dark-purple);
-	cursor: pointer;
-	border: none;
-	border-radius: var(--primary-border-radius);
-	text-overflow: ellipsis;
+.selectedButton{
+  box-sizing: border-box; 
+  width: 13vw;
+  height: 4vw;
+  background-color: var(--primary-dark-purple);
+  border-radius: var(--primary-border-radius);
+  cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border: none;
 }
 
 .notSelectedButton:hover {
@@ -434,23 +431,29 @@ header img {
 	color: var(--medium-green);
 }
 
+.placeholderInterest {
+  box-sizing: border-box; /* Add this line */
+  width: 13vw;
+  height: 4vw;
+  border-radius: var(--primary-border-radius);
+  border: dotted var(--primary-dark-purple) 0.2vw;
+}
+
 .interestControl {
-	position: absolute;
-	bottom: 1vw;
-	left: 30%;
-	width: 35vw;
-	margin-right: auto;
-	margin-left: auto;
+  width: 35vw;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
 }
 
 .customInterestForm,
 .customInterestForm::before,
 .customInterestForm::after {
-	display: flex;
-	box-sizing: border-box;
-	width: 300px;
-	height: 34px;
-	border-radius: var(--primary-border-radius);
+  display: flex;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--primary-border-radius);
 }
 
 .customInterestForm:focus-within {
@@ -459,19 +462,23 @@ header img {
 }
 
 .customInterestField {
-	box-shadow: inset 3px 3px 5px #37552b40;
-	box-sizing: inherit;
-	width: 88%;
-	height: 100%;
-	padding: 4px 8px;
-	background-color: transparent;
-	border: var(--primary-border-width) solid var(--primary-dark-green);
-	border-right: none;
-	border-top-left-radius: var(--primary-border-radius);
-	border-bottom-left-radius: var(--primary-border-radius);
-	font-size: 16px;
-	font-family: "Tomorrow-MediumItalic";
-	color: var(--medium-green);
+  box-sizing: inherit;
+  width: 88%;
+  height: 100%;
+  padding: 4px 8px;
+
+  background-color: transparent;
+
+  border: var(--primary-border-width) solid var(--primary-dark-green);
+  border-right: none;
+  border-top-left-radius: var(--primary-border-radius);
+  border-bottom-left-radius: var(--primary-border-radius);
+
+  box-shadow: inset 3px 3px 5px #37552B40;
+
+  font-family: 'Tomorrow-MediumItalic';
+  font-size: 16px;
+  color: var(--medium-green-shadow);
 }
 
 .customInterestField::placeholder {
@@ -494,39 +501,64 @@ header img {
 }
 
 .customInterestButton:hover {
-	background-color: var(--medium-green-shadow);
+  background-color: var(--medium-green-shadow);
+  transition: background-color 200ms;
 }
 
 .customInterestBtnImg {
-	fill: var(--primary-medium-green);
-	width: 100%;
-	height: 100%;
+  width: 100%;
+  height: 100%;
+  fill: var(--primary-medium-green);
 }
 
-.shuffleButton {
-	position: absolute;
-	left: 100%;
-	width: 10vw;
-	background-color: var(--medium-green);
-	cursor: pointer;
-	border: none;
-	border-radius: var(--primary-border-radius);
+.customInterestWrapper {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  margin-top: 1vw;
+  width: 40vw;
+  height: 2vw;
 }
-.shuffleButton:hover {
-	filter: drop-shadow(2px 2px 0px gray);
+
+.refreshButtonWrapper {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  margin-top: 1vw;
+  height: 2vw;
+  width: 4vw;
+  margin-left: 1vw;
 }
-.recommendationButton {
-	overflow: hidden;
-	width: 36vw;
-	cursor: pointer;
-	text-overflow: ellipsis;
-	white-space: nowrap;
+.recommendationButtonWrapper{
+  cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+
 }
-.recommendationButton p {
-	font-size: 30px;
-	font-family: "Tomorrow-MediumItalic";
-	font-style: italic;
-	color: #9ecb98;
+.recommendationButtonWrapper p{
+  font-size: 2.3vw;
+  font-family: 'Tomorrow-Medium';
+  color: #9ECB98;
+  margin: 1vw;
+}
+
+.recommendationButtonWrapper hr{
+  flex-grow: 1;
+  border-color: var(--medium-green);
+  border-width: 2px;
+  border-style: solid;
+}
+
+.recommendationButtonLine {
+  flex-grow: 1;
+  border-color: var(--medium-green);
+  border-width: 2px;
+  border-style: solid;
 }
 /* Interests fade-in and fade-out animations */
 
@@ -587,6 +619,46 @@ header img {
 		opacity: 0;
 		transform: scale(0);
 	}
+}
+
+.refreshButton,
+.refreshButton::before,
+.refreshButton::after {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  padding: 4px;
+
+  background-color: var(--medium-green);
+  border: var(--primary-border-width) solid var(--primary-dark-green);
+  border-radius: var(--primary-border-radius);
+}
+
+.refreshButton:hover {
+  cursor: pointer;
+  background-color: var(--medium-green-shadow);
+  transition: background-color 200ms;
+}
+
+.refreshIcon {
+  width: 100%;
+  height: 100%;
+  fill: var(--primary-light-green);
+}
+
+.refreshAnimation {
+  animation: spin 500ms ease-in-out;
+}
+
+@keyframes spin { 
+  100% { 
+      -webkit-transform: rotate(360deg); 
+      transform:rotate(360deg); 
+  } 
 }
 /*
   End of Intrest
@@ -830,47 +902,6 @@ footer {
 }
 /*
   End of Footer
-  ---===---===---===---===---===---===---===---===---===---
-*/
-
-.centerDiv {
-	display: flex;
-	justify-content: center;
-	align-items: flex-end;
-	height: 200px;
-}
-
-.refreshButton {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	padding: 4px;
-	background-color: var(--medium-green);
-	border: 2px solid var(--primary-dark-green);
-	border-radius: 6px;
-}
-
-.refreshButton:hover {
-	background-color: var(--medium-green-shadow);
-	cursor: pointer;
-}
-
-.refreshIcon {
-	fill: var(--primary-medium-green);
-}
-
-.refreshAnimation {
-	animation: spin 500ms ease-in-out;
-}
-
-@keyframes spin {
-	100% {
-		-webkit-transform: rotate(360deg);
-		transform: rotate(360deg);
-	}
-}
-/*
-  End of somthign
   ---===---===---===---===---===---===---===---===---===---
   Start of Count
 */
