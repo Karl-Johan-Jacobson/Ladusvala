@@ -21,6 +21,14 @@ const Interest: React.FC<InterestProps> = ({ interests, handleRecommendationButt
 	const [selectedInterests, setSelectedInterests] = useState<InterestType[]>([]);
 	const [notSelected, setNotSelected] = useState<InterestType[]>(interests.filter((interest, index) => index < NUMBER_OF_INTERESTS));
 	const [customInterest, setCustomInterest] = useState<string>("");
+  
+	// Set 'find my dream education' button as locked unless 4 interests are selected
+	let dreamEducationButtonClass = "dreamEducationButton";
+	if (selectedInterests.length >= 4 && selectedInterests.length <= 11) {
+		dreamEducationButtonClass += " dreamEducationButton";
+	} else {
+		dreamEducationButtonClass += " locked";
+	}
 
   const updateLists = (selectedInterest: InterestType) => {
     // Find index of interest to "remove" from non-selected interests
@@ -105,14 +113,13 @@ const Interest: React.FC<InterestProps> = ({ interests, handleRecommendationButt
   };
 
   async function handleRecommend() {
-    if (selectedInterests.length >= 4 && selectedInterests.length <= 11) {
-      handleRecommendationButtonClick(
+		if (selectedInterests.length >= 4 && selectedInterests.length <= 11) {
+			handleRecommendationButtonClick(
         selectedInterests.map((interest) => interest.interestTitle)
       );
     } else {
-      
+    	//Say something to user, that they have to select interests
     }
-    //Say something to user, that they have to select interests
   }
 
   const placeholderInterest = { interestId: 'placeholder', interestTitle: '', interestDescription: 'placeholder' };
@@ -174,9 +181,9 @@ const Interest: React.FC<InterestProps> = ({ interests, handleRecommendationButt
           <RefreshButton refresh={refresh}/>
         </div>
       </div>
-      <div className="recommendationButtonWrapper" style={{ display: 'flex', alignItems: 'center' }}>
+      <div className={"recommendationButtonWrapper"} style={{ display: 'flex', alignItems: 'center' }}>
         <hr/>
-        <button className="answerButton" onClick={handleRecommend}>
+        <button className={dreamEducationButtonClass} onClick={handleRecommend}>
           <p className="user"> &gt;&gt; Hitta min drömutbildning &lt;&lt; </p>
         </button>
         <hr />
