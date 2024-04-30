@@ -117,7 +117,7 @@ export function generateHiddenRecommendations(programs: ProgramNameAndId[], html
 			const buttonText = button.children[1];
 			console.log(buttonText);
 			//if button is being pressed it should expand
-			if (element.classList.contains("hide") && buttonText) {
+			if (element?.classList.contains("hide") && buttonText) {
 				removeClass("hide", `reqDescriptionBox${i}`);
 				removeClass("expandArrow", `arrow${i}`);
 				addClass("contractArrow", `arrow${i}`);
@@ -251,7 +251,7 @@ export function aiTypeAnswer(programs: ProgramNameAndId[], htmlClass: string, in
 			const buttonText = button.children[1];
 			console.log(buttonText);
 			//if button is being pressed it should expand
-			if (element.classList.contains("hide") && buttonText) {
+			if (element?.classList.contains("hide") && buttonText) {
 				removeClass("hide", `reqDescriptionBox${i}`);
 				removeClass("expandArrow", `arrow${i}`);
 				addClass("contractArrow", `arrow${i}`);

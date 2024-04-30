@@ -16,17 +16,13 @@ interface InterestProps {
   handleRecommendationButtonClick: (interest: string[]) => void;
 }
 
+
 const Interest: React.FC<InterestProps> = ({ interests, handleRecommendationButtonClick }) => {
 	const [selectedInterests, setSelectedInterests] = useState<InterestType[]>([]);
 	const [notSelected, setNotSelected] = useState<InterestType[]>(interests.filter((interest, index) => index < NUMBER_OF_INTERESTS));
 	const [customInterest, setCustomInterest] = useState<string>("");
 
-  const updateLists = (selectedInterest: InterestType, isMounted: boolean) => {
-    if (isMounted) {
-      // This will be true after the fade-in animation has run
-      return;
-    }
-
+  const updateLists = (selectedInterest: InterestType) => {
     // Find index of interest to "remove" from non-selected interests
     let index = 0;
     while (notSelected[index] !== selectedInterest) {
@@ -72,7 +68,7 @@ const Interest: React.FC<InterestProps> = ({ interests, handleRecommendationButt
       interestId: randId,
       interestTitle: customInterest,
       interestDescription:
-        "No interest description for custom interests (user added interests)",
+        "No interest description for custom interests (user-added interests)",
     };
     // Adds it to the list of selected interests
     setSelectedInterests([...selectedInterests, interest]);
@@ -119,12 +115,21 @@ const Interest: React.FC<InterestProps> = ({ interests, handleRecommendationButt
     //Say something to user, that they have to select interests
   }
 
+  const placeholderInterest = { interestId: 'placeholder', interestTitle: '', interestDescription: 'placeholder' };
+
+  const filledPlaceholderInterests = [...selectedInterests, ...Array(11 - selectedInterests.length).fill(placeholderInterest)];
+  
+  const placeholderInterestRows = filledPlaceholderInterests.length > 6
+    ? [filledPlaceholderInterests.slice(0, 6), filledPlaceholderInterests.slice(6, 11)]
+    : [filledPlaceholderInterests];
 
 // Group the notSelected interests into rows
   const interestRows = [notSelected.slice(0, 5), notSelected.slice(5, 11)];
   const selectedInterestRows = selectedInterests.length >= 6 
   ? [selectedInterests.slice(0, 6), selectedInterests.slice(6, 11)]
   : [[...selectedInterests]];
+
+  console.log(selectedInterests)
 
   return (
     <div className="wrapper interestWrapper interest">
@@ -135,10 +140,12 @@ const Interest: React.FC<InterestProps> = ({ interests, handleRecommendationButt
         <hr />
       </div>
       <div className="selectedInterestList">
-        {selectedInterestRows.map((row, rowIndex) => (
+        {placeholderInterestRows.map((row, rowIndex) => (
           <div className={`interestRow selectedRow${rowIndex + 1}`}>
             {row.map((interest) => (
-              <InterestItem updateParent={handleDeselect} interest={interest} mounted={true} isSelected={true} key={interest.interestId} />
+              interest.interestId !== 'placeholder'
+                ? <InterestItem updateParent={handleDeselect} interest={interest} mounted={true} isSelected={true} key={interest.interestId} />
+                : <div className="placeholderInterest"><p></p></div>  // Replace this with your actual placeholder
             ))}
           </div>
         ))}

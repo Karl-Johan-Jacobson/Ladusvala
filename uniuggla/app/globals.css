@@ -299,6 +299,10 @@ header {
   transition: 0.5s ease;
   overflow-y: auto;
 }
+
+.interestText {
+  height: 8vw;
+}
 .selectedInterestTitle {
   display: flex;
   align-items: center;
@@ -391,7 +395,7 @@ header {
 }
 
 .selectedButton{
-  box-sizing: border-box; /* Add this line */
+  box-sizing: border-box; 
   width: 13vw;
   height: 4vw;
   background-color: var(--primary-dark-purple);
@@ -419,6 +423,14 @@ header {
 
 .selectedButton:hover .iconText {
   color: var(--medium-green);
+}
+
+.placeholderInterest {
+  box-sizing: border-box; /* Add this line */
+  width: 13vw;
+  height: 4vw;
+  border-radius: var(--primary-border-radius);
+  border: dotted var(--primary-dark-purple) 0.2vw;
 }
 
 .interestControl {
