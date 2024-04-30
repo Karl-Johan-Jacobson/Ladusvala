@@ -16,7 +16,7 @@
     "dotenv": "^16.4.5",
     "firebase": "^10.11.0",
     "fs": "^0.0.1-security",
-    "next": "14.2.1",
+    "next": "^14.2.1",
     "openai": "^4.36.0",
     "react": "^18",
     "react-dom": "^18",
@@ -34,6 +34,6 @@
     "@types/uuid": "^9.0.8",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5.4.5"
+    "typescript": "5.4.5"
   }
 }
