@@ -47,7 +47,7 @@ async function recommendProgramFromInterest(
   interestString: string
 ) {
   // Generate content for AI based on interests and programs
-  let content: string = `These are my interest: ${interestString} and these are all available programs ${programString}. I want you to choose 5 programs that are based on my interest. It's important that they are relevent to my interest. You should only answer with the programID.`;
+  let content: string = `These are my interest: ${interestString} and these are all available programs ${programString}. I want you to choose 5 programs that are based on my interest. It's important that they are relevent to my interest however the fifth recommendation should be a wildcard and be loosely based on my interests. You should only answer with the programID.`;
 
   // Make a prompt format
   const questionToAi: ChatCompletionMessageParam = {
@@ -106,7 +106,7 @@ async function recommendProgramFromInterest(
   return idFromRespArray;
 }
 
-const filePath: string = "filtered_programsTEST.json";
+const filePath: string = "demoPrograms.json";
 
 // programDesciption name will be fixed when actual file is used.
 export type ProgramNameAndId = {

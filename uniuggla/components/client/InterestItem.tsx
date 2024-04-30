@@ -2,7 +2,7 @@
 
 import Interest from "@/types/interest";
 import { useState } from "react";
-import { RandomBlob, RandomSelectedBlob }  from "../Blob";
+import {RandomAnimatedSelectedBlob, RandomAnimatedBlob, RandomBlob }  from "../server/Blob";
 
 interface InterestListItemProps {
   interest: Interest;
@@ -11,7 +11,7 @@ interface InterestListItemProps {
   updateParent: (interest: Interest, isMounted: boolean) => void;
 }
 
-export default function InterestListItem({ interest, isSelected, mounted, updateParent }: InterestListItemProps) {
+export default function InterestListItem({ interest, isSelected, mounted, updateParent, }: InterestListItemProps) {
   const [isMounted, setIsMounted] = useState<boolean>(mounted);
 
   // This function is called when an animation has ended, i.e when the component has either faded in or ou
@@ -30,18 +30,17 @@ export default function InterestListItem({ interest, isSelected, mounted, update
   }
 
   return (
-    <div>
+    <div className="interestItem">
       {isSelected ?
         <button 
           onClick={handleClick}
           className={
             isMounted ?
-              "iconButton selectedInterestButton fadeInSelected" :
-              "iconButton selectedInterestButton fadeOut"
+              "selectedButton fadeInSelected" :
+              "selectedButton fadeOut"
           }
           onAnimationEnd={handleParentUpdate}
         >
-          <RandomSelectedBlob key={interest.interestId}/>
           <span className="iconText">{interest.interestTitle}</span>
         </button> : 
         <button // If not selected
@@ -49,11 +48,10 @@ export default function InterestListItem({ interest, isSelected, mounted, update
           onAnimationEnd={handleParentUpdate}
           className={
             isMounted ?
-              "iconButton notSelectedInterestButton fadeInNew" :
-              "iconButton notSelectedInterestButton fadeOut"
+              "notSelectedButton fadeInNew" :
+              "notSelectedButton fadeOut"
           }
         >
-          <RandomBlob key={interest.interestId}/>
           <span className="iconText">{interest.interestTitle}</span>
         </button>
       }

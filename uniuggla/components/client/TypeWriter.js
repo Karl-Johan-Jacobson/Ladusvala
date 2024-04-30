@@ -13,7 +13,6 @@ export function TypewriterForTitle(text, htmlClass, moveAfter) {
 	});
 
 	var splitText = text.split("<br />");
-	console.log(text.length);
 	var i = 0;
 	for (i = 0; i < splitText.length; i++) {
 		if (i != splitText.length - 1) {
@@ -34,6 +33,5 @@ export function TypewriterForTitle(text, htmlClass, moveAfter) {
 			modifyTopPaddingRelative("-1.5em", htmlClass);
 		});
 	}
-	console.log(time);
 	return time;
 }
