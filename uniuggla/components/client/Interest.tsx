@@ -21,7 +21,6 @@ const Interest: React.FC<InterestProps> = ({ interests, handleRecommendationButt
 	const [selectedInterests, setSelectedInterests] = useState<InterestType[]>([]);
 	const [notSelected, setNotSelected] = useState<InterestType[]>(interests.filter((interest, index) => index < NUMBER_OF_INTERESTS));
 	const [customInterest, setCustomInterest] = useState<string>("");
-  
 	// Set 'find my dream education' button as locked unless 4 interests are selected
 	let dreamEducationButtonClass = "dreamEducationButton";
 	if (selectedInterests.length >= 4 && selectedInterests.length <= 11) {
@@ -31,6 +30,13 @@ const Interest: React.FC<InterestProps> = ({ interests, handleRecommendationButt
 	}
 
   const updateLists = (selectedInterest: InterestType) => {
+
+  const updateLists = (selectedInterest: InterestType, isMounted: boolean) => {
+    if (isMounted) {
+      // This will be true after the fade-in animation has run
+      return;
+    }
+
     // Find index of interest to "remove" from non-selected interests
     let index = 0;
     while (notSelected[index] !== selectedInterest) {

@@ -422,4 +422,10 @@ export const modifyTopPaddingRelative = (relativePaddingtop: string, htmlClass: 
 		var newPaddingTop = "calc(" + currentPaddingTop + " + " + relativePaddingtop + ")";
 		(element as HTMLElement).style.paddingTop = newPaddingTop;
 	});
+
+	
+
 };
+
+
+
