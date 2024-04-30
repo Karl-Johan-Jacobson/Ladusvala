@@ -293,7 +293,6 @@ header img {
 	color: white;
 }
 .interestWrapper {
-  display: flex;
   justify-content: center; /* Add this line */
   height: auto;
   width: max-content;
