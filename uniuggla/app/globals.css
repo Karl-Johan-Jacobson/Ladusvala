@@ -285,9 +285,10 @@ header {
 */
 
 .interestWrapper {
+  display: flex;
+  justify-content: center; /* Add this line */
   height: auto;
   width: max-content;
-  position: absolute;
   left: 0;
   right: 0;
   top: 0;
@@ -424,6 +425,7 @@ header {
   width: 35vw;
   margin-left: auto;
   margin-right: auto;
+  display: flex;
 }
 
 .customInterestForm,
@@ -432,7 +434,7 @@ header {
   display: flex;
   box-sizing: border-box;
   width: 100%;
-  height: 4vh;
+  height: 100%;
   border-radius: var(--primary-border-radius);
 }
 
@@ -499,7 +501,8 @@ header {
   justify-content: left;
   align-items: center;
   margin-top: 1vw;
-
+  width: 40vw;
+  height: 2vw;
 }
 
 .refreshButtonWrapper {
@@ -507,19 +510,40 @@ header {
   justify-content: right;
   align-items: center;
   margin-top: 1vw;
+  height: 2vw;
+  width: 4vw;
+  margin-left: 1vw;
 }
-.recommendationButton{
+.recommendationButtonWrapper{
   cursor: pointer;
-  width: 36vw;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+
 }
-.recommendationButton p{
-  font-size: 30px;
-  font-family: 'Tomorrow-MediumItalic';
-  font-style: italic;
+.recommendationButtonWrapper p{
+  font-size: 2.3vw;
+  font-family: 'Tomorrow-Medium';
   color: #9ECB98;
+  margin: 1vw;
+}
+
+.recommendationButtonWrapper hr{
+  flex-grow: 1;
+  border-color: var(--medium-green);
+  border-width: 2px;
+  border-style: solid;
+}
+
+.recommendationButtonLine {
+  flex-grow: 1;
+  border-color: var(--medium-green);
+  border-width: 2px;
+  border-style: solid;
 }
 /* Interests fade-in and fade-out animations */
 
@@ -580,6 +604,46 @@ header {
     transform: scale(0);
     opacity: 0;
   }
+}
+
+.refreshButton,
+.refreshButton::before,
+.refreshButton::after {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  padding: 4px;
+
+  background-color: var(--medium-green);
+  border: var(--primary-border-width) solid var(--primary-dark-green);
+  border-radius: var(--primary-border-radius);
+}
+
+.refreshButton:hover {
+  cursor: pointer;
+  background-color: var(--medium-green-shadow);
+  transition: background-color 200ms;
+}
+
+.refreshIcon {
+  width: 100%;
+  height: 100%;
+  fill: var(--primary-light-green);
+}
+
+.refreshAnimation {
+  animation: spin 500ms ease-in-out;
+}
+
+@keyframes spin { 
+  100% { 
+      -webkit-transform: rotate(360deg); 
+      transform:rotate(360deg); 
+  } 
 }
 /*
   End of Intrest
@@ -785,41 +849,3 @@ cursor: default
   End of Footer
   ---===---===---===---===---===---===---===---===---===---
 */
-
-.centerDiv {
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  height: 200px;
-}
-
-.refreshButton {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  
-  padding: 4px;
-  background-color: var(--medium-green);
-  border: 2px solid var(--primary-dark-green);
-  border-radius: 6px;
-}
-
-.refreshButton:hover {
-  cursor: pointer;
-  background-color: var(--medium-green-shadow);
-}
-
-.refreshIcon {
-  fill: var(--primary-medium-green);
-}
-
-.refreshAnimation {
-  animation: spin 500ms ease-in-out;
-}
-
-@keyframes spin { 
-  100% { 
-      -webkit-transform: rotate(360deg); 
-      transform:rotate(360deg); 
-  } 
-}

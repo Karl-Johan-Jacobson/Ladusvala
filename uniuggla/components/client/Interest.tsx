@@ -131,7 +131,7 @@ const Interest: React.FC<InterestProps> = ({ interests, handleRecommendationButt
       <p className="bot titleTypewriter interestText" style={{ paddingTop: "10vh" }}></p>
       <div className="selectedInterestTitle">
         <hr />
-        <span>Selected Interests</span>
+        <span>Dina intressen</span>
         <hr />
       </div>
       <div className="selectedInterestList">
@@ -145,7 +145,7 @@ const Interest: React.FC<InterestProps> = ({ interests, handleRecommendationButt
       </div>
       <div className="notSelectedInterestTitle">
         <hr />
-        <span>Select your interests!</span>
+        <span>Välj dina intressen</span>
         <hr />
       </div>
       <div className="notSelectedInterestList">
@@ -166,9 +166,13 @@ const Interest: React.FC<InterestProps> = ({ interests, handleRecommendationButt
         <div className="refreshButtonWrapper">
           <RefreshButton refresh={refresh}/>
         </div>
-        <button className="recommendationButton answerButton" onClick={handleRecommend}>
-            <p className="user"> &gt;&gt; Hitta min drömutbildning &lt;&lt; </p>
+      </div>
+      <div className="recommendationButtonWrapper" style={{ display: 'flex', alignItems: 'center' }}>
+        <hr/>
+        <button className="answerButton" onClick={handleRecommend}>
+          <p className="user"> &gt;&gt; Hitta min drömutbildning &lt;&lt; </p>
         </button>
+        <hr />
       </div>
     </div>
   );
