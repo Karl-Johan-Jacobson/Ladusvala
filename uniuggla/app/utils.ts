@@ -55,31 +55,31 @@ export function generateHiddenRecommendations(programs: ProgramNameAndId[], html
 		//create a p element to write title
 		const title = document.createElement("p");
 		title.className = "tilteReq";
-		title.textContent = program.programTitle_sv;
+		title.innerHTML = program.programTitle_sv;
 		recommendedHead.appendChild(title);
 		//create a p element to write school
 		const school = document.createElement("p");
 		school.className = "schoolReq descriptionReq";
-		//school.textContent = program.school;
-		school.textContent = "LÄROSÄTE: " + "Kungliga Tekniska Högskolan";
+		//school.innerHTML = program.school;
+		school.innerHTML = "LÄROSÄTE: " + "Kungliga Tekniska Högskolan";
 		recommendedHead.appendChild(school);
 		//create a p elemnt to write degree in
 		const degree = document.createElement("p");
 		degree.className = "degreeReq descriptionReq";
-		//degree.textContent = program.;
-		degree.textContent = "EXAMEN: " + "Civilingenjör, Kandidat, Master";
+		//degree.innerHTML = program.;
+		degree.innerHTML = "EXAMEN: " + "Civilingenjör, Kandidat, Master";
 		recommendedHead.appendChild(degree);
 		//create a ...
 		const points = document.createElement("p");
 		points.className = "pointsReq descriptionReq";
-		points.textContent = program.programPoints + " HP";
+		points.innerHTML = program.programPoints + " HP";
 		recommendedHead.appendChild(points);
 		//create a ...
 		const years = document.createElement("p");
 		years.className = "yearsReq descriptionReq";
 		//to display year it had to be casted to a number to make division possible and then to string again, (shit code, but it works)
 		const numberOfYears: string = ((program.programPoints as unknown as number) / 60) as unknown as string;
-		years.textContent = numberOfYears + " ÅR";
+		years.innerHTML = numberOfYears + " ÅR";
 		recommendedHead.appendChild(years);
 		//create the div for the show more info
 		const reqDescriptionBox = document.createElement("div");
@@ -88,7 +88,7 @@ export function generateHiddenRecommendations(programs: ProgramNameAndId[], html
 		//create the link
 		const reqDescriptionLink = document.createElement("a");
 		reqDescriptionLink.className = ` reqDescription reqDescriptionLink reqDescriptionLink${i}`;
-		reqDescriptionLink.textContent = "Till programmets hemsida";
+		reqDescriptionLink.innerHTML = "Till programmets hemsida";
 		reqDescriptionLink.target = "_blank";
 		reqDescriptionLink.href = program.programLink;
 
@@ -97,12 +97,12 @@ export function generateHiddenRecommendations(programs: ProgramNameAndId[], html
 		//create a p ...
 		const reqDescriptionTitle = document.createElement("p");
 		reqDescriptionTitle.className = `reqDescription reqDescriptionTitle reqDescriptionTitle${i}`;
-		reqDescriptionTitle.textContent = "Programbeskrivning:";
+		reqDescriptionTitle.innerHTML = "Programbeskrivning:";
 		reqDescriptionBox.appendChild(reqDescriptionTitle);
 		//create a ...
 		const reqDescriptionContent = document.createElement("p");
 		reqDescriptionContent.className = `reqDescriptionContent reqDescriptionContent${i}`;
-		reqDescriptionContent.textContent = program.programDesciption_sv;
+		reqDescriptionContent.innerHTML = program.programDesciption_sv;
 		reqDescriptionBox.appendChild(reqDescriptionContent);
 
 		const recommendedFoot = document.createElement("div");
@@ -143,7 +143,7 @@ export function generateHiddenRecommendations(programs: ProgramNameAndId[], html
 		//write the show more description
 		const recommendedDescription = document.createElement("div");
 		recommendedDescription.className = `recommendedDescription recommendedDescription${i} hide`;
-		recommendedDescription.textContent = program.programDesciption_sv;
+		recommendedDescription.innerHTML = program.programDesciption_sv;
 		recommendedBox.appendChild(recommendedDescription);
 	}
 }
@@ -189,31 +189,31 @@ export function aiTypeAnswer(programs: ProgramNameAndId[], htmlClass: string, in
 		//create a p element to write title
 		const title = document.createElement("p");
 		title.className = "tilteReq";
-		title.textContent = program.programTitle_sv;
+		title.innerHTML = program.programTitle_sv;
 		recommendedHead.appendChild(title);
 		//create a p element to write school
 		const school = document.createElement("p");
 		school.className = "schoolReq descriptionReq";
-		//school.textContent = program.school;
-		school.textContent = "LÄROSÄTE: " + "Kungliga Tekniska Högskolan";
+		//school.innerHTML = program.school;
+		school.innerHTML = "LÄROSÄTE: " + "Kungliga Tekniska Högskolan";
 		recommendedHead.appendChild(school);
 		//create a p elemnt to write degree in
 		const degree = document.createElement("p");
 		degree.className = "degreeReq descriptionReq";
-		//degree.textContent = program.;
-		degree.textContent = "EXAMEN: " + "Civilingenjör, Kandidat, Master";
+		//degree.innerHTML = program.;
+		degree.innerHTML = "EXAMEN: " + "Civilingenjör, Kandidat, Master";
 		recommendedHead.appendChild(degree);
 		//create a ...
 		const points = document.createElement("p");
 		points.className = "pointsReq descriptionReq";
-		points.textContent = program.programPoints + " HP";
+		points.innerHTML = program.programPoints + " HP";
 		recommendedHead.appendChild(points);
 		//create a ...
 		const years = document.createElement("p");
 		years.className = "yearsReq descriptionReq";
 		//to display year it had to be casted to a number to make division possible and then to string again, (shit code, but it works)
 		const numberOfYears: string = ((program.programPoints as unknown as number) / 60) as unknown as string;
-		years.textContent = numberOfYears + " ÅR";
+		years.innerHTML = numberOfYears + " ÅR";
 		recommendedHead.appendChild(years);
 		//create the div for the show more info
 		const reqDescriptionBox = document.createElement("div");
@@ -222,7 +222,7 @@ export function aiTypeAnswer(programs: ProgramNameAndId[], htmlClass: string, in
 		//create the link
 		const reqDescriptionLink = document.createElement("a");
 		reqDescriptionLink.className = ` reqDescription reqDescriptionLink reqDescriptionLink${i}`;
-		reqDescriptionLink.textContent = "Till programmets hemsida";
+		reqDescriptionLink.innerHTML = "Till programmets hemsida";
 		reqDescriptionLink.target = "_blank";
 		reqDescriptionLink.href = program.programLink;
 
@@ -231,12 +231,12 @@ export function aiTypeAnswer(programs: ProgramNameAndId[], htmlClass: string, in
 		//create a p ...
 		const reqDescriptionTitle = document.createElement("p");
 		reqDescriptionTitle.className = `reqDescription reqDescriptionTitle reqDescriptionTitle${i}`;
-		reqDescriptionTitle.textContent = "Programbeskrivning:";
+		reqDescriptionTitle.innerHTML = "Programbeskrivning:";
 		reqDescriptionBox.appendChild(reqDescriptionTitle);
 		//create a ...
 		const reqDescriptionContent = document.createElement("p");
 		reqDescriptionContent.className = `reqDescriptionContent reqDescriptionContent${i}`;
-		reqDescriptionContent.textContent = program.programDesciption_sv;
+		reqDescriptionContent.innerHTML = program.programDesciption_sv;
 		reqDescriptionBox.appendChild(reqDescriptionContent);
 
 		const recommendedFoot = document.createElement("div");
@@ -277,7 +277,7 @@ export function aiTypeAnswer(programs: ProgramNameAndId[], htmlClass: string, in
 		//write the show more description
 		const recommendedDescription = document.createElement("div");
 		recommendedDescription.className = `recommendedDescription recommendedDescription${i} hide`;
-		recommendedDescription.textContent = program.programDesciption_sv;
+		recommendedDescription.innerHTML = program.programDesciption_sv;
 		recommendedBox.appendChild(recommendedDescription);
 
 		//Remove the loading string from page.
@@ -306,15 +306,14 @@ export function aiTypeAnswer(programs: ProgramNameAndId[], htmlClass: string, in
 			console.log(test);
 			var e = test as unknown as HTMLElement;
 			console.log(e);
-			console.log(e.textContent);
-			e.textContent = "Inga fler rekommendationer";
+			console.log(e.innerHTML);
+			e.innerHTML = "Inga fler rekommendationer";
 			return;
-		}
-		else{
-		container.removeChild(showMoreRecommendations);
-		generateHiddenRecommendations(programs, htmlClass, interestArr, hiddenCounter);
-		container.appendChild(showMoreRecommendations);
-		hiddenCounter += 5;
+		} else {
+			container.removeChild(showMoreRecommendations);
+			generateHiddenRecommendations(programs, htmlClass, interestArr, hiddenCounter);
+			container.appendChild(showMoreRecommendations);
+			hiddenCounter += 5;
 		}
 	});
 }
