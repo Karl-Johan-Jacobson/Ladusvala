@@ -6,10 +6,11 @@ var gradeBoxCounter: number = 0;
 export default function countAllGrades(courseName: string, coursePointsAsString: string, grade: string) {
 	//error handling to start with
 
-    if (totalCoursePoints == 2400) {
-		showGradeScoreToUser();
+    if (grade.length !== 1 || !/[A-Fa-f]/.test(grade)) {
+        // Grade is either not a single character or not within A-F or a-f range
         return;
-	}
+    }
+
 	//turn coursepoints to an Integer
 	const coursePointsAsNumber: number = parseInt(coursePointsAsString, 10);
 	console.log("coursePointsAsNumber: " + coursePointsAsNumber);
@@ -20,8 +21,13 @@ export default function countAllGrades(courseName: string, coursePointsAsString:
 	totalgrades += countOneGrade(grade, coursePointsAsNumber);
     console.log("Before totalCoursePoints:  "+totalCoursePoints)
     console.log("Before totalgrades: "+ totalgrades)
+
 	//generate a block that shows a box of the argument that is passed to the user
 	generateHTMLBLock(courseName, coursePointsAsString, grade, coursePointsAsNumber);
+    if (totalCoursePoints == 2400) {
+		showGradeScoreToUser();
+        return;
+	}
 
 
     
@@ -77,7 +83,7 @@ function showGradeScoreToUser() {
 
 	const points = document.createElement("p");
 	points.className = `pointOutput gradeStyle`;
-	points.innerHTML = "BI Poäng: " + (averageGradeScore as unknown as string);
+	points.innerHTML = "BI Poäng: " + (parseFloat(averageGradeScore.toFixed(2)));
 	container.appendChild(points);
 }
 

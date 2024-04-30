@@ -214,7 +214,7 @@ header img {
 .titleTypewriter {
 	margin: 0 auto;
 	transition: padding-top 0.2s ease;
-	font-size: 5vh;
+	font-size: 3vw;
 	font-family: "Tomorrow-Medium" !important;
 	line-height: 1.5em;
 	color: var(--primary-dark-purple);
