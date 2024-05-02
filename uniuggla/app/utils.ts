@@ -76,11 +76,12 @@ export function generateHiddenRecommendations(programs: ProgramNameAndId[], html
 		school.innerHTML = "LÄROSÄTE: " + program.schoolName;
 		recommendedHead.appendChild(school);
 		//create a p elemnt to write degree in
-		const degree = document.createElement("p");
-		degree.className = "degreeReq descriptionReq";
-		//degree.innerHTML = program.;
-		degree.innerHTML = "EXAMEN: " + program.degree;
-		recommendedHead.appendChild(degree);
+		if (program.degree != null) {
+			const degree = document.createElement("p");
+			degree.className = "degreeReq descriptionReq";
+			degree.innerHTML = "EXAMEN: " + program.degree;
+			recommendedHead.appendChild(degree);
+		}
 		//create a ...
 		const points = document.createElement("p");
 		points.className = "pointsReq descriptionReq";
@@ -90,7 +91,7 @@ export function generateHiddenRecommendations(programs: ProgramNameAndId[], html
 		const years = document.createElement("p");
 		years.className = "yearsReq descriptionReq";
 		//to display year it had to be casted to a number to make division possible and then to string again, (shit code, but it works)
-		const numberOfYears: string = ((program.programPoints as unknown as number) / 60) as unknown as string;
+		const numberOfYears: string = ((program.programPoints as unknown as number) / 60).toFixed(2) as unknown as string;
 		years.innerHTML = numberOfYears + " ÅR";
 		recommendedHead.appendChild(years);
 		//create the div for the show more info
@@ -225,12 +226,13 @@ export function aiTypeAnswer(programs: ProgramNameAndId[], htmlClass: string, in
 		//school.innerHTML = program.school;
 		school.innerHTML = "LÄROSÄTE: " + program.schoolName;
 		recommendedHead.appendChild(school);
-		//create a p elemnt to write degree in
-		const degree = document.createElement("p");
-		degree.className = "degreeReq descriptionReq";
-		//degree.innerHTML = program.;
-		degree.innerHTML = "EXAMEN: " + program.degree;
-		recommendedHead.appendChild(degree);
+		//create a p elemnt to write degree in		
+		if (program.degree != null) {
+			const degree = document.createElement("p");
+			degree.className = "degreeReq descriptionReq";
+			degree.innerHTML = "EXAMEN: " + program.degree;
+			recommendedHead.appendChild(degree);
+		}
 		//create a ...
 		const points = document.createElement("p");
 		points.className = "pointsReq descriptionReq";
@@ -240,7 +242,7 @@ export function aiTypeAnswer(programs: ProgramNameAndId[], htmlClass: string, in
 		const years = document.createElement("p");
 		years.className = "yearsReq descriptionReq";
 		//to display year it had to be casted to a number to make division possible and then to string again, (shit code, but it works)
-		const numberOfYears: string = ((program.programPoints as unknown as number) / 60) as unknown as string;
+		const numberOfYears: string = ((program.programPoints as unknown as number) / 60).toFixed(2) as unknown as string;
 		years.innerHTML = numberOfYears + " ÅR";
 		recommendedHead.appendChild(years);
 		//create the div for the show more info
@@ -383,6 +385,7 @@ export async function aiResponse(interests: string, interestArr: string[]): Prom
 			}
 		}
 	}
+	console.log("SelectedPrograms:  " + selectedPrograms);
 	//send the programs to generate the recommendedboxes
 	aiTypeAnswer(selectedPrograms, "recommendedWrapper", interestArr);
 }
