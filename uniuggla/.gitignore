@@ -39,6 +39,7 @@ next-env.d.ts
 # data
 public/dataset/intrests.*
 public/dataset/programs.*
+public/dataset/programs_safe.*
 
 # webscrapers
 webScrapers/test.*

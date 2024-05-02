@@ -3,7 +3,6 @@ import * as fs from "fs";
 import OpenAI from "openai";
 import { ChatCompletionMessageParam } from "openai/resources/index.mjs";
 import type Interest from "../types/interest";
-import type Program from "../types/program";
 //IF YOU GET this error TS18028, just ignore. and run js file anyway -KJ
 
 const openai = new OpenAI({
@@ -31,12 +30,8 @@ function turnProgramToPrompt(allPrograms: ProgramNameAndId[]): string {
 
   for (let i = 0; i < allPrograms.length; i++) {
     //generatedString += `Degree: ${allPrograms[i].porgramTitle_sv}, ID = ${allPrograms[i].programId}\n`; //USED IN RELEASE
-    generatedString += `Program title: ${allPrograms[i].programTitle_sv}, ProgramId: ${allPrograms[i].programId}\n, `;
+    generatedString += `Program title: ${allPrograms[i].aiPrompt}, ProgramId: ${allPrograms[i].programId}\n, `;
   }
-  //console.log(generatedString+'\n');
-
-  //console.log(generatedString+'\n');
-
   return generatedString;
 }
 
@@ -69,7 +64,6 @@ async function recommendProgramFromInterest(
   console.log("TOTAL TOKEN USAGE: " + completion.usage?.total_tokens);
   // Use the exec method of the regex to find matches in the text
   const regex = /\d+/g;
-
   let idFromRespArray: string[] = []; // this will now hold all the IDs of programs extracted from the ai response.
 
   const numbers = text.match(regex); // extract numbers from the string
@@ -98,11 +92,6 @@ async function recommendProgramFromInterest(
     }
     console.log("Content has been written to hallucinationTest.txt");
   });
-
-  //DEBUG PURPOSE
-  //console.log(idFromRespArray);
-  //console.log(completion.choices[0].message.content);
-  //console.log(numbers);
   return idFromRespArray;
 }
 
@@ -139,12 +128,11 @@ export async function fetchAllProgramsJson(): Promise<ProgramNameAndId[]> {
             programPoints: item.programPoints,
             programDesciption_sv: item.programDesciption_sv,
             programLink: item.programLink,
-            programId: counter++, // This will be set through scrapers, will be present within programs.json. Assuming programId is a string and needs to be converted to a number
+            programId: counter++,
+            schoolName: item.schoolName,
+            aiPrompt: item.aiPropmt,
+            degree: item.degree, // This will be set through scrapers, will be present within programs.json. Assuming programId is a string and needs to be converted to a number
           }));
-          /*console.log("-----START OF PROGRAM SECTION------");
-          console.log(allPrograms);
-          console.log("-----END OF PROGRAM SECTION------");*/
-
           resolve(allPrograms);
           return allPrograms; // can use resolve(allPrograms) if errors occur. -> is much slower
         } catch (parseError) {
@@ -154,43 +142,51 @@ export async function fetchAllProgramsJson(): Promise<ProgramNameAndId[]> {
     );
   });
 }
-
 export default async function callOpenaiInParts(interestString: string) {
   try {
+
+
+
     const programs = await fetchAllProgramsJson();
-    //console.log("programs");
-
-    //console.log(programs);
-    //console.log("programs");
-
+   
     const arrayLength = programs.length;
-    const partition = Math.ceil(arrayLength / 5); // Round up to ensure all items are included
-    //const test = turnProgramToPrompt(programs);
-    //console.log("test");
+    const partition = Math.ceil(arrayLength / 5);
+   
+    
+   
 
-    //console.log(test);
+    let programIds: string[] = [];
 
-    let programIds: string[] = []; // Will hold all program ids from the 5 calls to openAI. Use to make new call.
-    for (let i = 0; i < 5; i++) {
-      // Make 5 calls to openAI to split context.
+    // Create an array of promises that run recommendProgramFromInterest concurrently
+    
+    const promiseArray = Array.from({ length: 5 }, async (_, i) => {
       const startIndex = i * partition;
-      const endIndex = Math.min((i + 1) * partition, arrayLength); // Ensure endIndex does not exceed array length
-
+      const endIndex = Math.min((i + 1) * partition, arrayLength);
       const slicedPrograms = programs.slice(startIndex, endIndex);
       const partialProgramString = turnProgramToPrompt(slicedPrograms);
+      console.log(i);
+      return recommendProgramFromInterest(partialProgramString, interestString);
+    });
+    
+    
+    // Wait for all promises to resolve
+    const startTime = Date.now();
+    const results = await Promise.all(promiseArray);
+    const endTime = Date.now();
+    const duration = endTime - startTime;
+    console.log(`Time taken: ${duration} milliseconds`);
 
-      programIds = programIds.concat(
-        await recommendProgramFromInterest(
-          partialProgramString,
-          interestString
-        )
-      ); // programIds from recommendProgramFromInterest is added to programIds
-      console.log(`Program IDs from ${i} partition: `, programIds);
-    }
+    // Concatenate the results
+    results.forEach(result => {
+      programIds = programIds.concat(result);
+    });
+
     console.log(`Program IDs from all partitions: `, programIds);
     return programIds;
   } catch (error) {
     console.error("Error occurred:", error);
   }
 }
+
+
 

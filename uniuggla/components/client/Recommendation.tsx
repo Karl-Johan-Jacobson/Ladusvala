@@ -12,20 +12,6 @@ const Recommendation: React.FC<RecommendationProps & {}> = () => {
 	return (
 		<div id="recommmendation" className="wrapper recommmendationWrapper recommmendation">
 			<p className="bot titleTypewriter recommmendationText" style={{ paddingTop: "10vh" }}></p>
-			<div className="filterWrapper">
-				<form className="textInputWrapper" action="">
-					<input className="textInput" type="text" placeholder="Lärosäte" />
-					<button className="textButton">
-						<img className="textButtonImg" src="../../three_dot.svg" alt="" />
-					</button>
-				</form>
-				<form className="textInputWrapper" action="">
-					<input className="textInput" type="text" placeholder="År" />
-					<button className="textButton">
-						<img className="textButtonImg" src="../../three_dot.svg" alt="" />
-					</button>
-				</form>
-			</div>
 			<div className="recommendedWrapper">
 				<div className="loadingGIF">
 					<img src="../../uniugglan.gif" alt="Waiting on recomendation." />

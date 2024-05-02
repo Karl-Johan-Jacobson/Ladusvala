@@ -73,13 +73,13 @@ export function generateHiddenRecommendations(programs: ProgramNameAndId[], html
 		const school = document.createElement("p");
 		school.className = "schoolReq descriptionReq";
 		//school.innerHTML = program.school;
-		school.innerHTML = "LÄROSÄTE: " + "Kungliga Tekniska Högskolan";
+		school.innerHTML = "LÄROSÄTE: " + program.schoolName;
 		recommendedHead.appendChild(school);
 		//create a p elemnt to write degree in
 		const degree = document.createElement("p");
 		degree.className = "degreeReq descriptionReq";
 		//degree.innerHTML = program.;
-		degree.innerHTML = "EXAMEN: " + "Civilingenjör, Kandidat, Master";
+		degree.innerHTML = "EXAMEN: " + program.degree;
 		recommendedHead.appendChild(degree);
 		//create a ...
 		const points = document.createElement("p");
@@ -223,13 +223,13 @@ export function aiTypeAnswer(programs: ProgramNameAndId[], htmlClass: string, in
 		const school = document.createElement("p");
 		school.className = "schoolReq descriptionReq";
 		//school.innerHTML = program.school;
-		school.innerHTML = "LÄROSÄTE: " + "Kungliga Tekniska Högskolan";
+		school.innerHTML = "LÄROSÄTE: " + program.schoolName;
 		recommendedHead.appendChild(school);
 		//create a p elemnt to write degree in
 		const degree = document.createElement("p");
 		degree.className = "degreeReq descriptionReq";
 		//degree.innerHTML = program.;
-		degree.innerHTML = "EXAMEN: " + "Civilingenjör, Kandidat, Master";
+		degree.innerHTML = "EXAMEN: " + program.degree;
 		recommendedHead.appendChild(degree);
 		//create a ...
 		const points = document.createElement("p");
