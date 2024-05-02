@@ -82,6 +82,12 @@ export function generateHiddenRecommendations(programs: ProgramNameAndId[], html
 			degree.innerHTML = "EXAMEN: " + program.degree;
 			recommendedHead.appendChild(degree);
 		}
+		if (program.degree != null) {
+			const degree = document.createElement("p");
+			degree.className = "degreeReq descriptionReq";
+			degree.innerHTML = "EXAMEN: " + program.degree;
+			recommendedHead.appendChild(degree);
+		}
 		//create a ...
 		const points = document.createElement("p");
 		points.className = "pointsReq descriptionReq";
