@@ -109,7 +109,10 @@ export type ProgramNameAndId = {
   degree: string,
 };
 
+
+
 export async function fetchAllProgramsJson(): Promise<ProgramNameAndId[]> {
+
   return new Promise((resolve, reject) => {
     //Reads JSON file
     fs.readFile(

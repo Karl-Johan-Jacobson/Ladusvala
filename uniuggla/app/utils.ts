@@ -91,7 +91,7 @@ export function generateHiddenRecommendations(programs: ProgramNameAndId[], html
 		const years = document.createElement("p");
 		years.className = "yearsReq descriptionReq";
 		//to display year it had to be casted to a number to make division possible and then to string again, (shit code, but it works)
-		const numberOfYears: string = ((program.programPoints as unknown as number) / 60).toFixed(2) as unknown as string;
+		const numberOfYears: string = formatNumber((program.programPoints as unknown as number));
 		years.innerHTML = numberOfYears + " ÅR";
 		recommendedHead.appendChild(years);
 		//create the div for the show more info
@@ -242,7 +242,7 @@ export function aiTypeAnswer(programs: ProgramNameAndId[], htmlClass: string, in
 		const years = document.createElement("p");
 		years.className = "yearsReq descriptionReq";
 		//to display year it had to be casted to a number to make division possible and then to string again, (shit code, but it works)
-		const numberOfYears: string = ((program.programPoints as unknown as number) / 60).toFixed(2) as unknown as string;
+		const numberOfYears: string = formatNumber((program.programPoints as unknown as number));
 		years.innerHTML = numberOfYears + " ÅR";
 		recommendedHead.appendChild(years);
 		//create the div for the show more info
@@ -387,7 +387,10 @@ export async function aiResponse(interests: string, interestArr: string[]): Prom
 	}
 	console.log("SelectedPrograms:  " + selectedPrograms);
 	//send the programs to generate the recommendedboxes
+
 	aiTypeAnswer(selectedPrograms, "recommendedWrapper", interestArr);
+
+	
 }
 
 export async function handleRecommendationButtonClick(interestArr: string[]): Promise<void> {
@@ -426,3 +429,10 @@ export const modifyTopPaddingRelative = (relativePaddingtop: string, htmlClass: 
 		(element as HTMLElement).style.paddingTop = newPaddingTop;
 	});
 };
+
+
+function formatNumber(num: number): string {
+	num = num / 60;
+    const roundedNum = num.toFixed(2);
+    return roundedNum.endsWith('.00') ? roundedNum.slice(0, -3) : roundedNum;
+}
