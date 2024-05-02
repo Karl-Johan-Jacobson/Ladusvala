@@ -1996,3 +1996,170 @@ NEW ENTRY
 10077
 10078
 10089
+NEW ENTRY
+10003
+10004
+10012
+10015
+10006
+10003, 10004, 10012, 10015, 10006
+NEW ENTRY
+10019
+10029
+10024
+10031
+10034
+Based on your interests, here are 5 program recommendations:
+
+1. Landskapsarkitektprogrammet - Uppsala (ProgramId: 10019)
+2. Trädgårdsingenjör - design (ProgramId: 10029)
+3. Livsmedelsprogrammet (ProgramId: 10024)
+4. Veterinär (ProgramId: 10031)
+5. Additiv tillverkning - högskoleingenjör maskinteknik (ProgramId: 10034)
+NEW ENTRY
+10036
+10044
+10047
+10050
+10053
+10036
+10044
+10047
+10050
+10053
+NEW ENTRY
+10057
+10058
+10059
+10061
+10063
+10057, 10058, 10059, 10061, 10063
+NEW ENTRY
+10076
+10075
+10084
+10088
+10083
+10076
+10075
+10084
+10088
+10083
+NEW ENTRY
+10003
+10004
+10009
+10017
+10005
+ProgramID recommendations based on your interests:
+- 10003 (Krig, kultur och samhälle – kandidatprogram)
+- 10004 (Statsvetenskap med inriktning krishantering och säkerhet – kandidatprogram)
+- 10009 (Biologi och miljövetenskap)
+- 10017 (Hippologprogrammet)
+- 10005 (Bachelor program in Business & Economics)
+NEW ENTRY
+10024
+10031
+10018
+10033
+10035
+Based on your interests in Svenska, Engelska, Kemi, and Idrott och hälsa, here are five program recommendations:
+
+1. ProgramID: 10024 (Livsmedelsprogrammet)
+2. ProgramID: 10031 (Veterinär)
+3. ProgramID: 10018 (Trädgårdsingenjör - odling)
+4. ProgramID: 10033 (Växtodlingsprogrammet)
+5. ProgramID: 10035 (Automationsingenjör)
+NEW ENTRY
+10045
+10046
+10047
+10048
+10049
+- ProgramId: 10045 (Civilingenjör i teknisk kemi)
+- ProgramId: 10046 (Civilingenjörsutbildning i teknisk kemi Mittuniversitetet-KTH)
+- ProgramId: 10047 (Datateknik)
+- ProgramId: 10048 (Ekoentreprenör för hållbar utveckling)
+- ProgramId: 10049 (Ekoingenjör)
+NEW ENTRY
+10061
+10057
+10059
+10063
+10056
+10061, 10057, 10059, 10063, 10056
+NEW ENTRY
+10076
+10078
+10079
+10084
+10088
+ProgramId: 10076
+ProgramId: 10078
+ProgramId: 10079
+ProgramId: 10084
+ProgramId: 10088
+NEW ENTRY
+10000
+10001
+10002
+10003
+10016
+ProgramId:
+- 10000 (Officersprogrammet inriktning krigsvetenskap)
+- 10001 (Officersprogrammet inriktning militärteknik)
+- 10002 (Officersprogrammet inriktning sjökrigsvetenskap)
+- 10003 (Krig, kultur och samhälle – kandidatprogram)
+- 10016 (Forest and Landscape)
+NEW ENTRY
+10025
+10026
+10018
+10029
+10034
+Based on your interests in Antropologi, Samhällsvetenskap, and your wildcard interest, here are 5 program recommendations for you:
+
+1. ProgramId: 10025 (Politices kandidat - hållbar utveckling)
+2. ProgramId: 10026 (Samhällsutveckling - landsbygd)
+3. ProgramId: 10018 (Trädgårdsingenjör - odling)
+4. ProgramId: 10029 (Trädgårdsingenjör - design)
+5. ProgramId: 10034 (Additiv tillverkning - högskoleingenjör maskinteknik)
+NEW ENTRY
+10036
+10050
+10048
+10051
+10037
+Based on your interests in Antropologi, Samhällsvetenskap, and Filmer och TV-program, here are 5 program recommendations:
+
+1. ProgramId: 10036 (Beteendevetenskapligt program)
+2. ProgramId: 10050 (Ekonomprogram)
+3. ProgramId: 10048 (Ekoentreprenör för hållbar utveckling)
+4. ProgramId: 10051 (Ekoteknik)
+5. ProgramId: 10037 (Biomedicinsk analytiker)
+NEW ENTRY
+10054
+10062
+10057
+10056
+10060
+Based on your interests in Flygplan, Filmer och TV-program, Antropologi, and Samhällsvetenskap, here are 5 program recommendations:
+
+1. ProgramId: 10054 (Folkhälsovetenskapliga programmet)
+2. ProgramId: 10062 (Kandidatprogram i Kriminologi)
+3. ProgramId: 10057 (Idrottsvetenskapligt program)
+4. ProgramId: 10056 (Grafisk design)
+5. ProgramId: 10060 (Journalistprogrammet)
+NEW ENTRY
+10076
+10079
+10081
+10081
+10086
+Program ID recommendations based on your interests:
+
+1. Programmet för litteratur och skrivande - ProgramId: 10076
+2. Psykologprogrammet - ProgramId: 10079
+3. Samhällsvetarprogrammet - ProgramId: 10081
+4. Antropologi - ProgramId: 10081
+5. Sportteknologi - högskoleingenjör produktutveckling - ProgramId: 10086
