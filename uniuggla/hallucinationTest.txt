@@ -2163,3 +2163,64 @@ Program ID recommendations based on your interests:
 3. Samhällsvetarprogrammet - ProgramId: 10081
 4. Antropologi - ProgramId: 10081
 5. Sportteknologi - högskoleingenjör produktutveckling - ProgramId: 10086
+NEW ENTRY
+10003
+10004
+10010
+10015
+10005
+Based on your interests in historia, svenska, religion, engelska, and fysik, here are five program recommendations:
+
+1. ProgramID: 10003 (Krig, kultur och samhälle – kandidatprogram) 
+2. ProgramID: 10004 (Statsvetenskap med inriktning krishantering och säkerhet – kandidatprogram)
+3. ProgramID: 10010 (Civilingenjör i energisystem)
+4. ProgramID: 10015 (Etologi och djurskydd)
+5. ProgramID: 10005 (Bachelor program in Business & Economics)
+NEW ENTRY
+10025
+10026
+10030
+10023
+10034
+Based on your interests in Historia, Svenska, Religion, Engelska, and Fysik, here are 4 program recommendations that align closely with your interests and a wildcard recommendation:
+
+1. ProgramID: 10025 (Politices kandidat - hållbar utveckling)
+2. ProgramID: 10026 (Samhällsutveckling - landsbygd)
+3. ProgramID: 10030 (Skogsvetarprogrammet - Skogsmästare)
+4. ProgramID: 10023 (Lantmästar)
+5. ProgramID: 10034 (Additiv tillverkning - högskoleingenjör maskinteknik) - Wildcard suggestion that loosely aligns with your interests.
+
+These programs should provide you with a good mix of options to explore based on your interests.
+NEW ENTRY
+10044
+10046
+10047
+10050
+10048
+ProgramId: 10044 (Civilingenjör i teknisk fysik)
+ProgramId: 10046 (Civilingenjörsutbildning i teknisk kemi Mittuniversitetet-KTH)
+ProgramId: 10047 (Datateknik)
+ProgramId: 10050 (Ekonomprogram)
+ProgramId: 10048 (Ekoentreprenör för hållbar utveckling)
+NEW ENTRY
+10061
+10062
+10060
+10064
+10056
+10061
+10062
+10060
+10064
+10056
+NEW ENTRY
+10076
+10078
+10079
+10082
+10087
+ProgramId: 10076
+ProgramId: 10078
+ProgramId: 10079
+ProgramId: 10082
+ProgramId: 10087

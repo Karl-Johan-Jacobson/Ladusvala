@@ -435,7 +435,7 @@ header img {
   width: 13vw;
   height: 4vw;
   border-radius: var(--primary-border-radius);
-  border: dotted var(--primary-dark-purple) 0.2vw;
+  border: dotted var(--primary-dark-purple) 0.1vw;
 }
 
 .interestControl {
