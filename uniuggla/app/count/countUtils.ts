@@ -129,18 +129,20 @@ function generateHTMLBLock(courseName: string, coursePointsAsString: string, gra
 	removeButton.className = `remove`;
 	removeButton.innerHTML = "Ta bort";
     removeButton.id = gradeBoxCounter as unknown as string;
-    removeButton.onclick = function(event) {
-
-        //below shows error for some reason, but it works!
-        const parentElement = event.target.parentNode;
-        parentElement.parentNode.removeChild(parentElement);
-
-        totalgrades -= countOneGrade(grade, coursePointsAsNumber);
-        totalCoursePoints -= coursePointsAsNumber;
-
-       
-    };
+	removeButton.onclick = function(event) {
+		const targetElement = event.target as Element;
+		const parentElement = targetElement.parentNode;
+		if (parentElement) {
+			parentElement.parentNode?.removeChild(parentElement);
+		}
+	
+		totalgrades -= countOneGrade(grade, coursePointsAsNumber);
+		totalCoursePoints -= coursePointsAsNumber;
+	};
+	console.log("After totalCoursePoints:  "+totalCoursePoints)
 	gradeBox.appendChild(removeButton);
+
+	
 
 	gradeBoxCounter++;
 }
