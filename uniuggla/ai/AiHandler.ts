@@ -144,17 +144,11 @@ export async function fetchAllProgramsJson(): Promise<ProgramNameAndId[]> {
 }
 export default async function callOpenaiInParts(interestString: string) {
   try {
-
-
-
     const programs = await fetchAllProgramsJson();
-   
+    shuffleArray(programs);
     const arrayLength = programs.length;
     const partition = Math.ceil(arrayLength / 5);
    
-    
-   
-
     let programIds: string[] = [];
 
     // Create an array of promises that run recommendProgramFromInterest concurrently
@@ -167,7 +161,6 @@ export default async function callOpenaiInParts(interestString: string) {
       console.log(i);
       return recommendProgramFromInterest(partialProgramString, interestString);
     });
-    
     
     // Wait for all promises to resolve
     const startTime = Date.now();
@@ -188,5 +181,9 @@ export default async function callOpenaiInParts(interestString: string) {
   }
 }
 
-
-
+function shuffleArray<T>(array: T[]): void {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
