@@ -106,7 +106,7 @@ async function recommendProgramFromInterest(
   return idFromRespArray;
 }
 
-const filePath: string = "demoPrograms.json";
+const filePath: string = "public/dataset/programs.json";
 
 // programDesciption name will be fixed when actual file is used.
 export type ProgramNameAndId = {
@@ -115,6 +115,9 @@ export type ProgramNameAndId = {
   programDesciption_sv: string;
   programLink: string;
   programId: number;
+  schoolName: string,
+  aiPrompt: string,
+  degree: string,
 };
 
 export async function fetchAllProgramsJson(): Promise<ProgramNameAndId[]> {
