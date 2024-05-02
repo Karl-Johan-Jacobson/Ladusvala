@@ -1,0 +1,843 @@
+@media all and (min-width: 0px) and (max-width: 480px) {
+
+
+  * {
+    --primary-light-green: #DFFDE0;
+    --primary-medium-green: #C6F0C3;
+    --medium-green: #9ECB98;
+    --medium-green-shadow: #61855A;
+    --primary-dark-green: #37552B;
+    --primary-dark-green-shadow: #37552b64;
+    --primary-dark-purple: #4F1EB0;
+    --primary-border-width: 0.1vw;
+    --primary-border-radius: 0.5vw;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+  }
+
+/* Add this CSS to your global styles or component-specific styles */
+/* Add this CSS to your global styles or component-specific styles */
+.hamburger-nav {
+  width: 100%;
+  padding-top: 2.5vw;     
+  display: block;
+  justify-content: center;  
+  z-index: 1;
+  background-color: var(--primary-light-green);
+}
+
+.hamburger-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 6vw;
+  height: 5vw; 
+  margin: auto;
+  z-index: 10 !important;
+ 
+}
+
+.line { /*The lines which make up the button for bottom nav*/
+  width: 20px;
+  height: 2px;
+  background-color: var(--medium-green-shadow);
+}
+.dropdown-menu {
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  font-size: 2.7vh;
+  font-family: "Tomorrow-Medium";
+  }
+.dropdown-menu li {
+  display: block;
+  margin: 4vw 0;
+
+}
+
+.dropdown-menu li a {
+  color: var(--primary-dark-purple);
+  text-decoration: none;
+
+
+}
+
+
+
+
+
+
+
+  /* Is the main background for the whole hmtl and hides the scroll bar*/
+  html {
+    scrollbar-width: none;
+    background-color: var(--primary-light-green);
+    scroll-behavior: smooth;
+  }
+
+  html::-webkit-scrollbar {
+    display: none;
+  }
+
+  html {
+    scrollbar-width: none;
+    background-color: var(--primary-light-green);
+    scroll-behavior: smooth;
+  }
+
+  html::-webkit-scrollbar {
+    display: none;
+  }
+
+  body {
+    background-color: var(--primary-light-green);
+    background-color: var(--primary-light-green);
+  }
+
+  .hide,
+  .hide p,
+  .hide a,
+  .hide * p,
+  .hide * a {
+    transition: 0.0s ease !important;
+    height: 0px !important;
+    opacity: 0 !important;
+    margin: 0px !important;
+    padding: 0px !important;
+    font-size: 0px !important;
+  }
+
+  /* Is the font for the text for instance question title and greetings, etc */
+  @font-face {
+    font-family: 'Tomorrow-Medium';
+    src: url(./../public/fonts/Tomorrow-Medium.ttf);
+    font-weight: medium;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Tomorrow-MediumItalic';
+    src: url(./../public/fonts/Tomorrow-MediumItalic.ttf);
+    font-weight: medium;
+    font-style: italic;
+  }
+
+  @font-face {
+    font-family: 'Tomorrow-Regular';
+    src: url(./../public/fonts/Tomorrow-Regular.ttf);
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Tomorrow-SemiBold';
+    src: url(./../public/fonts/Tomorrow-SemiBold.ttf);
+    font-weight: bold;
+    font-style: medium;
+  }
+
+  /* Class for the text */
+  .bot {
+    color: var(--primary-dark-purple);
+    color: var(--primary-dark-purple);
+  }
+
+  /* Class for the user interaction */
+  .user {
+    color: var(--medium-green);
+  }
+
+  /* Class for the alternatives "Hitta program", "Räkna antagningspoäng", "Se behörighetskrav", and "Om oss" */
+  .siteNavigation {
+    color: var(--medium-green);
+  }
+
+  /* Standard styling for text */
+  p {
+    font-family: 'Tomorrow-Medium', sans-serif;
+    text-align: center;
+  }
+
+  /*Used for formating HTTP response code page*/
+  .__className_aaf875 {
+    background-color: var(--primary-light-green) !important;
+  }
+
+  .__className_aaf875 div div h1 {
+    color: var(--primary-dark-purple);
+  }
+
+  .next-error-h1 {
+    border-right-color: var(--primary-dark-purple) !important;
+  }
+
+  .__className_aaf875 div div div h2 {
+    color: var(--primary-dark-purple);
+  }
+
+  /*Used for formating HTTP response code page*/
+  .__className_aaf875 {
+    background-color: var(--primary-light-green) !important;
+  }
+
+  .__className_aaf875 div div h1 {
+    color: var(--primary-dark-purple);
+  }
+
+  .next-error-h1 {
+    border-right-color: var(--primary-dark-purple) !important;
+  }
+
+  .__className_aaf875 div div div h2 {
+    color: var(--primary-dark-purple);
+  }
+
+  input {
+    top: calc(-0.75*var(--primary-border-width));
+    left: calc(-1*var(--primary-border-width));
+    width: 17vw;
+    display: flex;
+    border: none;
+    margin-top: none;
+    padding-top: none;
+    border-radius: calc(var(--primary-border-radius)*0.85);
+    padding-left: 1vw;
+    font-family: 'Tomorrow-MediumItalic';
+    font-size: 1vw;
+    color: var(--medium-green);
+    background-color: var(--primary-light-green);
+    box-shadow: inset 0.2vw 0.3vw 0.4vw var(--primary-dark-green-shadow);
+  }
+
+  input::placeholder {
+    font-family: Tomorrow-MediumItalic;
+    color: var(--medium-green);
+  }
+
+  input:focus {}
+
+  /*
+          End of General
+          ---===---===---===---===---===---===---===---===---===---
+          Start of Header
+        */
+  /* Dimensioning of the background and positioning for logo for the color gradient*/
+  header {
+    z-index: 5 !important;
+    width: 100vw;
+    height: 15vh;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background-image: linear-gradient(var(--primary-light-green) 10%, transparent);
+  }
+
+  /* Fixes the position of the uniu logo */
+  header img {
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: transparent;
+  }
+
+  /*
+          End of Header
+          ---===---===---===---===---===---===---===---===---===---
+          Start of Main
+          Start of Main
+        */
+  /* Positioning of the typewriter animation*/
+  .titleTypewriter {
+    margin: 0 auto;
+    line-height: 1.5em;
+    font-family: 'Tomorrow-Medium' !important;
+    color: var(--primary-dark-purple);
+    font-size: 2.7vh;
+    transition: padding-top 0.2s ease;
+  }
+  .titleTypewriterInterestPage{
+    margin: 0;
+    line-height: 1.5em;
+    font-family: 'Tomorrow-Medium' !important;
+    color: var(--primary-dark-purple);
+    font-size: 2.4vh;
+    transition: padding-top 0.2s ease;
+
+  }
+
+  .container {
+    height: 100vh;
+    width: 90vw;
+    position: relative;
+    padding-left: 5vw;
+    padding-right: 5vw;
+  }
+
+
+
+  /* Styling and positioning */
+  .answers {
+    display: flex;
+    /* Use flexbox instead of grid */
+    justify-content: center;
+    /* Center horizontally */
+    align-items: center;
+    /* Center vertically */
+    width: calc(100% + 4vw);
+    /* Adjust this value based on your actual padding */
+    margin: 0 -2vw;
+    /* Adjust this value to match half of your total horizontal padding */
+    gap: 27vw;
+    /* Space between buttons */
+    padding: 1vw 0;
+    /* Vertical padding for visual comfort */
+    transition: margin-top 1s ease, opacity 0.5s ease;
+
+  }
+
+  /* Button  animation dimention and color*/
+  .answerButton {
+    height: inherit;
+    background-color: var(--primary-light-green);
+    background-color: var(--primary-light-green);
+    border: none;
+    border-radius: 1vw;
+  }
+
+  /* Text inside the buttons color and font size */
+  .answerButton p {
+    font-family: 'Tomorrow-MediumItalic';
+    color: var(--medium-green);
+    font-size: 10vw;
+    text-align: center;
+  }
+
+  /* hover color change text */
+  .answerButton:hover p {
+    text-shadow: 2px 1px var(--medium-green-shadow);
+  }
+
+  .answerButton:active p {
+    text-shadow: none;
+  }
+
+  /*
+          End of Main
+        ---===---===---===---===---===---===---===---===---===---
+          Start of Welcome
+        */
+  /*
+          End of Welcome
+          ---===---===---===---===---===---===---===---===---===---
+          Start of Intrest
+        */
+  .interestSelected {
+    background-color: var(--primary-dark-purple);
+    color: white;
+  }
+
+  */ .interestWrapper {
+    height: auto;
+    width: max-content;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: 0vw auto 1vw;
+    padding-bottom: 1vw;
+    z-index: 1;
+    transition: 0.5s ease;
+    overflow-y: hidden;
+  }
+
+  .notSelectedInterestList {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    position: absolute;
+    left: 18%;
+    bottom: 2vw;
+    width: 60%;
+  }
+
+
+  .selectedInterestList {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    margin-top: 4vw;
+    position: absolute;
+    left: 18%;
+    bottom: 18vw;
+    width: 60%;
+  }
+
+  .customInterestForm {
+    width: 35vw;
+    margin-left: auto;
+    margin-right: auto;
+    left: 30%;
+    position: absolute;
+    bottom: 1vw;
+  }
+
+  .iconButton {
+    position: relative;
+    left: 20%;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: inline-block;
+  }
+
+  .iconText {
+    font-family: 'Tomorrow-MediumItalic';
+    font-style: italic;
+    font-size: medium;
+    position: absolute;
+    width: 80px;
+    word-break: break-all;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #DFFDE0;
+  }
+
+  .iconButton svg {
+    width: 8vw;
+    height: 8vw;
+  }
+
+  .notSelectedInterestButton:hover {
+    stroke: #4F1EB0;
+    stroke-width: 2px;
+    stroke-linejoin: round;
+    filter: drop-shadow(2px 2px 0px #4F1EB0);
+  }
+
+  .selectedInterestButton:hover {
+    stroke: #9ECB98;
+    stroke-width: 2px;
+    stroke-linejoin: round;
+    filter: drop-shadow(2px 2px 0px #9ECB98);
+  }
+
+  .notSelectedInterestButton:hover .iconText {
+    color: #4F1EB0;
+  }
+
+  .selectedInterestButton:hover .iconText {
+    color: #9ECB98;
+  }
+
+  .addInterestField {
+    font-size: 30px;
+    font-family: 'Tomorrow-MediumItalic';
+    color: #61855A;
+    border: 1px solid grey;
+    width: 91%;
+    background: #DFFDE0;
+    border-right: none;
+    height: 27px;
+    margin-top: none;
+    padding-top: none;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    box-shadow: inset 0 0 1px 1px gray;
+    margin-bottom: 1vw;
+  }
+
+  .addInterestField::placeholder {
+    font-family: 'Tomorrow-MediumItalic';
+    font-size: 20px;
+    color: #9ECB98;
+    text-align: center;
+    font-style: italic;
+  }
+
+  .addInterestField:focus {
+    outline: none;
+    box-shadow: inset 0 0 2px 2px gray;
+  }
+
+  .addInterestButton {
+    width: 8%;
+    background: #9ECB98;
+    height: 29px;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none;
+    cursor: pointer;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    box-shadow: -2px 0px 2px 0px grey;
+  }
+
+  .shuffleButton {
+    left: 70%;
+    transform: translateX(-50%);
+    stroke: #646464;
+    stroke-width: 3px;
+    stroke-linejoin: round;
+    position: absolute;
+    bottom: 1vw;
+  }
+
+  .shuffleButton:hover {
+    filter: drop-shadow(2px 2px 0px gray);
+  }
+
+  .recommendationButton {
+    cursor: pointer;
+    width: 36vw;
+  }
+
+  .recommendationButton p {
+    font-size: 30px;
+    font-family: 'Tomorrow-MediumItalic';
+    font-style: italic;
+    color: #9ECB98;
+  }
+
+  /* Interests fade-in and fade-out animations */
+
+  .fadeInSelected {
+    animation-name: inAnimationSelected;
+    animation-duration: 500ms;
+    animation-timing-function: ease-in;
+  }
+
+  .fadeInNew {
+    animation-name: inAnimationNew;
+    animation-duration: 1000ms;
+    animation-timing-function: ease-in;
+  }
+
+  .fadeOut {
+    animation-name: outAnimation;
+    animation-duration: 300ms;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes inAnimationSelected {
+    0% {
+      transform: scale(0.1);
+      opacity: 0;
+    }
+
+    60% {
+      transform: scale(1.2);
+      opacity: 1;
+    }
+
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes inAnimationNew {
+    0% {
+      transform: scale(0);
+      opacity: 0;
+    }
+
+    50% {
+      transform: scale(0);
+      opacity: 0;
+    }
+
+    80% {
+      transform: scale(1.2);
+      opacity: 1;
+    }
+
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes outAnimation {
+    0% {
+      opacity: 1;
+    }
+
+    20% {
+      transform: scale(1.2);
+    }
+
+    100% {
+      transform: scale(0);
+      opacity: 0;
+    }
+  }
+
+  /*
+          End of Intrest
+         ---===---===---===---===---===---===---===---===---===---
+          Start of Recommendation
+        */
+  .filterWrapper {
+    height: 2vw;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    max-width: fit-content;
+    margin: 0vw auto;
+    margin-top: 2vw;
+  }
+
+  .filterWrapper * p,
+  .filterWrapper p {
+    text-align: left;
+  }
+
+  .filter {
+    height: inherit;
+    display: flex;
+    border: var(--primary-border-width) solid #37552B;
+    /* border: none; */
+    border-radius: var(--primary-border-radius);
+    position: relative;
+  }
+
+  .filter input {
+    top: calc(-0.75*var(--primary-border-width));
+    left: calc(-1*var(--primary-border-width));
+    width: 17vw;
+    display: flex;
+    border: none;
+    border-radius: calc(var(--primary-border-radius)*0.85);
+    padding-left: 1vw;
+    font-size: 1.6vw;
+    background-color: var(--primary-light-green);
+    box-shadow: inset 0.2vw 0.3vw 0.4vw var(--primary-dark-green-shadow);
+  }
+
+  .filter input::placeholder {
+    font-family: Tomorrow-MediumItalic;
+    color: var(--medium-green);
+  }
+
+  .filter input:focus {
+    outline: none;
+  }
+
+  .filterImgDiv {
+    top: calc(-0.75*var(--primary-border-width));
+    right: calc(-1*var(--primary-border-width));
+    height: 2vw;
+    width: 2vw;
+    border: var(--primary-border-width) solid var(--primary-dark-green);
+    border-radius: var(--primary-border-radius);
+    position: absolute;
+    background-color: var(--medium-green);
+  }
+
+  .filterImg {
+    height: 60%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+  }
+
+  .recommendedWrapper {
+    width: 80%;
+    margin: 1vw auto 0;
+    position: relative;
+  }
+
+  .recommendedWrapper * p,
+  .recommendedWrapper * a,
+  .recommendedWrapper p,
+  .recommendedWrapper a {
+    text-align: left;
+  }
+
+  .recommendedBox {
+    margin-bottom: 1vw;
+    border: var(--primary-border-width) solid var(--primary-dark-purple);
+    border-radius: var(--primary-border-radius);
+    border-color: var(--primary-dark-purple);
+    background-color: var(--primary-medium-green);
+    padding: 0.4vw 0.8vw;
+  }
+
+  .recommendedHead {
+    margin-bottom: 0.5em;
+  }
+
+  .tilteReq {
+    font-size: 1.6vw;
+    font-family: Tomorrow-SemiBold !important;
+    color: var(--primary-dark-purple);
+  }
+
+  .descriptionReq,
+  .reqDescription,
+  .reqDescriptionContent {
+    font-family: Tomorrow-Medium;
+    font-size: 1.2vw;
+  }
+
+  .descriptionReq {
+    display: inline-block;
+    color: var(--medium-green-shadow);
+  }
+
+  .schoolReq,
+  .degreeReq,
+  .pointsReq,
+  .reqDescriptionLink {
+    border-right: var(--primary-border-width) solid var(--medium-green);
+    padding-right: 0.5em;
+    margin-right: 0.5em;
+  }
+
+  .reqDescriptionBox {
+    border: var(--primary-border-width) dashed var(--medium-green);
+    border-radius: var(--primary-border-radius);
+    padding: 0 1vw 0.5vw 1vw;
+    margin-bottom: 0.5em;
+  }
+
+  .reqDescription {
+    display: inline-block;
+    color: var(--primary-dark-purple);
+    white-space: nowrap;
+  }
+
+  .reqDescriptionLink {
+    text-decoration: underline;
+    text-decoration-color: var(--primary-dark-purple);
+  }
+
+  .reqDescriptionContent {
+    color: var(--medium-green-shadow);
+    font-family: Tomorrow-Regular !important;
+    margin-top: 0.25em;
+  }
+
+  .recommendedFoot {
+    display: flex;
+  }
+
+  .showDescription {
+    border: 0;
+    background-color: inherit;
+    display: flex;
+    width: 100%;
+  }
+
+  .showDescription * {
+    display: inline-block;
+    text-decoration: underline;
+  }
+
+  .arrow {
+    height: 1vw;
+    margin: 0 auto;
+    color: var(--medium-green);
+  }
+
+  .expandArrow {
+    transform: rotate(0deg);
+    transition: transform 0.5s ease-in;
+  }
+
+  .contractArrow {
+    transform: rotate(180deg);
+    transition: transform 0.5s ease-in;
+  }
+
+  .showDescription p {
+    padding-left: 0.5em;
+  }
+
+  .showInterestBox {
+    padding: 0.4vw 0.8vw;
+    display: flex;
+    justify-content: center;
+    /* Center horizontally */
+    flex-wrap: wrap;
+    /* Allow wrapping */
+  }
+
+  .interestReq {
+    font-family: "Tomorrow-MediumItalic";
+    padding: 0.5em 1em;
+    font-size: 0.8vw;
+    background-color: var(--medium-green);
+    border-radius: var(--primary-border-radius);
+    border: var(--primary-border-width);
+    color: var(--primary-light-green);
+    margin: 0.25em
+  }
+
+  /*
+          End of Recommendation
+          ---===---===---===---===---===---===---===---===---===---
+          Start of Footer
+        */
+  /* Footer dimetionns and postion*/
+  footer {
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    height: 10vw;
+    display: inline-block;
+    background-color: var(--primary-light-green);
+    font-size: 1.5vw;
+  }
+
+  /* Footer navbar annd line dimentions and position */
+
+
+  /* Dividing line footer */
+  .footerLine{
+    top: 0;
+    width: 100%;
+    height: 0.4vh;
+    position: relative;
+    background-color: var(--primary-dark-purple);
+    z-index: 100 !important;  
+  
+  }
+  .footerLineAnimDown {
+    transform: translateY(-42vw); 
+    transition: transform 0.5s ease; 
+  }
+  
+  .footerLineAnimUp {
+    transform: translateY(0); 
+    transition: transform 0.5s ease; 
+  }
+  
+  
+
+  /* Navbar wrapper */
+
+
+  /* Footer navbar grid */
+ 
+
+  /* Text logo wrapper dimetion and position */
+  .footerLogoDiv p {
+    font-size: 8vw;
+    position: fixed;
+    right: 1vw;
+    bottom: 0;
+    color: var(--primary-dark-purple);
+    z-index: 300 !important;
+  }
+
+  /*
+          End of Footer
+          ---===---===---===---===---===---===---===---===---===---
+        */
+}

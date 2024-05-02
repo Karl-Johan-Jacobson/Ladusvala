@@ -1,16 +1,33 @@
-import React from "react";
-import { modifyTopPadding, modifyTopPaddingRelative } from "@/app/utils";
+import React, { useState, useEffect } from "react";
+
 interface WelcomeProps {
 	handleNoButtonClick: () => void;
 	handleYesButtonClick: () => void;
 }
 
 const Welcome: React.FC<WelcomeProps> = ({ handleNoButtonClick, handleYesButtonClick }) => {
-	
+	let [style, setStyle] = useState<{ marginTop: string, opacity: string }>({ marginTop: '5vw', opacity: '0' });
+
+	useEffect(() => {
+		const updateStyle = () => {
+			if (window.screen.width <= 480) {
+
+				setStyle({ marginTop: '25vw', opacity: '0' });
+			} else {
+				setStyle({ marginTop: '8vw', opacity: '0' });
+
+			}
+		};
+
+		// Set style on mount
+		updateStyle();
+	}, []);
+
+
 	return (
 		<div className="wrapper welcomeWrapper">
 			<p className="bot titleTypewriter welcomeText" style={{ paddingTop: "15vh" }}></p>
-			<div className="answers" style={{ marginTop: "5vw", opacity: "0" }}>
+			<div className="answers" style={style}>
 				<button className="yesButton answerButton" onClick={handleYesButtonClick}>
 					<p className="user">Ja</p>
 				</button>
