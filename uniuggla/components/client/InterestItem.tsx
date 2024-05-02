@@ -11,7 +11,7 @@ interface InterestListItemProps {
   updateParent: (interest: Interest, isMounted: boolean) => void;
 }
 
-export default function InterestListItem({ interest, isSelected, mounted, updateParent }: InterestListItemProps) {
+export default function InterestListItem({ interest, isSelected, mounted, updateParent, }: InterestListItemProps) {
   const [isMounted, setIsMounted] = useState<boolean>(mounted);
 
   // This function is called when an animation has ended, i.e when the component has either faded in or ou

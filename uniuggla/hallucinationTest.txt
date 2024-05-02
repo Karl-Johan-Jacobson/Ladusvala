@@ -1940,3 +1940,1563 @@ Based on your interests in subjects like Fysik (Physics), Kemi (Chemistry), Biol
 3. Program ID: 10044 (Civilingenjör i teknisk fysik)
 4. Program ID: 10061 (Kandidatprogram i kemi med inriktning kemisk analys)
 5. Program ID: 10079 (Psykologprogrammet)
+
+NEW ENTRY
+10003
+10004
+10001
+10000
+10015
+Based on your interests in Svenska, Engelska, Historia, and Religion, here are 5 program recommendations for you:
+
+1. ProgramID: 10003 (Krig, kultur och samhälle – kandidatprogram)
+2. ProgramID: 10004 (Statsvetenskap med inriktning krishantering och säkerhet – kandidatprogram)
+3. ProgramID: 10001 (Officersprogrammet inriktning militärteknik)
+4. ProgramID: 10000 (Officersprogrammet inriktning krigsvetenskap)
+5. ProgramID: 10015 (Etologi och djurskydd)
+NEW ENTRY
+10025
+10026
+10028
+10029
+10031
+Based on your interests in Svenska, Engelska, Historia, and Religion, here are five program recommendations for you:
+
+1. ProgramId: 10025 (Politices kandidat - hållbar utveckling)
+2. ProgramId: 10026 (Samhällsutveckling - landsbygd)
+3. ProgramId: 10028 (Skogsmästare)
+4. ProgramId: 10029 (Trädgårdsingenjör - design)
+5. ProgramId: 10031 (Veterinär)
+NEW ENTRY
+10036
+10048
+10040
+10044
+10052
+10036
+10048
+10040
+10044
+10052
+NEW ENTRY
+10054
+10062
+10063
+10059
+10068
+10054, 10062, 10063, 10059, 10068
+NEW ENTRY
+10075
+10076
+10077
+10078
+10089
+10075
+10076
+10077
+10078
+10089
+NEW ENTRY
+10003
+10004
+10012
+10015
+10006
+10003, 10004, 10012, 10015, 10006
+NEW ENTRY
+10019
+10029
+10024
+10031
+10034
+Based on your interests, here are 5 program recommendations:
+
+1. Landskapsarkitektprogrammet - Uppsala (ProgramId: 10019)
+2. Trädgårdsingenjör - design (ProgramId: 10029)
+3. Livsmedelsprogrammet (ProgramId: 10024)
+4. Veterinär (ProgramId: 10031)
+5. Additiv tillverkning - högskoleingenjör maskinteknik (ProgramId: 10034)
+NEW ENTRY
+10036
+10044
+10047
+10050
+10053
+10036
+10044
+10047
+10050
+10053
+NEW ENTRY
+10057
+10058
+10059
+10061
+10063
+10057, 10058, 10059, 10061, 10063
+NEW ENTRY
+10076
+10075
+10084
+10088
+10083
+10076
+10075
+10084
+10088
+10083
+NEW ENTRY
+10003
+10004
+10009
+10017
+10005
+ProgramID recommendations based on your interests:
+- 10003 (Krig, kultur och samhälle – kandidatprogram)
+- 10004 (Statsvetenskap med inriktning krishantering och säkerhet – kandidatprogram)
+- 10009 (Biologi och miljövetenskap)
+- 10017 (Hippologprogrammet)
+- 10005 (Bachelor program in Business & Economics)
+NEW ENTRY
+10024
+10031
+10018
+10033
+10035
+Based on your interests in Svenska, Engelska, Kemi, and Idrott och hälsa, here are five program recommendations:
+
+1. ProgramID: 10024 (Livsmedelsprogrammet)
+2. ProgramID: 10031 (Veterinär)
+3. ProgramID: 10018 (Trädgårdsingenjör - odling)
+4. ProgramID: 10033 (Växtodlingsprogrammet)
+5. ProgramID: 10035 (Automationsingenjör)
+NEW ENTRY
+10045
+10046
+10047
+10048
+10049
+- ProgramId: 10045 (Civilingenjör i teknisk kemi)
+- ProgramId: 10046 (Civilingenjörsutbildning i teknisk kemi Mittuniversitetet-KTH)
+- ProgramId: 10047 (Datateknik)
+- ProgramId: 10048 (Ekoentreprenör för hållbar utveckling)
+- ProgramId: 10049 (Ekoingenjör)
+NEW ENTRY
+10061
+10057
+10059
+10063
+10056
+10061, 10057, 10059, 10063, 10056
+NEW ENTRY
+10076
+10078
+10079
+10084
+10088
+ProgramId: 10076
+ProgramId: 10078
+ProgramId: 10079
+ProgramId: 10084
+ProgramId: 10088
+NEW ENTRY
+10000
+10001
+10002
+10003
+10016
+ProgramId:
+- 10000 (Officersprogrammet inriktning krigsvetenskap)
+- 10001 (Officersprogrammet inriktning militärteknik)
+- 10002 (Officersprogrammet inriktning sjökrigsvetenskap)
+- 10003 (Krig, kultur och samhälle – kandidatprogram)
+- 10016 (Forest and Landscape)
+NEW ENTRY
+10025
+10026
+10018
+10029
+10034
+Based on your interests in Antropologi, Samhällsvetenskap, and your wildcard interest, here are 5 program recommendations for you:
+
+1. ProgramId: 10025 (Politices kandidat - hållbar utveckling)
+2. ProgramId: 10026 (Samhällsutveckling - landsbygd)
+3. ProgramId: 10018 (Trädgårdsingenjör - odling)
+4. ProgramId: 10029 (Trädgårdsingenjör - design)
+5. ProgramId: 10034 (Additiv tillverkning - högskoleingenjör maskinteknik)
+NEW ENTRY
+10036
+10050
+10048
+10051
+10037
+Based on your interests in Antropologi, Samhällsvetenskap, and Filmer och TV-program, here are 5 program recommendations:
+
+1. ProgramId: 10036 (Beteendevetenskapligt program)
+2. ProgramId: 10050 (Ekonomprogram)
+3. ProgramId: 10048 (Ekoentreprenör för hållbar utveckling)
+4. ProgramId: 10051 (Ekoteknik)
+5. ProgramId: 10037 (Biomedicinsk analytiker)
+NEW ENTRY
+10054
+10062
+10057
+10056
+10060
+Based on your interests in Flygplan, Filmer och TV-program, Antropologi, and Samhällsvetenskap, here are 5 program recommendations:
+
+1. ProgramId: 10054 (Folkhälsovetenskapliga programmet)
+2. ProgramId: 10062 (Kandidatprogram i Kriminologi)
+3. ProgramId: 10057 (Idrottsvetenskapligt program)
+4. ProgramId: 10056 (Grafisk design)
+5. ProgramId: 10060 (Journalistprogrammet)
+NEW ENTRY
+10076
+10079
+10081
+10081
+10086
+Program ID recommendations based on your interests:
+
+1. Programmet för litteratur och skrivande - ProgramId: 10076
+2. Psykologprogrammet - ProgramId: 10079
+3. Samhällsvetarprogrammet - ProgramId: 10081
+4. Antropologi - ProgramId: 10081
+5. Sportteknologi - högskoleingenjör produktutveckling - ProgramId: 10086
+NEW ENTRY
+10003
+10004
+10010
+10015
+10005
+Based on your interests in historia, svenska, religion, engelska, and fysik, here are five program recommendations:
+
+1. ProgramID: 10003 (Krig, kultur och samhälle – kandidatprogram) 
+2. ProgramID: 10004 (Statsvetenskap med inriktning krishantering och säkerhet – kandidatprogram)
+3. ProgramID: 10010 (Civilingenjör i energisystem)
+4. ProgramID: 10015 (Etologi och djurskydd)
+5. ProgramID: 10005 (Bachelor program in Business & Economics)
+NEW ENTRY
+10025
+10026
+10030
+10023
+10034
+Based on your interests in Historia, Svenska, Religion, Engelska, and Fysik, here are 4 program recommendations that align closely with your interests and a wildcard recommendation:
+
+1. ProgramID: 10025 (Politices kandidat - hållbar utveckling)
+2. ProgramID: 10026 (Samhällsutveckling - landsbygd)
+3. ProgramID: 10030 (Skogsvetarprogrammet - Skogsmästare)
+4. ProgramID: 10023 (Lantmästar)
+5. ProgramID: 10034 (Additiv tillverkning - högskoleingenjör maskinteknik) - Wildcard suggestion that loosely aligns with your interests.
+
+These programs should provide you with a good mix of options to explore based on your interests.
+NEW ENTRY
+10044
+10046
+10047
+10050
+10048
+ProgramId: 10044 (Civilingenjör i teknisk fysik)
+ProgramId: 10046 (Civilingenjörsutbildning i teknisk kemi Mittuniversitetet-KTH)
+ProgramId: 10047 (Datateknik)
+ProgramId: 10050 (Ekonomprogram)
+ProgramId: 10048 (Ekoentreprenör för hållbar utveckling)
+NEW ENTRY
+10061
+10062
+10060
+10064
+10056
+10061
+10062
+10060
+10064
+10056
+NEW ENTRY
+10076
+10078
+10079
+10082
+10087
+ProgramId: 10076
+ProgramId: 10078
+ProgramId: 10079
+ProgramId: 10082
+ProgramId: 10087
+NEW ENTRY
+10322
+10324
+10341
+10355
+10429
+Based on your interests in Svenska, Engelska, Historia, and Religion, here are 5 program recommendations for you:
+
+1. ProgramID: 10322
+2. ProgramID: 10324
+3. ProgramID: 10341
+4. ProgramID: 10355
+5. ProgramID: 10429
+NEW ENTRY
+10005
+10010
+10015
+10020
+10036
+Based on your interests in Svenska, Engelska, Historia, and Religion, here are 5 program recommendations for you:
+
+1. ProgramID: 10005
+2. ProgramID: 10010
+3. ProgramID: 10015
+4. ProgramID: 10020
+5. ProgramID: 10036
+NEW ENTRY
+10161
+10162
+10163
+10164
+10200
+Based on your interests in Svenska, Engelska, Historia, and Religion, here are 5 program recommendations for you:
+
+1. ProgramID: 10161
+2. ProgramID: 10162
+3. ProgramID: 10163
+4. ProgramID: 10164
+5. ProgramID: 10200
+NEW ENTRY
+10655
+10664
+10673
+10725
+10760
+Based on your interests in Svenska, Engelska, Historia, and Religion, here are 5 program suggestions:
+
+1) ProgramID: 10655
+2) ProgramID: 10664
+3) ProgramID: 10673
+4) ProgramID: 10725
+5) ProgramID: 10760
+NEW ENTRY
+10483
+10488
+10505
+10541
+10611
+Based on your interests in Svenska, Engelska, Historia, and Religion, here are five program recommendations for you:
+
+1. ProgramId: 10483
+2. ProgramId: 10488
+3. ProgramId: 10505
+4. ProgramId: 10541
+5. ProgramId: 10611
+NEW ENTRY
+10171
+10201
+10214
+10233
+10249
+Based on your interests, here are 5 program IDs for you:
+
+1. ProgramID: 10171
+2. ProgramID: 10201
+3. ProgramID: 10214
+4. ProgramID: 10233
+5. ProgramID: 10249
+NEW ENTRY
+10000
+10002
+10005
+10008
+10014
+Based on your interests, here are 5 program IDs that align with your interests:
+
+1. Program ID: 10000
+2. Program ID: 10002
+3. Program ID: 10005
+4. Program ID: 10008
+5. Program ID: 10014
+NEW ENTRY
+10322
+10323
+10324
+10325
+10460
+Based on your interests, here are 5 program recommendations:
+
+1. ProgramID: 10322
+2. ProgramID: 10323
+3. ProgramID: 10324
+4. ProgramID: 10325
+5. ProgramID: 10460 (wildcard)
+NEW ENTRY
+10487
+10492
+10524
+10535
+10560
+Based on your interests, here are 5 program recommendations:
+
+1. ProgramID: 10487
+2. ProgramID: 10492
+3. ProgramID: 10524
+4. ProgramID: 10535
+5. ProgramID: 10560
+NEW ENTRY
+10654
+10658
+10662
+10667
+10702
+Based on your interests, here are 5 program recommendations:
+
+1. ProgramID: 10654
+2. ProgramID: 10658
+3. ProgramID: 10662
+4. ProgramID: 10667
+5. ProgramID: 10702
+NEW ENTRY
+10161
+10162
+10163
+10164
+10235
+Based on your interests, here are 5 program ID recommendations:
+
+1. Program ID: 10161
+2. Program ID: 10162
+3. Program ID: 10163
+4. Program ID: 10164
+5. Program ID: 10235
+NEW ENTRY
+10001
+10011
+10021
+10030
+10045
+Based on your interests, here are 5 program recommendations:
+
+1. Program ID: 10001
+2. Program ID: 10011
+3. Program ID: 10021
+4. Program ID: 10030
+5. Program ID: 10045
+NEW ENTRY
+10331
+10335
+10339
+10340
+10421
+Based on your interests in teaching, subjects like Swedish and English, working with older students, and focusing on high school education, here are 5 program recommendations:
+
+1. ProgramId: 10331
+2. ProgramId: 10335
+3. ProgramId: 10339
+4. ProgramId: 10340
+5. ProgramId: 10421 (wildcard suggestion)
+NEW ENTRY
+10483
+10494
+10505
+10516
+10527
+Based on your interests, here are 5 program recommendations:
+
+1. ProgramId: 10483
+2. ProgramId: 10494
+3. ProgramId: 10505
+4. ProgramId: 10516
+5. ProgramId: 10527
+NEW ENTRY
+10644
+10645
+10646
+10647
+10700
+Based on your interests in teaching (lärare), subject teaching (ämnes lärare), Swedish (svenska), English (engelsa), high school (gymenasie), and older students (äldre elever), here are 5 program recommendations for you:
+
+1. ProgramID: 10644
+2. ProgramID: 10645
+3. ProgramID: 10646
+4. ProgramID: 10647
+5. ProgramID: 10700
+NEW ENTRY
+10001
+10009
+10015
+10022
+10144
+Based on your interests, here are 5 program recommendations:
+
+1. ProgramID: 10001
+2. ProgramID: 10009
+3. ProgramID: 10015
+4. ProgramID: 10022
+5. ProgramID: 10144
+NEW ENTRY
+10161
+10164
+10168
+10171
+10200
+Based on your interests, here are five program IDs that you may find relevant:
+
+1. Program ID: 10161
+2. Program ID: 10164
+3. Program ID: 10168
+4. Program ID: 10171
+5. Program ID: 10200
+NEW ENTRY
+10322
+10323
+10324
+10325
+10452
+Based on your interests, here are 5 program IDs that are relevant to your interests:
+
+1. ProgramID: 10322
+2. ProgramID: 10323
+3. ProgramID: 10324
+4. ProgramID: 10325
+5. ProgramID: 10452 (wildcard choice)
+NEW ENTRY
+10322
+10323
+10324
+10325
+10462
+Based on your interests in Svenska, Engelska, Religion, and Historia, here are 5 program recommendations for you:
+
+1. ProgramId: 10322
+2. ProgramId: 10323
+3. ProgramId: 10324
+4. ProgramId: 10325
+5. ProgramId: 10462
+NEW ENTRY
+10161
+10162
+10163
+10164
+10200
+Based on your interests in Svenska, Engelska, Religion, and Historia, here are 5 program IDs that are relevant to your interests:
+
+1. Program ID: 10161
+2. Program ID: 10162
+3. Program ID: 10163
+4. Program ID: 10164
+5. Program ID: 10200 (wildcard)
+NEW ENTRY
+10029
+10043
+10016
+10004
+10120
+Based on your interests, here are 5 program recommendations for you:
+
+1. ProgramID: 10029 - History of Svenska language and literature
+2. ProgramID: 10043 - Comparative study of religion and culture
+3. ProgramID: 10016 - Engelska linguistics and literature
+4. ProgramID: 10004 - Historical studies on ancient civilizations
+5. ProgramID: 10120 - Intercultural communication and global perspectives
+NEW ENTRY
+10004
+10019
+10037
+10108
+10056
+Based on your interests in Engelska, Svenska, Historia, and Religion, here are 5 program recommendations for you:
+
+1. ProgramID: 10004
+2. ProgramID: 10019
+3. ProgramID: 10037
+4. ProgramID: 10108
+5. ProgramID: 10056
+NEW ENTRY
+10322
+10323
+10324
+10325
+10456
+Based on your interests in Engelska, Svenska, Historia, and Religion, here are 5 program IDs for you:
+
+1. ProgramID: 10322
+2. ProgramID: 10323
+3. ProgramID: 10324
+4. ProgramID: 10325
+5. ProgramID: 10456
+NEW ENTRY
+10161
+10162
+10163
+10164
+10170
+Based on your interests in Engelska, Svenska, Historia, and Religion, here are 5 program recommendations for you:
+
+1. ProgramId: 10161
+2. ProgramId: 10162
+3. ProgramId: 10163
+4. ProgramId: 10164
+5. ProgramId: 10170
+NEW ENTRY
+10000
+10001
+10002
+10003
+10027
+Based on your interests, here are 5 program recommendations for you:
+
+1. ProgramID: 10000
+2. ProgramID: 10001
+3. ProgramID: 10002
+4. ProgramID: 10003
+5. ProgramID: 10027
+NEW ENTRY
+
+1. Historia programID: HIS101
+2. Hembryggning programID: HEM201
+3. Engelska programID: ENG301
+4. Religion programID: REL401
+5. Wildcard program: Kulturvetenskap programID: KUL501
+NEW ENTRY
+10161
+10162
+10163
+10164
+10200
+Based on your interests, here are 5 program recommendations for you:
+
+1. ProgramID: 10161
+2. ProgramID: 10162
+3. ProgramID: 10163
+4. ProgramID: 10164
+5. ProgramID: 10200
+NEW ENTRY
+10483
+10485
+10486
+10489
+10520
+Based on your interests in Historia, Hembryggning, Engelska, and Religion, here are 5 program recommendations:
+
+1. ProgramId: 10483
+2. ProgramId: 10485
+3. ProgramId: 10486
+4. ProgramId: 10489
+5. ProgramId: 10520
+NEW ENTRY
+10322
+10323
+10324
+10325
+10460
+Sure, here are 5 program IDs based on your interests:
+
+1. Program ID: 10322
+2. Program ID: 10323
+3. Program ID: 10324
+4. Program ID: 10325
+5. Program ID: 10460
+NEW ENTRY
+10680
+10654
+10723
+10697
+10742
+Based on your interests in history, home brewing, English, and religion, and including a wildcard option, here are five program suggestions:
+
+1. ProgramID: 10680
+2. ProgramID: 10654
+3. ProgramID: 10723
+4. ProgramID: 10697
+5. ProgramID: 10742
+NEW ENTRY
+10269
+10270
+10285
+10286
+10300
+Based on your interests in Svenska, Engelska, Historia, and Religion, here are 5 program recommendations for you:
+
+1. ProgramId: 10269
+2. ProgramId: 10270
+3. ProgramId: 10285
+4. ProgramId: 10286
+5. ProgramId: 10300
+NEW ENTRY
+10002
+10014
+10024
+10030
+10046
+Based on your interests in Svenska, Engelska, Historia, and Religion, here are 5 program IDs for you:
+
+1. ProgramID: 10002
+2. ProgramID: 10014
+3. ProgramID: 10024
+4. ProgramID: 10030
+5. ProgramID: 10046
+NEW ENTRY
+10534
+10535
+10536
+10537
+10600
+Based on your interests in Svenska, Engelska, Historia, and Religion, here are 5 program recommendations for you:
+
+1. ProgramId: 10534
+2. ProgramId: 10535
+3. ProgramId: 10536
+4. ProgramId: 10537
+5. ProgramId: 10600
+NEW ENTRY
+10401
+10402
+10403
+10404
+10418
+10405
+10406
+10407
+10408
+10409
+Based on your interests, here are 10 program IDs for you:
+
+1. 10401
+2. 10402
+3. 10403
+4. 10404
+5. 10418
+6. 10405
+7. 10406
+8. 10407
+9. 10408
+10. 10409
+NEW ENTRY
+10008
+10014
+10025
+10032
+10041
+10047
+10055
+10063
+10070
+10079
+Sure, here are 10 program IDs based on your interests:
+
+1. ProgramId: 10008
+2. ProgramId: 10014
+3. ProgramId: 10025
+4. ProgramId: 10032
+5. ProgramId: 10041 (Wildcard)
+6. ProgramId: 10047
+7. ProgramId: 10055
+8. ProgramId: 10063
+9. ProgramId: 10070
+10. ProgramId: 10079
+
+I hope you find these program options interesting and relevant to your preferences!
+NEW ENTRY
+10003
+10008
+10012
+10017
+10024
+10029
+10033
+10036
+10042
+10050
+10003, 10008, 10012, 10017, 10024, 10029, 10033, 10036, 10042, 10050
+NEW ENTRY
+10401
+10402
+10403
+10404
+10415
+10416
+10417
+10418
+10419
+10420
+Based on your interests, here are 10 program IDs for you:
+
+1. ProgramID: 10401
+2. ProgramID: 10402
+3. ProgramID: 10403
+4. ProgramID: 10404
+5. ProgramID: 10415
+6. ProgramID: 10416
+7. ProgramID: 10417
+8. ProgramID: 10418
+9. ProgramID: 10419
+10. ProgramID: 10420
+
+I hope you find these program options intriguing and aligned with your interests!
+NEW ENTRY
+10654
+10297
+10423
+10585
+10772
+10580
+10522
+10243
+10315
+10407
+Sure! Here are 10 program IDs based on your interests and the wildcard recommendation:
+
+1. 10654
+2. 10297
+3. 10423
+4. 10585
+5. 10772 (Wildcard)
+6. 10580
+7. 10522
+8. 10243
+9. 10315
+10. 10407
+NEW ENTRY
+10261
+10445
+10277
+10750
+10554
+10398
+10399
+10316
+10232
+10231
+Based on your interests, here are 10 program recommendations for you:
+
+1. ProgramID: 10261
+2. ProgramID: 10445
+3. ProgramID: 10277
+4. ProgramID: 10750
+5. ProgramID: 10554 (Wildcard)
+6. ProgramID: 10398
+7. ProgramID: 10399
+8. ProgramID: 10316
+9. ProgramID: 10232
+10. ProgramID: 10231
+NEW ENTRY
+10154
+10269
+10622
+10690
+10758
+10271
+10200
+10597
+10487
+10219
+Based on your interests, here are 10 program IDs that align closely with your interests, with the fifth and last recommendations being more varied:
+
+1. 10154
+2. 10269
+3. 10622
+4. 10690
+5. 10758 (Wildcard)
+6. 10271
+7. 10200
+8. 10597
+9. 10487
+10. 10219
+NEW ENTRY
+10586
+10533
+10404
+10585
+10677
+10351
+10723
+10146
+10587
+10169
+10746
+Based on your interests, here are 10 program IDs that align closely with your preferences:
+
+1. ProgramId: 10586
+2. ProgramId: 10533
+3. ProgramId: 10404
+4. ProgramId: 10585
+5. ProgramId: 10677
+6. ProgramId: 10351
+7. ProgramId: 10723
+8. ProgramId: 10146
+9. ProgramId: 10587
+10. ProgramId: 10169
+
+Wildcard ProgramId: 10746
+NEW ENTRY
+10117
+10673
+10394
+10193
+10260
+Based on your interests in History, Religion, English, and Swedish, here are 5 program recommendations for you:
+
+1. ProgramId: 10117
+2. ProgramId: 10673
+3. ProgramId: 10394
+4. ProgramId: 10193
+5. (Wildcard) ProgramId: 10260
+NEW ENTRY
+10205
+10548
+10089
+10068
+10472
+10750
+Based on your interests in History, Religion, English, and Swedish, here are 5 program recommendations along with 1 wildcard program:
+
+1. ProgramID: 10205
+2. ProgramID: 10548
+3. ProgramID: 10089
+4. ProgramID: 10068
+5. ProgramID: 10472
+Wildcard: ProgramID: 10750
+NEW ENTRY
+10497
+10141
+10718
+10204
+10099
+Based on your interests in History, Religion, English, and Swedish, here are 5 program recommendations along with one wildcard option:
+
+1. ProgramId: 10497
+2. ProgramId: 10141
+3. ProgramId: 10718
+4. ProgramId: 10204
+5. ProgramId: 10099 (Wildcard)
+
+I hope you find these program recommendations aligned with your interests!
+NEW ENTRY
+10747
+10700
+10687
+10226
+10381
+Based on your interests in History, Religion, English, and Swedish, here are 5 program IDs that are relevant to your interests:
+
+1. ProgramID: 10747
+2. ProgramID: 10700
+3. ProgramID: 10687
+4. ProgramID: 10226
+5. ProgramID: 10381 (wildcard recommendation)
+
+I hope you find these programs interesting and enjoyable!
+NEW ENTRY
+10535
+10433
+10619
+10441
+10406
+Based on your interests in Historia, Religion, Engelska, and Svenska, here are 5 program recommendations along with one wildcard option:
+
+1. ProgramID: 10535
+2. ProgramID: 10433
+3. ProgramID: 10619
+4. ProgramID: 10441
+5. ProgramID: 10406 (Wildcard)
+
+I hope you find these program options interesting and engaging!
+NEW ENTRY
+10755
+10410
+10025
+10524
+10492
+Based on your interests in Engelska, Historia, Religion, Fysik, and Kortspel, here are 5 program recommendations along with 1 wildcard recommendation:
+
+1. ProgramID: 10755
+2. ProgramID: 10410
+3. ProgramID: 10025
+4. ProgramID: 10524
+5. ProgramID: 10492 (Wildcard)
+
+I hope you find these program options engaging and relevant to your interests!
+NEW ENTRY
+10230
+10317
+10176
+10436
+10237
+Based on your interests in Engelska, Historia, Religion, Fysik, and Kortspel, here are 5 program recommendations along with 1 wildcard option:
+
+1. ProgramId: 10230
+2. ProgramId: 10317
+3. ProgramId: 10176
+4. ProgramId: 10436
+5. ProgramId: 10237 (Wildcard)
+
+Good luck with your program selection!
+NEW ENTRY
+10780
+10559
+10320
+10464
+10794
+10356
+Based on your interests, here are 5 program IDs that are relevant to your interests:
+
+1. ProgramID: 10780
+2. ProgramID: 10559
+3. ProgramID: 10320
+4. ProgramID: 10464
+5. ProgramID: 10794
+
+And for the wildcard recommendation:
+
+Wildcard: ProgramID: 10356
+NEW ENTRY
+10596
+10269
+10490
+10746
+10084
+Based on your interests in Engelska, Historia, Religion, Fysik, and Kortspel, here are 5 program recommendations:
+
+1. ProgramID: 10596
+2. ProgramID: 10269
+3. ProgramID: 10490
+4. ProgramID: 10746
+5. Wildcard Recommendation - ProgramID: 10084
+NEW ENTRY
+10267
+10154
+10684
+10582
+10156
+Based on your interests in Engelska, Historia, Religion, Fysik, and Kortspel, here are five program recommendations along with one wildcard option:
+
+1. 10267
+2. 10154
+3. 10684
+4. 10582
+5. 10156 (Wildcard)
+
+I hope you find these program options interesting and relevant to your interests!
+NEW ENTRY
+10216
+10536
+10370
+10731
+10489
+Based on your interests in Engelska, Svenska, Historia, and Religion, here are 5 program recommendations for you:
+
+1. ProgramID: 10216
+2. ProgramID: 10536
+3. ProgramID: 10370
+4. ProgramID: 10731
+5. ProgramID: 10489
+NEW ENTRY
+10220
+10143
+10651
+10179
+10568
+Based on your interests in Engelska, Svenska, Historia, and Religion, I recommend the following programs:
+
+1. ProgramId: 10220
+2. ProgramId: 10143
+3. ProgramId: 10651
+4. ProgramId: 10179
+5. ProgramId: 10568 (Wildcard)
+NEW ENTRY
+10369
+10680
+10463
+10715
+10251
+Based on your interests in Engelska, Svenska, Historia, and Religion, here are 5 program recommendations for you:
+
+1. ProgramId: 10369
+2. ProgramId: 10680
+3. ProgramId: 10463
+4. ProgramId: 10715
+5. ProgramId: 10251 (Wildcard recommendation)
+NEW ENTRY
+10431
+10557
+10512
+10338
+10429
+Based on your interests in English, Swedish, History, and Religion, here are five program recommendations:
+
+1. ProgramId: 10431
+2. ProgramId: 10557
+3. ProgramId: 10512
+4. ProgramId: 10338
+5. ProgramId: 10429
+NEW ENTRY
+10118
+10289
+10045
+10136
+10699
+Based on your interests in Engelska, Svenska, Historia, and Religion, here are 5 program recommendations for you:
+
+1. ProgramId: 10118
+2. ProgramId: 10289
+3. ProgramId: 10045
+4. ProgramId: 10136
+5. ProgramId: 10699 (Wildcard)
+NEW ENTRY
+10575
+10726
+10007
+10140
+10625
+Based on your interests in Engelska, Historia, Religion, and Svenska, here are five program recommendations for you:
+
+1. ProgramId: 10575
+2. ProgramId: 10726
+3. ProgramId: 10007
+4. ProgramId: 10140
+5. ProgramId: 10625
+NEW ENTRY
+10475
+10690
+10272
+10170
+10544
+Based on your interests in Engelska, Historia, Religion, and Svenska, here are five program recommendations for you:
+
+1. Program ID: 10475
+2. Program ID: 10690
+3. Program ID: 10272
+4. Program ID: 10170
+5. Wildcard: Program ID: 10544
+NEW ENTRY
+10418
+10604
+10630
+10577
+10664
+Based on your interests in Engelska, Historia, Religion, and Svenska, here are 5 program recommendations:
+
+1. ProgramID: 10418
+2. ProgramID: 10604
+3. ProgramID: 10630
+4. ProgramID: 10577
+5. ProgramID: 10664
+NEW ENTRY
+10739
+10786
+10595
+10783
+10642
+Based on your interests in English, History, Religion, and Swedish, here are 5 program recommendations along with a wildcard:
+
+1. Program ID: 10739
+2. Program ID: 10786
+3. Program ID: 10595
+4. Program ID: 10783
+5. Wildcard - Program ID: 10642
+NEW ENTRY
+10612
+10029
+10713
+10260
+10651
+Based on your interests in English, History, Religion, and Swedish, along with a wildcard option, the 5 recommended program IDs are:
+
+1. ProgramId: 10612
+2. ProgramId: 10029
+3. ProgramId: 10713
+4. ProgramId: 10260
+5. ProgramId: 10651
+NEW ENTRY
+10288
+10112
+10164
+10124
+10530
+Based on your interests in Svenska, Engelska, Historia, and Religion, here are the program IDs for 5 relevant programs and a wildcard recommendation:
+
+1. Program ID: 10288
+2. Program ID: 10112
+3. Program ID: 10164
+4. Program ID: 10124
+5. Wildcard Program ID: 10530
+NEW ENTRY
+10377
+10349
+10129
+10476
+10376
+Based on your interests in Svenska, Engelska, Historia, and Religion, along with the requirement for a wildcard recommendation, here are the program IDs you may consider:
+
+1. ProgramId: 10377
+2. ProgramId: 10349
+3. ProgramId: 10129
+4. ProgramId: 10476
+5. Wildcard Recommendation - ProgramId: 10376
+NEW ENTRY
+10365
+10593
+10630
+10224
+10253
+Based on your interests in Svenska, Engelska, Historia, and Religion, here are 5 program recommendations for you:
+
+1. ProgramId: 10365
+2. ProgramId: 10593
+3. ProgramId: 10630
+4. ProgramId: 10224
+5. ProgramId: 10253 (Wildcard recommendation)
+NEW ENTRY
+10143
+10383
+10006
+10749
+10528
+Based on your interests in Svenska, Engelska, Historia, and Religion, here are 5 program recommendations for you:
+
+1. ProgramID: 10143
+2. ProgramID: 10383
+3. ProgramID: 10006
+4. ProgramID: 10749
+5. ProgramID: 10528
+NEW ENTRY
+10716
+10545
+10519
+10149
+10635
+Based on your interests in Svenska, Engelska, Historia, and Religion, here are 5 program recommendations for you:
+
+1. ProgramId: 10716
+2. ProgramId: 10545
+3. ProgramId: 10519
+4. ProgramId: 10149
+5. ProgramId: 10635 (wildcard recommendation)
+
+These programs are aligned with your interests and will provide you with a diverse range of courses to explore.
+NEW ENTRY
+10367
+10107
+10650
+10039
+10496
+Based on your interests in Svenska, Engelska, Historia, and Religion, here are 5 program recommendations for you:
+
+1. ProgramId: 10367
+2. ProgramId: 10107
+3. ProgramId: 10650
+4. ProgramId: 10039
+5. ProgramId: 10496
+NEW ENTRY
+10053
+10347
+10472
+10289
+10672
+Based on your interests in Svenska, Engelska, Historia, and Religion, here are 5 program recommendations for you:
+
+1. ProgramId: 10053
+2. ProgramId: 10347
+3. ProgramId: 10472
+4. ProgramId: 10289
+5. ProgramId: 10672 (wildcard recommendation)
+NEW ENTRY
+10146
+10185
+10281
+10448
+10724
+Based on your interests in Svenska, Engelska, Historia, and Religion, here are 5 program recommendations:
+
+1. ProgramID: 10146
+2. ProgramID: 10185
+3. ProgramID: 10281
+4. ProgramID: 10448
+5. ProgramID: 10724
+NEW ENTRY
+10344
+10399
+10461
+10150
+10252
+Based on your interests in Svenska, Engelska, Historia, and Religion, here are 5 program recommendations:
+
+1. ProgramId: 10344
+2. ProgramId: 10399
+3. ProgramId: 10461
+4. ProgramId: 10150
+5. ProgramId: 10252
+NEW ENTRY
+10066
+10271
+10372
+10183
+10613
+Based on your interests in Svenska, Engelska, Historia, and Religion, here are 5 program recommendations:
+
+1. ProgramID: 10066
+2. ProgramID: 10271
+3. ProgramID: 10372
+4. ProgramID: 10183
+5. ProgramID: 10613
+NEW ENTRY
+10217
+10577
+10132
+10737
+10657
+Based on your interests in Svenska, Engelska, Historia, and Religion, here are five program recommendations for you:
+
+1. ProgramId: 10217
+2. ProgramId: 10577
+3. ProgramId: 10132
+4. ProgramId: 10737
+5. ProgramId: 10657
+NEW ENTRY
+10508
+10721
+10469
+10087
+10643
+Based on your interests in Svenska, Engelska, Historia, and Religion, here are 5 program recommendations:
+
+1. ProgramID: 10508
+2. ProgramID: 10721
+3. ProgramID: 10469
+4. ProgramID: 10087
+5. ProgramID: 10643 (Wildcard)
+NEW ENTRY
+10102
+10495
+10310
+10240
+10638
+Based on your interests in Svenska, Engelska, Historia, and Religion, here are 5 program recommendations for you:
+
+1. ProgramId: 10102
+2. ProgramId: 10495
+3. ProgramId: 10310
+4. ProgramId: 10240
+5. ProgramId: 10638 (wildcard recommendation loosely based on your interests)
+NEW ENTRY
+10387
+10559
+10430
+10361
+10677
+Based on your interests in Svenska, Engelska, Historia, and Religion, here are 5 program recommendations for you:
+
+1. ProgramID: 10387
+2. ProgramID: 10559
+3. ProgramID: 10430
+4. ProgramID: 10361
+5. ProgramID: 10677 (wildcard)
+NEW ENTRY
+10591
+10340
+10084
+10385
+10755
+Based on your interests in Svenska, Engelska, Historia, and Religion, here are five program suggestions, with the fifth being a wildcard:
+
+1. ProgramID: 10591
+2. ProgramID: 10340
+3. ProgramID: 10084
+4. ProgramID: 10385
+5. ProgramID: 10755
+NEW ENTRY
+10576
+10148
+10377
+10003
+10643
+Based on your interest in Svenska, Engelska, Historia, and Religion, here are 5 program recommendations:
+
+1. 10576
+2. 10148
+3. 10377
+4. 10003
+5. 10643
+NEW ENTRY
+10326
+10078
+10447
+10106
+10433
+Based on your interests in Svenska, Engelska, Historia, and Religion, here are 5 program recommendations for you:
+
+1. ProgramID: 10326
+2. ProgramID: 10078
+3. ProgramID: 10447
+4. ProgramID: 10106
+5. ProgramID: 10433 (Wildcard recommendation)
+NEW ENTRY
+10560
+10525
+10339
+10594
+10662
+Based on your interests in Svenska, Engelska, Historia, and Religion, here are five program recommendations for you:
+
+1. ProgramId: 10560
+2. ProgramId: 10525
+3. ProgramId: 10339
+4. ProgramId: 10594
+5. ProgramId: 10662
+NEW ENTRY
+10062
+10145
+10117
+10642
+10349
+Based on your interests in Svenska, Engelska, Historia, and Religion, here are 5 program recommendations for you:
+
+1. ProgramID: 10062
+2. ProgramID: 10145
+3. ProgramID: 10117
+4. ProgramID: 10642
+5. ProgramID: 10349
+NEW ENTRY
+10042
+10233
+10373
+10595
+10158
+Based on your interests in Svenska, Engelska, Historia, and Religion, here are five program IDs for you:
+
+1. Program ID: 10042
+2. Program ID: 10233
+3. Program ID: 10373
+4. Program ID: 10595
+5. Program ID: 10158
+NEW ENTRY
+10044
+10749
+10525
+10402
+10280
+Based on your interests in Engelska, Svenska, Religion, and Historia, here are 5 program recommendations for you:
+
+1. ProgramId: 10044
+2. ProgramId: 10749
+3. ProgramId: 10525
+4. ProgramId: 10402
+5. Wildcard: ProgramId: 10280
+NEW ENTRY
+10396
+10444
+10279
+10765
+10620
+Based on your interests in English, Swedish, Religion, and History, here are 5 program recommendations along with a wildcard:
+
+1. ProgramId: 10396
+2. ProgramId: 10444
+3. ProgramId: 10279
+4. ProgramId: 10765
+5. ProgramId: 10620 (wildcard)
+NEW ENTRY
+10697
+10670
+10314
+10605
+10289
+Based on your interests in English, Swedish, Religion, and History, here are 5 program recommendations:
+
+1. ProgramID: 10697
+2. ProgramID: 10670
+3. ProgramID: 10314
+4. ProgramID: 10605
+5. Wildcard ProgramID: 10289
+NEW ENTRY
+10123
+10217
+10261
+10509
+10485
+Based on your interests in Engelska, Svenska, Religion, and Historia, here are 5 program recommendations:
+
+1. ProgramId: 10123
+2. ProgramId: 10217
+3. ProgramId: 10261
+4. ProgramId: 10509
+5. ProgramId: 10485
+NEW ENTRY
+10556
+10170
+10668
+10621
+10243
+Based on your interests in Engelska, Svenska, Religion, and Historia, here are 5 program recommendations for you:
+
+1. ProgramId: 10556
+2. ProgramId: 10170
+3. ProgramId: 10668
+4. ProgramId: 10621
+5. ProgramId: 10243 (wildcard recommendation)
+
+These programs align with your interests and also provide a bit of variety with the wildcard option. Good luck with your program selection!
+NEW ENTRY
+10346
+10557
+10457
+10510
+10668
+Based on your interests, here are 5 program recommendations:
+
+1. ProgramID: 10346
+2. ProgramID: 10557
+3. ProgramID: 10457
+4. ProgramID: 10510
+5. ProgramID: 10668
+NEW ENTRY
+10350
+10740
+10568
+10127
+10621
+Based on your interests in Svenska, Engelska, Religion, and Historia, here are my recommendations for programs:
+
+1. ProgramId: 10350
+2. ProgramId: 10740
+3. ProgramId: 10568
+4. ProgramId: 10127
+5. ProgramId: 10621
+NEW ENTRY
+10434
+10302
+10469
+10384
+10143
+Based on your interests in Svenska, Engelska, Religion, and Historia, here are 5 program recommendations for you:
+
+1. ProgramID: 10434
+2. ProgramID: 10302
+3. ProgramID: 10469
+4. ProgramID: 10384
+5. ProgramID: 10143
+NEW ENTRY
+10526
+10518
+10531
+10536
+10415
+Based on your interests in Svenska, Engelska, Religion, and Historia, here are 5 program recommendations for you:
+
+1. ProgramID: 10526
+2. ProgramID: 10518
+3. ProgramID: 10531
+4. ProgramID: 10536
+5. ProgramID: 10415
+NEW ENTRY
+10149
+10200
+10177
+10515
+10443
+Based on your interests in Svenska, Engelska, Religion, and Historia, here are 5 program recommendations along with a wildcard:
+
+1. Program ID: 10149
+2. Program ID: 10200
+3. Program ID: 10177
+4. Program ID: 10515
+5. Wildcard Program ID: 10443
