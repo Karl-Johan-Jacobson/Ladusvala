@@ -1940,3 +1940,59 @@ Based on your interests in subjects like Fysik (Physics), Kemi (Chemistry), Biol
 3. Program ID: 10044 (Civilingenjör i teknisk fysik)
 4. Program ID: 10061 (Kandidatprogram i kemi med inriktning kemisk analys)
 5. Program ID: 10079 (Psykologprogrammet)
+
+NEW ENTRY
+10003
+10004
+10001
+10000
+10015
+Based on your interests in Svenska, Engelska, Historia, and Religion, here are 5 program recommendations for you:
+
+1. ProgramID: 10003 (Krig, kultur och samhälle – kandidatprogram)
+2. ProgramID: 10004 (Statsvetenskap med inriktning krishantering och säkerhet – kandidatprogram)
+3. ProgramID: 10001 (Officersprogrammet inriktning militärteknik)
+4. ProgramID: 10000 (Officersprogrammet inriktning krigsvetenskap)
+5. ProgramID: 10015 (Etologi och djurskydd)
+NEW ENTRY
+10025
+10026
+10028
+10029
+10031
+Based on your interests in Svenska, Engelska, Historia, and Religion, here are five program recommendations for you:
+
+1. ProgramId: 10025 (Politices kandidat - hållbar utveckling)
+2. ProgramId: 10026 (Samhällsutveckling - landsbygd)
+3. ProgramId: 10028 (Skogsmästare)
+4. ProgramId: 10029 (Trädgårdsingenjör - design)
+5. ProgramId: 10031 (Veterinär)
+NEW ENTRY
+10036
+10048
+10040
+10044
+10052
+10036
+10048
+10040
+10044
+10052
+NEW ENTRY
+10054
+10062
+10063
+10059
+10068
+10054, 10062, 10063, 10059, 10068
+NEW ENTRY
+10075
+10076
+10077
+10078
+10089
+10075
+10076
+10077
+10078
+10089

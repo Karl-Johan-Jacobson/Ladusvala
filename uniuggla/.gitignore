@@ -37,8 +37,8 @@ yarn-error.log*
 next-env.d.ts
 
 # data
-uniuggla/public/dataset/intrests.*
-uniuggla/public/dataset/programs.*
+public/dataset/intrests.*
+public/dataset/programs.*
 
 # webscrapers
 webScrapers/test.*
