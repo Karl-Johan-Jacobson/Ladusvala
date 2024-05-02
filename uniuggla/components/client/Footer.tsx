@@ -1,54 +1,51 @@
+// Footer component
 "use client";
 import React, { useState, useEffect } from 'react';
 import HamburgerNavigationBar from "@/components/client/HamburgerNavigationBar";
+
 export default function Footer() {
     const [isWide, setIsWide] = useState(window.innerWidth > 480);
+    const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
-        function handleResize() {
+        const handleResize = () => {
             setIsWide(window.innerWidth > 480);
-        }
+            if (window.innerWidth > 480) {
+                setIsOpen(false); // Close the menu when resizing to a wide view
+            }
+        };
 
         window.addEventListener('resize', handleResize);
-
-        // Clean up the event listener when the component unmounts
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
+    const toggleMenu = () => {
+        setIsOpen(!isOpen);
+    };
+
     return (
         <footer>
-            <div className="footerLine"></div>
-            {isWide &&  (
-                <div className="footerLeft">
-                    <div className="footerListDiv">
-                        <ul className="footerList">
-                            <li>
-                                <a href="/" className="siteNavigation">
-                                    Hitta program
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/count" className="siteNavigation">
-                                    Räkna antagningspoäng
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/req" className="siteNavigation">
-                                    Se behörighetskrav
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/about" className="siteNavigation">
-                                    Om oss
-                                </a>
-                            </li>
-                        </ul>
+            {isWide ? (
+                <div>
+                    <div className="footerLine"></div>
+                    <div className="footerLeft">
+                        <div className="footerListDiv">
+                            <ul className="footerList">
+                                <li><a href="/" className="siteNavigation">Hitta program</a></li>
+                                <li><a href="/count" className="siteNavigation">Räkna antagningspoäng</a></li>
+                                <li><a href="/req" className="siteNavigation">Se behörighetskrav</a></li>
+                                <li><a href="/about" className="siteNavigation">Om oss</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            )	
-		}
+            ) : (
+                <div className={`footerLine ${isOpen ? "footerLineAnimDown" : "footerLineAnimUp"}`}>
+                    <HamburgerNavigationBar onToggle={toggleMenu} isOpen={isOpen} />
+                </div>
+            )}
             <div className="footerLogoDiv">
-                <p> UNIU </p>
+                <p>UNIU</p>
             </div>
         </footer>
     );

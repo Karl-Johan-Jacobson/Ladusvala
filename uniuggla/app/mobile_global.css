@@ -19,62 +19,48 @@
 /* Add this CSS to your global styles or component-specific styles */
 /* Add this CSS to your global styles or component-specific styles */
 .hamburger-nav {
-  position: fixed;
-  bottom: 0;
-  left: 0;
+
   width: 100%;
-  background-color: transparent;
-  padding: 10px 0;
+  padding-top: 2.5vw;  
   display: block;
-  justify-content: center;
-  z-index: 11 !important;
+  justify-content: center;  
+  background-color: var(--primary-light-green);
 }
 
 .hamburger-icon {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  width: 20px;
-  height: 20px;
-  z-index: 12 !important;
+  width: 6vw;
+  height: 5vw; 
+  margin: auto;
+  z-index: 10 !important;
+ 
 }
 
-.line {
+.line { /*The lines which make up the button for bottom nav*/
   width: 20px;
   height: 2px;
-  background-color: var(--primary-dark-purple);
+  background-color: var(--medium-green-shadow);
 }
-
 .dropdown-menu {
-  list-style-type: none;
   text-align: center;
   padding: 0;
   margin: 0;
-  font-size: 20px;  
+  font-size: 20px;
   }
 .dropdown-menu li {
   display: block;
-  margin: 10px 0;
+  margin: 4vw 0;
+
 }
 
 .dropdown-menu li a {
   color: var(--primary-dark-purple);
   text-decoration: none;
-}
 
-.hamburgerAnim{
-  animation: hamburgerAnimation 400ms ease;  
-}
 
-@keyframes hamburgerAnimation {
-  0% {
-    transform: translateY(200px)
-  }
-  100% {
-    transform: translateY(0px);
-  }
 }
-
 
 
 
@@ -237,7 +223,7 @@
         */
   /* Dimensioning of the background and positioning for logo for the color gradient*/
   header {
-    z-index: 10;
+    z-index: 5 !important;
     width: 100vw;
     height: 15vh;
     top: 0;
@@ -287,23 +273,7 @@
     padding-right: 5vw;
   }
 
-  .wrapper {
-    height: auto;
-    width: auto;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    margin: 0vw auto 5vw;
-    padding: 0 10vh 1vw;
-    z-index: 1;
-    transition: 0.5s ease;
-    overflow-y: hidden; /* Auto if page is not showing on page 3 */
-  }
-  .wrapper::-webkit-scrollbar {
-    display: none;
-  }
+
 
   /* Styling and positioning */
   .answers {
@@ -769,7 +739,7 @@
   .arrow {
     height: 1vw;
     margin: 0 auto;
-    color: var(--medium-gree);
+    color: var(--medium-green);
   }
 
   .expandArrow {
@@ -816,10 +786,9 @@
     bottom: 0;
     left: 0;
     position: fixed;
-    width: 98%;
+    width: 100%;
     height: 10vw;
     display: inline-block;
-    background-color: var(--primary-light-green);
     background-color: var(--primary-light-green);
     font-size: 1.5vw;
   }
@@ -828,15 +797,26 @@
 
 
   /* Dividing line footer */
-  .footerLine {
+  .footerLine{
     top: 0;
     width: 100%;
     height: 0.4vh;
     position: relative;
     background-color: var(--primary-dark-purple);
-    background-color: var(--primary-dark-purple);
-    transition: transform 0.3s ease-out; /* Smooth transform */
+    z-index: 10 !important;  
+  
   }
+  .footerLineAnimDown {
+    transform: translateY(-42vw); 
+    transition: transform 0.5s ease; 
+  }
+  
+  .footerLineAnimUp {
+    transform: translateY(0); 
+    transition: transform 0.5s ease; 
+  }
+  
+  
 
   /* Navbar wrapper */
 
@@ -846,11 +826,12 @@
 
   /* Text logo wrapper dimetion and position */
   .footerLogoDiv p {
-    font-size: 4vw;
+    font-size: 8vw;
     position: fixed;
     right: 1vw;
     bottom: 0;
     color: var(--primary-dark-purple);
+    z-index: 15 !important;
   }
 
   /*

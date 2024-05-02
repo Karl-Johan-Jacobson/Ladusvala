@@ -134,7 +134,7 @@ export default function Home() {
 				<Recommendation />
 			</section>
 		</main>
-		<HamburgerNavigationBar />
+		
 
 		</div>
 

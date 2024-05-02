@@ -1,32 +1,32 @@
-// components/HamburgerNavigationBar.js
+// components/HamburgerNavigationBar.tsx
 
-import React, { useState } from 'react';
+import React from 'react';
 
-const HamburgerNavigationBar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+// Define the interface for the component props
+interface HamburgerNavigationBarProps {
+  onToggle: () => void; // Function that doesn't take parameters and returns void
+  isOpen: boolean;     // Boolean state
+}
 
+const HamburgerNavigationBar: React.FC<HamburgerNavigationBarProps> = ({ onToggle, isOpen }) => {
   const toggleDropdown = () => {
-    setIsOpen(!isOpen);
-    console.log("TOGGLE HAMBURGER MENU!!!!!!!!!!!!!!")
+    onToggle(); // Call the function passed from the parent component
   };
 
   return (
-    <nav className={isOpen ? "hamburger-nav hamburgerSomehting": "hamburger-nav"}>
-      {/* Hamburger icon to toggle dropdown */}
+    <nav className="hamburger-nav">
       <div className="hamburger-icon" onClick={toggleDropdown}>
         <div className="line"></div>
         <div className="line"></div>
         <div className="line"></div>
       </div>
       
-      {/* Dropdown menu */}
       {isOpen && (
         <ul className="dropdown-menu">
           <li><a href="/">Hitta program</a></li>
           <li><a href="/">Se behörighetskrav</a></li>
           <li><a href="/">Beräkna antagningspoäng</a></li>
           <li><a href="/about">Om oss</a></li>
-          {/* Add more links as needed */}
         </ul>
       )}
     </nav>
