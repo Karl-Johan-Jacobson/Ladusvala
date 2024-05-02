@@ -17,6 +17,7 @@ import HamburgerNavigationBar from "@/components/client/HamburgerNavigationBar";
 
 // Main function that returns the html and handles the animations
 export default function Home() {
+	
 	let viewingWidth = "";
 	const router = useRouter();
 	function handleNoButtonClick(): void {
@@ -99,7 +100,7 @@ export default function Home() {
 			modifyOpacity("1", moveAnswer[1]);
 		}, typeWriterDelay + extraButtonDelay);
 
-		return () => {
+		return () => {	
 			if (typeWriterInterval) {
 				clearInterval(typeWriterInterval);
 			}
@@ -111,9 +112,11 @@ export default function Home() {
 
 	// HTML code, within <main>
 	return (
+		
 		<div className="container1">
 		<main className="main" style={{ overflow: "hidden" }}>
-
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	
 
 			{/*
         Welcome page

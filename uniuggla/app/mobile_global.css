@@ -19,11 +19,11 @@
 /* Add this CSS to your global styles or component-specific styles */
 /* Add this CSS to your global styles or component-specific styles */
 .hamburger-nav {
-
   width: 100%;
-  padding-top: 2.5vw;  
+  padding-top: 2.5vw;     
   display: block;
   justify-content: center;  
+  z-index: 1;
   background-color: var(--primary-light-green);
 }
 
@@ -47,7 +47,8 @@
   text-align: center;
   padding: 0;
   margin: 0;
-  font-size: 20px;
+  font-size: 2.7vh;
+  font-family: "Tomorrow-Medium";
   }
 .dropdown-menu li {
   display: block;
@@ -291,6 +292,7 @@
     /* Space between buttons */
     padding: 1vw 0;
     /* Vertical padding for visual comfort */
+    transition: margin-top 1s ease, opacity 0.5s ease;
 
   }
 
@@ -803,7 +805,7 @@
     height: 0.4vh;
     position: relative;
     background-color: var(--primary-dark-purple);
-    z-index: 10 !important;  
+    z-index: 100 !important;  
   
   }
   .footerLineAnimDown {
@@ -831,7 +833,7 @@
     right: 1vw;
     bottom: 0;
     color: var(--primary-dark-purple);
-    z-index: 15 !important;
+    z-index: 300 !important;
   }
 
   /*
