@@ -695,14 +695,6 @@ header img {
  ---===---===---===---===---===---===---===---===---===---
   Start of Recommendation
 */
-.filterWrapper {
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	grid-gap: 10px;
-	width: 60%;
-	max-width: fit-content;
-	margin: 3vw auto 0;
-}
 .recommendedWrapper,
 .gradeWrapper {
 	position: relative;
@@ -762,6 +754,8 @@ header img {
 	font-size: 1.6vw;
 	font-family: Tomorrow-SemiBold !important;
 	color: var(--primary-dark-purple);
+}
+.wildcard * .tilteReq {
 	max-width: 90%;
 }
 .wildcardText {

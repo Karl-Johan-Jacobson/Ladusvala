@@ -82,12 +82,6 @@ export function generateHiddenRecommendations(programs: ProgramNameAndId[], html
 			degree.innerHTML = "EXAMEN: " + program.degree;
 			recommendedHead.appendChild(degree);
 		}
-		if (program.degree != null) {
-			const degree = document.createElement("p");
-			degree.className = "degreeReq descriptionReq";
-			degree.innerHTML = "EXAMEN: " + program.degree;
-			recommendedHead.appendChild(degree);
-		}
 		//create a ...
 		const points = document.createElement("p");
 		points.className = "pointsReq descriptionReq";
@@ -216,10 +210,10 @@ export function aiTypeAnswer(programs: ProgramNameAndId[], htmlClass: string, in
 		title.innerHTML = program.programTitle_sv;
 		recommendedHead.appendChild(title);
 		if ((i + 1) % 5 == 0) {
-			const title = document.createElement("p");
-			title.className = "wildcardText";
-			title.innerHTML = "WILDCARD?";
-			recommendedHead.appendChild(title);
+			const wildcardText = document.createElement("p");
+			wildcardText.className = "wildcardText";
+			wildcardText.innerHTML = "WILDCARD?";
+			recommendedHead.appendChild(wildcardText);
 
 			const wildcardBubble = document.createElement("p");
 			wildcardBubble.className = "wildcardBubble";
