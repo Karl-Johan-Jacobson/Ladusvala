@@ -762,6 +762,7 @@ header img {
 	font-size: 1.6vw;
 	font-family: Tomorrow-SemiBold !important;
 	color: var(--primary-dark-purple);
+	max-width: 90%;
 }
 .wildcardText {
 	font-family: Tomorrow-Medium;
