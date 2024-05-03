@@ -3,6 +3,7 @@ import * as fs from "fs";
 import OpenAI from "openai";
 import { ChatCompletionMessageParam } from "openai/resources/index.mjs";
 import type Interest from "../types/interest";
+import programsJson from "@/public/dataset/programs.json";
 //IF YOU GET this error TS18028, just ignore. and run js file anyway -KJ
 
 const openai = new OpenAI({
@@ -95,7 +96,6 @@ async function recommendProgramFromInterest(
   return idFromRespArray;
 }
 
-const filePath: string = "public/dataset/programs.json";
 
 // programDesciption name will be fixed when actual file is used.
 export type ProgramNameAndId = {
@@ -113,38 +113,20 @@ export type ProgramNameAndId = {
 
 export async function fetchAllProgramsJson(): Promise<ProgramNameAndId[]> {
 
-  return new Promise((resolve, reject) => {
-    //Reads JSON file
-    fs.readFile(
-      filePath,
-      "utf8",
-      (err: NodeJS.ErrnoException | null, data: string) => {
-        if (err) {
-          reject(err);
-          return;
-        }
-        let counter = 10000;
-        try {
-          const jsonArray = JSON.parse(data) as any[]; // Parse as array of any type
-          const allPrograms: ProgramNameAndId[] = jsonArray.map((item) => ({
-            programTitle_sv: item.programTitle_sv,
-            programPoints: item.programPoints,
-            programDesciption_sv: item.programDesciption_sv,
-            programLink: item.programLink,
-            programId: counter++,
-            schoolName: item.schoolName,
-            aiPrompt: item.aiPropmt,
-            degree: item.degree, // This will be set through scrapers, will be present within programs.json. Assuming programId is a string and needs to be converted to a number
-          }));
-          resolve(allPrograms);
-          return allPrograms; // can use resolve(allPrograms) if errors occur. -> is much slower
-        } catch (parseError) {
-          reject(parseError);
-        }
-      }
-    );
-  });
+	let counter = 10000;
+  const allPrograms: ProgramNameAndId[] = programsJson.map((item) => ({
+		programTitle_sv: item.programTitle_sv,
+		programPoints: item.programPoints,
+		programDesciption_sv: item.programDesciption_sv,
+		programLink: item.programLink,
+		programId: counter++,
+		schoolName: item.schoolName,
+		aiPrompt: item.aiPropmt,
+		degree: item.degree !== null && item.degree !== undefined ? item.degree : '',  // This will be set through scrapers, will be present within programs.json. Assuming programId is a string and needs to be converted to a number
+	}));
+	return allPrograms; // can use resolve(allPrograms) if errors occur. -> is much slower
 }
+
 export default async function callOpenaiInParts(interestString: string) {
   try {
     const programs = await fetchAllProgramsJson();

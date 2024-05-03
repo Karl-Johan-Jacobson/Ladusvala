@@ -3762,3 +3762,72 @@ Based on your interests in English, Religion, History, and Swedish, here are fiv
 3. ProgramId: 10212
 4. ProgramId: 10244
 5. ProgramId: 10710 (wildcard recommendation)
+NEW ENTRY
+10084
+10332
+10203
+10526
+10677
+Based on your interests in Fysik, Engelska, Matematik, and Svenska, here are 5 program IDs for you:
+
+1. ProgramId: 10084
+2. ProgramId: 10332
+3. ProgramId: 10203
+4. ProgramId: 10526
+5. Wildcard - ProgramId: 10677
+NEW ENTRY
+10618
+10315
+10564
+10176
+10644
+Based on your interests in Fysik, Engelska, Matematik, and Svenska, here are 5 program recommendations for you:
+
+1. ProgramID: 10618
+2. ProgramID: 10315
+3. ProgramID: 10564
+4. ProgramID: 10176
+5. ProgramID: 10644 (wildcard choice)
+NEW ENTRY
+10189
+10206
+10234
+10246
+10541
+Based on your interests in Physics, English, Mathematics, and Swedish, here are 5 program recommendations for you:
+
+1. ProgramId: 10189
+2. ProgramId: 10206
+3. ProgramId: 10234
+4. ProgramId: 10246
+5. ProgramId: 10541 (Wildcard)
+
+Good luck with your program choice!
+NEW ENTRY
+10518
+10294
+10174
+10399
+10580
+Based on your interests in Fysik, Engelska, Matematik, and Svenska, here are 5 program recommendations along with a wild card option:
+
+1. ProgramID: 10518
+2. ProgramID: 10294
+3. ProgramID: 10174
+4. ProgramID: 10399
+5. (Wildcard) ProgramID: 10580
+
+These programs are selected based on your interests and the wildcard option adds a bit of variety to explore something different while still being loosely related to your interests.
+NEW ENTRY
+10587
+10470
+10124
+10343
+10654
+Based on your interests in Fysik, Engelska, Matematik, and Svenska, here are 5 program recommendations for you:
+
+1. ProgramID: 10587
+2. ProgramID: 10470
+3. ProgramID: 10124
+4. ProgramID: 10343
+5. Wildcard ProgramID: 10654
