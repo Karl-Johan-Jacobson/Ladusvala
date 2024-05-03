@@ -4,7 +4,7 @@ import * as fs from 'fs';
 //const filePath: string = '@/uniuggla/webScrapers/manuelScraping.json';
 const filePath: string = 'manuelScraping.json';
 // programDesciption name will be fixed when actual file is used.
-type ProgramNameAndId = {programTitle_sv: string, programPoints: string, programDesciption_sv: string, programLink: string};
+type ProgramNameAndId = {programTitle_sv: string, programPoints: string, programDescription_sv: string, programLink: string};
 async function fetchAllProgramsJson(): Promise<ProgramNameAndId[]> {
   return new Promise((resolve, reject) => {
     //Reads JSON file
@@ -20,7 +20,7 @@ async function fetchAllProgramsJson(): Promise<ProgramNameAndId[]> {
     
           programTitle_sv: item.programTitle_sv,
           programPoints: item.programPoints,
-          programDesciption_sv: item.programDesciption_sv,
+          programDescription_sv: item.programDescription_sv,
           programLink: item.programLink,
           // id: counter++ // This will be set through scrapers, will be present within programs.json. Assuming programId is a string and needs to be converted to a number
         })); console.log(allPrograms);

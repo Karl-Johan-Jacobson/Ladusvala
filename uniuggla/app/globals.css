@@ -5,6 +5,7 @@
 	--medium-green-shadow: #61855a;
 	--primary-dark-green: #37552b;
 	--primary-dark-green-shadow: #37552b64;
+	--primary-dark-green-light-shadow: #37552b32;
 	--primary-dark-purple: #4f1eb0;
 	--primary-border-width: 0.1vw;
 	--primary-border-radius: 0.5vw;
@@ -44,11 +45,11 @@ body {
 .hide * p,
 .hide * a {
 	opacity: 0 !important;
-	height: 0px !important;
-	margin: 0px !important;
-	padding: 0px !important;
+	height: 0 !important;
+	margin: 0 !important;
+	padding: 0 !important;
 	transition: 0s ease !important;
-	font-size: 0px !important;
+	font-size: 0 !important;
 }
 /* Is the font for the text for instance question title and greetings, etc */
 @font-face {
@@ -102,7 +103,7 @@ p {
 	min-width: var(--text-form-height);
 	height: var(--text-form-height);
 	margin: 0 auto;
-	border: var(--primary-border-width) solid #37552b;
+	border: var(--primary-border-width) solid var(--primary-dark-green);
 	border-radius: var(--primary-border-radius);
 }
 .textInput {
@@ -127,7 +128,7 @@ p {
 }
 .textInput:focus {
 	transition: background-color 200ms ease-in;
-	background-color: #37552b10;
+	background-color: var(--primary-dark-green-light-shadow);
 }
 .textButton,
 .buttonInput {
@@ -272,7 +273,7 @@ header img {
 	color: var(--medium-green);
 }
 /* hover color change text */
-.answerButton:hover p {
+.answerButton:hover p, .siteNavigation:hover {
 	text-shadow: 2px 1px var(--medium-green-shadow);
 }
 .answerButton:active p {
@@ -321,8 +322,7 @@ header img {
 
 .selectedInterestTitle hr {
 	flex-grow: 1;
-	border-width: 2px;
-	border-color: var(--primary-dark-purple);
+	border: var(--primary-border-width) solid var(--primary-dark-purple);
 }
 
 .selectedInterestTitle span {
@@ -347,9 +347,7 @@ header img {
 
 .notSelectedInterestTitle hr {
 	flex-grow: 1;
-	border-width: 2px;
-	border-style: solid;
-	border-color: var(--medium-green);
+	border: var(--primary-border-width) solid var(--medium-green);
 }
 
 .notSelectedInterestTitle span {
@@ -386,7 +384,7 @@ header img {
 	font-size: medium;
 	font-family: "Tomorrow-MediumItalic";
 	font-style: italic;
-	color: #dffde0;
+	color: var(--primary-light-green);
 }
 
 .notSelectedButton {
@@ -413,12 +411,12 @@ header img {
 }
 
 .notSelectedButton:hover {
-	filter: drop-shadow(0px 4px 0px var(--primary-dark-purple));
+	filter: drop-shadow(0 4px 0 var(--primary-dark-purple));
 	border-color: var(--primary-dark-purple);
 }
 
 .selectedButton:hover {
-	filter: drop-shadow(0px 4px 0px var(--medium-green));
+	filter: drop-shadow(0 4px 0 var(--medium-green));
 	border-color: var(--medium-green);
 }
 
@@ -457,7 +455,7 @@ header img {
 
 .customInterestForm:focus-within {
 	transition: background-color 100ms ease-in;
-	background-color: #37552b20;
+	background-color: var(--primary-dark-green-light-shadow);
 }
 
 .customInterestField {
@@ -473,7 +471,7 @@ header img {
   border-top-left-radius: var(--primary-border-radius);
   border-bottom-left-radius: var(--primary-border-radius);
 
-  box-shadow: inset 3px 3px 5px #37552B40;
+  box-shadow: inset 3px 3px 5px var(--primary-dark-green-shadow);
 
   font-family: 'Tomorrow-MediumItalic';
   font-size: 16px;
@@ -540,25 +538,21 @@ header img {
 	transition: 0.5s;
 
 }
-.recommendationButtonWrapper p{
+.recommendationButtonWrapper p {
   font-size: 2.3vw;
   font-family: 'Tomorrow-Medium';
   color: var(--primary-dark-purple);
   margin: 1vw;
 }
 
-.recommendationButtonWrapper hr{
+.recommendationButtonWrapper hr {
   flex-grow: 1;
-  border-color: var(--medium-green);
-  border-width: 2px;
-  border-style: solid;
+	border: var(--primary-border-width) solid var(--medium-green);
 }
 
 .recommendationButtonLine {
   flex-grow: 1;
-  border-color: var(--medium-green);
-  border-width: 2px;
-  border-style: solid;
+	border: var(--primary-border-width) solid var(--medium-green);
 }
 
 /* Styling for the 'find my dream education' button, with locked properties */
@@ -695,14 +689,6 @@ header img {
  ---===---===---===---===---===---===---===---===---===---
   Start of Recommendation
 */
-.filterWrapper {
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	grid-gap: 10px;
-	width: 60%;
-	max-width: fit-content;
-	margin: 3vw auto 0;
-}
 .recommendedWrapper,
 .gradeWrapper {
 	position: relative;
@@ -762,6 +748,8 @@ header img {
 	font-size: 1.6vw;
 	font-family: Tomorrow-SemiBold !important;
 	color: var(--primary-dark-purple);
+}
+.wildcard * .tilteReq {
 	max-width: 90%;
 }
 .wildcardText {
@@ -781,8 +769,8 @@ header img {
 	left: 100%;
 	background-color: #f0f0f0;
 	padding: 10px;
-	border: 1px solid #ccc;
-	border-radius: 5px;
+	border: var(--primary-border-width) solid #ccc;
+	border-radius: var(--primary-border-radius);
 }
 
 .wildcardText:hover + .wildcardBubble {
@@ -914,7 +902,7 @@ footer {
 .footerList {
 	display: flex;
 	justify-content: space-between;
-	margin-top: 2vw;
+	margin-top: 1.5vw;
 	list-style: none;
 }
 /* Class for the alternatives "Hitta program", "Räkna antagningspoäng", "Se behörighetskrav", and "Om oss" */

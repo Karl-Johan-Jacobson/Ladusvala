@@ -5,7 +5,7 @@ const fs = require("fs");
 let titleReturn = {
   programTitle_sv: "",
   programPoints: "",
-  programDesciption_sv: "",
+  programDescription_sv: "",
   programLink: "",
   programId: "",
   schoolName:""
@@ -38,7 +38,7 @@ async function scrapeHKR(url, programId,schoolName) {
       titleReturn = {
         programTitle_sv: title,
         programPoints: hp,
-        programDesciption_sv: shortDesc,
+        programDescription_sv: shortDesc,
         programLink: url,
         programId: programId,
         schoolName: schoolName

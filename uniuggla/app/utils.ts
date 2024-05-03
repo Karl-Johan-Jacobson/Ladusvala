@@ -1,5 +1,6 @@
 //import {recommendProgramFromInterest} from "@/ai/AiHandler";
-import { fetchAllProgramsJson, ProgramNameAndId } from "@/ai/AiHandler";
+
+import { fetchAllProgramsJson, ProgramNameAndId, filterTheResultsFromAi } from "@/ai/AiHandler";
 import callOpenaiInParts from "@/ai/AiHandler";
 import { TypewriterForTitle } from "@/components/client/TypeWriter";
 import { useRouter } from "next/router";
@@ -82,12 +83,6 @@ export function generateHiddenRecommendations(programs: ProgramNameAndId[], html
 			degree.innerHTML = "EXAMEN: " + program.degree;
 			recommendedHead.appendChild(degree);
 		}
-		if (program.degree != null) {
-			const degree = document.createElement("p");
-			degree.className = "degreeReq descriptionReq";
-			degree.innerHTML = "EXAMEN: " + program.degree;
-			recommendedHead.appendChild(degree);
-		}
 		//create a ...
 		const points = document.createElement("p");
 		points.className = "pointsReq descriptionReq";
@@ -121,7 +116,7 @@ export function generateHiddenRecommendations(programs: ProgramNameAndId[], html
 		//create a ...
 		const reqDescriptionContent = document.createElement("p");
 		reqDescriptionContent.className = `reqDescriptionContent reqDescriptionContent${i}`;
-		reqDescriptionContent.innerHTML = program.programDesciption_sv;
+		reqDescriptionContent.innerHTML = program.programDescription_sv;
 		reqDescriptionBox.appendChild(reqDescriptionContent);
 
 		const recommendedFoot = document.createElement("div");
@@ -165,7 +160,7 @@ export function generateHiddenRecommendations(programs: ProgramNameAndId[], html
 		//write the show more description
 		const recommendedDescription = document.createElement("div");
 		recommendedDescription.className = `recommendedDescription recommendedDescription${i} hide`;
-		recommendedDescription.innerHTML = program.programDesciption_sv;
+		recommendedDescription.innerHTML = program.programDescription_sv;
 		recommendedBox.appendChild(recommendedDescription);
 	}
 }
@@ -174,6 +169,7 @@ export function aiTypeAnswer(programs: ProgramNameAndId[], htmlClass: string, in
 	//create a contianer where every box will be in
 	const container = document.querySelector("." + htmlClass);
 	var hiddenCounter = 0;
+	
 	//null check
 	if (!container) {
 		return;
@@ -194,7 +190,7 @@ export function aiTypeAnswer(programs: ProgramNameAndId[], htmlClass: string, in
 	}
 
 	//loop to make one box at a time
-	for (let i = 0; i < programs.length / 5; i++) {
+	for (let i = 0; i < programs.length; i++) {
 		hiddenCounter++;
 
 		//take one program from selected programs array
@@ -216,10 +212,10 @@ export function aiTypeAnswer(programs: ProgramNameAndId[], htmlClass: string, in
 		title.innerHTML = program.programTitle_sv;
 		recommendedHead.appendChild(title);
 		if ((i + 1) % 5 == 0) {
-			const title = document.createElement("p");
-			title.className = "wildcardText";
-			title.innerHTML = "WILDCARD?";
-			recommendedHead.appendChild(title);
+			const wildcardText = document.createElement("p");
+			wildcardText.className = "wildcardText";
+			wildcardText.innerHTML = "WILDCARD?";
+			recommendedHead.appendChild(wildcardText);
 
 			const wildcardBubble = document.createElement("p");
 			wildcardBubble.className = "wildcardBubble";
@@ -272,7 +268,7 @@ export function aiTypeAnswer(programs: ProgramNameAndId[], htmlClass: string, in
 		//create a ...
 		const reqDescriptionContent = document.createElement("p");
 		reqDescriptionContent.className = `reqDescriptionContent reqDescriptionContent${i}`;
-		reqDescriptionContent.innerHTML = program.programDesciption_sv;
+		reqDescriptionContent.innerHTML = program.programDescription_sv;
 		reqDescriptionBox.appendChild(reqDescriptionContent);
 
 		const recommendedFoot = document.createElement("div");
@@ -316,7 +312,7 @@ export function aiTypeAnswer(programs: ProgramNameAndId[], htmlClass: string, in
 		//write the show more description
 		const recommendedDescription = document.createElement("div");
 		recommendedDescription.className = `recommendedDescription recommendedDescription${i} hide`;
-		recommendedDescription.innerHTML = program.programDesciption_sv;
+		recommendedDescription.innerHTML = program.programDescription_sv;
 		recommendedBox.appendChild(recommendedDescription);
 
 		//Remove the loading string from page.
@@ -366,7 +362,13 @@ export function handleYesButtonClick(): void {
 
 export async function aiResponse(interests: string, interestArr: string[]): Promise<void> {
 	//Send all interest to AiHandler and await response
-	let aiAnswer: string[] | undefined = await callOpenaiInParts(interests);
+	let notCompleteAiAnswer: string[] | undefined = await callOpenaiInParts(interests);
+	let aiAnswer: string[] | undefined = []
+	if(notCompleteAiAnswer)
+		{
+			aiAnswer = await filterTheResultsFromAi(notCompleteAiAnswer, interests);
+		}
+	
 	//check if it is undefined, if it is just give it one id number.
 	//add later to code that user will be informed something went wrong
 	if (aiAnswer == undefined) {
@@ -374,6 +376,7 @@ export async function aiResponse(interests: string, interestArr: string[]): Prom
 	}
 
 	//fetch all programs
+	try{
 	const allPrograms: ProgramNameAndId[] = await fetchAllProgramsJson();
 
 	//convert aiAnswer to numbers so id can be matched
@@ -395,8 +398,10 @@ export async function aiResponse(interests: string, interestArr: string[]): Prom
 	//send the programs to generate the recommendedboxes
 
 	aiTypeAnswer(selectedPrograms, "recommendedWrapper", interestArr);
-
-	
+}
+catch(e){
+	console.log(e);
+}
 }
 
 export async function handleRecommendationButtonClick(interestArr: string[]): Promise<void> {

@@ -6,7 +6,7 @@ const fs = require("fs");
 let titleReturn = {
   programTitle_sv: "",
   programPoints: "",
-  programDesciption_sv: "",
+  programDescription_sv: "",
   programLink: "",
   programId: "",
   schoolName: ""
@@ -48,7 +48,7 @@ async function scrapeLund(url, programId,schoolName) {
 
       titleReturn.programTitle_sv = title;
       titleReturn.programPoints = num[0];
-      titleReturn.programDesciption_sv = shortDesc;
+      titleReturn.programDescription_sv = shortDesc;
       titleReturn.programLink = url;
       titleReturn.programId = programId;
       titleReturn.schoolName = schoolName;

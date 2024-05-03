@@ -5,7 +5,7 @@ const fs = require("fs");
 let titleReturn = {
   programTitle_sv: "",
   programPoints: "",
-  programDesciption_sv: "",
+  programDescription_sv: "",
   programLink: "",
   programId: "",
   schoolName:""
@@ -50,7 +50,7 @@ async function scrapeMalmö(url, programId,schoolName) {
 
       titleReturn.programTitle_sv = title;
       titleReturn.programPoints = num[0];
-      titleReturn.programDesciption_sv = description;
+      titleReturn.programDescription_sv = description;
       titleReturn.programLink = url;
       titleReturn.programId = programId;
       titleReturn.schoolName = schoolName;
