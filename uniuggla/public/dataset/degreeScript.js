@@ -3,141 +3,106 @@ import fs from "fs";
 // Path to your JSON file
 const filePath = "./programs_safe.json";
 
-// Keywords to search for in the titles
-const keywords = [
-  "logoped",
-  "lärar",
-  "läkar",
-  "kandidat",
-  "yrkeslärarutbildning",
-  "yrkeslärarprogrammet",
-  "civilingenjör",
-  "högskoleingenjör",
-  "ämneslärar",
-  "psykolog",
-  "läkare",
-  "socionom",
-  "audionom",
-  "biomedicin",
-  "arbetsterapeut",
-  "fysioterapeut",
-  "sjukskötersk",
-  "röntgensjuksköterska",
-  "jurist",
-  "arkitekt",
-  "civilekonom",
-  "högskoleexamen",
-  "tandhygienist",
-  "tandläkar",
-  "sjöingenjör",
-  "vetarprogrammet",
-  "sjökapten",
-  "180"
-];
-
-function transformKeyword(fragment) {
-  const fragmentTransforms = {
-    logoped: "Logoped",
-    lärar: "Lärar",
-    läkar: "Läkar",
-    kandidat: "Kandidat",
-    ämneslärar: "Lärar",
-    yrkeslärarutbildning: "Yrkeslärar",
-    yrkeslärarprogrammet: "Yrkeslärar",
-    psykolog: "Psykolog",
-    socionom: "Kandidat",
-    audionom: "Audionom",
-    biomedicin: "Kandidat",
-    civilingenjör: "Civilingenjörs",
-    högskoleingenjör: "Högskoleingenjörs",
-    arbetsterapeut: "Arbetsterapeut",
-    fysioterapeut: "Fysioterapeut",
-    sjukskötersk: "Kandidat",
-    röntgensjuksköterska: "Röntgensjuksköterske",
-    jurist: "Jurist",
-    arkitekt: "Arkitekt",
-    civilekonom: "Civilekonom",
-    högskoleexamen: "Högskole",
-    tandhygienist: "Tandhygienist",
-    tandläkar: "Tandläkar",
-    sjöingenjör: "Sjöingenjör",
-    sjökapten: "Sjökapten",
-    vetarprogrammet: "Kandidat",
-    180: "Kandidat"
-  };
-  return fragmentTransforms[fragment] || null; // Returns null if no transformation is defined
+const transform = {
+	logoped: "Logoped",
+	lärar: "Lärar",
+	läkar: "Läkar",
+	kandidat: "Kandidat",
+	ämneslärar: "Lärar",
+	yrkeslärarutbildning: "Yrkeslärar",
+	yrkeslärarprogrammet: "Yrkeslärar",
+	psykolog: "Psykolog",
+	socionom: "Kandidat",
+	audionom: "Audionom",
+	biomedicin: "Kandidat",
+	civilingenjör: "Civilingenjörs",
+	högskoleingenjör: "Högskoleingenjörs",
+	arbetsterapeut: "Arbetsterapeut",
+	fysioterapeut: "Fysioterapeut",
+	röntgensjuksköterska: "Röntgensjuksköterske",
+	jurist: "Jurist",
+	arkitekt: "Arkitekt",
+	civilekonom: "Civilekonom",
+	högskoleexamen: "Högskole",
+	tandhygienist: "Tandhygienist",
+	tandläkar: "Tandläkar",
+	sjöingenjör: "Sjöingenjör",
+	sjökapten: "Sjökapten",
+	vetarprogrammet: "Kandidat",
+	sjuksköterske: "Sjuksköterske",
+	sjukhusfysiker: "Master",
+	sjukhusfysikerprogrammet: "Sjukhusfysiker",
+};
+const noDegree = {
+  saknar: null,
+  obehörig: null
 }
 
-function addKeywordsToDegree(items, keywords) {
-  return items.map((item) => {
-    const title = item.programTitle_sv.toLowerCase();
-    const titleMatchingFragments = keywords.filter((keyword) =>
-      title.includes(keyword)
-    );
-    const titleTransformedKeywords = titleMatchingFragments
-      .map(transformKeyword)
-      .filter((k) => k); // Filter out nulls after transformation
-
-    let degree = null;
-
-    if (titleTransformedKeywords.length > 0) {
-      degree = titleTransformedKeywords.join(", ");
-    } else {
-      const description = item.programDesciption_sv.toLowerCase();
-      const descriptionMatchingFragments = keywords.filter((keyword) =>
-        description.includes(keyword)
-      );
-      const descriptionTransformedKeywords = descriptionMatchingFragments
-        .map(transformKeyword)
-        .filter((k) => k); // Filter out nulls after transformation
-
-      if (descriptionTransformedKeywords.length > 0) {
-        degree = descriptionTransformedKeywords.join(", ");
-      } else {
-        const points = item.programPoints.toLowerCase();
-        const pointsMatchingFragments = keywords.filter((keyword) =>
-          points.includes(keyword)
-        );
-        const pointsTransformedKeywords = pointsMatchingFragments
-          .map(transformKeyword)
-          .filter((k) => k); // Filter out nulls after transformation
-
-        if (pointsTransformedKeywords.length > 0) {
-          degree = pointsTransformedKeywords.join(", ");
-        }
+function addDegree(items, transform) {
+	return items.map((item) => {
+		let degree = null;
+		for (const keyword in transform) {
+			if (item.programTitle_sv && item.programTitle_sv.toLowerCase().includes(keyword.toLowerCase())) {
+				if (degree === null) {
+					degree = transform[keyword];
+				} else {
+					degree += ", " + transform[keyword];
+				}
+				break;
+			}
+		}
+		for (const keyword in transform) {
+			if (item.programDescription_sv && item.programDescription_sv.toLowerCase().includes(keyword.toLowerCase())) {
+				if (degree === null) {
+					degree = transform[keyword];
+				} else {
+					degree += ", " + transform[keyword];
+				}
+				break;
+			}
+		}
+		if (degree === null && item.programPoints === "180") {
+			degree = "Kandidat";
+		}
+		if (degree === null && item.programPoints === "120") {
+			degree = "Kandidat";
+		}
+    for (const keyword in noDegree) {
+      if (item.programTitle_sv && item.programTitle_sv.toLowerCase().includes(keyword.toLowerCase())) {
+        degree = null;
       }
     }
-
-    return {
-      ...item,
-      degree: degree, // Set degree to null if no keywords match
-    };
-  });
+		// Rename programDesciption_sv to programDescription_sv
+		const { programDesciption_sv, ...rest } = item;
+		return {
+			programTitle_sv: rest.programTitle_sv,
+			programPoints: rest.programPoints,
+			programDescription_sv: programDesciption_sv,
+			programLink: rest.programLink,
+			schoolName: rest.schoolName,
+			programId: rest.programId,
+			aiPrompt: rest.aiPrompt,
+			degree: degree,
+		};
+	});
 }
 
 // Read the JSON file, process the data, and write it back to a new file
 fs.readFile(filePath, "utf8", (err, data) => {
-  if (err) {
-    console.error("Error reading file:", err);
-    return;
-  }
+	if (err) {
+		console.error("Error reading file:", err);
+		return;
+	}
 
-  let programs = JSON.parse(data);
-  const updatedPrograms = addKeywordsToDegree(programs, keywords);
-  const outputPath = "./programs_safe_updated.json";
+	let programs = JSON.parse(data);
+	const updatedPrograms = addDegree(programs, transform);
+	const outputPath = "./programs_safe_updated.json";
 
-  fs.writeFile(
-    outputPath,
-    JSON.stringify(updatedPrograms, null, 2),
-    "utf8",
-    (writeErr) => {
-      if (writeErr) {
-        console.error("Error writing to output file:", writeErr);
-        return;
-      }
-      console.log(
-        `Updated programs with degree information written to file: ${outputPath}`
-      );
-    }
-  );
+	fs.writeFile(outputPath, JSON.stringify(updatedPrograms, null, 2), "utf8", (writeErr) => {
+		if (writeErr) {
+			console.error("Error writing to output file:", writeErr);
+			return;
+		}
+		console.log(`Updated programs with degree information written to file: ${outputPath}`);
+	});
 });
