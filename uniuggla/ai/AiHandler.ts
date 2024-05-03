@@ -31,7 +31,7 @@ function turnProgramToPrompt(allPrograms: ProgramNameAndId[]): string {
 
   for (let i = 0; i < allPrograms.length; i++) {
     //generatedString += `Degree: ${allPrograms[i].porgramTitle_sv}, ID = ${allPrograms[i].programId}\n`; //USED IN RELEASE
-    generatedString += `Program title: ${allPrograms[i].aiPrompt}, ProgramId: ${allPrograms[i].programId}\n, `;
+    generatedString += `Program title: ${allPrograms[i].programTitle_sv}, ProgramId: ${allPrograms[i].programId}\n, `;
   }
   return generatedString;
 }
@@ -43,7 +43,7 @@ async function recommendProgramFromInterest(
   interestString: string
 ) {
   // Generate content for AI based on interests and programs
-  let content: string = `These are my interest: ${interestString} and these are all available programs ${programString}. I want you to choose 5 programs that are based on my interest. It's important that they are relevent to my interest however the fifth recommendation should be a wildcard and be loosely based on my interests. You should only answer with the programID.`;
+  let content: string = `These are my interest: ${interestString} and these are all available programs ${programString}. I want you to choose 5 programs that are based on my interest. It's important that they are relevent to my interest however the fifth recommendation should be a wildcard and be loosely based on my interests. You should only answer with the programID. Do not answer in numbered bulletpoints, and the only numbers in your answer should be the programId's`;
 
   // Make a prompt format
   const questionToAi: ChatCompletionMessageParam = {
@@ -71,10 +71,10 @@ async function recommendProgramFromInterest(
   // Check if numbers is defined
   if (numbers !== null) {
     numbers.forEach((num) => {
-      if (num.length === 5) {
+			if (num.length == 5) {
         // check if the length of the sequence is exactly 5, matches our chosen numbering of programs.
         idFromRespArray.push(num); // push the sequence of IDs into the idFromRespArray array
-      }
+			}
     });
   } // send id's to func which can display proper program info from them.
 
