@@ -1,5 +1,6 @@
 //import {recommendProgramFromInterest} from "@/ai/AiHandler";
-import { fetchAllProgramsJson, ProgramNameAndId } from "@/ai/AiHandler";
+
+import { fetchAllProgramsJson, ProgramNameAndId, filterTheResultsFromAi } from "@/ai/AiHandler";
 import callOpenaiInParts from "@/ai/AiHandler";
 import { TypewriterForTitle } from "@/components/client/TypeWriter";
 import { useRouter } from "next/router";
@@ -174,6 +175,7 @@ export function aiTypeAnswer(programs: ProgramNameAndId[], htmlClass: string, in
 	//create a contianer where every box will be in
 	const container = document.querySelector("." + htmlClass);
 	var hiddenCounter = 0;
+	
 	//null check
 	if (!container) {
 		return;
@@ -194,7 +196,7 @@ export function aiTypeAnswer(programs: ProgramNameAndId[], htmlClass: string, in
 	}
 
 	//loop to make one box at a time
-	for (let i = 0; i < programs.length / 5; i++) {
+	for (let i = 0; i < programs.length; i++) {
 		hiddenCounter++;
 
 		//take one program from selected programs array
@@ -366,7 +368,13 @@ export function handleYesButtonClick(): void {
 
 export async function aiResponse(interests: string, interestArr: string[]): Promise<void> {
 	//Send all interest to AiHandler and await response
-	let aiAnswer: string[] | undefined = await callOpenaiInParts(interests);
+	let notCompleteAiAnswer: string[] | undefined = await callOpenaiInParts(interests);
+	let aiAnswer: string[] | undefined = []
+	if(notCompleteAiAnswer)
+		{
+			aiAnswer = await filterTheResultsFromAi(notCompleteAiAnswer, interests);
+		}
+	
 	//check if it is undefined, if it is just give it one id number.
 	//add later to code that user will be informed something went wrong
 	if (aiAnswer == undefined) {
@@ -374,6 +382,7 @@ export async function aiResponse(interests: string, interestArr: string[]): Prom
 	}
 
 	//fetch all programs
+	try{
 	const allPrograms: ProgramNameAndId[] = await fetchAllProgramsJson();
 
 	//convert aiAnswer to numbers so id can be matched
@@ -395,8 +404,10 @@ export async function aiResponse(interests: string, interestArr: string[]): Prom
 	//send the programs to generate the recommendedboxes
 
 	aiTypeAnswer(selectedPrograms, "recommendedWrapper", interestArr);
-
-	
+}
+catch(e){
+	console.log(e);
+}
 }
 
 export async function handleRecommendationButtonClick(interestArr: string[]): Promise<void> {
