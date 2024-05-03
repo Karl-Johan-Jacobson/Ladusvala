@@ -37,10 +37,8 @@ yarn-error.log*
 next-env.d.ts
 
 # data
-public/dataset/intrests.*
-public/dataset/programs.*
-public/dataset/programs_safe.*
-
+public/*/*.json
+public/*.json
 # webscrapers
 webScrapers/test.*
 webScrapers/manuelScraping.json
