@@ -126,7 +126,7 @@ export async function fetchAllProgramsJson(): Promise<ProgramNameAndId[]> {
           const allPrograms: ProgramNameAndId[] = programsJson.map((item) => ({
             programTitle_sv: item.programTitle_sv,
             programPoints: item.programPoints,
-            programDesciption_sv: item.programDesciption_sv,
+            programDescription_sv: item.programDescription_sv,
             programLink: item.programLink,
             programId: item.programId,
             schoolName: item.schoolName,
