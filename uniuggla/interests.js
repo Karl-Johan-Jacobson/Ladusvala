@@ -1548,7 +1548,7 @@ const content = updated.reduce((total, interest) => {
   );
 }, "");
 
-fs.writeFile("public/data/interests.json", "[" + content + "\n]", (err) => {
+fs.writeFile("public/dataset/interests.json", "[" + content + "\n]", (err) => {
   if (err) {
     console.error(err);
     return;
