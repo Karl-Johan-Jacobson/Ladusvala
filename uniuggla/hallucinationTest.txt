@@ -3935,3 +3935,645 @@ NEW ENTRY
 10626
 10381
 10510, 11488, 11057, 10626, 10381
+NEW ENTRY
+10154
+11694
+10426
+11538
+11156
+11328
+10525
+10628
+10255
+11488
+10154 
+11694 
+10426 
+11538 
+11156 
+11328 
+10525 
+10628 
+10255 
+11488
+NEW ENTRY
+11733
+10169
+11072
+11229
+11167
+11364
+11309
+11259
+10954
+11342
+11733
+10169
+11072
+11229
+11167
+11364
+11309
+11259
+10954
+11342
+NEW ENTRY
+10591
+10160
+10478
+10579
+10905
+10045
+10377
+11228
+10730
+11305
+10591
+10160
+10478
+10579
+10905
+10045
+10377
+11228
+10730
+11305
+NEW ENTRY
+10163
+11310
+11760
+11430
+10731
+10832
+10884
+11298
+11367
+11355
+10163
+11310
+11760
+11430
+10731
+10832
+10884
+11298
+11367
+11355
+NEW ENTRY
+10240
+10229
+11128
+11594
+11748
+11087
+11615
+10972
+11632
+11597
+10240  
+10229  
+11128  
+11594  
+11748  
+11087  
+11615  
+10972  
+11632  
+11597  
+NEW ENTRY
+
+Internationell migration och etniska relationer (IMER) med inriktning statsvetenskap
+Kandidatprogrammet i matematik
+Musik- och ljuddesign
+Programvaruteknik
+Idrottsvetenskapligt program: Sport Management
+Interaction Design
+Naturvetenskapligt kandidatprogram, Kemi
+Jazz - improvisation
+Digital medieproduktion
+3D-animation och visualisering
+NEW ENTRY
+11217
+11074
+11330
+10615
+11595
+10424
+10622
+11387
+11257
+11137
+11217
+11074
+11330
+10615
+11595
+10424
+10622
+11387
+11257
+11137
+NEW ENTRY
+10180
+10660
+10680
+10821
+11705
+10879
+11196
+11196
+11196
+11119
+Läkarprogrammet: 10180
+Fysioterapeutprogrammet: 10660
+Hälsovägledning, kandidat hälsopromotion: 10680
+Fysioterapeutprogrammet: 10821
+Trädgårdsingenjör - design: 11705
+Kost- och ledarskapsprogrammet: 10879
+Idrottstränarprogrammet – prestation och hälsa: 11196
+Idrottstränarprogrammet – prestation och hälsa: 11196
+Idrottstränarprogrammet – prestation och hälsa: 11196
+Civilingenjör i marin teknik: 11119
+NEW ENTRY
+11378
+10161
+11124
+11031
+10630
+11322
+10617
+10896
+10435
+10654
+11378
+10161
+11124
+11031
+10630
+11322
+10617
+10896
+10435
+10654
+NEW ENTRY
+10946
+10636
+10161
+11489
+10643
+10810
+11380
+10660
+10093
+11422
+10946
+10636
+10161
+11489
+10643
+10810
+11380
+10660
+10093
+11422
+NEW ENTRY
+10240
+11693
+11375
+10268
+10049
+10615
+11154
+10525
+11196
+10908
+10240
+11693
+11375
+10268
+10049
+10615
+11154
+10525
+11196
+10908
+NEW ENTRY
+10837
+11436
+10015
+10426
+10285
+11488
+11450
+11183
+11341
+11492
+10837 
+11436 
+10015
+10426
+10285
+11488
+11450
+11183
+11341
+11492
+NEW ENTRY
+10778
+10535
+10390
+11613
+10814
+11577
+11671
+11359
+10778
+10255
+10778
+10535
+10390
+11613
+10814
+11577
+11671
+11359
+10778
+10255
+NEW ENTRY
+11728
+11224
+11340
+10125
+10801
+10526
+10125
+10879
+11063
+11469
+11728
+11224
+11340
+10125
+10801
+10526
+10125
+10879
+11063
+11469
+NEW ENTRY
+10521
+11393
+10217
+10427
+11271
+10006
+11205
+10665
+11732
+11079
+10521
+11393
+10217
+10427
+11271
+10006
+11205
+10665
+11732
+11079
+NEW ENTRY
+10044
+10154
+10791
+10051
+11562
+11205
+11354
+11491
+10633
+11343
+10044
+10154
+10791
+10051
+11562
+11205
+11354
+11491
+10633
+11343
+NEW ENTRY
+11733
+10143
+11309
+10751
+11749
+11031
+11325
+11624
+10909
+11447
+11733
+10143
+11309
+10751
+11749
+11031
+11325
+11624
+10909
+11447
+NEW ENTRY
+11466
+11578
+10277
+10120
+11098
+10655
+10490
+11443
+11038
+11283
+11466
+11578
+10277
+10120
+11098
+10655
+10490
+11443
+11038
+11283
+NEW ENTRY
+11128
+11551
+11421
+10393
+10857
+10249
+10668
+10515
+10139
+10972
+ProgramId: 11128
+ProgramId: 11551
+ProgramId: 11421
+ProgramId: 10393
+ProgramId: 10857
+ProgramId: 10249
+ProgramId: 10668
+ProgramId: 10515
+ProgramId: 10139
+ProgramId: 10972
+NEW ENTRY
+11128
+10240
+10751
+10426
+10006
+10051
+11224
+10665
+10810
+11031
+[programId: 11128, reason: aligns with your interest in Idrott och hälsa]
+[programId: 10240, reason: focuses on Idrotts- och hälsocoachprogrammet]
+[programId: 10751, reason: offers a program on idrottsvetenskap with focus on strategic leadership]
+[programId: 10426, reason: specializes in Idrottsvetenskap with focus on Fysisk aktivitet och hälsa]
+[programId: 10006, reason: Naturvetenskapligt kandidatprogram, Kemi may offer relevant courses]
+[programId: 10051, reason: Civilingenjörsutbildning i kemiteknik could tie in with your interest in Kost]
+[programId: 11224, reason: Ämneslärarprogrammet inriktning grundskolans årskurs 7-9 ingång idrott och hälsa]
+[programId: 10665, reason: Civilingenjör Hållbar energiteknik could be linked to Hälsa and energiteknik]
+[programId: 10810, reason: Dietistprogrammet focuses on Kost and could be of interest to you]
+[programId: 11031, reason: Kostvetarprogram could be a good fit for your interest in Kost]
+NEW ENTRY
+10453
+10692
+10750
+11309
+11167
+10744
+11368
+11000
+10048
+11299
+10453
+10692
+10750
+11309
+11167
+10744
+11368
+11000
+10048
+11299
+NEW ENTRY
+10500
+11542
+11650
+11240
+11522
+11050
+10896
+10196
+10568
+11310
+10500
+11542
+11650
+11240
+11522
+11050
+10896
+10196
+10568
+11310
+NEW ENTRY
+10618
+10795
+10994
+10426
+10586
+11332
+10458
+11537
+11210
+10427
+10618
+10795
+10994
+10426
+10586
+11332
+10458
+11537
+11210
+10427
+NEW ENTRY
+11557
+11031
+10172
+11687
+11759
+10835
+11496
+11173
+11595
+11725
+Ekonomprogrammet, inriktning redovisning/ekonomi­styrning, ProgramId: 11557
+Kostvetarprogram, ProgramId: 11031
+Ämneslärarprogrammet, inriktning mot arbete i gymnasieskolan, Svenska, Idrott och hälsa, ProgramId: 10172
+Civilingenjör i energisystem, ProgramId: 11687
+Socionomutbildning, ProgramId: 11759
+Grundlärarprogrammet, inriktning mot arbete i grundskolans årskurs 4-6, Bild, ProgramId: 10835
+Internationell migration och etniska relationer (IMER) med inriktning religionsvetenskap, ProgramId: 11496
+Textil produktion och innovation, ProgramId: 11173
+Matematikerprogrammet, ProgramId: 11595
+Ekoingenjör, ProgramId: 11725
+NEW ENTRY
+11200
+11733
+11385
+11124
+11294
+11441
+11479
+11439
+11446
+11652
+11200
+11733
+11385
+11124
+11294
+11441
+11479
+11439
+11446
+11652
+NEW ENTRY
+11128
+11088
+11344
+11031
+11730
+11509
+11050
+10921
+10034
+11136
+11128
+11088
+11344
+11031
+11730
+11509
+11050
+10921
+10034
+11136
+NEW ENTRY
+11240
+11137
+11613
+11387
+10815
+11213
+10698
+11056
+10866
+11325
+11240
+11137
+11613
+11387
+10815
+11213
+10698
+11056
+10866
+11325
+NEW ENTRY
+11675
+10426
+11733
+10653
+10907
+11787
+10156
+10173
+11413
+10883
+11675
+10426
+11733
+10653
+10907
+11787
+10156
+10173
+11413
+10883
+NEW ENTRY
+11414
+10985
+11594
+10616
+11388
+10975
+10778
+11094
+11113
+11737
+11414
+10985
+11594
+10616
+11388
+10975
+10778
+11094
+11113
+11737
+NEW ENTRY
+11440
+10493
+11669
+10492
+10239
+11466
+11518
+10577
+11327
+11544
+11440
+10493
+11669
+10492
+10239
+11466
+11518
+10577
+11327
+11544
+NEW ENTRY
+11128
+11031
+10426
+10778
+11344
+11387
+11733
+10921
+10239
+11137
+1. ProgramId: 11128, reason: aligns with your interest in Idrott och hälsa
+2. ProgramId: 11031, reason: related to your interests in Mat and Kost
+3. ProgramId: 10426, reason: focuses on Idrottsvetenskap
+4. ProgramId: 10778, reason: combines Psychology with sports
+5. ProgramId: 11344, reason: Gastronomiprogrammet covers your interest in Mat
+6. ProgramId: 11387, reason: Molekylär bioinformatik could be of interest due to the scientific aspect
+7. ProgramId: 11733, reason: Idrottsvetenskapligt program aligns with your interest in sports
+8. ProgramId: 10921, reason: related to your interest in Idrott och hälsa
+9. ProgramId: 10239, reason: Högskoleingenjörsprogrammet i maskinteknik might be a good fit due to your interest in Gymma
+10. ProgramId: 11137, reason: Software Engineering could provide a different perspective on your interests.

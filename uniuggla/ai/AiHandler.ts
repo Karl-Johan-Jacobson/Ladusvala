@@ -32,7 +32,6 @@ function turnProgramToPrompt(allPrograms: ProgramNameAndId[]): string {
   for (let i = 0; i < allPrograms.length; i++) {
     //generatedString += `Degree: ${allPrograms[i].porgramTitle_sv}, ID = ${allPrograms[i].programId}\n`; //USED IN RELEASE
     generatedString += `Program title: ${allPrograms[i].programTitle_sv}, ProgramId: ${allPrograms[i].programId}\n, `;
-    generatedString += `Program title: ${allPrograms[i].programTitle_sv}, ProgramId: ${allPrograms[i].programId}\n, `;
   }
   return generatedString;
 }
