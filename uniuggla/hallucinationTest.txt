@@ -3831,3 +3831,68 @@ Based on your interests in Fysik, Engelska, Matematik, and Svenska, here are 5 p
 3. ProgramID: 10124
 4. ProgramID: 10343
 5. Wildcard ProgramID: 10654
+NEW ENTRY
+10498
+10616
+10037
+10724
+10357
+Based on your interests in religion, theology, and faith-related topics, here are 5 program recommendations tailored to your preferences:
+
+1. ProgramId: 10498
+2. ProgramId: 10616
+3. ProgramId: 10037
+4. ProgramId: 10724
+5. ProgramId: 10357
+NEW ENTRY
+10422
+10306
+10073
+10274
+10701
+Based on your interests in religion and theology, here are 5 program recommendations for you:
+
+1. ProgramId: 10422 (Human Rights)
+2. ProgramId: 10306 (Samhällsbyggnad, civilingenjör)
+3. ProgramId: 10073 (Program för konstnärlig högskoleexamen i kyrkomusik)
+4. ProgramId: 10274 (Ämneslärarprogrammet: Gymnasieskolan: Biologi)
+5. ProgramId: 10701 (Högskoleingenjör Bergteknik)
+NEW ENTRY
+10084
+10282
+10623
+10339
+10131
+1. ProgramId: 10084 (Religionsvetenskap och teologi - Kandidatprogram)
+2. ProgramId: 10282 (Ämneslärarprogrammet: Gymnasieskolan: Religion)
+3. ProgramId: 10623 (Ämneslärarprogram med inriktning mot arbete i gymnasieskolan, Geografi, Religion)
+4. ProgramId: 10339 (Kompletterande pedagogisk utbildning grundlärare F-3)
+5. ProgramId: 10131 (Kandidatprogram i tillämpad hörselvetenskap)
+NEW ENTRY
+10487
+10169
+10647
+10798
+10732
+Based on your interests in Religion, Theology, God, and Religious Doctrine, here are 5 program recommendations for you:
+
+1. ProgramID: 10487 - Ämneslärarutbildning: Gymnasieskolan, Religion
+2. ProgramID: 10169 - Ämneslärarprogrammet, inriktning mot arbete i gymnasieskolan, Samhällskunskap, Idrott och hälsa
+3. ProgramID: 10647 - Ämneslärarprogrammet: Gymnasieskolan: Matematik - Fysik
+4. ProgramID: 10798 - Antropologprogrammet
+5. ProgramID: 10732 - Civilingenjörsprogrammet öppen ingång
+
+These programs align with your interests in religion, theology, and related topics, with the fifth program serving as a wildcard option for variety and exploration.
+NEW ENTRY
+10401
+10598
+10632
+10633
+10709
+Based on your interests in Religion and Theology, here are 5 program recommendations:
+
+1. ProgramId: 10401 (Ämneslärare i gymnasieskolan)
+2. ProgramId: 10598 (Ämneslärarprogrammet: Ämneslärarprogrammet årskurs 7-9: Idrott och hälsa, Geografi, Religionskunskap)
+3. ProgramId: 10632 (Ämneslärarprogram med inriktning mot arbete i gymnasieskolan, Religionskunskap, Matematik)
+4. ProgramId: 10633 (Ämneslärarprogram med inriktning mot arbete in gymnasieskolan, Religionskunskap, Svenska som andraspråk)
+5. ProgramId: 10709 (Statsvetenskap, kandidat)
