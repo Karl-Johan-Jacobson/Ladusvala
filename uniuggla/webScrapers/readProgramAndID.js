@@ -54,7 +54,7 @@ function fetchAllProgramsJson() {
                             var allPrograms = jsonArray.map(function (item) { return ({
                                 programTitle_sv: item.programTitle_sv,
                                 programPoints: item.programPoints,
-                                programDesciption_sv: item.programDesciption_sv,
+                                programDescription_sv: item.programDescription_sv,
                                 programLink: item.programLink,
                                 id: counter++ // Assuming programId is a string and needs to be converted to a number
                             }); });

@@ -72,12 +72,12 @@ function addDegree(items, transform) {
         degree = null;
       }
     }
-		// Rename programDesciption_sv to programDescription_sv
-		const { programDesciption_sv, ...rest } = item;
+		// Rename programDescription_sv to programDescription_sv
+		const { programDescription_sv, ...rest } = item;
 		return {
 			programTitle_sv: rest.programTitle_sv,
 			programPoints: rest.programPoints,
-			programDescription_sv: programDesciption_sv,
+			programDescription_sv: programDescription_sv,
 			programLink: rest.programLink,
 			schoolName: rest.schoolName,
 			programId: rest.programId,

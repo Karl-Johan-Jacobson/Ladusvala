@@ -8,7 +8,7 @@ const cheerio = require("cheerio");
 const fs = require("fs");
 //   "type": "commonjs", i package.json för scrape
 
-let titleReturn = {programTitle_sv:"" , programPoints: "", programDesciption_sv: "", programLink: ""};
+let titleReturn = {programTitle_sv:"" , programPoints: "", programDescription_sv: "", programLink: ""};
 // DOES NOT WORK YET, INFO BEHIND BUTTONS
 
 // Take list of urls as arg and parse, will make ID work better.
@@ -44,7 +44,7 @@ async function scrape(url) {
 
       titleReturn.programTitle_sv = title;
       titleReturn.programPoints = num[0];
-      titleReturn.programDesciption_sv = shortDesc;
+      titleReturn.programDescription_sv = shortDesc;
       titleReturn.programLink = url;
       
       

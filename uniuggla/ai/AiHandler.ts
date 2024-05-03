@@ -101,7 +101,7 @@ async function recommendProgramFromInterest(
 export type ProgramNameAndId = {
   programTitle_sv: string;
   programPoints: string;
-  programDesciption_sv: string;
+  programDescription_sv: string;
   programLink: string;
   programId: number;
   schoolName: string,
@@ -117,7 +117,7 @@ export async function fetchAllProgramsJson(): Promise<ProgramNameAndId[]> {
   const allPrograms: ProgramNameAndId[] = programsJson.map((item) => ({
 		programTitle_sv: item.programTitle_sv,
 		programPoints: item.programPoints,
-		programDesciption_sv: item.programDesciption_sv,
+		programDescription_sv: item.programDescription_sv,
 		programLink: item.programLink,
 		programId: counter++,
 		schoolName: item.schoolName,
