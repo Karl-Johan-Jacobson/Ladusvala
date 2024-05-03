@@ -6,7 +6,7 @@ let titleReturn = {
   programId: "",
   programTitle_sv: "",
   programPoints: "",
-  programDesciption_sv: "",
+  programDescription_sv: "",
   programLink: "",
   schoolName:""
 };
@@ -45,7 +45,7 @@ async function scrapeKarolinska(url, programId,schoolName) {
 
       titleReturn.programTitle_sv = title[0].trim();
       titleReturn.programPoints = hp;
-      titleReturn.programDesciption_sv = description;
+      titleReturn.programDescription_sv = description;
       titleReturn.programLink = url;
       titleReturn.programId = programId;
 
