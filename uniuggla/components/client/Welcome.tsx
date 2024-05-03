@@ -6,7 +6,6 @@ interface WelcomeProps {
 }
 
 const Welcome: React.FC<WelcomeProps> = ({ handleNoButtonClick, handleYesButtonClick }) => {
-	
 	return (
 		<div className="wrapper welcomeWrapper">
 			<p className="bot titleTypewriter welcomeText" style={{ paddingTop: "15vh" }}></p>

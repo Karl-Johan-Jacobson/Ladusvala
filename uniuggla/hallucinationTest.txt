@@ -1,0 +1,127 @@
+
+NEW ENTRY
+10282
+10171
+10276
+10277
+10159
+10226
+10219
+10289
+10066
+10084
+10282
+10171
+10276
+10277
+10159
+10226
+10219
+10289
+10066
+10084
+NEW ENTRY
+10479
+10019
+10137
+10563
+10542
+10094
+10278
+10030
+10379
+10494
+10479
+10019
+10137
+10563
+10542
+10094
+10278
+10030
+10379
+10494
+NEW ENTRY
+10559
+10600
+10600
+10506
+10573
+10294
+10557
+10517
+10460
+10055
+10559
+10600
+10600
+10506
+10573
+10294
+10557
+10517
+10460
+10055
+NEW ENTRY
+10527
+10421
+10482
+10487
+10246
+10283
+10366
+10057
+10596
+10532
+10527
+10421
+10482
+10487
+10246
+10283
+10366
+10057
+10596
+10532
+NEW ENTRY
+10501
+10509
+10484
+10168
+10119
+10538
+10552
+10259
+10566
+10553
+10501
+10509
+10484
+10168
+10119
+10538
+10552
+10259
+10566
+10553
+NEW ENTRY
+10171
+10289
+10019
+10421
+10282
+10057
+10066
+10460
+10119
+10246
+[programId: 10171, reason: Svenska and Historia are your interests]
+[programId: 10289, reason: Historia is your interest]
+[programId: 10019, reason: Engelska is your interest]
+[programId: 10421, reason: Historia is your interest]
+[programId: 10282, reason: Religion is your interest]
+[programId: 10057, reason: Historia and Religion are your interests]
+[programId: 10066, reason: Engelska is your interest]
+[programId: 10460, reason: Politik is related to Historia]
+[programId: 10119, reason: Film relates to Historia]
+[programId: 10246, reason: Data relates to your interest in Svenska]

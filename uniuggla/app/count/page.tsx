@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import RecommendedItem from "@/components/client/RecommendationItem";
 import countAllGrades from "./countUtils";
 
 interface RecommendationProps {}

@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import InterestList from "@/components/client/Interest";
 import { TypewriterForTitle } from "@/components/client/TypeWriter";
 import { modifyTopPadding, modifyTopPaddingRelative } from "@/app/utils";
-import data from "@/public/dataset/interests.json"
+import data from "@/public/dataset/interests.json";
 
 import { handleYesButtonClick, handleRecommendationButtonClick } from "@/app/utils";
 // Import for subpages

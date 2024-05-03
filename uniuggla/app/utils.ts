@@ -1,5 +1,4 @@
 //import {recommendProgramFromInterest} from "@/ai/AiHandler";
-
 import { fetchAllProgramsJson, ProgramNameAndId, filterTheResultsFromAi } from "@/ai/AiHandler";
 import callOpenaiInParts from "@/ai/AiHandler";
 import { TypewriterForTitle } from "@/components/client/TypeWriter";
@@ -92,7 +91,7 @@ export function generateHiddenRecommendations(programs: ProgramNameAndId[], html
 		const years = document.createElement("p");
 		years.className = "yearsReq descriptionReq";
 		//to display year it had to be casted to a number to make division possible and then to string again, (shit code, but it works)
-		const numberOfYears: string = formatNumber((program.programPoints as unknown as number));
+		const numberOfYears: string = formatNumber(program.programPoints as unknown as number);
 		years.innerHTML = numberOfYears + " ÅR";
 		recommendedHead.appendChild(years);
 		//create the div for the show more info
@@ -169,7 +168,7 @@ export function aiTypeAnswer(programs: ProgramNameAndId[], htmlClass: string, in
 	//create a contianer where every box will be in
 	const container = document.querySelector("." + htmlClass);
 	var hiddenCounter = 0;
-	
+
 	//null check
 	if (!container) {
 		return;
@@ -228,7 +227,7 @@ export function aiTypeAnswer(programs: ProgramNameAndId[], htmlClass: string, in
 		//school.innerHTML = program.school;
 		school.innerHTML = "LÄROSÄTE: " + program.schoolName;
 		recommendedHead.appendChild(school);
-		//create a p elemnt to write degree in		
+		//create a p elemnt to write degree in
 		if (program.degree != null) {
 			const degree = document.createElement("p");
 			degree.className = "degreeReq descriptionReq";
@@ -244,7 +243,7 @@ export function aiTypeAnswer(programs: ProgramNameAndId[], htmlClass: string, in
 		const years = document.createElement("p");
 		years.className = "yearsReq descriptionReq";
 		//to display year it had to be casted to a number to make division possible and then to string again, (shit code, but it works)
-		const numberOfYears: string = formatNumber((program.programPoints as unknown as number));
+		const numberOfYears: string = formatNumber(program.programPoints as unknown as number);
 		years.innerHTML = numberOfYears + " ÅR";
 		recommendedHead.appendChild(years);
 		//create the div for the show more info
@@ -363,12 +362,11 @@ export function handleYesButtonClick(): void {
 export async function aiResponse(interests: string, interestArr: string[]): Promise<void> {
 	//Send all interest to AiHandler and await response
 	let notCompleteAiAnswer: string[] | undefined = await callOpenaiInParts(interests);
-	let aiAnswer: string[] | undefined = []
-	if(notCompleteAiAnswer)
-		{
-			aiAnswer = await filterTheResultsFromAi(notCompleteAiAnswer, interests);
-		}
-	
+	let aiAnswer: string[] | undefined = [];
+	if (notCompleteAiAnswer) {
+		aiAnswer = await filterTheResultsFromAi(notCompleteAiAnswer, interests);
+	}
+
 	//check if it is undefined, if it is just give it one id number.
 	//add later to code that user will be informed something went wrong
 	if (aiAnswer == undefined) {
@@ -376,32 +374,31 @@ export async function aiResponse(interests: string, interestArr: string[]): Prom
 	}
 
 	//fetch all programs
-	try{
-	const allPrograms: ProgramNameAndId[] = await fetchAllProgramsJson();
+	try {
+		const allPrograms: ProgramNameAndId[] = await fetchAllProgramsJson();
 
-	//convert aiAnswer to numbers so id can be matched
-	const aiAnswerAsNumber: number[] = aiAnswer.map((item) => {
-		return item as unknown as number;
-	});
-	//create an empty array to store the selected programs
-	var selectedPrograms: ProgramNameAndId[] = [];
+		//convert aiAnswer to numbers so id can be matched
+		const aiAnswerAsNumber: number[] = aiAnswer.map((item) => {
+			return item as unknown as number;
+		});
+		//create an empty array to store the selected programs
+		var selectedPrograms: ProgramNameAndId[] = [];
 
-	//loop through all programs to find the selected programs
-	for (var i = 0, n = 0; i < allPrograms.length; i++) {
-		for (var j = 0; j < aiAnswerAsNumber.length; j++) {
-			if (allPrograms[i].programId == aiAnswerAsNumber[j]) {
-				selectedPrograms[n++] = allPrograms[i];
+		//loop through all programs to find the selected programs
+		for (var i = 0, n = 0; i < allPrograms.length; i++) {
+			for (var j = 0; j < aiAnswerAsNumber.length; j++) {
+				if (allPrograms[i].programId == aiAnswerAsNumber[j]) {
+					selectedPrograms[n++] = allPrograms[i];
+				}
 			}
 		}
-	}
-	console.log("SelectedPrograms:  " + selectedPrograms);
-	//send the programs to generate the recommendedboxes
+		console.log("SelectedPrograms:  " + selectedPrograms);
+		//send the programs to generate the recommendedboxes
 
-	aiTypeAnswer(selectedPrograms, "recommendedWrapper", interestArr);
-}
-catch(e){
-	console.log(e);
-}
+		aiTypeAnswer(selectedPrograms, "recommendedWrapper", interestArr);
+	} catch (e) {
+		console.log(e);
+	}
 }
 
 export async function handleRecommendationButtonClick(interestArr: string[]): Promise<void> {
@@ -441,9 +438,8 @@ export const modifyTopPaddingRelative = (relativePaddingtop: string, htmlClass: 
 	});
 };
 
-
 function formatNumber(num: number): string {
 	num = num / 60;
-    const roundedNum = num.toFixed(2);
-    return roundedNum.endsWith('.00') ? roundedNum.slice(0, -3) : roundedNum;
+	const roundedNum = num.toFixed(2);
+	return roundedNum.endsWith(".00") ? roundedNum.slice(0, -3) : roundedNum;
 }

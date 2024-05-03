@@ -1,7 +1,0 @@
-{
-	"greeting" = ["Hej!", "greeting", "typewriter", "typewriter_greeting"];
-	"moveGreeting" = ['1vw', "greetingDiv"];
-	"moveQuestion" = ['5vw', "questionDiv"];
-	"question" = ["Vill du gå på högskola eller universitet?", "question", "typewriter", "typewriter_question"];
-	"moveAnswer" = ['8vw', "answers"]
-}

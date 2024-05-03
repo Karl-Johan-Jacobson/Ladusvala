@@ -34,9 +34,9 @@ const transform = {
 	sjukhusfysikerprogrammet: "Sjukhusfysiker",
 };
 const noDegree = {
-  saknar: null,
-  obehörig: null
-}
+	saknar: null,
+	obehörig: null,
+};
 
 function addDegree(items, transform) {
 	return items.map((item) => {
@@ -59,18 +59,18 @@ function addDegree(items, transform) {
 				} else if (degree.toLowerCase().includes(degree.toLowerCase())) {
 				} else {
 					degree += ", " + transform[keyword];
-        }
+				}
 				break;
 			}
 		}
 		if (degree === null && item.programPoints === "180") {
 			degree = "Kandidat";
 		}
-    for (const keyword in noDegree) {
-      if (item.programTitle_sv && item.programTitle_sv.toLowerCase().includes(keyword.toLowerCase())) {
-        degree = null;
-      }
-    }
+		for (const keyword in noDegree) {
+			if (item.programTitle_sv && item.programTitle_sv.toLowerCase().includes(keyword.toLowerCase())) {
+				degree = null;
+			}
+		}
 		// Rename programDescription_sv to programDescription_sv
 		const { programDescription_sv, ...rest } = item;
 		return {

@@ -6,10 +6,10 @@ var gradeBoxCounter: number = 0;
 export default function countAllGrades(courseName: string, coursePointsAsString: string, grade: string) {
 	//error handling to start with
 
-    if (grade.length !== 1 || !/[A-Fa-f]/.test(grade)) {
-        // Grade is either not a single character or not within A-F or a-f range
-        return;
-    }
+	if (grade.length !== 1 || !/[A-Fa-f]/.test(grade)) {
+		// Grade is either not a single character or not within A-F or a-f range
+		return;
+	}
 
 	//turn coursepoints to an Integer
 	const coursePointsAsNumber: number = parseInt(coursePointsAsString, 10);
@@ -19,18 +19,15 @@ export default function countAllGrades(courseName: string, coursePointsAsString:
 	totalCoursePoints += coursePointsAsNumber;
 	//check the value from one grade and increment a totalgrades counter
 	totalgrades += countOneGrade(grade, coursePointsAsNumber);
-    console.log("Before totalCoursePoints:  "+totalCoursePoints)
-    console.log("Before totalgrades: "+ totalgrades)
+	console.log("Before totalCoursePoints:  " + totalCoursePoints);
+	console.log("Before totalgrades: " + totalgrades);
 
 	//generate a block that shows a box of the argument that is passed to the user
 	generateHTMLBLock(courseName, coursePointsAsString, grade, coursePointsAsNumber);
-    if (totalCoursePoints == 2400) {
+	if (totalCoursePoints == 2400) {
 		showGradeScoreToUser();
-        return;
+		return;
 	}
-
-
-    
 }
 
 function countOneGrade(grade: string, coursePointsAsNumber: number): number {
@@ -83,7 +80,7 @@ function showGradeScoreToUser() {
 
 	const points = document.createElement("p");
 	points.className = `pointOutput gradeStyle`;
-	points.innerHTML = "BI Poäng: " + (parseFloat(averageGradeScore.toFixed(2)));
+	points.innerHTML = "BI Poäng: " + parseFloat(averageGradeScore.toFixed(2));
 	container.appendChild(points);
 }
 
@@ -128,25 +125,19 @@ function generateHTMLBLock(courseName: string, coursePointsAsString: string, gra
 	const removeButton = document.createElement("button");
 	removeButton.className = `remove`;
 	removeButton.innerHTML = "Ta bort";
-    removeButton.id = gradeBoxCounter as unknown as string;
-	removeButton.onclick = function(event) {
+	removeButton.id = gradeBoxCounter as unknown as string;
+	removeButton.onclick = function (event) {
 		const targetElement = event.target as Element;
 		const parentElement = targetElement.parentNode;
 		if (parentElement) {
 			parentElement.parentNode?.removeChild(parentElement);
 		}
-	
+
 		totalgrades -= countOneGrade(grade, coursePointsAsNumber);
 		totalCoursePoints -= coursePointsAsNumber;
 	};
-	console.log("After totalCoursePoints:  "+totalCoursePoints)
+	console.log("After totalCoursePoints:  " + totalCoursePoints);
 	gradeBox.appendChild(removeButton);
-
-	
 
 	gradeBoxCounter++;
 }
-
-
-
-

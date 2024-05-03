@@ -1,5 +1,4 @@
 import React from "react";
-import RecommendedItme from "@/components/client/RecommendationItem";
 
 interface RecommendationProps {}
 
