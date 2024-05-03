@@ -45,6 +45,7 @@ function addDegree(items, transform) {
 			if (item.programTitle_sv && item.programTitle_sv.toLowerCase().includes(keyword.toLowerCase())) {
 				if (degree === null) {
 					degree = transform[keyword];
+				} else if (degree.toLowerCase().includes(degree.toLowerCase())) {
 				} else {
 					degree += ", " + transform[keyword];
 				}
@@ -55,16 +56,14 @@ function addDegree(items, transform) {
 			if (item.programDescription_sv && item.programDescription_sv.toLowerCase().includes(keyword.toLowerCase())) {
 				if (degree === null) {
 					degree = transform[keyword];
+				} else if (degree.toLowerCase().includes(degree.toLowerCase())) {
 				} else {
 					degree += ", " + transform[keyword];
-				}
+        }
 				break;
 			}
 		}
 		if (degree === null && item.programPoints === "180") {
-			degree = "Kandidat";
-		}
-		if (degree === null && item.programPoints === "120") {
 			degree = "Kandidat";
 		}
     for (const keyword in noDegree) {
