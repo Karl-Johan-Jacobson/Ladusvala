@@ -3,8 +3,7 @@ import * as fs from "fs";
 import OpenAI from "openai";
 import { ChatCompletionMessageParam } from "openai/resources/index.mjs";
 import type Interest from "../types/interest";
-import path from "path";
-import programsJson from "@/public/dataset/programs.json"
+import programsJson from "@/public/dataset/programs.json";
 //IF YOU GET this error TS18028, just ignore. and run js file anyway -KJ
 
 const openai = new OpenAI({
@@ -32,6 +31,7 @@ function turnProgramToPrompt(allPrograms: ProgramNameAndId[]): string {
 
   for (let i = 0; i < allPrograms.length; i++) {
     //generatedString += `Degree: ${allPrograms[i].porgramTitle_sv}, ID = ${allPrograms[i].programId}\n`; //USED IN RELEASE
+    generatedString += `Program title: ${allPrograms[i].programTitle_sv}, ProgramId: ${allPrograms[i].programId}\n, `;
     generatedString += `Program title: ${allPrograms[i].programTitle_sv}, ProgramId: ${allPrograms[i].programId}\n, `;
   }
   return generatedString;
@@ -79,7 +79,7 @@ async function recommendProgramFromInterest(
       if(num.length == 5){
         // check if the length of the sequence is exactly 5, matches our chosen numbering of programs.
         idFromRespArray.push(num); // push the sequence of IDs into the idFromRespArray array
-      }
+			}
     });
   } // send id's to func which can display proper program info from them.
   console.log("idFromRespArray: "+ idFromRespArray)
@@ -107,7 +107,7 @@ const filePath: string = "public/dataset/programs.json";
 export type ProgramNameAndId = {
   programTitle_sv: string;
   programPoints: string;
-  programDesciption_sv: string;
+  programDescription_sv: string;
   programLink: string;
   programId: number;
   schoolName: string,

@@ -83,12 +83,6 @@ export function generateHiddenRecommendations(programs: ProgramNameAndId[], html
 			degree.innerHTML = "EXAMEN: " + program.degree;
 			recommendedHead.appendChild(degree);
 		}
-		if (program.degree != null) {
-			const degree = document.createElement("p");
-			degree.className = "degreeReq descriptionReq";
-			degree.innerHTML = "EXAMEN: " + program.degree;
-			recommendedHead.appendChild(degree);
-		}
 		//create a ...
 		const points = document.createElement("p");
 		points.className = "pointsReq descriptionReq";
@@ -122,7 +116,7 @@ export function generateHiddenRecommendations(programs: ProgramNameAndId[], html
 		//create a ...
 		const reqDescriptionContent = document.createElement("p");
 		reqDescriptionContent.className = `reqDescriptionContent reqDescriptionContent${i}`;
-		reqDescriptionContent.innerHTML = program.programDesciption_sv;
+		reqDescriptionContent.innerHTML = program.programDescription_sv;
 		reqDescriptionBox.appendChild(reqDescriptionContent);
 
 		const recommendedFoot = document.createElement("div");
@@ -166,7 +160,7 @@ export function generateHiddenRecommendations(programs: ProgramNameAndId[], html
 		//write the show more description
 		const recommendedDescription = document.createElement("div");
 		recommendedDescription.className = `recommendedDescription recommendedDescription${i} hide`;
-		recommendedDescription.innerHTML = program.programDesciption_sv;
+		recommendedDescription.innerHTML = program.programDescription_sv;
 		recommendedBox.appendChild(recommendedDescription);
 	}
 }
@@ -218,10 +212,10 @@ export function aiTypeAnswer(programs: ProgramNameAndId[], htmlClass: string, in
 		title.innerHTML = program.programTitle_sv;
 		recommendedHead.appendChild(title);
 		if ((i + 1) % 5 == 0) {
-			const title = document.createElement("p");
-			title.className = "wildcardText";
-			title.innerHTML = "WILDCARD?";
-			recommendedHead.appendChild(title);
+			const wildcardText = document.createElement("p");
+			wildcardText.className = "wildcardText";
+			wildcardText.innerHTML = "WILDCARD?";
+			recommendedHead.appendChild(wildcardText);
 
 			const wildcardBubble = document.createElement("p");
 			wildcardBubble.className = "wildcardBubble";
@@ -274,7 +268,7 @@ export function aiTypeAnswer(programs: ProgramNameAndId[], htmlClass: string, in
 		//create a ...
 		const reqDescriptionContent = document.createElement("p");
 		reqDescriptionContent.className = `reqDescriptionContent reqDescriptionContent${i}`;
-		reqDescriptionContent.innerHTML = program.programDesciption_sv;
+		reqDescriptionContent.innerHTML = program.programDescription_sv;
 		reqDescriptionBox.appendChild(reqDescriptionContent);
 
 		const recommendedFoot = document.createElement("div");
@@ -318,7 +312,7 @@ export function aiTypeAnswer(programs: ProgramNameAndId[], htmlClass: string, in
 		//write the show more description
 		const recommendedDescription = document.createElement("div");
 		recommendedDescription.className = `recommendedDescription recommendedDescription${i} hide`;
-		recommendedDescription.innerHTML = program.programDesciption_sv;
+		recommendedDescription.innerHTML = program.programDescription_sv;
 		recommendedBox.appendChild(recommendedDescription);
 
 		//Remove the loading string from page.
