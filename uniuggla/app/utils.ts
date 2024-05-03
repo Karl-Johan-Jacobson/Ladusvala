@@ -115,7 +115,7 @@ export function generateHiddenRecommendations(programs: ProgramNameAndId[], html
 		//create a ...
 		const reqDescriptionContent = document.createElement("p");
 		reqDescriptionContent.className = `reqDescriptionContent reqDescriptionContent${i}`;
-		reqDescriptionContent.innerHTML = program.programDesciption_sv;
+		reqDescriptionContent.innerHTML = program.programDescription_sv;
 		reqDescriptionBox.appendChild(reqDescriptionContent);
 
 		const recommendedFoot = document.createElement("div");
@@ -159,7 +159,7 @@ export function generateHiddenRecommendations(programs: ProgramNameAndId[], html
 		//write the show more description
 		const recommendedDescription = document.createElement("div");
 		recommendedDescription.className = `recommendedDescription recommendedDescription${i} hide`;
-		recommendedDescription.innerHTML = program.programDesciption_sv;
+		recommendedDescription.innerHTML = program.programDescription_sv;
 		recommendedBox.appendChild(recommendedDescription);
 	}
 }
@@ -266,7 +266,7 @@ export function aiTypeAnswer(programs: ProgramNameAndId[], htmlClass: string, in
 		//create a ...
 		const reqDescriptionContent = document.createElement("p");
 		reqDescriptionContent.className = `reqDescriptionContent reqDescriptionContent${i}`;
-		reqDescriptionContent.innerHTML = program.programDesciption_sv;
+		reqDescriptionContent.innerHTML = program.programDescription_sv;
 		reqDescriptionBox.appendChild(reqDescriptionContent);
 
 		const recommendedFoot = document.createElement("div");
@@ -310,7 +310,7 @@ export function aiTypeAnswer(programs: ProgramNameAndId[], htmlClass: string, in
 		//write the show more description
 		const recommendedDescription = document.createElement("div");
 		recommendedDescription.className = `recommendedDescription recommendedDescription${i} hide`;
-		recommendedDescription.innerHTML = program.programDesciption_sv;
+		recommendedDescription.innerHTML = program.programDescription_sv;
 		recommendedBox.appendChild(recommendedDescription);
 
 		//Remove the loading string from page.
