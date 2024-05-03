@@ -1,10 +1,13 @@
-const fs = require("fs");
+import fs from "fs";
 
 // Path to your JSON file
-const filePath = "./filtered_programs.json";
+const filePath = "./programs_safe.json";
 
 // Keywords to search for in the titles
 const keywords = [
+  "logoped",
+  "lärar",
+  "läkar",
   "kandidat",
   "yrkeslärarutbildning",
   "yrkeslärarprogrammet",
@@ -23,28 +26,44 @@ const keywords = [
   "jurist",
   "arkitekt",
   "civilekonom",
+  "högskoleexamen",
+  "tandhygienist",
+  "tandläkar",
+  "sjöingenjör",
+  "vetarprogrammet",
+  "sjökapten",
+  "180"
 ];
 
 function transformKeyword(fragment) {
   const fragmentTransforms = {
-    ämneslärar: "Lärare",
-    yrkeslärarutbildning: "Yrkeslärarexamen",
-    yrkeslärarprogrammet: "Yrkeslärarexamen",
-    psykolog: "Psykologexamen",
-    läkare: "Läkarexamen",
-    socionom: "Kandidatexamen",
-    audionom: "Audionomexamen",
-    biomedicin: "Kandidatexamen",
-    kandidat: "Kandidatexamen",
-    civilingenjör: "Civilingenjörsexamen",
-    högskoleingenjör: "Högskoleingenjörsexamen",
-    arbetsterapeut: "Arbetsterapeutexamen",
-    fysioterapeut: "Fysioterapeutexamen",
-    sjukskötersk: "Kandidatexamen",
-    röntgensjuksköterska: "Röntgensjuksköterskeexamen",
-    jurist: "Juristexamen",
-    arkitekt: "Arkitektexamen",
-    civilekonom: "Civilekonomexamen",
+    logoped: "Logoped",
+    lärar: "Lärar",
+    läkar: "Läkar",
+    kandidat: "Kandidat",
+    ämneslärar: "Lärar",
+    yrkeslärarutbildning: "Yrkeslärar",
+    yrkeslärarprogrammet: "Yrkeslärar",
+    psykolog: "Psykolog",
+    socionom: "Kandidat",
+    audionom: "Audionom",
+    biomedicin: "Kandidat",
+    civilingenjör: "Civilingenjörs",
+    högskoleingenjör: "Högskoleingenjörs",
+    arbetsterapeut: "Arbetsterapeut",
+    fysioterapeut: "Fysioterapeut",
+    sjukskötersk: "Kandidat",
+    röntgensjuksköterska: "Röntgensjuksköterske",
+    jurist: "Jurist",
+    arkitekt: "Arkitekt",
+    civilekonom: "Civilekonom",
+    högskoleexamen: "Högskole",
+    tandhygienist: "Tandhygienist",
+    tandläkar: "Tandläkar",
+    sjöingenjör: "Sjöingenjör",
+    sjökapten: "Sjökapten",
+    vetarprogrammet: "Kandidat",
+    180: "Kandidat"
   };
   return fragmentTransforms[fragment] || null; // Returns null if no transformation is defined
 }
@@ -52,19 +71,46 @@ function transformKeyword(fragment) {
 function addKeywordsToDegree(items, keywords) {
   return items.map((item) => {
     const title = item.programTitle_sv.toLowerCase();
-    const matchingFragments = keywords.filter((keyword) =>
+    const titleMatchingFragments = keywords.filter((keyword) =>
       title.includes(keyword)
     );
-    const transformedKeywords = matchingFragments
+    const titleTransformedKeywords = titleMatchingFragments
       .map(transformKeyword)
       .filter((k) => k); // Filter out nulls after transformation
 
-    const degree =
-      transformedKeywords.length > 0 ? transformedKeywords.join(", ") : null; // Sets degree to null if no keywords match
+    let degree = null;
+
+    if (titleTransformedKeywords.length > 0) {
+      degree = titleTransformedKeywords.join(", ");
+    } else {
+      const description = item.programDesciption_sv.toLowerCase();
+      const descriptionMatchingFragments = keywords.filter((keyword) =>
+        description.includes(keyword)
+      );
+      const descriptionTransformedKeywords = descriptionMatchingFragments
+        .map(transformKeyword)
+        .filter((k) => k); // Filter out nulls after transformation
+
+      if (descriptionTransformedKeywords.length > 0) {
+        degree = descriptionTransformedKeywords.join(", ");
+      } else {
+        const points = item.programPoints.toLowerCase();
+        const pointsMatchingFragments = keywords.filter((keyword) =>
+          points.includes(keyword)
+        );
+        const pointsTransformedKeywords = pointsMatchingFragments
+          .map(transformKeyword)
+          .filter((k) => k); // Filter out nulls after transformation
+
+        if (pointsTransformedKeywords.length > 0) {
+          degree = pointsTransformedKeywords.join(", ");
+        }
+      }
+    }
 
     return {
       ...item,
-      degree: degree, // Directly set degree to the calculated value or null
+      degree: degree, // Set degree to null if no keywords match
     };
   });
 }
@@ -78,7 +124,7 @@ fs.readFile(filePath, "utf8", (err, data) => {
 
   let programs = JSON.parse(data);
   const updatedPrograms = addKeywordsToDegree(programs, keywords);
-  const outputPath = "./programs_updated.json";
+  const outputPath = "./programs_safe_updated.json";
 
   fs.writeFile(
     outputPath,
