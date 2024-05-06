@@ -17,17 +17,20 @@ export async function getRecommendations(selectedInterest: string[]): Promise<Pr
 
 	try {
 		//console.log("array : " + selectedInterest);
+		
 		const allPorgrams: Program[] = await fetchAllProgramsJson();
 		const interestAsString: string = turnInterestToPrompt(selectedInterest);
+		const interestProfile = await getProfile(interestAsString);
 		//console.log("string: " + interestAsString);
 		//get id number form ai, if ai fails, set as an empty array
+		
 		const idNumbers: number[] | undefined = await callOpenaiInParts(interestAsString, allPorgrams);
 
 		//get the programs for last call
 		const selectedPrograms: Program[] = getProgramsFromId(idNumbers || [], allPorgrams);
 
 		//get the final recommendations
-		const finalProgramsId: number[] | undefined = await finalCallToAi(interestAsString, selectedPrograms);
+		const finalProgramsId: number[] | undefined = await finalCallToAi(interestProfile, selectedPrograms);
 
 		if (finalProgramsId) {
 			const finalPrograms: Program[] = getProgramsFromId(finalProgramsId, allPorgrams);
@@ -36,10 +39,34 @@ export async function getRecommendations(selectedInterest: string[]): Promise<Pr
 		else{
 			throw new Error("Error occurred Ai can not filter the final results");
 		}
+		
+		return [];
 	} catch (error) {
 		console.error("Error occurred:", error);
 		throw new Error("Error occurred Ai can not get recommendations");
 	}
+}
+
+async function getProfile (interestAsString: string): Promise<string>{
+
+	const content = `Det här är mina intressen \n ${interestAsString} \n Jag vill att du beskriver min intresse profil i några meningar. Det är viktigt att min intresseprofil ska kunna matcha högskoleutbildningar`
+	// Make a prompt format
+	const questionToAi: ChatCompletionMessageParam = {
+		role: "user",
+		content: content,
+	};
+
+	// Make the HTTP request to AI and save the results
+	const completion = await openai.chat.completions.create({
+		messages: [{ role: "system", content: "Du är en studievägledare som hjälper studenter att förstå vad dem är intresserade i" }, questionToAi],
+		model: "gpt-3.5-turbo",
+	});
+
+	const response = completion as ChatCompletion;
+
+	return response.choices[0].message.content ? response.choices[0].message.content : "";
+
+
 }
 
 //get programs based on the id numbers sent int
@@ -147,10 +174,10 @@ async function callOpenaiInParts(interestString: string, allPrograms: Program[])
 	}
 }
 //Final call to ai with message to rank and maybe remove not relevant programs
-async function finalCallToAi(interestString: string, selectedProgram: Program[]){
+async function finalCallToAi(interestProfile: string, selectedProgram: Program[]){
 	try{
 	const programAsString: string = turnProgramToPrompt(selectedProgram);
-	const content: string = `Det här är mina intressen: ${interestString}  \n och det här är alla utbildningsprogram  ${programAsString}. Jag vill att du väljer minst fem utbildningsprogram som passar mina intressen bäst men välj gärna fler. Rangordna så att det mest relevanta utbildningsprogramet är först. Jag vill att du motiverar först varför du valde programmet och sen skriver in program id. Det ä viktigt att utbildningarna matchar mina intressen väldigt strikt`;
+	const content: string = `${interestProfile}  \n och det här är alla utbildningsprogram jag kan välja mellan  ${programAsString}. Jag vill att du väljer åtminstone tio utbildningsprogram som passar mina intressen bäst men välj gärna fler. Rangordna så att det mest relevanta utbildningsprogramet är först. Jag vill att du motiverar först varför du valde programmet och sen skriver in program id. Det ä viktigt att utbildningarna matchar mina intressen väldigt strikt`;
 	console.log("whole content string final: " + content);
 	const finalProgramsId : number[] = await recommendProgramFromInterest(content) || []
 	//console.log("final numbers: " + finalProgramsId);
