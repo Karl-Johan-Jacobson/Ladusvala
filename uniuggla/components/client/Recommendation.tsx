@@ -1,13 +1,6 @@
 import React from "react";
 
-interface RecommendationProps {}
-
-import { useState } from "react";
-import { NextPage } from "next";
-import recommendProgramFromInterest from "@/ai/AiHandler";
-
-const Recommendation: React.FC<RecommendationProps & {}> = () => {
-	//HTML code
+export default function Recommendation() {
 	return (
 		<div id="recommmendation" className="wrapper recommmendationWrapper recommmendation">
 			<p className="bot titleTypewriter recommmendationText" style={{ paddingTop: "10vh" }}></p>
@@ -19,5 +12,3 @@ const Recommendation: React.FC<RecommendationProps & {}> = () => {
 		</div>
 	);
 };
-
-export default Recommendation;
