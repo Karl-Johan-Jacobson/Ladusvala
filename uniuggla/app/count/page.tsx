@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import countAllGrades from "./countUtils";
+import TextCountInput from "./TextCountInput";
 
 interface RecommendationProps {}
 
@@ -31,7 +32,7 @@ const Recommendation: React.FC<RecommendationProps> = () => {
 				<p className="bot titleTypewriter recommendationText" style={{ paddingTop: "15vh" }}></p>
 				<form className="gradeInputWrapper">
 					<div className="textInputWrapper">
-						<input className="textInput" type="text" placeholder="Engelska 5" value={courseName} onChange={(e) => setcourseName(e.target.value)} />
+						<input className="textInput" type="text" pattern="[A-Fa-f0-9]" placeholder="Engelska 5" value={courseName} onChange={(e) => setcourseName(e.target.value)} />
 						<button className="textButton">
 							<img className="textButtonImg" src="../../dropdown_arrow.svg" alt="" />
 						</button>
