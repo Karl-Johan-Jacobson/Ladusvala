@@ -7,7 +7,7 @@
 	--primary-dark-green-shadow: #37552b64;
 	--primary-dark-green-light-shadow: #37552b32;
 	--primary-dark-purple: #4f1eb0;
-	--primary-border-width: 0.1vw;
+	--primary-border-width: 1px;
 	--primary-border-radius: 0.5vw;
 	--text-form-height: 2vw;
 	--primary-light-purple: #dfc0fe;
@@ -116,9 +116,13 @@ p {
 	position: relative;
 	min-width: var(--text-form-height);
 	height: var(--text-form-height);
-	margin: 0 auto;
+	margin: auto;
 	border: var(--primary-border-width) solid var(--primary-dark-green);
 	border-radius: var(--primary-border-radius);
+}
+
+.buttonInputWrapper {
+	border: none !important;
 }
 
 .textInput {
@@ -131,7 +135,7 @@ p {
 	padding-left: var(--primary-border-radius);
 	background-color: var(--primary-light-green);
 	border: none;
-	border-radius: calc(var(--primary-border-radius) * 0.85);
+	border-radius: calc(var(--primary-border-radius) - var(--primary-border-width));
 	font-size: calc(var(--text-form-height) * 0.7);
 	font-family: "Tomorrow-MediumItalic";
 	color: var(--medium-green);
@@ -148,13 +152,26 @@ p {
 	background-color: var(--primary-dark-green-light-shadow);
 }
 
-.textButton,
-.buttonInput {
+.textButton {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
 	position: absolute;
-	top: calc(-1 * var(--primary-border-width));
-	right: calc(-1 * var(--primary-border-width));
-	width: calc(var(--text-form-height) + 2 * var(--primary-border-width));
-	height: calc(var(--text-form-height) + 2 * var(--primary-border-width));
+	top: calc((-1* var(--primary-border-width)));
+	right: calc((-1* var(--primary-border-width)));
+	width: calc(var(--text-form-height) + 2* var(--primary-border-width));
+	height: calc(var(--text-form-height) + 2* var(--primary-border-width));
+	background-color: var(--medium-green);
+	border: var(--primary-border-width) solid var(--primary-dark-green);
+	border-radius: var(--primary-border-radius);
+	z-index: 10;
+}
+.buttonInput {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	width: calc(var(--text-form-height) + 2* var(--primary-border-width));
+	height: calc(var(--text-form-height) + 2* var(--primary-border-width));
 	background-color: var(--medium-green);
 	border: var(--primary-border-width) solid var(--primary-dark-green);
 	border-radius: var(--primary-border-radius);
@@ -1026,7 +1043,7 @@ footer {
 */
 .gradeInputWrapper {
 	display: grid;
-	grid-template-columns: 1fr 0.6fr 0.6fr 0fr 0.6fr;
+	grid-template-columns: 1.2fr 0.7fr 0.7fr 0fr 0.7fr;
 	grid-gap: 10px;
 	width: 70%;
 	max-width: fit-content;
