@@ -1,6 +1,6 @@
 "use client"; // Makes it so it is on client side instead of server side because of the function components.
 import { useRouter } from "next/navigation";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import InterestList from "@/components/client/Interest";
 import { TypewriterForTitle } from "@/components/client/TypeWriter";
 import { modifyTopPadding, modifyTopPaddingRelative } from "@/app/utils";
@@ -93,6 +93,9 @@ export default function Home() {
 
 	//const interests = await fetchAllInterests()
 
+	const recommendationsRef = useRef<HTMLDivElement | null>(null);
+	const interestRef = useRef<HTMLDivElement | null>(null);
+
 	// HTML code, within <main>
 	return (
 		<main className="main" style={{ overflow: "hidden" }}>
@@ -100,18 +103,18 @@ export default function Home() {
         Welcome page
       */}
 			<section id="welcomeContainer" className="container welcomeContainer">
-				<Welcome handleNoButtonClick={handleNoButtonClick} handleYesButtonClick={handleYesButtonClick} />
+				<Welcome yesPageRef={interestRef} handleNoButtonClick={handleNoButtonClick} handleYesButtonClick={handleYesButtonClick} />
 			</section>
 			{/* 
-        Interest Page 
+        Interest Page
       */}
-			<section id="interestContainer" className="container interestContainer hide">
-				<InterestList interests={data} handleRecommendationButtonClick={handleRecommendationButtonClick} />
+			<section ref={interestRef} id="interestContainer" className="container interestContainer hide">
+				<InterestList interests={data} nextPageRef={recommendationsRef} handleRecommendationButtonClick={handleRecommendationButtonClick} />
 			</section>
 			{/*
         Recommendation page
       */}
-			<section id="recommendationContainer" className="container recommendationContainer hide">
+			<section  ref={recommendationsRef} id="recommendationContainer" className="container recommendationContainer hide">
 				<Recommendation />
 			</section>
 		</main>
