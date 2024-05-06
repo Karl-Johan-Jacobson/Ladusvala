@@ -6,25 +6,30 @@ import Program from "@/types/program";
 interface RecommendationItemProp {
   program: Program;
   index: number;
-  isToggled: boolean;
-  toggle: (index: number) => void
+  isExpanded: boolean;
+  showDescription: (index: number) => void
 }
 
-export default function RecommendedItem({program, index, isToggled, toggle, }: RecommendationItemProp) {
+function formatNumber(num: number): string {
+	num = num / 60;
+	const roundedNum = num.toFixed(2);
+	return roundedNum.endsWith(".00") ? roundedNum.slice(0, -3) : roundedNum;
+}
 
+export default function RecommendedItem({ program, index, isExpanded, showDescription }: RecommendationItemProp) {
   return (
-    <div className="recommendationItem" onClick={() => toggle(index)}>
-      <div className="recommendationHeader">
-        <p className="">{program.programTitle_sv}</p>
-        <p className="">{"LÄROSÄTE:" + program.schoolName}</p>
-        <p className="">{"EXAMEN: " + program.degree}</p>
-        <p className="">{"POÄNG: " + program.programPoints}</p>
-        <p className="">{"ANTAL ÅR: " + (program.programPoints)}</p>
+    <div className="recommendedItemWrapper" onClick={() => showDescription(index)}>
+      <div className="recommendedItemHead">
+        <p className="titleReq">{program.programTitle_sv}</p>
+        <p className="reqDesctription">{"LÄROSÄTE:" + program.schoolName}</p>
+        <p className="degreeReq">{"EXAMEN: " + program.degree}</p>
+        <p className="pointsReq">{"POÄNG: " + program.programPoints}</p>
+        <p className="yearsReq">{"ANTAL ÅR: " + (formatNumber(program.programPoints))}</p>
       </div>
-      <div className="recommendationDescription">
-        {program.description_sv}
+      <div className={`recommendedItemDescription ${isExpanded ? 'show' : 'hide'}`}>
+        {program.programDesciption_sv}
       </div>
-      <img className={isToggled ? "recommendationArrow" : "recommendationArrow show"} src="../../arrow.svg" alt="" />
+      <img className={`recommendationArrow ${isExpanded ? 'rotate' : ''}`} src="../../arrow.svg" alt="" />
     </div>
   );
 };

@@ -11,11 +11,10 @@ export const NUMBER_OF_INTERESTS = 11;
 
 interface InterestProps {
 	interests: InterestType[];
-	nextPageRef: RefObject<HTMLDivElement> | null;
 	handleRecommendationButtonClick: (interest: string[]) => void;
 }
 
-export default function Interest({ interests, nextPageRef, handleRecommendationButtonClick }: Readonly<InterestProps>) {
+export default function Interest({ interests, handleRecommendationButtonClick }: Readonly<InterestProps>) {
 	const [selectedInterests, setSelectedInterests] = useState<InterestType[]>([]);
 	const [notSelected, setNotSelected] = useState<InterestType[]>(interests.filter((_interest, index) => index < NUMBER_OF_INTERESTS));
 
@@ -95,7 +94,6 @@ export default function Interest({ interests, nextPageRef, handleRecommendationB
 	async function handleRecommend() {
 		if (selectedInterests.length >= 4 && selectedInterests.length <= 11) {
 			handleRecommendationButtonClick(selectedInterests.map((interest) => interest.interestTitle));
-			nextPageRef?.current?.scrollIntoView();
 		} else {
 		}
 		//Say something to user, that they have to select interests
@@ -124,14 +122,14 @@ export default function Interest({ interests, nextPageRef, handleRecommendationB
 			<div className="selectedInterestList">
 				{placeholderInterestRows.map((row, rowIndex) => (
 					<div className={`interestRow selectedRow${rowIndex + 1}`}>
-						{row.map((interest) =>
+						{row.map((interest, index) =>
 							interest.interestId !== "placeholder" ? (
 								<InterestItem updateParent={handleDeselect} interest={interest} mounted={true} isSelected={true} key={interest.interestId} />
 							) : (
 								<div className="placeholderInterest">
 									<p></p>
 								</div>
-							) // Replace this with your actual placeholder
+							)
 						)}
 					</div>
 				))}

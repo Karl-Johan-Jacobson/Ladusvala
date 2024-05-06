@@ -32,14 +32,17 @@ export default function InterestListItem({ interest, isSelected, mounted, update
 	return (
 		<div className="interestItem">
 			{isSelected ? (
-				<button onClick={handleClick} className={isMounted ? "selectedButton fadeInSelected" : "selectedButton fadeOut"} onAnimationEnd={handleParentUpdate}>
+				<button
+					onClick={handleClick}
+					className={`selectedButton ${isMounted ? "fadeInSelected" : "fadeOut"}`}
+					onAnimationEnd={handleParentUpdate}>
 					<span className="iconText">{interest.interestTitle}</span>
 				</button>
 			) : (
 				<button // If not selected
 					onClick={handleClick}
 					onAnimationEnd={handleParentUpdate}
-					className={isMounted ? "notSelectedButton fadeInNew" : "notSelectedButton fadeOut"}>
+					className={`selectedButton ${isMounted ? "fadeInNew" : "fadeOut"}`}>
 					<span className="iconText">{interest.interestTitle}</span>
 				</button>
 			)}

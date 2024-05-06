@@ -1,14 +1,12 @@
 type Program = {
-	programAiDescription_sv: String;
-	programDegree_sv: String;
-	programDescription_sv: String;
-	programId: String;
-	programLink: String;
-	programPlace_sv: String;
-	programPoints: String;
-	programRequirements_sv: String;
-	porgramTitle_sv: String;
-	programYears: String;
+	programId: number;
+    programTitle_sv: string;
+    programPoints: number;
+    programDesciption_sv: string;
+    programLink: string;
+    schoolName: string;
+    aiPrompt: string;
+    degree: string;
 };
 
 export default Program;

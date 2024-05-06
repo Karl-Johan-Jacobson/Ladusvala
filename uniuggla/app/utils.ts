@@ -3,6 +3,7 @@ import { fetchAllProgramsJson, ProgramNameAndId, filterTheResultsFromAi } from "
 import callOpenaiInParts from "@/ai/AiHandler";
 import { TypewriterForTitle } from "@/components/client/TypeWriter";
 import { useRouter } from "next/router";
+import { RefObject } from "react";
 
 export function addClass(newClass: string, htmlClass: string): void {
 	var elements = document.querySelectorAll("." + htmlClass);
@@ -33,7 +34,7 @@ export function scrollToId(id: string): void {
 	}
 }
 
-export function generateHiddenRecommendations(programs: ProgramNameAndId[], htmlClass: string, interestArr: string[], hiddenCounter: number): void {
+/* export function generateHiddenRecommendations(programs: ProgramNameAndId[], htmlClass: string, interestArr: string[], hiddenCounter: number): void {
 	const container = document.querySelector("." + htmlClass);
 	//null check
 	if (!container) {
@@ -346,18 +347,7 @@ export function aiTypeAnswer(programs: ProgramNameAndId[], htmlClass: string, in
 			hiddenCounter += 5;
 		}
 	});
-}
-
-export function handleYesButtonClick(): void {
-	TypewriterForTitle("Berätta vad du har för intressen, så föreslår<br />jag ett par program som kan passa dig! :)", "interestText");
-	modifyOverflow("visible", "main");
-	removeClass("hide", "interestContainer");
-	scrollToId("interestContainer");
-	setTimeout(() => {
-		addClass("hide", "welcomeContainer");
-		modifyOverflow("hidden", "main");
-	}, 500);
-}
+} */
 
 export async function aiResponse(interests: string, interestArr: string[]): Promise<void> {
 	//Send all interest to AiHandler and await response
@@ -401,7 +391,7 @@ export async function aiResponse(interests: string, interestArr: string[]): Prom
 	}
 }
 
-export async function handleRecommendationButtonClick(interestArr: string[]): Promise<void> {
+export async function getRecommendationsFromAI(interestArr: string[]): Promise<void> {
 	//Turn interestArr to a string not array
 	var interests: string = "";
 	interestArr.map((item) => {
@@ -409,17 +399,6 @@ export async function handleRecommendationButtonClick(interestArr: string[]): Pr
 	});
 	//send it to ai
 	aiResponse(interests, interestArr);
-
-	//Write out the title for recommendations page
-	TypewriterForTitle("Tack! Hmm... låt mig se vad jag kan hitta!", "recommmendationText", true);
-	//move to recommendations page
-	modifyOverflow("visible", "main");
-	removeClass("hide", "recommendationContainer");
-	scrollToId("recommendationContainer");
-	setTimeout(() => {
-		addClass("hide", "interestContainer");
-		modifyOverflow("hidden", "main");
-	}, 500);
 }
 
 export const modifyTopPadding = (newTopPadding: string, htmlClass: string) => {

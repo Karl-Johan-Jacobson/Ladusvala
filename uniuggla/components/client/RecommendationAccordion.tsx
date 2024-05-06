@@ -4,7 +4,13 @@ import Program from "@/types/program";
 import { useState } from "react";
 import RecommendationItemImproved from "./RecommendationItemImproved";
 
-export default function RecommendationAccordion(recommendations: Program[]) {
+
+interface RecommendationAccordionProps {
+  recommendations: Program[];
+  shownRecommendations: number;
+}
+
+export default function RecommendationAccordion({recommendations, shownRecommendations}: RecommendationAccordionProps) {
   const [selected, setSelected] = useState<number | null>(null);
 
   const handleSelect = (index: number) => {
@@ -18,21 +24,18 @@ export default function RecommendationAccordion(recommendations: Program[]) {
   return (
     <>
       <div className="recommendationAccordion">
-        {recommendations.map((recommendation, index) => (
+        {recommendations
+          .filter((_recommendation, index) => index < shownRecommendations)
+          .map((recommendation, index) => (
           <RecommendationItemImproved
-          key={index}
-          program={recommendation}
-          index={index}
-          isToggled={false}
-          toggle={handleSelect}
+            key={index}
+            program={recommendation}
+            index={index}
+            isExpanded={selected === index ? true : false}
+            showDescription={handleSelect}
           />
         ))}
       </div>
-      <div className="showDescription">
-        <button>
-          <span>Visa fler program</span>
-        </button>
-      </div>
     </>
-  )
+  );
 }
