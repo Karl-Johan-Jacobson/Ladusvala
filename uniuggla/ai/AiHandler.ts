@@ -41,6 +41,7 @@ export async function getRecommendations(selectedInterest: string[]): Promise<Pr
 		throw new Error("Error occurred Ai can not get recommendations");
 	}
 }
+
 //get programs based on the id numbers sent int
 function getProgramsFromId(idNumber: number[], allPrograms: Program[]): Program[] {
 	return allPrograms.filter((program) => {
@@ -71,7 +72,7 @@ function createChatCompletionMessage(content: string): ChatCompletionCreateParam
 
 	const systemMessage: ChatCompletionMessageParam = {
 		role: "system",
-		content: "Du är en studievägledare som ska rekommendera de bäst utbildningsprogram utifrån mina intressen. Har jag tekniska intressen ska du rekommendera tekniska utbildningar, har jag medicinska intressen ska du rekommendera medicinska utbildningar, och så vidare. Du ska svara med JSON object, med två fält programId och Motivation. Du måste svara med formatet [programs: [{programId: string, Motivation: string}]]"
+		content: "Du är en studievägledare som ska rekommendera de bäst utbildningsprogram utifrån mina intressen. Det är viktigt att utbildningarna matchar mina intressen strikt. Du ska svara med JSON object, med två fält programId och Motivation. Du måste svara med formatet [programs: [{programId: string, Motivation: string}]]"
 
 };
 
@@ -93,7 +94,7 @@ async function recommendProgramFromInterest(content: string) {
 	// Generate content for AI based on interests and programs
 
 	const messageToAi: ChatCompletionCreateParamsBase = createChatCompletionMessage(content);
-	console.log(messageToAi);
+	//console.log(messageToAi);
 
 	const completion = await openai.chat.completions.create(messageToAi);
 
@@ -105,8 +106,8 @@ async function recommendProgramFromInterest(content: string) {
 		const parsedObject = JSON.parse(response.choices[0].message.content as string);
 		// Extract programIds from the 'programs' array
 		const programIds: number[] = parsedObject.programs.map((obj: { programId: string }) => parseInt(obj.programId, 10));
-		//parsedObject.programs.map((obj: { programId: string, Motivation: string }) => console.log("programId: " + obj.programId + " Motivation: " + obj.Motivation));
-		//console.log("\n" + "\n" + "\n");
+		parsedObject.programs.map((obj: { programId: string, Motivation: string }) => console.log("programId: " + obj.programId + " Motivation: " + obj.Motivation));
+		console.log("\n" + "\n" + "\n");
 		return programIds;
 	} catch (error) {
 		console.error("Error parsing JSON:", error);
@@ -121,14 +122,14 @@ async function callOpenaiInParts(interestString: string, allPrograms: Program[])
 	try {
 		shuffleArray(allPrograms);
 		const arrayLength = allPrograms.length;
-		const partition = Math.ceil(arrayLength / 10);
+		const partition = Math.ceil(arrayLength / 5);
 
-		const promiseArray = Array.from({ length: 10 }, async (_, i) => {
+		const promiseArray = Array.from({ length: 5 }, async (_, i) => {
 			const startIndex = i * partition;
 			const endIndex = Math.min((i + 1) * partition, arrayLength);
 			const slicedPrograms = allPrograms.slice(startIndex, endIndex);
 			const partialProgramString = turnProgramToPrompt(slicedPrograms);
-			const content: string = `These are my interest: ${interestString} and these are all available programs ${partialProgramString}. I want you to choose 10 programs that are based on my interest. It's important that they are relevent to my interest. You should only answer with the programID and motivation why you choose that. The motivation should be two sentences`;
+			const content: string = `Det här är mina intressen: \n ${interestString} \n och det här är beskrivning på utbildningsprogram \n ${partialProgramString} \n Jag vill att du väljer tio utbildningsprogram som matchar min intressen strikt. Du ska bara svara med programId`;
 			return recommendProgramFromInterest(content);
 		});
 		const results = await Promise.all(promiseArray);
@@ -149,8 +150,8 @@ async function callOpenaiInParts(interestString: string, allPrograms: Program[])
 async function finalCallToAi(interestString: string, selectedProgram: Program[]){
 	try{
 	const programAsString: string = turnProgramToPrompt(selectedProgram);
-	const content: string = `Det här är mina intressen: ${interestString}  \n och det här är alla utbildningsprogram  ${programAsString}. Jag vill att du väljer minst fem utbildningsprogram som passar mina intressen bäst. Rangordna så att det mest relevanta utbildningsprogramet är först. Jag vill att du motiverar först varför du valde programmet och sen skriver in program id.`;
-	//console.log("whole content string final: " + content);
+	const content: string = `Det här är mina intressen: ${interestString}  \n och det här är alla utbildningsprogram  ${programAsString}. Jag vill att du väljer minst fem utbildningsprogram som passar mina intressen bäst men välj gärna fler. Rangordna så att det mest relevanta utbildningsprogramet är först. Jag vill att du motiverar först varför du valde programmet och sen skriver in program id. Det ä viktigt att utbildningarna matchar mina intressen väldigt strikt`;
+	console.log("whole content string final: " + content);
 	const finalProgramsId : number[] = await recommendProgramFromInterest(content) || []
 	//console.log("final numbers: " + finalProgramsId);
 	return finalProgramsId;
