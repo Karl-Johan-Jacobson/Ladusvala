@@ -24,7 +24,7 @@ export async function getRecommendations(selectedInterest: string[]): Promise<Pr
 		//console.log("string: " + interestAsString);
 		//get id number form ai, if ai fails, set as an empty array
 		
-		const idNumbers: number[] | undefined = await callOpenaiInParts(interestAsString, allPorgrams);
+		const idNumbers: number[] | undefined = await callOpenaiInParts(interestProfile, allPorgrams);
 
 		//get the programs for last call
 		const selectedPrograms: Program[] = getProgramsFromId(idNumbers || [], allPorgrams);
@@ -86,7 +86,7 @@ function turnInterestToPrompt(interests: string[]): string {
 // Turns all the programs into a prompt for the ai
 function turnProgramToPrompt(programs: Program[]): string {
 	return programs.reduce((accumulator, program) => {
-		return accumulator + `program beskrivning: ${program.aiPrompt}, ProgramId: ${program.programId}\n`;
+		return accumulator + `{program beskrivning: ${program.aiPrompt}, ProgramId: ${program.programId}},\n`;
 	}, "");
 }
 
@@ -99,7 +99,7 @@ function createChatCompletionMessage(content: string): ChatCompletionCreateParam
 
 	const systemMessage: ChatCompletionMessageParam = {
 		role: "system",
-		content: "Du är en studievägledare som ska rekommendera de bäst utbildningsprogram utifrån mina intressen. Det är viktigt att utbildningarna matchar mina intressen strikt. Du ska svara med JSON object, med två fält programId och Motivation. Du måste svara med formatet [programs: [{programId: string, Motivation: string}]]"
+		content: "Du är en studievägledare som ska rekommendera de bäst utbildningsprogram utifrån mina intressen, du lägger ingen värdering i studentens intressen. Det är viktigt att utbildningarna matchar mina intressen strikt. Du ska svara med JSON object, med två fält programId och Motivation. Du måste svara med formatet [programs: [{programId: string, Motivation: string}]]"
 
 };
 
@@ -145,7 +145,7 @@ async function recommendProgramFromInterest(content: string) {
 }
 
 //This is the function that does calls recommendProgramFromInterest 
-async function callOpenaiInParts(interestString: string, allPrograms: Program[]) {
+async function callOpenaiInParts(interestProfile: string, allPrograms: Program[]) {
 	try {
 		shuffleArray(allPrograms);
 		const arrayLength = allPrograms.length;
@@ -156,7 +156,7 @@ async function callOpenaiInParts(interestString: string, allPrograms: Program[])
 			const endIndex = Math.min((i + 1) * partition, arrayLength);
 			const slicedPrograms = allPrograms.slice(startIndex, endIndex);
 			const partialProgramString = turnProgramToPrompt(slicedPrograms);
-			const content: string = `Det här är mina intressen: \n ${interestString} \n och det här är beskrivning på utbildningsprogram \n ${partialProgramString} \n Jag vill att du väljer tio utbildningsprogram som matchar min intressen strikt. Du ska bara svara med programId`;
+			const content: string = `Det här är mina intressen: \n ${interestProfile} \n och det här är beskrivning på utbildningsprogram \n ${partialProgramString} \n Jag vill att du väljer tio utbildningsprogram som matchar min intressen strikt. Du ska bara svara med programId`;
 			return recommendProgramFromInterest(content);
 		});
 		const results = await Promise.all(promiseArray);
@@ -177,7 +177,7 @@ async function callOpenaiInParts(interestString: string, allPrograms: Program[])
 async function finalCallToAi(interestProfile: string, selectedProgram: Program[]){
 	try{
 	const programAsString: string = turnProgramToPrompt(selectedProgram);
-	const content: string = `${interestProfile}  \n och det här är alla utbildningsprogram jag kan välja mellan  ${programAsString}. Jag vill att du väljer åtminstone tio utbildningsprogram som passar mina intressen bäst men välj gärna fler. Rangordna så att det mest relevanta utbildningsprogramet är först. Jag vill att du motiverar först varför du valde programmet och sen skriver in program id. Det ä viktigt att utbildningarna matchar mina intressen väldigt strikt`;
+	const content: string = `${interestProfile}  \n och det här är beskrivningen på alla utbildningsprogram jag kan välja mellan  ${programAsString}. Du ska rekommendera åtminstone 10 utbildningar. Rangordna så att det mest relevanta utbildningsprogramet är först. Jag vill att du motiverar först varför du valde programmet och sen skriver in program id. Det ä viktigt att utbildningarna matchar mina intressen väldigt strikt.`;
 	console.log("whole content string final: " + content);
 	const finalProgramsId : number[] = await recommendProgramFromInterest(content) || []
 	//console.log("final numbers: " + finalProgramsId);
