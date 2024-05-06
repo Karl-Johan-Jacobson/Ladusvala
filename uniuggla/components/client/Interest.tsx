@@ -1,25 +1,23 @@
 "use client";
 
-import { ChangeEvent, FormEvent, useState, MouseEvent } from "react";
+import { RefObject, useState } from "react";
 import InterestType from "@/types/interest";
 import InterestItem from "./InterestItem";
 import { v4 as uuidv4 } from "uuid";
-import Link from "next/link";
-import { RandomBlob } from "../server/Blob";
-import path from "path";
 import RefreshButton from "./RefreshButton";
 import CustomInterestInput from "./CustomInterestInput";
+
 export const NUMBER_OF_INTERESTS = 11;
 
 interface InterestProps {
 	interests: InterestType[];
+	nextPageRef: RefObject<HTMLDivElement> | null;
 	handleRecommendationButtonClick: (interest: string[]) => void;
 }
 
-const Interest: React.FC<InterestProps> = ({ interests, handleRecommendationButtonClick }) => {
+export default function Interest({ interests, nextPageRef, handleRecommendationButtonClick }: Readonly<InterestProps>) {
 	const [selectedInterests, setSelectedInterests] = useState<InterestType[]>([]);
-	const [notSelected, setNotSelected] = useState<InterestType[]>(interests.filter((interest, index) => index < NUMBER_OF_INTERESTS));
-	const [customInterest, setCustomInterest] = useState<string>("");
+	const [notSelected, setNotSelected] = useState<InterestType[]>(interests.filter((_interest, index) => index < NUMBER_OF_INTERESTS));
 
 	// Set 'find my dream education' button as locked unless 4 interests are selected
 	let dreamEducationButtonClass = "dreamEducationButton";
@@ -72,10 +70,6 @@ const Interest: React.FC<InterestProps> = ({ interests, handleRecommendationButt
 		setSelectedInterests([...selectedInterests, interest]);
 	};
 
-	const handleUpdate = (event: ChangeEvent<HTMLInputElement>) => {
-		setCustomInterest(event.target.value);
-	};
-
 	// Method that refreshes the displayed interests
 	const refresh = () => {
 		// Copy of the non-selected interests that can be modified
@@ -101,6 +95,7 @@ const Interest: React.FC<InterestProps> = ({ interests, handleRecommendationButt
 	async function handleRecommend() {
 		if (selectedInterests.length >= 4 && selectedInterests.length <= 11) {
 			handleRecommendationButtonClick(selectedInterests.map((interest) => interest.interestTitle));
+			nextPageRef?.current?.scrollIntoView();
 		} else {
 		}
 		//Say something to user, that they have to select interests
@@ -175,5 +170,3 @@ const Interest: React.FC<InterestProps> = ({ interests, handleRecommendationButt
 		</div>
 	);
 };
-
-export default Interest;
