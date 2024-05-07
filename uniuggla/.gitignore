@@ -43,4 +43,4 @@ public/*.json
 webScrapers/test.*
 webScrapers/manuelScraping.json
 
-*/.DS_Store
+*.DS_Store

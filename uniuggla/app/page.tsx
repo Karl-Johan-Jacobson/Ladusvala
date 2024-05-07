@@ -24,7 +24,6 @@ export default function Home() {
 	// values for js animations
 	const speed = 40;
 	const extraButtonDelay = 300;
-	const moveAnswer = ["8vw", "answers"];
 
 	// Starting animationn
 	useEffect(() => {
@@ -79,8 +78,8 @@ export default function Home() {
 		// Funciton for iniatal js animations
 		var typeWriterDelay = TypewriterForTitle("Hej!<br />Är du redo att hitta din drömutbildning?", "welcomeText");
 		const timeoutId = setTimeout(() => {
-			modifyTopMargin(moveAnswer[0], moveAnswer[1]);
-			modifyOpacity("1", moveAnswer[1]);
+			modifyTopMargin("8vw", "answers");
+			modifyOpacity("1", "answers");
 		}, typeWriterDelay + extraButtonDelay);
 
 		return () => {

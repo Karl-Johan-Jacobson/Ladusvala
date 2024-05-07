@@ -320,32 +320,6 @@ export function aiTypeAnswer(programs: ProgramNameAndId[], htmlClass: string, in
 			elementToRemove.parentNode.removeChild(elementToRemove);
 		}
 	}
-
-	//make button to show more recommendations, this is just a placeholder
-	//button design will be created
-	const showMoreRecommendations = document.createElement("div");
-	showMoreRecommendations.className = `showMoreBox`;
-	container.appendChild(showMoreRecommendations);
-
-	const showMoreText = document.createElement("p");
-	showMoreText.className = `interestReq showMoreButton`;
-	showMoreText.innerText = "Tryck på mig för att vissa fler rekommendationer";
-	showMoreRecommendations.appendChild(showMoreText);
-
-	showMoreRecommendations.addEventListener("click", () => {
-		if (hiddenCounter + 5 > programs.length) {
-			var element = document.querySelector(".showMoreBox");
-			var test = element?.firstChild;
-			var e = test as unknown as HTMLElement;
-			e.innerHTML = "Inga fler rekommendationer";
-			return;
-		} else {
-			container.removeChild(showMoreRecommendations);
-			generateHiddenRecommendations(programs, htmlClass, interestArr, hiddenCounter);
-			container.appendChild(showMoreRecommendations);
-			hiddenCounter += 5;
-		}
-	});
 }
 
 export function handleYesButtonClick(): void {
