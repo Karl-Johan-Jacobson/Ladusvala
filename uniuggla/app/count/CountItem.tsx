@@ -1,3 +1,45 @@
+"use client";
+
+import { ChangeEvent, FormEvent, useState } from "react";
+
+interface RefreshProps {
+	corse: string;
+	points: string;
+	grade: string;
+	id: string;
+	handleButtonClickSubmit: string;
+	imgSource: string;
+	altText: string;
+	onSubmit: (input: string) => void; // Function to run when button is clicked, passed from parent
+}
+
+export default function CounttListItem({ corse, points, grade, id, imgSource, altText, onSubmit }: RefreshProps) {
+	const [inputValue, setInputValue] = useState<string>("");
+
+	const handleValueChange = (event: ChangeEvent<HTMLInputElement>) => {
+		setInputValue(event.target.value);
+	};
+
+	const handleClick = (event: FormEvent<HTMLFormElement>) => {
+		event.preventDefault();
+		onSubmit(inputValue);
+		setInputValue("");
+	};
+
+	return (
+		<div className="gradeBox ">
+			<p className="courseNameGrade gradeStyle">Kurs:<br />{corse}</p>
+			<p className="coursePointsGrade gradeStyle">Poäng:<br />{points}</p>
+			<p className="gradeGrade gradeStyle">Betyg:<br />{grade}</p>
+			<div className="buttonInputWrapper">
+				<button className="buttonInput" id={id} type="submit" onClick={handleClick}>
+					<img className="buttonInputImg" src={imgSource} alt={altText} />
+				</button>
+			</div>
+		</div>
+	);
+}
+
 var totalgrades: number = 0;
 var totalCoursePoints: number = 0;
 var gradeBoxCounter: number = 0;
@@ -83,6 +125,9 @@ function showGradeScoreToUser() {
 }
 
 function generateHTMLBLock(courseName: string, coursePointsAsString: string, grade: string, coursePointsAsNumber: number) {
+	return {
+		
+	}
 	const container = document.querySelector(".gradeWrapper");
 
 	if (!container) {
@@ -139,3 +184,4 @@ function generateHTMLBLock(courseName: string, coursePointsAsString: string, gra
 
 	gradeBoxCounter++;
 }
+

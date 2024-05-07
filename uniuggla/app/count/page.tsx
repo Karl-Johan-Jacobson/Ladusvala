@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import countAllGrades from "./countUtils";
-import TextCountInput from "./TextCountInput";
+import TextCountInput from "./CountItem";
 
 interface RecommendationProps {}
 

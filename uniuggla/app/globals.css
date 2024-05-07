@@ -7,13 +7,13 @@
 
 	--primary-extra-light-green: #dffde0;
 
-	--primar-light-green: #c6f0c3;
+	--primary-light-green: #c6f0c3;
 
 	--primary-medium-green: #9ecb98;
 	--primary-medium-green-shadow: #61855a;
 
 	--primary-dark-green: #37552b;
-	--primary-dark-green-shadow: #37552b40;
+	--primary-dark-green-shadow: #37552b38;
 
 	--primary-light-purple: #dfc0fe;
 	--primary-dark-purple: #4f1eb0;
@@ -22,15 +22,6 @@
 	--primary-border-radius: 0.5vw;
 
 	--text-form-height: 2vw;
-	/*
-	--primary-light-green: #dffde0;
-	--primary-medium-green: #c6f0c3;
-	--medium-green: #9ecb98;
-	--medium-green-shadow: #61855a;
-	--primary-dark-green: #37552b;
-	--primary-dark-green-shadow: #37552b64;
-	--primary-dark-green-light-shadow: #37552b32;
-	*/
 }
 
 * {
@@ -47,7 +38,7 @@
 html {
 	scrollbar-width: none;
 	scroll-behavior: smooth;
-	background-color: var(--primary-light-green);
+	background-color: var(--primary-extra-light-green);
 }
 
 html::-webkit-scrollbar {
@@ -55,7 +46,7 @@ html::-webkit-scrollbar {
 }
 
 body {
-	background-color: var(--primary-light-green);
+	background-color: var(--primary-extra-light-green);
 }
 
 .hide,
@@ -103,9 +94,9 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 /* Class for the text */
-.bot {
+/*.bot {
 	color: var(--primary-dark-purple);
-}
+}*/
 
 /* Class for the user interaction */
 .user {
@@ -139,7 +130,7 @@ p {
 	width: calc(100% - var(--text-form-height) - var(--primary-border-width));
 	padding-right: calc(var(--text-form-height) + var(--primary-border-width) + var(--primary-border-radius));
 	padding-left: var(--primary-border-radius);
-	background-color: var(--primary-light-green);
+	background-color: var(--primary-extra-light-green);
 	border: none;
 	border-radius: calc(var(--primary-border-radius) - var(--primary-border-width));
 	font-size: calc(var(--text-form-height) * 0.7);
@@ -156,7 +147,7 @@ p {
 .textInput:focus {
 	transition: background-color 200ms ease-in;
 	background-color: var(--primary-dark-green-shadow);
-	color: var(--primary-light-green);
+	color: var(--primary-extra-light-green);
 }
 
 .textButton,
@@ -194,7 +185,7 @@ p {
 
 /*Used for formating HTTP response code page*/
 .__className_aaf875 {
-	background-color: var(--primary-light-green) !important;
+	background-color: var(--primary-extra-light-green) !important;
 }
 
 .__className_aaf875 div div h1 {
@@ -211,7 +202,7 @@ p {
 
 /*Used for formating HTTP response code page*/
 .__className_aaf875 {
-	background-color: var(--primary-light-green) !important;
+	background-color: var(--primary-extra-light-green) !important;
 }
 
 .__className_aaf875 div div h1 {
@@ -239,7 +230,7 @@ header {
 	left: 0;
 	width: 100vw;
 	height: 15vh;
-	background-image: linear-gradient(var(--primary-light-green) 10%, transparent);
+	background-image: linear-gradient(var(--primary-extra-light-green) 10%, transparent);
 }
 
 /* Fixes the position of the uniu logo */
@@ -310,7 +301,7 @@ header img {
 /* Button  animation dimention and color*/
 .answerButton {
 	height: inherit;
-	background-color: var(--primary-light-green);
+	background-color: var(--primary-extra-light-green);
 	cursor: pointer;
 	border: none;
 	border-radius: 1vw;
@@ -326,7 +317,7 @@ header img {
 /* hover color change text */
 .answerButton:hover p,
 .siteNavigation:hover {
-	text-shadow: 2px 1px var(--primary-medium-green-shadow);
+	text-shadow: 0.06em 0.06em var(--primary-medium-green-shadow);
 }
 
 .answerButton:active p {
@@ -441,7 +432,7 @@ header img {
 	font-size: var(--s-text);
 	font-family: "Tomorrow-MediumItalic";
 	font-style: italic;
-	color: var(--primary-light-green);
+	color: var(--primary-extra-light-green);
 }
 
 .notSelectedButton {
@@ -534,7 +525,7 @@ header img {
 /* Styling for the 'find my dream education' button, with locked properties */
 .dreamEducationButton {
 	height: inherit;
-	background-color: var(--primary-light-green);
+	background-color: var(--primary-extra-light-green);
 	border: none;
 	border-radius: 1vw;
 	cursor: pointer;
@@ -659,7 +650,7 @@ header img {
 .refreshIcon {
 	width: 100%;
 	height: 100%;
-	fill: var(--primary-light-green);
+	fill: var(--primary-extra-light-green);
 }
 
 .refreshAnimation {
@@ -710,20 +701,13 @@ header img {
 	border-radius: var(--primary-border-radius);
 	font-size: var(--s-text);
 	font-family: "Tomorrow-MediumItalic";
-	color: var(--primary-light-green);
+	color: var(--primary-extra-light-green);
 }
 
-.recommendedWrapper * p,
-.recommendedWrapper * a,
 .recommendedWrapper p,
 .recommendedWrapper a {
 	text-align: left;
-}
-
-.recommendedWrapper * p,
-.recommendedWrapper * a {
 	line-height: 1em;
-	text-align: left;
 }
 
 .recommendedBox,
@@ -731,7 +715,7 @@ header img {
 	position: relative;
 	margin-top: 1vw;
 	padding: 0.4vw 0.8vw;
-	background-color: var(--primary-medium-green);
+	background-color: var(--primary-light-green);
 	border: var(--primary-border-width) solid var(--primary-dark-purple);
 	border-color: var(--primary-dark-purple);
 	border-radius: var(--primary-border-radius);
@@ -796,6 +780,7 @@ header img {
 }
 
 .descriptionReq,
+.gradeStyle,
 .reqDescription,
 .reqDescriptionContent,
 .reqDescriptionDescription,
@@ -804,7 +789,8 @@ header img {
 	font-family: "Tomorrow-Medium";
 }
 
-.descriptionReq {
+.descriptionReq,
+.gradeStyle {
 	display: inline-block;
 	margin-top: 0.4em;
 	color: var(--primary-medium-green-shadow);
@@ -865,16 +851,15 @@ header img {
 .arrow {
 	height: 1vw;
 	margin: 0 auto;
+	transition: transform 0.5s ease-in;
 }
 
 .expandArrow {
 	transform: rotate(0deg);
-	transition: transform 0.5s ease-in;
 }
 
 .contractArrow {
 	transform: rotate(180deg);
-	transition: transform 0.5s ease-in;
 }
 
 .showDescription p {
@@ -884,9 +869,7 @@ header img {
 .showMoreBox {
 	display: flex;
 	flex-wrap: wrap;
-	/* Allow wrapping */
 	justify-content: center;
-	/* Center horizontally */
 	padding: 0.4vw 0.8vw;
 }
 /*
@@ -913,7 +896,7 @@ header img {
 	margin: auto;
 	font-size: calc(var(--text-form-height) * 0.7);
 	font-family: "Tomorrow-MediumItalic";
-	color: var(--primary-light-green);
+	color: var(--primary-extra-light-green);
 }
 
 .gradeWrapper {
@@ -954,7 +937,7 @@ footer {
 	width: 98%;
 	height: 4vw;
 	padding: 0 1vw 1vw 1vw;
-	background-color: var(--primary-light-green);
+	background-color: var(--primary-extra-light-green);
 	font-size: var(--m-text);
 }
 

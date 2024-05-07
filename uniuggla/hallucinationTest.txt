@@ -209,3 +209,706 @@ NEW ENTRY
 10497
 10208
 10395
+NEW ENTRY
+10064
+10471
+10281
+10275
+10252
+10305
+10290
+10576
+10038
+10329
+10064 
+10471 
+10281
+10275
+10252
+10305
+10290
+10576
+10038
+10329 
+
+NEW ENTRY
+10203
+10487
+10063
+10501
+10216
+10552
+10427
+10420
+10504
+10254
+10203
+10487
+10063
+10501
+10216
+10552
+10427
+10420
+10504
+10254
+NEW ENTRY
+10527
+10598
+10522
+10285
+10551
+10474
+10364
+10477
+10259
+10590
+10527
+10598
+10522
+10285
+10551
+10474
+10364
+10477
+10259
+10590
+NEW ENTRY
+10170
+10596
+10282
+10344
+10453
+10339
+10084
+10472
+10018
+10536
+10170
+10596
+10282
+10344
+10453
+10339
+10084
+10472
+10018
+10536
+NEW ENTRY
+10539
+10526
+10559
+10484
+10307
+10499
+10199
+10528
+10099
+10188
+10539
+10526
+10559
+10484
+10307
+10499
+10199
+10528
+10099
+10188
+NEW ENTRY
+10063
+10084
+10527
+10099
+10559
+10526
+10539
+10576
+10487
+10064
+[programId: 10063, reason: Matches interest in History]
+[programId: 10084, reason: Matches interest in Religion]
+[programId: 10527, reason: Matches interest in History]
+[programId: 10099, reason: Combines Literature with interest in English and Swedish]
+[programId: 10559, reason: Focuses on English language and translation]
+[programId: 10526, reason: Offers a global development perspective]
+[programId: 10539, reason: Combination of Logic, Philosophy, and Mathematics]
+[programId: 10576, reason: Focus on sign language and interpretation]
+[programId: 10487, reason: In-depth study of Religion in secondary education]
+[programId: 10064, reason: Study program in Human Rights]
+NEW ENTRY
+10518
+10009
+10175
+10532
+10411
+10538
+10106
+10549
+10194
+10412
+10518
+10009
+10175
+10532
+10411
+10538
+10106
+10549
+10194
+10412
+NEW ENTRY
+10167
+10287
+10184
+10295
+10342
+10120
+10464
+10530
+10196
+10559
+10167
+10287
+10184
+10295
+10342
+10120
+10464
+10530
+10196
+10559
+NEW ENTRY
+10517
+10280
+10463
+10528
+10513
+10150
+10141
+10146
+10239
+10335
+10517
+10280
+10463
+10528
+10513
+10150
+10141
+10146
+10239
+10335
+NEW ENTRY
+10593
+10289
+10049
+10314
+10164
+10443
+10526
+10025
+10389
+10365
+10593
+10289
+10049
+10314
+10164
+10443
+10526
+10025
+10389
+10365
+NEW ENTRY
+10564
+10084
+10578
+10382
+10551
+10462
+10355
+10567
+10247
+10540
+10564
+10084
+10578
+10382
+10551
+10462
+10355
+10567
+10247
+10540
+NEW ENTRY
+10049
+10084
+10247
+10517
+10578
+10280
+10025
+10355
+10365
+10184
+[programId: 10049, reason: Fysik, undervisning på engelska is a perfect match for your interest in Physics and English]
+[programId: 10084, reason: Religionsvetenskap och teologi, reason: This program aligns with your interest in Religion]
+[programId: 10247, reason: Kandidatprogram i fysik, reason: Directly related to your interest in Physics]
+[programId: 10517, reason: Kandidatprogram i fysik, reason: Another program specifically focused on Physics]
+[programId: 10578, reason: Kandidatprogram i vetenskapsfilosofi och fysik, reason: Combines Physics with Philosophy, which may interest you]
+[programId: 10280, reason: Ämneslärarprogrammet: Gymnasieskolan: Matematik - Fysik, reason: If you're interested in teaching math and physics in high school]
+[programId: 10025, reason: Naturvetenskapligt kandidatprogram, Naturgeografi och ekosystemvetenskap, reason: Broadens your understanding of natural sciences]
+[programId: 10355, reason: Systemvetenskap, kandidatprogram, reason: Combines various disciplines that might interest you]
+[programId: 10365, reason: Tekniskt-naturvetenskapligt basår, reason: A foundational program in technical and natural sciences]
+[programId: 10184, reason: Fysioterapeutprogrammet, reason: If you're considering a career in physiotherapy]
+NEW ENTRY
+10543
+10073
+10021
+10334
+10123
+10252
+10046
+10450
+10311
+10534
+10543
+10073
+10021
+10334
+10123
+10252
+10046
+10450
+10311
+10534
+NEW ENTRY
+10213
+10193
+10216
+10598
+10283
+10053
+10220
+10560
+10415
+10573
+10213
+10193
+10216
+10598
+10283
+10053
+10220
+10560
+10415
+10573
+NEW ENTRY
+10221
+10247
+10287
+10370
+10379
+10529
+10141
+10052
+10510
+10289
+10221
+10247
+10287
+10370
+10379
+10529
+10141
+10052
+10510
+10289
+NEW ENTRY
+10160
+10554
+10597
+10427
+10207
+10196
+10307
+10360
+10575
+10517
+10160
+10554
+10597
+10427
+10207
+10196
+10307
+10360
+10575
+10517
+NEW ENTRY
+10065
+10544
+10024
+10536
+10557
+10174
+10548
+10009
+10540
+10181
+10065
+10544
+10024
+10536
+10557
+10174
+10548
+10009
+10540
+10181
+NEW ENTRY
+10554
+10289
+10510
+10247
+10548
+10334
+10024
+10283
+10287
+10216
+[programId: 10554, reason: Nutrition] This program directly aligns with your interest in Nutrition. 
+[programId: 10289, reason: Geografi] This program focuses on Geography, which is one of your interests.
+[programId: 10510, reason: Datavetenskap] This program offers a study in Computer Science, which could be a relevant field for you.
+[programId: 10247, reason: Fysik] The Physics program could be a good fit based on your interest in Graffteori.
+[programId: 10548, reason: Mellanöstern- och nordafrikastudier] This program aligns with your interest in Geography and could provide a unique perspective.
+[programId: 10334, reason: Miljö, klimat och hållbar utveckling] This program focuses on Environmental Studies, which could be of interest to you.
+[programId: 10024, reason: Ämneslärarutbildning] This program includes Swedish as a second language, which may be an interesting field for you to explore.
+[programId: 10283, reason: Samhällskunskap] This program offers a focus on Social Studies, which could complement your interests well.
+[programId: 10287, reason: Matematik] This program focuses on Mathematics, which could be an area of interest for you.
+[programId: 10216, reason: Teknisk matematik] This program combines Mathematics with Engineering, which could be a good fit for your interests.
+NEW ENTRY
+10552
+10454
+10144
+10049
+10393
+10302
+10388
+10516
+10152
+10572
+10552, 10454, 10144, 10049, 10393, 10302, 10388, 10516, 10152, 10572
+NEW ENTRY
+10567
+10087
+10170
+10286
+10547
+10101
+10557
+10102
+10066
+10140
+10567, 10087, 10170, 10286, 10547, 10101, 10557, 10102, 10066, 10140.
+NEW ENTRY
+10575
+10600
+10107
+10407
+10472
+10285
+10514
+10569
+10526
+10435
+10575, 10600, 10107, 10407, 10472, 10285, 10514, 10569, 10526, 10435
+NEW ENTRY
+10479
+10291
+10089
+10073
+10030
+10415
+10279
+10088
+10577
+10207
+10479
+10291
+10089
+10073
+10030
+10415
+10279
+10088
+10577
+10207
+NEW ENTRY
+10487
+10470
+10484
+10100
+10476
+10402
+10220
+10250
+10084
+10512
+10487
+10470
+10484
+10100
+10476
+10402
+10220
+10250
+10084
+10512
+NEW ENTRY
+10084
+10087
+10144
+10073
+10066
+10102
+10107
+10049
+10030
+10152
+[programId: 10084, reason: Religion is one of your interests]
+[programId: 10087, reason: Musik is one of your interests]
+[programId: 10144, reason: Musik is one of your interests]
+[programId: 10073, reason: Musik is one of your interests]
+[programId: 10066, reason: Engelska is one of your interests]
+[programId: 10102, reason: Musik is one of your interests]
+[programId: 10107, reason: Musik is one of your interests]
+[programId: 10049, reason: Engelska is one of your interests]
+[programId: 10030, reason: Engelska is one of your interests]
+[programId: 10152, reason: Relevant program]
+NEW ENTRY
+10148
+10470
+10568
+10162
+10573
+10525
+10276
+10460
+10503
+10547
+10148
+10470
+10568
+10162
+10573
+10525
+10276
+10460
+10503
+10547
+NEW ENTRY
+10484
+10576
+10084
+10400
+10399
+10078
+10393
+10161
+10286
+10520
+10484
+10576
+10084
+10400
+10399
+10078
+10393
+10161
+10286
+10520
+NEW ENTRY
+10598
+10033
+10522
+10168
+10015
+10194
+10158
+10215
+10146
+10040
+10598
+10033
+10522
+10168
+10015
+10194
+10158
+10215
+10146
+10040
+NEW ENTRY
+10543
+10482
+10487
+10362
+10364
+10414
+10325
+10444
+10526
+10353
+10543 
+10482
+10487
+10362
+10364
+10414
+10325
+10444
+10526
+10353
+NEW ENTRY
+10280
+10171
+10471
+10282
+10032
+10463
+10064
+10527
+10367
+10225
+10280 10171 10471 10282 10032 10463 10064 10527 10367 10225
+NEW ENTRY
+10084
+10162
+10471
+10171
+10286
+10527
+10598
+10158
+10487
+10064
+[programId:10084, reason:Religion is one of your interests]
+[programId:10162, reason:Interest in History and Religion]
+[programId:10471, reason:Interest in History]
+[programId:10171, reason:Interest in Svenska and History]
+[programId:10286, reason:Interest in Engelska]
+[programId:10527, reason:Interest in History]
+[programId:10598, reason:Interest in Religion and Geography]
+[programId:10158, reason:Interest in Teaterpedagogik]
+[programId:10487, reason:Interest in Religion]
+[programId:10064, reason:Interest in Human Rights]
+NEW ENTRY
+10028
+10057
+10051
+10481
+10242
+10402
+10294
+10477
+10395
+10239
+10028
+10057
+10051
+10481
+10242
+10402
+10294
+10477
+10395
+10239
+NEW ENTRY
+10552
+10274
+10307
+10600
+10432
+10511
+10057
+10035
+10549
+10218
+10552
+10274
+10307
+10600
+10432
+10511
+10057
+10035
+10549
+10218
+NEW ENTRY
+10171
+10096
+10009
+10111
+10243
+10173
+10299
+10497
+10531
+10149
+10171 
+10096 
+10009 
+10111
+10243 
+10173 
+10299 
+10497 
+10531 
+10149
+NEW ENTRY
+10259
+10544
+10006
+10144
+10167
+10494
+10512
+10059
+10126
+10129
+10259, 10544, 10006, 10144, 10167, 10494, 10512, 10059, 10126, 10129
+NEW ENTRY
+10125
+10177
+10559
+10426
+10306
+10139
+10072
+10172
+10266
+10550
+10125 10177 10559 10426 10306 10139 10072 10172 10266 10550
+NEW ENTRY
+10559
+10172
+10006
+10028
+10531
+10294
+10096
+10426
+10239
+10009
+[ProgramId: 10559, reason: Matches interest in Engelska]
+[ProgramId: 10172, reason: Matches interest in Idrott och hälsa]
+[ProgramId: 10006, reason: Matches interest in Kemi]
+[ProgramId: 10028, reason: Matches interest in Fysik]
+[ProgramId: 10531, reason: Matches interest in Kemi]
+[ProgramId: 10294, reason: Offers civilingenjör program]
+[ProgramId: 10096, reason: Combines Kemi and Fysik interests]
+[ProgramId: 10426, reason: Focuses on Idrott och hälsa]
+[ProgramId: 10239, reason: Offers Högskoleingenjörsprogrammet]
+[ProgramId: 10009, reason: Teoretisk fysik program]
