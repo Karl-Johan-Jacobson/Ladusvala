@@ -9,7 +9,13 @@ import { RandomBlob } from "../server/Blob";
 import path from "path";
 import RefreshButton from "./RefreshButton";
 import TextInterestInput from "./TextInterestInput";
-export const NUMBER_OF_INTERESTS = 11;
+let NUMBER_OF_INTERESTS = 11;
+
+if (window.innerWidth <= 480) {
+  NUMBER_OF_INTERESTS = 10;
+}
+
+export { NUMBER_OF_INTERESTS };
 
 interface InterestProps {
 	interests: InterestType[];
@@ -114,48 +120,97 @@ const Interest: React.FC<InterestProps> = ({ interests, handleRecommendationButt
 
 	// Group the notSelected interests into rows
 	const interestRows = [notSelected.slice(0, 5), notSelected.slice(5, 11)];
-	const selectedInterestRows = selectedInterests.length >= 6 ? [selectedInterests.slice(0, 6), selectedInterests.slice(6, 11)] : [[...selectedInterests]];
-
+	let selectedInterestRows;
+	if (window.innerWidth > 480) {
+	  selectedInterestRows =
+		selectedInterests.length >= 6
+		  ? [selectedInterests.slice(0, 6), selectedInterests.slice(6, 11)]
+		  : [[...selectedInterests]];
+	} else {
+	  selectedInterestRows =
+		selectedInterests.length >= 6
+		  ? [selectedInterests.slice(0, 6), selectedInterests.slice(6, 12)]
+		  : [[...selectedInterests]];
+	}
 	console.log(selectedInterests);
 
 	return (
 		<div className="wrapper interestWrapper interest">
+			<div className = "InterestTypeWriterAnim">
 			<p className="bot titleTypewriter interestText" style={{ paddingTop: "10vh" }}></p>
+			</div>
+			<div className="chooseInterestWrapper">
 			<div className="selectedInterestTitle">
 				<hr />
 				<span>Dina intressen</span>
 				<hr />
 			</div>
 			<div className="selectedInterestList">
-				{placeholderInterestRows.map((row, rowIndex) => (
-					<div className={`interestRow selectedRow${rowIndex + 1}`}>
-						{row.map(
-							(interest) =>
-								interest.interestId !== "placeholder" ? (
-									<InterestItem updateParent={handleDeselect} interest={interest} mounted={true} isSelected={true} key={interest.interestId} />
-								) : (
-									<div className="placeholderInterest">
-										<p></p>
-									</div>
-								) // Replace this with your actual placeholder
-						)}
-					</div>
-				))}
-			</div>
+        {window.innerWidth > 480
+          ? selectedInterestRows.map((row, rowIndex) => (
+              <div className={`interestRow selectedRow${rowIndex + 1}`}>
+                {row.map((interest) => (
+                  <InterestItem
+                    updateParent={handleDeselect}
+                    interest={interest}
+                    mounted={true}
+                    isSelected={true}
+                    key={interest.interestId}
+                  />
+                ))}
+              </div>
+            ))
+          : /*If phone - Use this*/
+            selectedInterestRows.map((row, rowIndex) => (
+              <div className={`interestColumn `}>
+                {row.map((interest) => (
+                  <InterestItem
+                    updateParent={handleDeselect}
+                    interest={interest}
+                    mounted={true}
+                    isSelected={true}
+                    key={interest.interestId}
+                  />
+                ))}
+              </div>
+            ))}
+      </div>
 			<div className="notSelectedInterestTitle">
 				<hr />
 				<span>Välj dina intressen</span>
 				<hr />
 			</div>
 			<div className="notSelectedInterestList">
-				{interestRows.map((row, rowIndex) => (
-					<div className={`interestRow row${rowIndex + 1}`}>
-						{row.map((interest) => (
-							<InterestItem updateParent={updateLists} interest={interest} mounted={true} isSelected={false} key={interest.interestId} />
-						))}
-					</div>
-				))}
-			</div>
+        {window.innerWidth > 480 /*IF-STATEMENT*/
+          ? // Render this block if window width is greater than 480
+            interestRows.map((row, rowIndex) => (
+              <div className={`interestRow row${rowIndex + 1}`} key={rowIndex}>
+                {row.map((interest) => (
+                  <InterestItem
+                    updateParent={updateLists}
+                    interest={interest}
+                    mounted={true}
+                    isSelected={false}
+                    key={interest.interestId}
+                  />
+                ))}
+              </div>
+            ))
+          : // Render this block if window width is less than or equal to 480
+            interestRows.map((row, rowIndex) => (
+              <div className="interestColumn" key={rowIndex}>
+                {row.map((interest) => (
+                  <InterestItem
+                    updateParent={updateLists}
+                    interest={interest}
+                    mounted={true}
+                    isSelected={false}
+                    key={interest.interestId}
+                  />
+                ))}
+              </div>
+            ))}
+      </div>
 			<div className="interestInputWrapper">
 				<TextInterestInput imgSource="../../plus.svg" altText="Läggtill" onSubmit={addCustomInterest} />
 				<RefreshButton imgSource="../../refresh.svg" altText="Nya intressen" refresh={refresh} />
@@ -167,6 +222,7 @@ const Interest: React.FC<InterestProps> = ({ interests, handleRecommendationButt
 				</button>
 				<hr />
 			</div>
+		</div>
 		</div>
 	);
 };

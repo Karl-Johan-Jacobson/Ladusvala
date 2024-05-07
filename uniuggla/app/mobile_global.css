@@ -1,0 +1,1314 @@
+@media all and (min-width: 0px) and (max-width: 480px) {
+  :root {
+    --s-text: 0.8vw;
+    --m-text: 1.2vw;
+    --l-text: 1.8vw;
+    --xl-text: 3vw;
+    --xxl-text: 4vw;
+  
+    --extra-light-green: #dffde0;
+  
+    --light-green: #c6f0c3;
+  
+    --medium-green: #9ecb98;
+    --medium-green-shadow: #61855a;
+  
+    --dark-green: #37552b;
+    --dark-green-shadow: #37552b38;
+  
+    --light-purple: #dfc0fe;
+    
+    --dark-purple: #4f1eb0;
+  
+    --border-width: 1px; 
+    --border-radius: 0.5vw;
+  
+    --gap-size: 10px;
+  
+    --text-form-height: 2vw;
+  }
+  * {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    gap: var(--gap-size);
+    grid-gap: var(--gap-size);
+    border-radius: var(--border-radius);
+  }
+  *:focus {
+    outline: none;
+  }
+
+  .hamburger-nav {
+    width: 100%;
+    padding-top: 2.5vw;
+    display: block;
+    justify-content: center;
+    z-index: 1;
+    background-color: var(--light-green);
+  }
+
+  .hamburger-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 6vw;
+    height: 5vw;
+    margin: auto;
+    z-index: 10 !important;
+    gap: 0px;
+    color: black;
+  }
+
+  .line {
+    /*The lines which make up the button for bottom nav*/
+    width: 20px;
+    height: 2px;
+    gap: 0px;
+    background-color: black;
+    color: black;
+  }
+  .dropdown-menu {
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    font-size: 2.7vh;
+    font-family: "Tomorrow-Medium";
+  }
+  .dropdown-menu li {
+    display: block;
+    margin: 4vw 0;
+  }
+
+  .dropdown-menu li a {
+    color: var(--dark-purple);
+    text-decoration: none;
+  }
+
+  /* Is the main background for the whole hmtl and hides the scroll bar*/
+  html {
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+    background-color: var(--extra-light-green);
+  }
+
+  html::-webkit-scrollbar {
+    display: none;
+  }
+
+  body {
+    background-color: var(--extra-light-green);
+  }
+
+  .hide,
+  .hide * {
+    display: none !important;
+  }
+
+  /* Is the font for the text for instance question title and greetings, etc */
+  @font-face {
+    font-family: "Tomorrow-Medium";
+    src: url(./../public/fonts/Tomorrow-Medium.ttf);
+    font-weight: medium;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "Tomorrow-MediumItalic";
+    src: url(./../public/fonts/Tomorrow-MediumItalic.ttf);
+    font-weight: medium;
+    font-style: italic;
+  }
+
+  @font-face {
+    font-family: "Tomorrow-Regular";
+    src: url(./../public/fonts/Tomorrow-Regular.ttf);
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "Tomorrow-SemiBold";
+    src: url(./../public/fonts/Tomorrow-SemiBold.ttf);
+    font-weight: bold;
+    font-style: medium;
+  }
+
+  /* Class for the text */
+  .bot {
+    color: var(--dark-purple);
+    color: var(--dark-purple);
+  }
+
+  /* Class for the user interaction */
+  .user {
+    color: var(--medium-green);
+  }
+
+  /* Class for the alternatives "Hitta program", "Räkna antagningspoäng", "Se behörighetskrav", and "Om oss" */
+  .siteNavigation {
+    color: var(--medium-green);
+  }
+
+  /* Standard styling for text */
+  p {
+    font-family: "Tomorrow-Medium", sans-serif;
+    text-align: center;
+  }
+
+  /*Used for formating HTTP response code page*/
+  .__className_aaf875 {
+    background-color: var(--light-green) !important;
+  }
+
+  .__className_aaf875 div div h1 {
+    color: var(--dark-purple);
+  }
+
+  .next-error-h1 {
+    border-right-color: var(--dark-purple) !important;
+  }
+
+  .__className_aaf875 div div div h2 {
+    color: var(--dark-purple);
+  }
+
+  /*Used for formating HTTP response code page*/
+  .__className_aaf875 {
+    background-color: var(--light-green) !important;
+  }
+
+  .__className_aaf875 div div h1 {
+    color: var(--dark-purple);
+  }
+
+  .next-error-h1 {
+    border-right-color: var(--dark-purple) !important;
+  }
+
+  .__className_aaf875 div div div h2 {
+    color: var(--dark-purple);
+  }
+
+  input {
+    top: calc(-0.75 * var(--border-width));
+    left: calc(-1 * var(--border-width));
+    width: 17vw;
+    display: flex;
+    border: none;
+    margin-top: none;
+    padding-top: none;
+    border-radius: calc(var(--border-radius) * 0.85);
+    padding-left: 1vw;
+    font-family: "Tomorrow-MediumItalic";
+    font-size: 1vw;
+    color: var(--medium-green);
+    background-color: var(--light-green);
+    box-shadow: inset 0.2vw 0.3vw 0.4vw var(--dark-green-shadow);
+  }
+
+  input::placeholder {
+    font-family: Tomorrow-MediumItalic;
+    color: var(--medium-green);
+  }
+
+  input:focus {
+  }
+
+  /*
+    End of General
+    ---===---===---===---===---===---===---===---===---===---
+    Start of Header
+  */
+  /* Dimensioning of the background and positioning for logo for the color gradient*/
+  header {
+    z-index: 5 !important;
+    width: 100vw;
+    height: 15vh;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background-image: linear-gradient(
+      var(--light-green) 10%,
+      transparent
+    );
+  }
+
+  /* Fixes the position of the uniu logo */
+  header img {
+    display: none;
+  }
+  /*
+    End of Header
+    ---===---===---===---===---===---===---===---===---===---
+    Start of Main
+  */
+  /* Positioning of the typewriter animation*/
+  .titleTypewriter {
+    margin: 0 auto;
+    line-height: 1.5em;
+    font-family: "Tomorrow-Medium" !important;
+    color: var(--dark-purple);
+    font-size: 2.7vh;
+    transition: padding-top 0.2s ease;
+  }
+
+  @keyframes typewriterFloat {
+    from {transform:translateY(0);}
+    to {transform:translateY(-100vw);}
+    
+  }
+  .InterestTypeWriterAnim{
+
+    animation: typewriterFloat 2s ease-in-out 10s;
+  }
+
+  .interestText {
+    transition: padding-top 1s ease, top 1s ease;
+    max-width: 80vw;
+  }
+  .container {
+    height: 100vh;
+    width: 90vw;
+    position: relative;
+    padding-left: 5vw;
+    padding-right: 5vw;
+  }
+  /* Styling and positioning */
+  .answers {
+    display: flex;
+    /* Use flexbox instead of grid */
+    justify-content: center;
+    /* Center horizontally */
+    align-items: center;
+    /* Center vertically */
+    width: calc(100% + 4vw);
+    /* Adjust this value based on your actual padding */
+    margin: 0 -2vw;
+    /* Adjust this value to match half of your total horizontal padding */
+    gap: 27vw;
+    /* Space between buttons */
+    padding: 1vw 0;
+    /* Vertical padding for visual comfort */
+    transition: margin-top 1s ease, opacity 0.5s ease;
+  }
+
+  /* Button  animation dimention and color*/
+  .answerButton {
+    height: inherit;
+    background-color: var(--light-green);
+    background-color: var(--light-green);
+    border: none;
+    border-radius: 1vw;
+  }
+
+  /* Text inside the buttons color and font size */
+  .answerButton p {
+    font-family: "Tomorrow-MediumItalic";
+    color: var(--medium-green);
+    font-size: 10vw;
+    text-align: center;
+  }
+
+  /* hover color change text */
+  .answerButton:hover p {
+    text-shadow: 2px 1px var(--medium-green-shadow);
+  }
+
+  .answerButton:active p {
+    text-shadow: none;
+  }
+
+  /*
+    End of Main
+  ---===---===---===---===---===---===---===---===---===---
+    Start of Welcome
+  */
+  /*
+    End of Welcome
+    ---===---===---===---===---===---===---===---===---===---
+    Start of Intrest
+  */
+  .interestSelected {
+    background-color: var(--dark-purple);
+    color: white;
+  }
+  .interestWrapper {
+    height: auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: 0vw auto 1vw;
+    padding-bottom: 1vw;
+    z-index: 1;
+    transition: 0.5s ease;
+    overflow-y: hidden;
+  }
+
+  .notSelectedButton {
+    /*Is interest buttons.*/
+    width: 26vw;
+    height: 6vw;
+    background-color: var(--medium-green);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border: none;
+  }
+
+  .selectedButton {
+    box-sizing: border-box;
+    width: 26vw;
+    height: 6vw;
+    background-color: var(--dark-purple);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border: none;
+  }
+
+  .notSelectedTitle {
+    display: flex;
+    align-items: center;
+    font-size: large;
+    font-family: "Tomorrow-MediumItalic";
+    color: var(--medium-green);
+    text-align: center;
+  }
+
+  .notSelectedInterestList {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    position: absolute; /*If this is changed, other things on the page changes a lot.*/
+    left: 25%;
+    bottom: 40vw;
+    width: 60%;
+  }
+
+  .interestColumn {
+    display: grid;
+    gap: 5vw;
+  }
+
+  .notSelectedInterestButton {
+    width: 13vw;
+    height: 4vw;
+    background-color: var(--medium-green);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border: none;
+  }
+
+  .notSelectedInterestTitle {
+    display: flex;
+    align-items: center;
+    font-size: medium;
+    font-family: "Tomorrow-MediumItalic";
+    color: var(--medium-green);
+    text-align: center;
+    font-size: large;
+  }
+
+  .customInterestButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: inherit;
+    width: 12%;
+    height: 100%;
+    background-color: var(--medium-green);
+    border: var(--border-width) solid var(--medium-green-shadow);
+    border-top-right-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+  }
+
+  .notSelectedInterestTitle hr {
+    flex-grow: 1;
+    border-width: 2px;
+    border-style: solid;
+    border-color: var(--medium-green);
+    margin-top: 20vw;
+  }
+
+  .notSelectedInterestTitle span {
+    /*Seems to change position of "Select your interests"*/
+    margin: 1vw 2vw;
+    padding-top: 20vw;
+  }
+
+  .selectedInterestList {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    position: absolute; /*If this is changed, other things on the page changes a lot.*/
+    left: 25%;
+    bottom: 120vw; /*Changes pos of selected interest list, pads from bottom.*/
+    width: 60%;
+  }
+  .customInterestWrapper {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-top: 1vw;
+    width: 40vw;
+    height: 2vw;
+  }
+
+  .customInterestField {
+    box-sizing: inherit;
+    width: 88%;
+    height: 100%;
+    padding: 2vw 4vw;
+    background-color: transparent;
+
+    border: var(--border-width) solid var(--medium-green-shadow);
+    border-right: none;
+    border-top-left-radius: var(--border-radius);
+    border-bottom-left-radius: var(--border-radius);
+
+    box-shadow: inset 3px 3px 5px #37552b40;
+
+    font-family: "Tomorrow-MediumItalic";
+    font-size: 16px;
+    color: var(--medium-green-shadow);
+  }
+
+  .refreshButton,
+  .refreshButton::before,
+  .refreshButton::after {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    box-sizing: border-box;
+    width: 10%;
+    height: 10%;
+    padding: 4px;
+
+    background-color: var(--medium-green);
+    border: var(--border-width) solid var(--medium-green-shadow);
+    border-radius: var(--border-radius);
+  }
+
+  .refreshButton:hover {
+    cursor: pointer;
+    background-color: var(--medium-green-shadow);
+    transition: background-color 200ms;
+  }
+
+  .refreshIcon {
+    width: 100%;
+    height: 100%;
+    fill: var(--light-green);
+  }
+
+  .refreshAnimation {
+    animation: spin 500ms ease-in-out;
+  }
+
+  @keyframes spin {
+    100% {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+
+  .customInterestForm {
+    width: 35vw;
+    margin-left: auto;
+    margin-right: auto;
+    left: 30%;
+    position: absolute;
+    bottom: 1vw;
+  }
+
+  .iconButton {
+    position: relative;
+    left: 20%;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: inline-block;
+  }
+
+  .iconText {
+    font-size: medium;
+    font-family: "Tomorrow-MediumItalic";
+    font-style: italic;
+    color: #dffde0;
+  }
+
+  .iconButton svg {
+    width: 8vw;
+    height: 8vw;
+  }
+
+  /* Styling for the 'find my dream education' button, with locked properties */
+  .dreamEducationButton {
+    height: inherit;
+    background-color: var(--light-green);
+    border: none;
+    border-radius: 1vw;
+    cursor: pointer;
+  }
+
+  .dreamEducationButton p {
+    font-family: "Tomorrow-Medium";
+    color: transparent;
+    -webkit-text-stroke: 0.05vw var(--medium-green);
+    font-size: 2vw;
+  }
+
+  .dreamEducationButton:not(.locked) p {
+    color: var(--dark-purple);
+    -webkit-text-stroke: 0;
+  }
+
+  .dreamEducationButton:not(.locked):hover p {
+    text-shadow: 2px 1px var(--medium-green-shadow);
+  }
+
+  .dreamEducationButton:active p {
+    text-shadow: none;
+  }
+
+  .recommendationButtonWrapper {
+    cursor: pointer;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    padding-top: 75vw;
+    align-items: center;
+    transition: 0.5s;
+  }
+
+  .recommendationButtonWrapper p {
+    font-size: 2.3vw;
+    font-family: "Tomorrow-Medium";
+    color: var(--dark-purple);
+    margin: 1vw;
+  }
+
+  .recommendationButtonWrapper hr {
+    flex-grow: 1;
+    border-color: var(--medium-green);
+    border-width: 2px;
+    border-style: solid;
+  }
+
+  .recommendationButtonLine {
+    flex-grow: 1;
+    border-color: var(--medium-green);
+    border-width: 2px;
+    border-style: solid;
+  }
+
+  @keyframes floatUp {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(-25vw);
+    }
+  }
+
+  .test {
+    position: absolute;
+  }
+
+  .selectedInterestTitle {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: var(--dark-purple);
+    font-family: "Tomorrow-MediumItalic";
+    font-size: large;
+  }
+  .animatedSelectedInterestTitle {
+    animation: floatUp 2s forwards 15s;
+  }
+
+  .selectedInterestTitle hr {
+    flex-grow: 1;
+    border-width: 2px;
+    border-color: var(--dark-purple);
+  }
+
+  .selectedInterestTitle span {
+    margin: 1vw 2vw;
+  }
+
+  .selectedInterestButton:hover {
+    stroke: #9ecb98;
+    stroke-width: 2px;
+    stroke-linejoin: round;
+    filter: drop-shadow(2px 2px 0px #9ecb98);
+  }
+
+  .notSelectedInterestButton:hover .iconText {
+    color: #4f1eb0;
+  }
+
+  .selectedInterestButton:hover .iconText {
+    color: #9ecb98;
+  }
+
+  .addInterestField {
+    font-size: 30px;
+    font-family: "Tomorrow-MediumItalic";
+    color: #61855a;
+    border: 1px solid grey;
+    width: 91%;
+    background: #dffde0;
+    border-right: none;
+    height: 27px;
+    margin-top: none;
+    padding-top: none;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    box-shadow: inset 0 0 1px 1px gray;
+    margin-bottom: 1vw;
+  }
+
+  .addInterestField::placeholder {
+    font-family: "Tomorrow-MediumItalic";
+    font-size: 20px;
+    color: #9ecb98;
+    text-align: center;
+    font-style: italic;
+  }
+
+  .addInterestField:focus {
+    outline: none;
+    box-shadow: inset 0 0 2px 2px gray;
+  }
+
+  .addInterestButton {
+    width: 8%;
+    background: #9ecb98;
+    height: 29px;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none;
+    cursor: pointer;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    box-shadow: -2px 0px 2px 0px grey;
+  }
+
+  .shuffleButton {
+    left: 70%;
+    transform: translateX(-50%);
+    stroke: #646464;
+    stroke-width: 3px;
+    stroke-linejoin: round;
+    position: absolute;
+    bottom: 1vw;
+  }
+
+  .shuffleButton:hover {
+    filter: drop-shadow(2px 2px 0px gray);
+  }
+
+  /* Interests fade-in and fade-out animations */
+
+  .fadeInSelected {
+    animation-name: inAnimationSelected;
+    animation-duration: 500ms;
+    animation-timing-function: ease-in;
+  }
+
+  .fadeInNew {
+    animation-name: inAnimationNew;
+    animation-duration: 1000ms;
+    animation-timing-function: ease-in;
+  }
+
+  .fadeOut {
+    animation-name: outAnimation;
+    animation-duration: 300ms;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes inAnimationSelected {
+    0% {
+      transform: scale(0.1);
+      opacity: 0;
+    }
+
+    60% {
+      transform: scale(1.2);
+      opacity: 1;
+    }
+
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes inAnimationNew {
+    0% {
+      transform: scale(0);
+      opacity: 0;
+    }
+
+    50% {
+      transform: scale(0);
+      opacity: 0;
+    }
+
+    80% {
+      transform: scale(1.2);
+      opacity: 1;
+    }
+
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes outAnimation {
+    0% {
+      opacity: 1;
+    }
+
+    20% {
+      transform: scale(1.2);
+    }
+
+    100% {
+      transform: scale(0);
+      opacity: 0;
+    }
+  }
+
+  /*
+    End of Intrest
+    ---===---===---===---===---===---===---===---===---===---
+    Start of Recommendation
+  */
+  .filterWrapper {
+    height: 2vw;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    max-width: fit-content;
+    margin: 0vw auto;
+    margin-top: 2vw;
+  }
+
+  .filterWrapper * p,
+  .filterWrapper p {
+    text-align: left;
+  }
+
+  .filter {
+    height: inherit;
+    display: flex;
+    border: var(--border-width) solid #37552b;
+    /* border: none; */
+    border-radius: var(--border-radius);
+    position: relative;
+  }
+
+  .filter input {
+    top: calc(-0.75 * var(--border-width));
+    left: calc(-1 * var(--border-width));
+    width: 17vw;
+    display: flex;
+    border: none;
+    border-radius: calc(var(--border-radius) * 0.85);
+    padding-left: 1vw;
+    font-size: 1.6vw;
+    background-color: var(--light-green);
+    box-shadow: inset 0.2vw 0.3vw 0.4vw var(--dark-green-shadow);
+  }
+
+  .filter input::placeholder {
+    font-family: Tomorrow-MediumItalic;
+    color: var(--medium-green);
+  }
+
+  .filter input:focus {
+    outline: none;
+  }
+
+  .filterImgDiv {
+    top: calc(-0.75 * var(--border-width));
+    right: calc(-1 * var(--border-width));
+    height: 2vw;
+    width: 2vw;
+    border: var(--border-width) solid var(--dark-green);
+    border-radius: var(--border-radius);
+    position: absolute;
+    background-color: var(--medium-green);
+  }
+
+  .filterImg {
+    height: 60%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+  }
+
+  .recommendedWrapper {
+    width: 80%;
+    margin: 1vw auto 0;
+    position: relative;
+  }
+
+  .recommendedWrapper * p,
+  .recommendedWrapper * a,
+  .recommendedWrapper p,
+  .recommendedWrapper a {
+    text-align: left;
+  }
+
+  .recommendedBox {
+    margin-bottom: 1vw;
+    border: var(--border-width) solid var(--dark-purple);
+    border-radius: var(--border-radius);
+    border-color: var(--dark-purple);
+    background-color: var(--medium-green);
+    padding: 0.4vw 0.8vw;
+  }
+
+  .recommendedHead {
+    margin-bottom: 0.5em;
+  }
+
+  .tilteReq {
+    font-size: 1.6vw;
+    font-family: Tomorrow-SemiBold !important;
+    color: var(--dark-purple);
+  }
+
+  .descriptionReq,
+  .reqDescription,
+  .reqDescriptionContent {
+    font-family: Tomorrow-Medium;
+    font-size: 1.2vw;
+  }
+
+  .descriptionReq {
+    display: inline-block;
+    color: var(--medium-green-shadow);
+  }
+
+  .schoolReq,
+  .degreeReq,
+  .pointsReq,
+  .reqDescriptionLink {
+    border-right: var(--border-width) solid var(--medium-green);
+    padding-right: 0.5em;
+    margin-right: 0.5em;
+  }
+
+  .reqDescriptionBox {
+    border: var(--border-width) dashed var(--medium-green);
+    border-radius: var(--border-radius);
+    padding: 0 1vw 0.5vw 1vw;
+    margin-bottom: 0.5em;
+  }
+
+  .reqDescription {
+    display: inline-block;
+    color: var(--dark-purple);
+    white-space: nowrap;
+  }
+
+  .reqDescriptionLink {
+    text-decoration: underline;
+    text-decoration-color: var(--dark-purple);
+  }
+
+  .reqDescriptionContent {
+    color: var(--medium-green-shadow);
+    font-family: Tomorrow-Regular !important;
+    margin-top: 0.25em;
+  }
+
+  .recommendedFoot {
+    display: flex;
+  }
+
+  .showDescription {
+    border: 0;
+    background-color: inherit;
+    display: flex;
+    width: 100%;
+  }
+
+  .showDescription * {
+    display: inline-block;
+    text-decoration: underline;
+  }
+
+  .arrow {
+    height: 1vw;
+    margin: 0 auto;
+    color: var(--medium-green);
+  }
+
+  .expandArrow {
+    transform: rotate(0deg);
+    transition: transform 0.5s ease-in;
+  }
+
+  .contractArrow {
+    transform: rotate(180deg);
+    transition: transform 0.5s ease-in;
+  }
+
+  .showDescription p {
+    padding-left: 0.5em;
+  }
+
+  .showInterestBox {
+    padding: 0.4vw 0.8vw;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .interestReq {
+    font-family: "Tomorrow-MediumItalic";
+    padding: 0.5em 1em;
+    font-size: 0.8vw;
+    background-color: var(--medium-green);
+    border-radius: var(--border-radius);
+    border: var(--border-width);
+    color: var(--light-green);
+    margin: 0.25em;
+  }
+
+  .filterWrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    width: 60%;
+    max-width: fit-content;
+    margin: 3vw auto 0;
+  }
+  .recommendedWrapper,
+  .gradeWrapper {
+    position: relative;
+    width: 80%;
+    margin: 1vw auto 0;
+  }
+  .loadingGIF {
+    display: grid;
+    grid-column: 1 / span 5;
+  }
+  .loadingGIF img {
+    display: block;
+    width: 10vw;
+    margin: 1vw auto 0;
+  }
+  .showInterestBox {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping */
+    justify-content: center; /* Center horizontally */
+    gap: 0.8vw;
+    margin-top: 0 auto;
+  }
+  .interestReq {
+    padding: 0.5em 1em;
+    background-color: var(--medium-green);
+    border: var(--border-width);
+    border-radius: var(--border-radius);
+    font-size: 0.8vw;
+    font-family: "Tomorrow-MediumItalic";
+    color: var(--light-green);
+  }
+  .recommendedWrapper * p,
+  .recommendedWrapper * a,
+  .recommendedWrapper p,
+  .recommendedWrapper a {
+    text-align: left;
+  }
+  .recommendedWrapper * p,
+  .recommendedWrapper * a {
+    line-height: 1em;
+    text-align: left;
+  }
+  .recommendedBox,
+  .gradeBox {
+    position: relative;
+    margin-top: 1vw;
+    padding: 0.4vw 0.8vw;
+    background-color: var(--medium-green);
+    border: var(--border-width) solid var(--dark-purple);
+    border-color: var(--dark-purple);
+    border-radius: var(--border-radius);
+  }
+  .recommendedHead {
+    margin-bottom: 0.5em;
+  }
+  .tilteReq {
+    font-size: 1.6vw;
+    font-family: Tomorrow-SemiBold !important;
+    color: var(--dark-purple);
+    max-width: 90%;
+  }
+  .wildcardText {
+    font-family: Tomorrow-Medium;
+    text-align: right !important;
+    position: absolute;
+    padding: 0.4vw 0.8vw;
+    top: 0;
+    right: 0;
+    font-size: 1.2vw;
+  }
+  .wildcardBubble {
+    z-index: -2;
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  .wildcardText:hover + .wildcardBubble {
+    display: block;
+  }
+  .descriptionReq,
+  .reqDescription,
+  .reqDescriptionContent,
+  .gradeStyle {
+    font-size: 1.2vw;
+    font-family: Tomorrow-Medium;
+  }
+  .descriptionReq,
+  .reqDescription,
+  .reqDescriptionDescription {
+    font-size: 1.2vw;
+    font-family: Tomorrow-Medium;
+  }
+  .descriptionReq {
+    display: inline-block;
+    margin-top: 0.4em;
+    color: var(--medium-green-shadow);
+  }
+  .schoolReq,
+  .degreeReq,
+  .pointsReq,
+  .reqDescriptionLink,
+  .courseNameGrade,
+  .courseNameGradeGrade,
+  .coursePointsGrade {
+    margin-right: 0.5em;
+    padding-right: 0.5em;
+    border-right: var(--border-width) solid var(--medium-green);
+  }
+  .reqDescriptionBox {
+    margin-bottom: 0.4em;
+    padding: 0 1vw 0.5vw 1vw;
+    border: var(--border-width) dashed var(--medium-green);
+    border-radius: var(--border-radius);
+  }
+  .reqDescription {
+    display: inline-block;
+    color: var(--dark-purple);
+    white-space: nowrap;
+  }
+  .reqDescriptionLink {
+    text-decoration-color: var(--dark-purple);
+    text-decoration: underline;
+  }
+  .reqDescriptionContent {
+    margin-top: 0.25em;
+    font-family: Tomorrow-Regular !important;
+    color: var(--medium-green-shadow);
+  }
+  .recommendedFoot {
+    display: flex;
+  }
+  .showDescription {
+    display: flex;
+    width: 100%;
+    background-color: inherit;
+    border: 0;
+  }
+  .showDescription * {
+    display: inline-block;
+    text-decoration: underline;
+  }
+  .arrow {
+    height: 1vw;
+    margin: 0 auto;
+  }
+  .expandArrow {
+    transform: rotate(0deg);
+    transition: transform 0.5s ease-in;
+  }
+  .contractArrow {
+    transform: rotate(180deg);
+    transition: transform 0.5s ease-in;
+  }
+  .showDescription p {
+    padding-left: 0.5em;
+  }
+  .showMoreBox {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping */
+    justify-content: center; /* Center horizontally */
+    padding: 0.4vw 0.8vw;
+  }
+
+  /*
+          End of Recommendation
+          ---===---===---===---===---===---===---===---===---===---
+          Start of Footer
+        */
+  /* Footer dimetionns and postion*/
+  footer {
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    height: 10vw;
+    display: inline-block;
+    background-color: var(--light-green);
+    font-size: 1.5vw;
+    z-index: 100;
+  }
+
+  /* Footer navbar annd line dimentions and position */
+
+  /* Dividing line footer */
+  .footerLine {
+    top: 0;
+    width: 100%;
+    height: 0.4vh;
+    position: relative;
+    background-color: var(--dark-purple);
+    z-index: 100 !important;
+  }
+  .footerLineAnimDown {
+    transform: translateY(-42vw);
+    transition: transform 0.5s ease;
+  }
+
+  .footerLineAnimUp {
+    transform: translateY(0);
+    transition: transform 0.5s ease;
+  }
+
+  /* Class for the alternatives "Hitta program", "Räkna antagningspoäng", "Se behörighetskrav", and "Om oss" */
+  .siteNavigation {
+    font-family: "Tomorrow-Medium";
+    color: var(--medium-green);
+  }
+
+  /* Footer navbar grid */
+
+  /* Text logo wrapper dimetion and position */
+  .footerLogoDiv p {
+    font-size: 8vw;
+    position: fixed;
+    right: 1vw;
+    bottom: 0;
+    color: var(--dark-purple);
+    z-index: 300 !important;
+  }
+  .gradeInputWrapper {
+    display: grid;
+    grid-template-columns: 1fr 0.6fr 0.6fr 0fr 0.6fr;
+    grid-gap: 10px;
+    width: 70%;
+    max-width: fit-content;
+    margin: 3vw auto 0;
+  }
+  .buttonInputWrapper .textInputWrapper .textButton img {
+    width: 70%;
+  }
+  .pointWrapper {
+    display: flex;
+    width: calc(100% - 2 * var(--border-width));
+    background-color: var(--medium-green-shadow);
+  }
+  .pointOutput {
+    margin: auto;
+    font-size: calc(var(--text-form-height) * 0.7);
+    font-family: "Tomorrow-MediumItalic";
+    color: var(--light-green);
+  }
+  .gradeWrapper {
+    display: grid;
+    gap: 1vw;
+    grid-template-columns: repeat(2, 1fr);
+    width: 80% !important;
+  }
+  .gradeBox {
+    display: flex;
+    margin: 0 !important;
+  }
+  .courseNameGrade {
+    overflow-wrap: break-word;
+    flex: 3;
+    text-align: left;
+  }
+  .coursePointsGrade,
+  .gradeGrade {
+    flex: 1;
+    text-align: left;
+  }
+  @keyframes shimmer {
+    to {
+      background-position-x: 0%;
+    }
+  }
+  .wildcard {
+    background: linear-gradient(
+      -50deg,
+      var(--light-purple) 40%,
+      #f0f0f0 50%,
+      var(--light-purple) 60%
+    );
+    background-size: 300%;
+    background-position-x: 100%;
+    animation: shimmer 4s infinite linear;
+  }
+  .wildcard * {
+    color: var(--dark-purple);
+    border-color: var(--dark-purple);
+  }
+
+  .wildcard {
+    background: linear-gradient(
+      -50deg,
+      var(--light-purple) 40%,
+      #f0f0f0 50%,
+      var(--light-purple) 60%
+    );
+    background-size: 300%;
+    background-position-x: 100%;
+    animation: shimmer 4s infinite linear;
+  }
+  .wildcard * {
+    color: var(--dark-purple);
+    border-color: var(--dark-purple);
+  }
+
+  /*
+    End of Footer
+    ---===---===---===---===---===---===---===---===---===---
+  */
+}

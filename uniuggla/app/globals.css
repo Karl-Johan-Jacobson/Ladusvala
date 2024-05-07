@@ -1,3 +1,4 @@
+@media all and (min-width: 480px) {
 :root {
 	--s-text: 0.8vw;
 	--m-text: 1.2vw;
@@ -289,6 +290,10 @@ header img {
   ---===---===---===---===---===---===---===---===---===---
   Start of Intrest
 */
+.chooseInterestWrapper {
+	display: grid;
+	grid-row: 0fr 1fr 0fr 1fr;
+}
 .interestSelected {
 	background-color: var(--dark-purple);
 	color: white;
@@ -549,6 +554,7 @@ header img {
  ---===---===---===---===---===---===---===---===---===---
   Start of Recommendation
 */
+.chooseInterestWrapper,
 .recommendedWrapper,
 .gradeWrapper {
 	position: relative;
@@ -808,3 +814,4 @@ footer {
   End of Footer
   ---===---===---===---===---===---===---===---===---===---
 */
+}
