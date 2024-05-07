@@ -1,816 +1,807 @@
 @media all and (min-width: 480px) {
-:root {
-	--s-text: 0.8vw;
-	--m-text: 1.2vw;
-	--l-text: 1.8vw;
-	--xl-text: 3vw;
-	--xxl-text: 4vw;
+	:root {
+		--s-text: 0.8vw;
+		--m-text: 1.2vw;
+		--l-text: 1.8vw;
+		--xl-text: 3vw;
+		--xxl-text: 4vw;
 
-	--extra-light-green: #dffde0;
+		--extra-light-green: #dffde0;
 
-	--light-green: #c6f0c3;
+		--light-green: #c6f0c3;
 
-	--medium-green: #9ecb98;
-	--medium-green-shadow: #61855a;
+		--medium-green: #9ecb98;
+		--medium-green-shadow: #61855a;
 
-	--dark-green: #37552b;
-	--dark-green-shadow: #37552b38;
+		--dark-green: #37552b;
+		--dark-green-shadow: #37552b38;
 
-	--light-purple: #dfc0fe;
-	
-	--dark-purple: #4f1eb0;
+		--light-purple: #dfc0fe;
 
-	--border-width: 1px; 
-	--border-radius: 0.5vw;
+		--dark-purple: #4f1eb0;
 
-	--gap-size: 10px;
+		--border-width: 1px;
+		--border-radius: 0.5vw;
 
-	--text-form-height: 2vw;
-}
-* {
-	margin: 0;
-	padding: 0;
-	text-decoration: none;
-	gap: var(--gap-size);
-	grid-gap: var(--gap-size);
-	border-radius: var(--border-radius);
-}
-*:focus {
-	outline: none;
-}
-/* Is the main background for the whole hmtl and hides the scroll bar*/
-html {
-	scrollbar-width: none;
-	scroll-behavior: smooth;
-	background-color: var(--extra-light-green);
-}
-html::-webkit-scrollbar {
-	display: none;
-}
-body {
-	background-color: var(--extra-light-green);
-}
-.hide,
-.hide * {
-	display: none !important;
-}
-/* Is the font for the text for instance question title and greetings, etc */
-@font-face {
-	src: url(./../public/fonts/Tomorrow-Medium.ttf);
-	font-family: "Tomorrow-Medium";
-	font-style: normal;
-	font-weight: medium;
-}
-@font-face {
-	src: url(./../public/fonts/Tomorrow-MediumItalic.ttf);
-	font-family: "Tomorrow-MediumItalic";
-	font-style: italic;
-	font-weight: medium;
-}
-@font-face {
-	src: url(./../public/fonts/Tomorrow-Regular.ttf);
-	font-family: "Tomorrow-Regular";
-	font-style: normal;
-	font-weight: 400;
-}
-@font-face {
-	src: url(./../public/fonts/Tomorrow-SemiBold.ttf);
-	font-family: "Tomorrow-SemiBold";
-	font-style: medium;
-	font-weight: bold;
-}
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-	-webkit-appearance: none;
-}
-/* Class for the user interaction */
-.user {
-	color: var(--medium-green);
-}
-/* Standard styling for text */
-p {
-	font-family: "Tomorrow-Medium", sans-serif;
-	text-align: center;
-}
-/*text input*/
-.textInputWrapper,
-.buttonInputWrapper,
-.pointWrapper {
-	display: flex;
-	position: relative;
-	min-width: var(--text-form-height);
-	height: var(--text-form-height);
-	margin: auto;
-	border: var(--border-width) solid var(--dark-green);
-}
-.textInput {
-	box-shadow: inset 0.2vw 0.3vw 0.4vw var(--dark-green-shadow);
-	display: flex;
-	top: calc(-0.75 * var(--border-width));
-	left: calc(-1 * var(--border-width));
-	width: calc(100% - var(--text-form-height) - var(--border-width));
-	padding-right: calc(var(--text-form-height) + var(--border-width) + var(--border-radius));
-	padding-left: var(--border-radius);
-	background-color: var(--extra-light-green);
-	border: none;
-	border-radius: calc(var(--border-radius) - var(--border-width));
-	font-size: calc(var(--text-form-height) * 0.7);
-	font-family: "Tomorrow-MediumItalic";
-	color: var(--medium-green);
-}
-.textInput::placeholder {
-	font-size: calc(var(--text-form-height) * 0.7);
-	font-family: "Tomorrow-MediumItalic";
-	color: var(--medium-green);
-}
-.textInput:focus {
-	transition: background-color 200ms ease-in;
-	background-color: var(--dark-green-shadow);
-	color: var(--extra-light-green);
-}
-.textButton,
-.buttonInput {
-	box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	position: absolute;
-	top: calc((-1 * var(--border-width)));
-	right: calc((-1 * var(--border-width)));
-	width: calc(var(--text-form-height) + 2 * var(--border-width));
-	height: calc(var(--text-form-height) + 2 * var(--border-width));
-	background-color: var(--medium-green);
-	border: var(--border-width) solid var(--dark-green);
-	z-index: 10;
-}
-.textButton:hover,
-.buttonInput:hover {
-	transition: background-color 200ms ease-in;
-	background-color: var(--medium-green-shadow);
-}
-.textButtonImg,
-.buttonInputImg {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	width: auto;
-	max-width: 70%;
-	height: auto;
-	max-height: 70%;
-}
-/*Used for formating HTTP response code page*/
-.__className_aaf875 {
-	background-color: var(--extra-light-green) !important;
-}
-.__className_aaf875 div div h1 {
-	color: var(--dark-purple);
-}
-.next-error-h1 {
-	border-right-color: var(--dark-purple) !important;
-}
-.__className_aaf875 div div div h2 {
-	color: var(--dark-purple);
-}
-/*Used for formating HTTP response code page*/
-.__className_aaf875 {
-	background-color: var(--extra-light-green) !important;
-}
-.__className_aaf875 div div h1 {
-	color: var(--dark-purple);
-}
-.next-error-h1 {
-	border-right-color: var(--dark-purple) !important;
-}
-.__className_aaf875 div div div h2 {
-	color: var(--dark-purple);
-}
-/*
+		--gap-size: 10px;
+
+		--text-form-height: 2vw;
+	}
+	* {
+		margin: 0;
+		padding: 0;
+		text-decoration: none;
+		gap: var(--gap-size);
+		grid-gap: var(--gap-size);
+		border-radius: var(--border-radius);
+	}
+	*:focus {
+		outline: none;
+	}
+	/* Is the main background for the whole hmtl and hides the scroll bar*/
+	html {
+		scrollbar-width: none;
+		scroll-behavior: smooth;
+		background-color: var(--extra-light-green);
+	}
+	html::-webkit-scrollbar {
+		display: none;
+	}
+	body {
+		background-color: var(--extra-light-green);
+	}
+	.hide,
+	.hide * {
+		display: none !important;
+	}
+	/* Is the font for the text for instance question title and greetings, etc */
+	@font-face {
+		src: url(./../public/fonts/Tomorrow-Medium.ttf);
+		font-family: "Tomorrow-Medium";
+		font-style: normal;
+		font-weight: medium;
+	}
+	@font-face {
+		src: url(./../public/fonts/Tomorrow-MediumItalic.ttf);
+		font-family: "Tomorrow-MediumItalic";
+		font-style: italic;
+		font-weight: medium;
+	}
+	@font-face {
+		src: url(./../public/fonts/Tomorrow-Regular.ttf);
+		font-family: "Tomorrow-Regular";
+		font-style: normal;
+		font-weight: 400;
+	}
+	@font-face {
+		src: url(./../public/fonts/Tomorrow-SemiBold.ttf);
+		font-family: "Tomorrow-SemiBold";
+		font-style: medium;
+		font-weight: bold;
+	}
+	input[type="number"]::-webkit-inner-spin-button,
+	input[type="number"]::-webkit-outer-spin-button {
+		-webkit-appearance: none;
+	}
+	/* Class for the user interaction */
+	.user {
+		color: var(--medium-green);
+	}
+	/* Standard styling for text */
+	p {
+		font-family: "Tomorrow-Medium", sans-serif;
+		text-align: center;
+	}
+	/*text input*/
+	.textInputWrapper,
+	.buttonInputWrapper,
+	.pointWrapper {
+		display: flex;
+		position: relative;
+		min-width: var(--text-form-height);
+		height: var(--text-form-height);
+		margin: auto;
+		border: var(--border-width) solid var(--dark-green);
+	}
+	.textInput {
+		box-shadow: inset 0.2vw 0.3vw 0.4vw var(--dark-green-shadow);
+		display: flex;
+		top: calc(-0.75 * var(--border-width));
+		left: calc(-1 * var(--border-width));
+		width: calc(100% - var(--text-form-height) - var(--border-width));
+		padding-right: calc(var(--text-form-height) + var(--border-width) + var(--border-radius));
+		padding-left: var(--border-radius);
+		background-color: var(--extra-light-green);
+		border: none;
+		border-radius: calc(var(--border-radius) - var(--border-width));
+		font-size: calc(var(--text-form-height) * 0.7);
+		font-family: "Tomorrow-MediumItalic";
+		color: var(--medium-green);
+	}
+	.textInput::placeholder {
+		font-size: calc(var(--text-form-height) * 0.7);
+		font-family: "Tomorrow-MediumItalic";
+		color: var(--medium-green);
+	}
+	.textInput:focus {
+		transition: background-color 200ms ease-in;
+		background-color: var(--dark-green-shadow);
+		color: var(--extra-light-green);
+	}
+	.textButton,
+	.buttonInput {
+		box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		position: absolute;
+		top: calc((-1 * var(--border-width)));
+		right: calc((-1 * var(--border-width)));
+		width: calc(var(--text-form-height) + 2 * var(--border-width));
+		height: calc(var(--text-form-height) + 2 * var(--border-width));
+		background-color: var(--medium-green);
+		border: var(--border-width) solid var(--dark-green);
+		z-index: 10;
+	}
+	.textButton:hover,
+	.buttonInput:hover {
+		transition: background-color 200ms ease-in;
+		background-color: var(--medium-green-shadow);
+	}
+	.textButtonImg,
+	.buttonInputImg {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: auto;
+		max-width: 70%;
+		height: auto;
+		max-height: 70%;
+	}
+	/*Used for formating HTTP response code page*/
+	.__className_aaf875 {
+		background-color: var(--extra-light-green) !important;
+	}
+	.__className_aaf875 div div h1 {
+		color: var(--dark-purple);
+	}
+	.next-error-h1 {
+		border-right-color: var(--dark-purple) !important;
+	}
+	.__className_aaf875 div div div h2 {
+		color: var(--dark-purple);
+	}
+	/*Used for formating HTTP response code page*/
+	.__className_aaf875 {
+		background-color: var(--extra-light-green) !important;
+	}
+	.__className_aaf875 div div h1 {
+		color: var(--dark-purple);
+	}
+	.next-error-h1 {
+		border-right-color: var(--dark-purple) !important;
+	}
+	.__className_aaf875 div div div h2 {
+		color: var(--dark-purple);
+	}
+	/*
   End of General
   ---===---===---===---===---===---===---===---===---===---
   Start of Header
 */
-/* Dimensioning of the background and positioning for logo for the color gradient*/
-header {
-	position: fixed;
-	z-index: 10;
-	top: 0;
-	left: 0;
-	width: 100vw;
-	height: 15vh;
-	background-image: linear-gradient(var(--extra-light-green) 10%, transparent);
-}
-/* Fixes the position of the uniu logo */
-header img {
-	/*top: 0;
+	/* Dimensioning of the background and positioning for logo for the color gradient*/
+	header {
+		position: fixed;
+		z-index: 10;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 15vh;
+		background-image: linear-gradient(var(--extra-light-green) 10%, transparent);
+	}
+	/* Fixes the position of the uniu logo */
+	header img {
+		/*top: 0;
 	left: 0;*/
-	height: 100%;
-	background-color: transparent;
-}
-/*
+		height: 100%;
+		background-color: transparent;
+	}
+	/*
   End of Header
   ---===---===---===---===---===---===---===---===---===---
   Start of Main
 */
-/* Positioning of the typewriter animation*/
-.titleTypewriter {
-	margin: 0 auto;
-	transition: padding-top 0.2s ease;
-	font-size: var(--xl-text);
-	font-family: "Tomorrow-Medium" !important;
-	line-height: 1.5em;
-	color: var(--dark-purple);
-}
-.container {
-	position: relative;
-	width: 90vw;
-	height: 100vh;
-	padding-right: 5vw;
-	padding-left: 5vw;
-}
-.wrapper {
-	position: absolute;
-	z-index: 1;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	overflow-y: auto;
-	width: auto;
-	height: auto;
-	margin: 0 auto var(--xxl-text);
-	padding: 0 10vh 1vw;
-	transition: 0.5s ease;
-}
-.wrapper::-webkit-scrollbar {
-	display: none;
-}
-/*
+	/* Positioning of the typewriter animation*/
+	.titleTypewriter {
+		margin: 0 auto;
+		transition: padding-top 0.2s ease;
+		font-size: var(--xl-text);
+		font-family: "Tomorrow-Medium" !important;
+		line-height: 1.5em;
+		color: var(--dark-purple);
+	}
+	.container {
+		position: relative;
+		width: 90vw;
+		height: 100vh;
+		padding-right: 5vw;
+		padding-left: 5vw;
+	}
+	.wrapper {
+		position: absolute;
+		z-index: 1;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		overflow-y: auto;
+		width: auto;
+		height: auto;
+		margin: 0 auto var(--xxl-text);
+		padding: 0 10vh 1vw;
+		transition: 0.5s ease;
+	}
+	.wrapper::-webkit-scrollbar {
+		display: none;
+	}
+	/*
   End of Main
 ---===---===---===---===---===---===---===---===---===---
   Start of Welcome
 */
-/* Styling and positioning */
-.answers {
-	display: grid;
-	justify-content: center;
-	align-items: center;
-	gap: 20vw;
-	grid-template-columns: 1fr 1fr;
-	overflow: hidden;
-	width: 40vw;
-	height: 8vw;
-	margin: 0 auto;
-	transition: margin-top 1s ease, opacity 0.5s ease;
-	list-style: none;
-}
-/* Button  animation dimention and color*/
-.answerButton {
-	/*height: inherit;*/
-	background-color: var(--extra-light-green);
-	cursor: pointer;
-	border: none;
-	border-radius: 1vw;
-}
-/* Text inside the buttons color and font size */
-.answerButton p {
-	font-size: var(--xxl-text);
-	font-family: "Tomorrow-MediumItalic";
-	color: var(--medium-green);
-}
-/* hover color change text */
-.answerButton:hover p,
-.siteNavigation:hover {
-	text-shadow: 0.06em 0.06em var(--medium-green-shadow);
-}
-.answerButton:active p {
-	text-shadow: none;
-}
-/*
+	/* Styling and positioning */
+	.answers {
+		display: grid;
+		justify-content: center;
+		align-items: center;
+		gap: 20vw;
+		grid-template-columns: 1fr 1fr;
+		overflow: hidden;
+		width: 40vw;
+		height: 8vw;
+		margin: 0 auto;
+		transition: margin-top 1s ease, opacity 0.5s ease;
+		list-style: none;
+	}
+	/* Button  animation dimention and color*/
+	.answerButton {
+		/*height: inherit;*/
+		background-color: var(--extra-light-green);
+		cursor: pointer;
+		border: none;
+		border-radius: 1vw;
+	}
+	/* Text inside the buttons color and font size */
+	.answerButton p {
+		font-size: var(--xxl-text);
+		font-family: "Tomorrow-MediumItalic";
+		color: var(--medium-green);
+	}
+	/* hover color change text */
+	.answerButton:hover p,
+	.siteNavigation:hover {
+		text-shadow: 0.06em 0.06em var(--medium-green-shadow);
+	}
+	.answerButton:active p {
+		text-shadow: none;
+	}
+	/*
   End of Welcome
   ---===---===---===---===---===---===---===---===---===---
   Start of Intrest
 */
-.chooseInterestWrapper {
-	display: grid;
-	grid-row: 0fr 1fr 0fr 1fr;
-}
-.interestSelected {
-	background-color: var(--dark-purple);
-	color: white;
-}
-.interestText {
-	height: 8vw;
-}
-.selectedInterestTitle {
-	display: flex;
-	align-items: center;
-	text-align: center;
-	color: var(--dark-purple);
-	font-family: "Tomorrow-MediumItalic";
-	font-size: var(--m-text);
-}
-.selectedInterestTitle hr {
-	flex-grow: 1;
-	border: var(--border-width) solid var(--dark-purple);
-}
-.selectedInterestTitle span {
-	margin: 1em;
-}
-.selectedInterestList {
-	display: grid;
-	place-items: center;
-	height: 8vw;
-}
-.notSelectedInterestTitle {
-	display: flex;
-	align-items: center;
-	font-size: var(--m-text);
-	font-family: "Tomorrow-MediumItalic";
-	color: var(--medium-green);
-	text-align: center;
-}
-.notSelectedInterestTitle hr {
-	flex-grow: 1;
-	border: var(--border-width) solid var(--medium-green);
-}
-.notSelectedInterestTitle span {
-	margin: 1em;
-}
-.notSelectedInterestList {
-	display: grid;
-	place-items: center;
-	height: 8vw;
-}
-.interestRow {
-	display: flex;
-}
-.row1 {
-	display: flex;
-	justify-content: center;
-}
-.selectedRow2 {
-	display: flex;
-	justify-content: center;
-}
-.interestItem {
-	width: 13vw;
-}
-.iconText {
-	font-size: var(--m-text);
-	font-family: "Tomorrow-MediumItalic";
-	font-style: italic;
-	color: var(--extra-light-green);
-}
-.notSelectedButton {
-	width: 13vw;
-	height: 3vw;
-	background-color: var(--medium-green);
-	cursor: pointer;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	border: none;
-}
-.selectedButton {
-	box-sizing: border-box;
-	width: 13vw;
-	height: 4vw;
-	background-color: var(--dark-purple);
-	cursor: pointer;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	border: none;
-}
-.notSelectedButton:hover {
-	filter: drop-shadow(0 4px 0 var(--dark-purple));
-	border-color: var(--dark-purple);
-}
-.selectedButton:hover {
-	filter: drop-shadow(0 4px 0 var(--medium-green));
-	border-color: var(--medium-green);
-}
-.notSelectedButton:hover .iconText {
-	color: var(--dark-purple);
-}
-.selectedButton:hover .iconText {
-	color: var(--medium-green);
-}
-.placeholderInterest {
-	box-sizing: border-box;
-	width: 13vw;
-	height: 3vw;
-	
-	border: dotted var(--dark-purple) var(--border-width);
-}
-.interestInputWrapper {
-	display: grid;
-	grid-template-columns: 6fr 0fr;
-	width: 50%;
-	max-width: fit-content;
-	margin: 1vw auto 0;
-}
-.recommendationButtonWrapper {
-	cursor: pointer;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-	margin-left: auto;
-	margin-right: auto;
-	/*display: flex;
-	align-items: center;*/
-	transition: 0.5s;
-}
-.recommendationButtonWrapper p {
-	font-size: var(--l-text);
-	font-family: "Tomorrow-Medium";
-	color: var(--dark-purple);
-	margin: 1vw;
-}
-.recommendationButtonWrapper hr {
-	flex-grow: 1;
-	border: var(--border-width) solid var(--medium-green);
-}
-.recommendationButtonLine {
-	flex-grow: 1;
-	border: var(--border-width) solid var(--medium-green);
-}
-/* Styling for the 'find my dream education' button, with locked properties */
-.dreamEducationButton {
-	height: inherit;
-	background-color: var(--extra-light-green);
-	border: none;
-	border-radius: 1vw;
-	cursor: pointer;
-}
-.dreamEducationButton p {
-	font-family: "Tomorrow-Medium";
-	color: transparent;
-	-webkit-text-stroke: 0.05vw var(--medium-green);
-	font-size: var(--l-text);
-}
-.dreamEducationButton:not(.locked) p {
-	color: var(--dark-purple);
-	-webkit-text-stroke: 0;
-}
-.dreamEducationButton:not(.locked):hover p {
-	text-shadow: 2px 1px var(--medium-green-shadow);
-}
-.dreamEducationButton:active p {
-	text-shadow: none;
-}
-/* Interests fade-in and fade-out animations */
-.fadeInSelected {
-	animation-name: inAnimationSelected;
-	animation-duration: 500ms;
-	animation-timing-function: ease-in;
-}
-.fadeInNew {
-	animation-name: inAnimationNew;
-	animation-duration: 1000ms;
-	animation-timing-function: ease-in;
-}
-.fadeOut {
-	animation-fill-mode: forwards;
-	animation-name: outAnimation;
-	animation-duration: 300ms;
-	animation-timing-function: ease-out;
-}
-@keyframes inAnimationSelected {
-	0% {
-		transform: scale(0);
-		opacity: 0;
+	.chooseInterestWrapper {
+		display: grid;
+		grid-template-rows: 0fr 1fr 0fr 1fr 0fr 1fr;
+		width: 100%;
+		margin: 2vw auto 0;
 	}
-	60% {
-		opacity: 1;
-		transform: scale(1.1);
+	.interestSelected {
+		background-color: var(--dark-purple);
+		color: white;
 	}
-	100% {
-		transform: scale(1);
+	.interestText {
+		height: 8vw;
 	}
-}
-@keyframes inAnimationNew {
-	0% {
-		transform: scale(0);
-		opacity: 0;
+	.selectedInterestTitle {
+		display: flex;
+		align-items: center;
+		text-align: center;
+		color: var(--dark-purple);
+		font-family: "Tomorrow-MediumItalic";
+		font-size: var(--m-text);
 	}
-	50% {
-		opacity: 0;
-		transform: scale(0);
+	.selectedInterestTitle hr {
+		flex-grow: 1;
+		border: var(--border-width) solid var(--dark-purple);
 	}
-	80% {
-		opacity: 1;
-		transform: scale(1.1);
+	.selectedInterestTitle span,
+	.notSelectedInterestTitle span {
+		margin: 0.5em;
 	}
-	100% {
-		transform: scale(1);
+	.selectedInterestList {
+		display: grid;
+		place-items: center;
+		height: 8vw;
 	}
-}
-@keyframes outAnimation {
-	0% {
-		opacity: 1;
+	.notSelectedInterestTitle {
+		display: flex;
+		align-items: center;
+		font-size: var(--m-text);
+		font-family: "Tomorrow-MediumItalic";
+		color: var(--medium-green);
+		text-align: center;
 	}
-	20% {
-		transform: scale(1.1);
+	.notSelectedInterestTitle hr {
+		flex-grow: 1;
+		border: var(--border-width) solid var(--medium-green);
 	}
-	100% {
-		opacity: 0;
-		transform: scale(0);
+	.notSelectedInterestList {
+		display: grid;
+		place-items: center;
+		height: 8vw;
 	}
-}
-.refreshButton,
-.refreshButton::before,
-.refreshButton::after {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	box-sizing: border-box;
-	width: 100%;
-	height: 100%;
-	padding: 4px;
-	background-color: var(--medium-green);
-	border: var(--border-width) solid var(--medium-green-shadow);
-	
-}
-.refreshButton:hover {
-	cursor: pointer;
-	background-color: var(--medium-green-shadow);
-	transition: background-color 200ms;
-}
-.refreshIcon {
-	width: 100%;
-	height: 100%;
-	fill: var(--extra-light-green);
-}
-.refreshAnimation {
-	animation: spin 500ms ease-in-out;
-}
-@keyframes spin {
-	100% {
-		-webkit-transform: rotate(360deg);
-		transform: rotate(360deg);
+	.interestRow {
+		display: flex;
 	}
-}
-/*
+	.row1 {
+		display: flex;
+		justify-content: center;
+	}
+	.selectedRow2 {
+		display: flex;
+		justify-content: center;
+	}
+	.interestItem {
+		width: 13vw;
+	}
+	.iconText {
+		font-size: var(--m-text);
+		font-family: "Tomorrow-MediumItalic";
+		color: var(--extra-light-green);
+	}
+	.notSelectedButton {
+		width: 13vw;
+		height: 3vw;
+		background-color: var(--medium-green);
+		cursor: pointer;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		border: none;
+	}
+	.selectedButton {
+		box-sizing: border-box;
+		width: 13vw;
+		height: 3vw;
+		background-color: var(--dark-purple);
+		cursor: pointer;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		border: none;
+	}
+	.notSelectedButton:hover {
+		filter: drop-shadow(0 4px 0 var(--dark-purple));
+		border-color: var(--dark-purple);
+	}
+	.selectedButton:hover {
+		filter: drop-shadow(0 4px 0 var(--medium-green));
+		border-color: var(--medium-green);
+	}
+	.notSelectedButton:hover .iconText {
+		color: var(--dark-purple);
+	}
+	.selectedButton:hover .iconText {
+		color: var(--medium-green);
+	}
+	.placeholderInterest {
+		box-sizing: border-box;
+		width: 13vw;
+		height: 3vw;
+
+		border: dotted var(--dark-purple) var(--border-width);
+	}
+	.interestInputWrapper {
+		display: grid;
+		grid-template-columns: 6fr 0fr;
+		width: 50%;
+		max-width: fit-content;
+		margin: 1vw auto 0;
+	}
+	.recommendationButtonWrapper {
+		cursor: pointer;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		margin: 0 auto;
+		transition: 0.5s;
+	}
+	.recommendationButtonWrapper p {
+		font-size: var(--l-text);
+		font-family: "Tomorrow-Medium";
+		color: var(--dark-purple);
+		margin: 1vw;
+	}
+	.recommendationButtonWrapper hr {
+		flex-grow: 1;
+		border: var(--border-width) solid var(--medium-green);
+	}
+	.recommendationButtonLine {
+		flex-grow: 1;
+		border: var(--border-width) solid var(--medium-green);
+	}
+	/* Styling for the 'find my dream education' button, with locked properties */
+	.dreamEducationButton {
+		height: inherit;
+		background-color: var(--extra-light-green);
+		border: none;
+		border-radius: 1vw;
+		cursor: pointer;
+	}
+	.dreamEducationButton p {
+		font-family: "Tomorrow-Medium";
+		color: transparent;
+		-webkit-text-stroke: 0.05vw var(--medium-green);
+		font-size: var(--l-text);
+	}
+	.dreamEducationButton:not(.locked) p {
+		color: var(--dark-purple);
+		-webkit-text-stroke: 0;
+	}
+	.dreamEducationButton:not(.locked):hover p {
+		text-shadow: 2px 1px var(--medium-green-shadow);
+	}
+	.dreamEducationButton:active p {
+		text-shadow: none;
+	}
+	/* Interests fade-in and fade-out animations */
+	.fadeInSelected {
+		animation-name: inAnimationSelected;
+		animation-duration: 500ms;
+		animation-timing-function: ease-in;
+	}
+	.fadeInNew {
+		animation-name: inAnimationNew;
+		animation-duration: 1000ms;
+		animation-timing-function: ease-in;
+	}
+	.fadeOut {
+		animation-fill-mode: forwards;
+		animation-name: outAnimation;
+		animation-duration: 300ms;
+		animation-timing-function: ease-out;
+	}
+	@keyframes inAnimationSelected {
+		0% {
+			transform: scale(0);
+			opacity: 0;
+		}
+		60% {
+			opacity: 1;
+			transform: scale(1.1);
+		}
+		100% {
+			transform: scale(1);
+		}
+	}
+	@keyframes inAnimationNew {
+		0% {
+			transform: scale(0);
+			opacity: 0;
+		}
+		50% {
+			opacity: 0;
+			transform: scale(0);
+		}
+		80% {
+			opacity: 1;
+			transform: scale(1.1);
+		}
+		100% {
+			transform: scale(1);
+		}
+	}
+	@keyframes outAnimation {
+		0% {
+			opacity: 1;
+		}
+		20% {
+			transform: scale(1.1);
+		}
+		100% {
+			opacity: 0;
+			transform: scale(0);
+		}
+	}
+	.refreshButton,
+	.refreshButton::before,
+	.refreshButton::after {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		box-sizing: border-box;
+		width: 100%;
+		height: 100%;
+		padding: 4px;
+		background-color: var(--medium-green);
+		border: var(--border-width) solid var(--medium-green-shadow);
+	}
+	.refreshButton:hover {
+		cursor: pointer;
+		background-color: var(--medium-green-shadow);
+		transition: background-color 200ms;
+	}
+	.refreshIcon {
+		width: 100%;
+		height: 100%;
+		fill: var(--extra-light-green);
+	}
+	.refreshAnimation {
+		animation: spin 500ms ease-in-out;
+	}
+	@keyframes spin {
+		100% {
+			-webkit-transform: rotate(360deg);
+			transform: rotate(360deg);
+		}
+	}
+	/*
   End of Intrest
  ---===---===---===---===---===---===---===---===---===---
   Start of Recommendation
 */
-.chooseInterestWrapper,
-.recommendedWrapper,
-.gradeWrapper {
-	position: relative;
-	width: 80%;
-	margin: 1vw auto 0;
-}
-.loadingGIF {
-	display: grid;
-	grid-column: 1 / span 5;
-}
-.loadingGIF img {
-	display: block;
-	width: 10vw;
-	margin: 1vw auto 0;
-}
-.showInterestBox {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	margin-top: 0 auto;
-}
-.interestReq {
-	padding: 0.5em 1em;
-	background-color: var(--medium-green);
-	border: var(--border-width);
-	font-size: var(--s-text);
-	font-family: "Tomorrow-MediumItalic";
-	color: var(--extra-light-green);
-}
-.recommendedWrapper p,
-.recommendedWrapper a {
-	text-align: left;
-	line-height: 1em;
-}
-.recommendedBox,
-.gradeBox {
-	position: relative;
-	margin-top: 1vw;
-	padding: 0.4vw 0.8vw;
-	background-color: var(--light-green);
-	border: var(--border-width) solid var(--dark-purple);
-	border-color: var(--dark-purple);
-	
-}
-.recommendedHead {
-	margin-bottom: 0.5em;
-}
-.tilteReq {
-	font-size: var(--m-text);
-	font-family: "Tomorrow-SemiBold" !important;
-	color: var(--dark-purple);
-}
-.wildcard * .tilteReq {
-	max-width: 90% !important;
-}
-.wildcardText {
-	font-family: "Tomorrow-Medium";
-	text-align: right !important;
-	position: absolute;
-	padding: 0.4vw 0.8vw;
-	top: 0;
-	right: 0;
-	font-size: var(--s-text);
-}
-.wildcardBubble {
-	z-index: -2;
-	display: none;
-	position: absolute;
-	top: 0;
-	left: 100%;
-	background-color: #f0f0f0;
-	padding: 10px;
-	border: var(--border-width) solid #ccc;
-	
-}
-.wildcardText:hover + .wildcardBubble {
-	display: block;
-}
-.wildcard {
-	background: linear-gradient(-50deg, var(--light-purple) 40%, #f0f0f0 50%, var(--light-purple) 60%);
-	background-size: 300%;
-	background-position-x: 100%;
-	animation: shimmer 4s infinite linear;
-}
-@keyframes shimmer {
-	to {
-		background-position-x: 0%;
+	.recommendedWrapper,
+	.gradeWrapper {
+		position: relative;
+		width: 80%;
+		margin: 1vw auto 0;
 	}
-}
-.wildcard * {
-	color: var(--dark-purple) !important;
-	border-color: var(--dark-purple) !important;
-}
-.descriptionReq,
-.gradeStyle,
-.reqDescription,
-.reqDescriptionContent,
-.reqDescriptionDescription,
-.gradeStyle {
-	font-size: var(--s-text);
-	font-family: "Tomorrow-Medium";
-}
-.descriptionReq,
-.gradeStyle {
-	display: inline-block;
-	margin-top: 0.4em;
-	color: var(--medium-green-shadow);
-}
-.schoolReq,
-.degreeReq,
-.pointsReq,
-.reqDescriptionLink,
-.courseNameGrade,
-.courseNameGradeGrade,
-.coursePointsGrade {
-	margin-right: 0.5em;
-	padding-right: 0.5em;
-	border-right: var(--border-width) solid var(--medium-green);
-}
-.reqDescriptionBox {
-	margin-bottom: 0.4em;
-	padding: 0 1vw 0.5vw 1vw;
-	border: var(--border-width) dashed var(--medium-green);
-	
-}
-.reqDescription {
-	display: inline-block;
-	color: var(--dark-purple);
-	white-space: nowrap;
-}
-.reqDescriptionLink {
-	text-decoration-color: var(--dark-purple);
-	text-decoration: underline;
-}
-.reqDescriptionContent {
-	margin-top: 0.25em;
-	font-family: "Tomorrow-Regular" !important;
-	color: var(--medium-green-shadow);
-}
-.recommendedFoot {
-	display: flex;
-}
-.showDescription {
-	display: flex;
-	width: 100%;
-	background-color: inherit;
-	border: 0;
-}
-.arrow {
-	height: 1vw;
-	margin: 0 auto;
-	transition: transform 0.5s ease-in;
-}
-.expandArrow {
-	transform: rotate(0deg);
-}
-.contractArrow {
-	transform: rotate(180deg);
-}
-.showDescription p {
-	padding-left: 0.5em;
-}
-/*
+	.loadingGIF {
+		display: grid;
+		grid-column: 1 / span 5;
+	}
+	.loadingGIF img {
+		display: block;
+		width: 10vw;
+		margin: 1vw auto 0;
+	}
+	.showInterestBox {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		margin-top: 0 auto;
+	}
+	.interestReq {
+		padding: 0.5em 1em;
+		background-color: var(--medium-green);
+		border: var(--border-width);
+		font-size: var(--s-text);
+		font-family: "Tomorrow-MediumItalic";
+		color: var(--extra-light-green);
+	}
+	.recommendedWrapper p,
+	.recommendedWrapper a {
+		text-align: left;
+		line-height: 1em;
+	}
+	.recommendedBox,
+	.gradeBox {
+		position: relative;
+		margin-top: 1vw;
+		padding: 0.4vw 0.8vw;
+		background-color: var(--light-green);
+		border: var(--border-width) solid var(--dark-purple);
+		border-color: var(--dark-purple);
+	}
+	.recommendedHead {
+		margin-bottom: 0.5em;
+	}
+	.tilteReq {
+		font-size: var(--m-text);
+		font-family: "Tomorrow-SemiBold" !important;
+		color: var(--dark-purple);
+	}
+	.wildcard * .tilteReq {
+		max-width: 90% !important;
+	}
+	.wildcardText {
+		font-family: "Tomorrow-Medium";
+		text-align: right !important;
+		position: absolute;
+		padding: 0.4vw 0.8vw;
+		top: 0;
+		right: 0;
+		font-size: var(--s-text);
+	}
+	.wildcardBubble {
+		z-index: -2;
+		display: none;
+		position: absolute;
+		top: 0;
+		left: 100%;
+		background-color: #f0f0f0;
+		padding: 10px;
+		border: var(--border-width) solid #ccc;
+	}
+	.wildcardText:hover + .wildcardBubble {
+		display: block;
+	}
+	.wildcard {
+		background: linear-gradient(-50deg, var(--light-purple) 40%, #f0f0f0 50%, var(--light-purple) 60%);
+		background-size: 300%;
+		background-position-x: 100%;
+		animation: shimmer 4s infinite linear;
+	}
+	@keyframes shimmer {
+		to {
+			background-position-x: 0%;
+		}
+	}
+	.wildcard * {
+		color: var(--dark-purple) !important;
+		border-color: var(--dark-purple) !important;
+	}
+	.descriptionReq,
+	.gradeStyle,
+	.reqDescription,
+	.reqDescriptionContent,
+	.reqDescriptionDescription,
+	.gradeStyle {
+		font-size: var(--s-text);
+		font-family: "Tomorrow-Medium";
+	}
+	.descriptionReq,
+	.gradeStyle {
+		display: inline-block;
+		margin-top: 0.4em;
+		color: var(--medium-green-shadow);
+	}
+	.schoolReq,
+	.degreeReq,
+	.pointsReq,
+	.reqDescriptionLink,
+	.courseNameGrade,
+	.courseNameGradeGrade,
+	.coursePointsGrade {
+		margin-right: 0.5em;
+		padding-right: 0.5em;
+		border-right: var(--border-width) solid var(--medium-green);
+	}
+	.reqDescriptionBox {
+		margin-bottom: 0.4em;
+		padding: 0 1vw 0.5vw 1vw;
+		border: var(--border-width) dashed var(--medium-green);
+	}
+	.reqDescription {
+		display: inline-block;
+		color: var(--dark-purple);
+		white-space: nowrap;
+	}
+	.reqDescriptionLink {
+		text-decoration-color: var(--dark-purple);
+		text-decoration: underline;
+	}
+	.reqDescriptionContent {
+		margin-top: 0.25em;
+		font-family: "Tomorrow-Regular" !important;
+		color: var(--medium-green-shadow);
+	}
+	.recommendedFoot {
+		display: flex;
+	}
+	.showDescription {
+		display: flex;
+		width: 100%;
+		background-color: inherit;
+		border: 0;
+	}
+	.arrow {
+		height: 1vw;
+		margin: 0 auto;
+		transition: transform 0.5s ease-in;
+	}
+	.expandArrow {
+		transform: rotate(0deg);
+	}
+	.contractArrow {
+		transform: rotate(180deg);
+	}
+	.showDescription p {
+		padding-left: 0.5em;
+	}
+	/*
   End of Recommendation
   ---===---===---===---===---===---===---===---===---===---
 	Start of Count
 */
-.gradeInputWrapper {
-	display: grid;
-	grid-template-columns: 1.2fr 0.7fr 0.7fr 0fr 0.7fr;
-	width: 70%;
-	max-width: fit-content;
-	margin: 3vw auto 0;
-}
-.pointWrapper {
-	display: flex;
-	width: calc(100% - 2 * var(--border-width));
-	background-color: var(--medium-green-shadow);
-}
-.pointOutput {
-	margin: auto;
-	font-size: calc(var(--text-form-height) * 0.7);
-	font-family: "Tomorrow-MediumItalic";
-	color: var(--extra-light-green);
-}
-.gradeWrapper {
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	width: 80% !important;
-}
-.gradeBox {
-	display: flex;
-	margin: 0 !important;
-}
-.courseNameGrade {
-	overflow-wrap: break-word;
-	flex: 3;
-	text-align: left;
-}
-.coursePointsGrade,
-.gradeGrade {
-	flex: 1;
-	text-align: left;
-}
-/*
+	.gradeInputWrapper {
+		display: grid;
+		grid-template-columns: 1.2fr 0.7fr 0.7fr 0fr 0.7fr;
+		width: 70%;
+		max-width: fit-content;
+		margin: 3vw auto 0;
+	}
+	.pointWrapper {
+		display: flex;
+		width: calc(100% - 2 * var(--border-width));
+		background-color: var(--medium-green-shadow);
+	}
+	.pointOutput {
+		margin: auto;
+		font-size: calc(var(--text-form-height) * 0.7);
+		font-family: "Tomorrow-MediumItalic";
+		color: var(--extra-light-green);
+	}
+	.gradeWrapper {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		width: 80% !important;
+	}
+	.gradeBox {
+		display: flex;
+		margin: 0 !important;
+	}
+	.courseNameGrade {
+		overflow-wrap: break-word;
+		flex: 3;
+		text-align: left;
+	}
+	.coursePointsGrade,
+	.gradeGrade {
+		flex: 1;
+		text-align: left;
+	}
+	/*
 	End of Count
   ---===---===---===---===---===---===---===---===---===---
   Start of Footer
 */
-/* Footer dimetionns and postion*/
-footer {
-	position: fixed;
-	z-index: 10;
-	bottom: 0;
-	width: 98%;
-	height: 4vw;
-	padding: 0 1vw 1vw 1vw;
-	background-color: var(--extra-light-green);
-	font-size: var(--m-text);
-}
-/* Footer navbar annd line dimentions and position */
-.footerLeft {
-	width: 82%;
-}
-/* Dividing line footer */
-.footerLine {
-	height: 0.4vh;
-	background-color: var(--dark-purple);
-}
-/* Navbar wrapper */
-.footerListDiv {
-	margin-right: 2%;
-	margin-left: 3%;
-}
-/* Footer navbar grid */
-.footerList {
-	display: flex;
-	justify-content: space-between;
-	margin-top: 1.5vw;
-	list-style: none;
-}
-/* Class for the alternatives "Hitta program", "Räkna antagningspoäng", "Se behörighetskrav", and "Om oss" */
-.siteNavigation {
-	font-family: "Tomorrow-Medium";
-	color: var(--medium-green);
-}
-/* Text logo wrapper dimension and position */
-.footerLogoDiv p {
-	position: fixed;
-	bottom: 0;
-	right: 1vw;
-	cursor: default;
-	font-size: var(--xxl-text);
-	color: var(--dark-purple);
-}
-/*
+	/* Footer dimetionns and postion*/
+	footer {
+		position: fixed;
+		z-index: 10;
+		bottom: 0;
+		width: 98%;
+		height: 4vw;
+		padding: 0 1vw 1vw 1vw;
+		background-color: var(--extra-light-green);
+		font-size: var(--m-text);
+	}
+	/* Footer navbar annd line dimentions and position */
+	.footerLeft {
+		width: 82%;
+	}
+	/* Dividing line footer */
+	.footerLine {
+		height: 0.4vh;
+		background-color: var(--dark-purple);
+	}
+	/* Navbar wrapper */
+	.footerListDiv {
+		margin-right: 2%;
+		margin-left: 3%;
+	}
+	/* Footer navbar grid */
+	.footerList {
+		display: flex;
+		justify-content: space-between;
+		margin-top: 1.5vw;
+		list-style: none;
+	}
+	/* Class for the alternatives "Hitta program", "Räkna antagningspoäng", "Se behörighetskrav", and "Om oss" */
+	.siteNavigation {
+		font-family: "Tomorrow-Medium";
+		color: var(--medium-green);
+	}
+	/* Text logo wrapper dimension and position */
+	.footerLogoDiv p {
+		position: fixed;
+		bottom: 0;
+		right: 1vw;
+		cursor: default;
+		font-size: var(--xxl-text);
+		color: var(--dark-purple);
+	}
+	/*
   End of Footer
   ---===---===---===---===---===---===---===---===---===---
 */
