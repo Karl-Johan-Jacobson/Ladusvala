@@ -13,6 +13,8 @@ const openai = new OpenAI({
 	apiKey: process.env.OPENAI_API_KEY, 
 });
 
+var testCounterForPrint = 0;
+var testTotalTokensForPrint = 0;
 //The only function called from frontend
 //returns the ai selected programs or throws an error
 export async function getRecommendations(selectedInterest: string[]): Promise<Program[]> {
@@ -46,6 +48,7 @@ export async function getRecommendations(selectedInterest: string[]): Promise<Pr
 		const finalProgramsId: number[] | undefined = await finalCallToAi(interestProfile, selectedPrograms);
 		const endTime3 = Date.now();
 		const duration3 = endTime3 - startTime3;
+		
 		console.log(`Time taken final call: ${duration3} milliseconds`);
 		if (finalProgramsId) {
 			const startTime5 = Date.now();
@@ -53,13 +56,13 @@ export async function getRecommendations(selectedInterest: string[]): Promise<Pr
 			const endTime5 = Date.now();
 			const duration5 = endTime5 - startTime5;
 			console.log(`Time taken to get id: ${duration5} milliseconds`);
+			console.log(`Total token for all calls: ${testTotalTokensForPrint}`)
 			return finalPrograms;
 		}
 		else{
 			throw new Error("Error occurred Ai can not filter the final results");
 		}
 		
-		return [];
 	} catch (error) {
 		console.error("Error occurred:", error);
 		throw new Error("Error occurred Ai can not get recommendations");
@@ -68,7 +71,7 @@ export async function getRecommendations(selectedInterest: string[]): Promise<Pr
 
 async function getProfile (interestAsString: string): Promise<string>{
 
-	const content = `Det här är mina intressen \n ${interestAsString} \n Jag vill att du beskriver min intresse profil i några meningar. Det är viktigt att min intresseprofil ska kunna matcha högskoleutbildningar`
+	const content = `Det här är mina intressen \n ${interestAsString} \n Jag vill att du beskriver min intresse profil i några meningar.`
 	// Make a prompt format
 	const questionToAi: ChatCompletionMessageParam = {
 		role: "user",
@@ -82,6 +85,8 @@ async function getProfile (interestAsString: string): Promise<string>{
 	});
 
 	const response = completion as ChatCompletion;
+
+	if(response.usage?.total_tokens) testTotalTokensForPrint += response.usage?.total_tokens; 
 
 	console.log(response.choices[0].message.content);
 
@@ -149,13 +154,17 @@ async function recommendProgramFromInterest(content: string) {
 	const response = completion as ChatCompletion;
 	// save the answer to a varible to find the IDs
 
+	if(response.usage?.total_tokens) testTotalTokensForPrint += response.usage?.total_tokens; 
 
 	try {
 		const parsedObject = JSON.parse(response.choices[0].message.content as string);
 		// Extract programIds from the 'programs' array
 		const programIds: number[] = parsedObject.programs.map((obj: { programId: string }) => parseInt(obj.programId, 10));
-		parsedObject.programs.map((obj: { programId: string, wildcard: string }) => console.log("programId: " + obj.programId, "wildcard: " + obj.wildcard));
-		console.log("\n" + "\n" + "\n");
+		if(testCounterForPrint++ == 5){
+			parsedObject.programs.map((obj: { programId: string, wildcard: string }) => console.log("programId: " + obj.programId, "wildcard: " + obj.wildcard));
+			console.log("\n" + "\n" + "\n");
+		}
+
 		return programIds;
 	} catch (error) {
 		console.error("Error parsing JSON:", error);
@@ -170,9 +179,9 @@ async function callOpenaiInParts(interestProfile: string, allPrograms: Program[]
 	try {
 		shuffleArray(allPrograms);
 		const arrayLength = allPrograms.length;
-		const partition = Math.ceil(arrayLength / 5);
+		const partition = Math.ceil(arrayLength / 4);
 
-		const promiseArray = Array.from({ length: 5 }, async (_, i) => {
+		const promiseArray = Array.from({ length: 4 }, async (_, i) => {
 			const startIndex = i * partition;
 			const endIndex = Math.min((i + 1) * partition, arrayLength);
 			const slicedPrograms = allPrograms.slice(startIndex, endIndex);
