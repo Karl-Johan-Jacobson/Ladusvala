@@ -5,6 +5,8 @@ import { ChatCompletion, ChatCompletionMessageParam } from "openai/resources/ind
 import programsJson from "@/public/dataset/programs.json";
 import Program from "@/types/program";
 import { ChatCompletionCreateParamsBase } from "openai/resources/chat/completions.mjs";
+import { resolve } from "path";
+
 
 
 const openai = new OpenAI({
@@ -17,23 +19,40 @@ export async function getRecommendations(selectedInterest: string[]): Promise<Pr
 
 	try {
 		//console.log("array : " + selectedInterest);
-		
+		const startTime = Date.now();
 		const allPorgrams: Program[] = await fetchAllProgramsJson();
 		const interestAsString: string = turnInterestToPrompt(selectedInterest);
 		const interestProfile = await getProfile(interestAsString);
+		const endTime = Date.now();
+		const duration = endTime - startTime;
+		console.log(`Time taken first call ${duration} milliseconds`);
 		//console.log("string: " + interestAsString);
 		//get id number form ai, if ai fails, set as an empty array
-		
+		const startTime2 = Date.now();
 		const idNumbers: number[] | undefined = await callOpenaiInParts(interestProfile, allPorgrams);
-
+		const endTime2 = Date.now();
+		const duration2 = endTime2 - startTime2;
+		console.log(`Time taken concurrent call: ${duration2} milliseconds`);
 		//get the programs for last call
+		const startTime4 = Date.now();
 		const selectedPrograms: Program[] = getProgramsFromId(idNumbers || [], allPorgrams);
-
+		const endTime4 = Date.now();
+		const duration4 = endTime4 - startTime4;
+		console.log(`Time taken to get id: ${duration4} milliseconds`);
 		//get the final recommendations
-		const finalProgramsId: number[] | undefined = await finalCallToAi(interestProfile, selectedPrograms);
 
+		
+		const startTime3 = Date.now();
+		const finalProgramsId: number[] | undefined = await finalCallToAi(interestProfile, selectedPrograms);
+		const endTime3 = Date.now();
+		const duration3 = endTime3 - startTime3;
+		console.log(`Time taken final call: ${duration3} milliseconds`);
 		if (finalProgramsId) {
+			const startTime5 = Date.now();
 			const finalPrograms: Program[] = getProgramsFromId(finalProgramsId, allPorgrams);
+			const endTime5 = Date.now();
+			const duration5 = endTime5 - startTime5;
+			console.log(`Time taken to get id: ${duration5} milliseconds`);
 			return finalPrograms;
 		}
 		else{
@@ -63,6 +82,8 @@ async function getProfile (interestAsString: string): Promise<string>{
 	});
 
 	const response = completion as ChatCompletion;
+
+	console.log(response.choices[0].message.content);
 
 	return response.choices[0].message.content ? response.choices[0].message.content : "";
 
@@ -99,7 +120,7 @@ function createChatCompletionMessage(content: string): ChatCompletionCreateParam
 
 	const systemMessage: ChatCompletionMessageParam = {
 		role: "system",
-		content: "Du är en studievägledare som ska rekommendera de bäst utbildningsprogram utifrån mina intressen, du lägger ingen värdering i studentens intressen. Det är viktigt att utbildningarna matchar mina intressen strikt. Du ska svara med JSON object, med två fält programId och Motivation. Du måste svara med formatet [programs: [{programId: string, Motivation: string}]]"
+		content: "Du är en studievägledare som ska rekommendera de bäst utbildningsprogram utifrån mina intressen, du lägger ingen värdering i studentens intressen. Det är viktigt att utbildningarna matchar mina intressen strikt. Du ska svara med JSON object, med två fält programId och wildcard. Du måste svara med formatet [programs: [{programId: string, wildcard: string}]]"
 
 };
 
@@ -133,7 +154,7 @@ async function recommendProgramFromInterest(content: string) {
 		const parsedObject = JSON.parse(response.choices[0].message.content as string);
 		// Extract programIds from the 'programs' array
 		const programIds: number[] = parsedObject.programs.map((obj: { programId: string }) => parseInt(obj.programId, 10));
-		parsedObject.programs.map((obj: { programId: string, Motivation: string }) => console.log("programId: " + obj.programId + " Motivation: " + obj.Motivation));
+		parsedObject.programs.map((obj: { programId: string, wildcard: string }) => console.log("programId: " + obj.programId, "wildcard: " + obj.wildcard));
 		console.log("\n" + "\n" + "\n");
 		return programIds;
 	} catch (error) {
@@ -156,7 +177,7 @@ async function callOpenaiInParts(interestProfile: string, allPrograms: Program[]
 			const endIndex = Math.min((i + 1) * partition, arrayLength);
 			const slicedPrograms = allPrograms.slice(startIndex, endIndex);
 			const partialProgramString = turnProgramToPrompt(slicedPrograms);
-			const content: string = `Det här är mina intressen: \n ${interestProfile} \n och det här är beskrivning på utbildningsprogram \n ${partialProgramString} \n Jag vill att du väljer tio utbildningsprogram som matchar min intressen strikt. Du ska bara svara med programId`;
+			const content: string = `Det här är mina intressen: \n ${interestProfile} \n och det här är beskrivning på utbildningsprogram \n ${partialProgramString} \n Jag vill att du väljer tio utbildningsprogram som matchar min intressen strikt. Du ska bara svara med programId, lämna wildcard fältet tomt`;
 			return recommendProgramFromInterest(content);
 		});
 		const results = await Promise.all(promiseArray);
@@ -168,7 +189,10 @@ async function callOpenaiInParts(interestProfile: string, allPrograms: Program[]
 			}
 		});
 
-		return programIds;
+		const selectedProgram = getProgramsFromId(programIds, allPrograms);
+		const finalProgramsId = finalCallToAi(interestProfile, selectedProgram);
+
+		return finalProgramsId;
 	} catch (error) {
 		console.error("Error occurred:", error);
 	}
@@ -177,10 +201,14 @@ async function callOpenaiInParts(interestProfile: string, allPrograms: Program[]
 async function finalCallToAi(interestProfile: string, selectedProgram: Program[]){
 	try{
 	const programAsString: string = turnProgramToPrompt(selectedProgram);
-	const content: string = `${interestProfile}  \n och det här är beskrivningen på alla utbildningsprogram jag kan välja mellan  ${programAsString}. Du ska rekommendera åtminstone 10 utbildningar. Rangordna så att det mest relevanta utbildningsprogramet är först. Jag vill att du motiverar först varför du valde programmet och sen skriver in program id. Det ä viktigt att utbildningarna matchar mina intressen väldigt strikt.`;
-	console.log("whole content string final: " + content);
+	//const content: string = `${interestProfile}  \n och det här är beskrivningen på alla utbildningsprogram jag kan välja mellan  ${programAsString}. Du ska rekommendera åtminstone 10 utbildningar. Rangordna så att det mest relevanta utbildningsprogramet är först. Jag vill att du motiverar först varför du valde programmet och sen skriver in program id. Det ä viktigt att utbildningarna matchar mina intressen väldigt strikt. I slutet vill jag att du även skriver vilken procentuell matchning utbildningen är med mina intressen skriv det i slutet av motiveringen`;
+	const content: string = `${interestProfile}  \n och det här är beskrivningen på alla utbildningsprogram jag kan välja mellan  ${programAsString}. Du ska rekommendera åtminstone 10 utbildningar. Rangordna så att det mest relevanta utbildningsprogramet är först. Jag vill att du svarar med programId. Om det finns program som matchar mina intressen måttligt sätt wildcard fältet till true. Du måste rekommendera åtminstone ett wildcard och som mest tre wildcards.`;
+
+	//("whole content string final: " + content);
+	
 	const finalProgramsId : number[] = await recommendProgramFromInterest(content) || []
 	//console.log("final numbers: " + finalProgramsId);
+	
 	return finalProgramsId;
 	}
 	catch(error) {
