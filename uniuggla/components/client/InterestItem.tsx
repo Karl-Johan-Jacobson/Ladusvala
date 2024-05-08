@@ -2,7 +2,6 @@
 
 import Interest from "@/types/interest";
 import { useState } from "react";
-import { RandomAnimatedSelectedBlob, RandomAnimatedBlob, RandomBlob } from "../server/Blob";
 
 interface InterestListItemProps {
 	interest: Interest;

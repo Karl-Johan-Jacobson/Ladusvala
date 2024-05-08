@@ -22,7 +22,7 @@ export default function Home() {
 		router.push("/about");
 	}
 	// values for js animations
-	const speed = 40;
+	const speed = 30;
 	const extraButtonDelay = 300;
 
 	// Starting animationn
@@ -60,13 +60,6 @@ export default function Home() {
 				(element as HTMLElement).style.marginTop = newTopMargin;
 			});
 		};
-		// Canges top padding from inital top padding
-		const modifyTopPadding = (newTopPadding: string, htmlClass: string) => {
-			var elements = document.querySelectorAll("." + htmlClass);
-			elements.forEach(function (element) {
-				(element as HTMLElement).style.paddingTop = newTopPadding;
-			});
-		};
 
 		// Canges opacity from inital opacity
 		const modifyOpacity = (newOpacity: string, htmlClass: string) => {
@@ -76,7 +69,13 @@ export default function Home() {
 			});
 		};
 		// Funciton for iniatal js animations
-		var typeWriterDelay = TypewriterForTitle("Hej!<br />Är du redo att hitta din drömutbildning?", "welcomeText");
+		let titelText: string;
+	if (window.innerWidth > 480) {
+		titelText = "Hej!<br />Är du redo att hitta din drömutbildning?";
+	} else {
+		titelText = "Hej!<br />Är du redo att hitta<br />din drömutbildning?";
+	}
+		var typeWriterDelay = TypewriterForTitle(titelText, "welcomeText");
 		const timeoutId = setTimeout(() => {
 			modifyTopMargin("8vw", "answers");
 			modifyOpacity("1", "answers");

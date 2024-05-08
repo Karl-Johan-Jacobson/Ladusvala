@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./mobile_global.css";
 import "./globals.css";
+import "./mobile_global.css";
 import Header from "@/components/server/Header";
 import dynamic from 'next/dynamic';
 

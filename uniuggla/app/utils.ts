@@ -323,7 +323,16 @@ export function aiTypeAnswer(programs: ProgramNameAndId[], htmlClass: string, in
 }
 
 export function handleYesButtonClick(): void {
-	TypewriterForTitle("Berätta vad du har för intressen, så föreslår<br />jag ett par program som kan passa dig! :)", "interestText");
+	let titelText: string;
+	let removeAfter: boolean;
+	if (window.innerWidth > 480) {
+		titelText = "Berätta vad du har för intressen, så föreslår<br />jag ett par program som kan passa dig! :)";
+		removeAfter = false;
+	} else {
+		titelText = "Berätta vad du har<br />för intressen, så<br />föreslår jag ett par program<br />som kan passa dig!";
+		removeAfter = true;
+	}
+	TypewriterForTitle(titelText, "interestText", true, removeAfter);
 	modifyOverflow("visible", "main");
 	removeClass("hide", "interestContainer");
 	scrollToId("interestContainer");
@@ -383,9 +392,14 @@ export async function handleRecommendationButtonClick(interestArr: string[]): Pr
 	});
 	//send it to ai
 	aiResponse(interests, interestArr);
-
+	let removeAfter: boolean;
+	if (window.innerWidth > 480) {
+		removeAfter = false;
+	} else {
+		removeAfter = true;
+	}
 	//Write out the title for recommendations page
-	TypewriterForTitle("Tack! Hmm... låt mig se vad jag kan hitta!", "recommmendationText", true);
+	TypewriterForTitle("Tack! Hmm... låt mig se vad jag kan hitta!", "recommmendationText", true, removeAfter);
 	//move to recommendations page
 	modifyOverflow("visible", "main");
 	removeClass("hide", "recommendationContainer");
@@ -409,6 +423,29 @@ export const modifyTopPaddingRelative = (relativePaddingtop: string, htmlClass: 
 		var currentPaddingTop = window.getComputedStyle(element).paddingTop;
 		var newPaddingTop = "calc(" + currentPaddingTop + " + " + relativePaddingtop + ")";
 		(element as HTMLElement).style.paddingTop = newPaddingTop;
+	});
+};
+
+export const modifyTop = (newTop: string, htmlClass: string) => {
+	var elements = document.querySelectorAll("." + htmlClass);
+	elements.forEach(function (element) {
+		(element as HTMLElement).style.top = newTop;
+	});
+};
+
+export const modifyHeight = (newHeight: string, htmlClass: string) => {
+	var elements = document.querySelectorAll("." + htmlClass);
+	elements.forEach(function (element) {
+		(element as HTMLElement).style.height = newHeight;
+	});
+};
+
+export const modifyHeightRelative = (relativeHeight: string, htmlClass: string) => {
+	var elements = document.querySelectorAll("." + htmlClass);
+	elements.forEach(function (element) {
+		var currentHeight = window.getComputedStyle(element).height;
+		var newHeight = "calc(" + currentHeight + " + " + relativeHeight + ")";
+		(element as HTMLElement).style.height = newHeight;
 	});
 };
 
