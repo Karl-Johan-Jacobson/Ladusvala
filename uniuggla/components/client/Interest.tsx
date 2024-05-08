@@ -24,11 +24,18 @@ export default function Interest({ interests, handleRecommendationButtonClick }:
 	const [notSelected, setNotSelected] = useState<InterestType[]>(interests.filter((_interest, index) => index < NUMBER_OF_INTERESTS));
 
 	// Set 'find my dream education' button as locked unless 4 interests are selected
-	let dreamEducationButtonClass = "dreamEducationButton";
-	if (selectedInterests.length >= 4 && selectedInterests.length <= 11) {
-		dreamEducationButtonClass += " dreamEducationButton";
-	} else {
-		dreamEducationButtonClass += " locked";
+	let dreamEducationButtonClass: string;
+	if (window.innerWidth > 480) {
+		dreamEducationButtonClass = "dreamEducationButton";
+		if (selectedInterests.length < 4 || selectedInterests.length > 11) {
+			dreamEducationButtonClass += " locked";
+		}
+	}
+	else {
+		dreamEducationButtonClass = "dreamEducationButtonInputWrapper";
+		if (selectedInterests.length < 4 || selectedInterests.length > 10) {
+			dreamEducationButtonClass += " locked";
+		}
 	}
 
 	const updateLists = (selectedInterest: InterestType) => {
