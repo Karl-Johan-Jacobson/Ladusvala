@@ -26,7 +26,7 @@ export default function TextCountInput({ inputType, inputPattern, inputPlacehold
 
 	return (
 		<div className="textInputWrapper">
-			<input placeholder="Enter an interest..." type={inputType} pattern={inputPattern} placeholder={inputPlaceholder} value={inputValue} onChange={handleValueChange} required className="textInput" />
+			<input type={inputType} pattern={inputPattern} placeholder={inputPlaceholder} value={inputValue} onChange={handleValueChange} required className="textInput" />
 			<button title="Add interest!" type="submit" className="textButton">
 				<img className="textButtonImg" src={imgSource} alt={altText} />
 			</button>
