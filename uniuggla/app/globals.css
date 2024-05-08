@@ -748,54 +748,6 @@ header img {
 	color: var(--primary-dark-purple);
 }
 
-.wildcard * .tilteReq {
-	max-width: 90% !important;
-}
-
-.wildcardText {
-	font-family: "Tomorrow-Medium";
-	text-align: right !important;
-	position: absolute;
-	padding: 0.4vw 0.8vw;
-	top: 0;
-	right: 0;
-	font-size: var(--s-text);
-}
-
-.wildcardBubble {
-	z-index: -2;
-	display: none;
-	position: absolute;
-	top: 0;
-	left: 100%;
-	background-color: #f0f0f0;
-	padding: 10px;
-	border: var(--primary-border-width) solid #ccc;
-	border-radius: var(--primary-border-radius);
-}
-
-.wildcardText:hover + .wildcardBubble {
-	display: block;
-}
-
-.wildcard {
-	background: linear-gradient(-50deg, var(--primary-light-purple) 40%, #f0f0f0 50%, var(--primary-light-purple) 60%);
-	background-size: 300%;
-	background-position-x: 100%;
-	animation: shimmer 4s infinite linear;
-}
-
-@keyframes shimmer {
-	to {
-		background-position-x: 0%;
-	}
-}
-
-.wildcard * {
-	color: var(--primary-dark-purple) !important;
-	border-color: var(--primary-dark-purple) !important;
-}
-
 .descriptionReq,
 .reqDescription,
 .reqDescriptionContent,
@@ -865,6 +817,7 @@ header img {
 
 */
 
+
 .loadingGIF {
 	display: grid;
 	grid-column: 1 / span 5;
@@ -910,9 +863,6 @@ header img {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: flex-start;
-	padding-left: 1vw;
-	padding-right: 1vw;
-	padding-top: 1vw;
 }
 
 .recommendedDropdown {
@@ -962,10 +912,8 @@ header img {
 	margin-bottom: 0.1vw;
 }
   
-.descriptionReq,
-.degreeReq,
-.pointsReq,
-.yearsReq {
+
+.recommendationProp {
 	text-align: left;
 	color: var(--medium-green-shadow);
 	border-right: calc(var(--primary-border-width) * 0.5) solid var(--medium-green);	
@@ -973,10 +921,7 @@ header img {
 	margin-right: 0.5vw;	
 }
   
-.descriptionReq:last-child,
-.degreeReq:last-child,
-.pointsReq:last-child,
-.yearsReq:last-child {
+.recommendationProp:last-child {
 	border-right: none; 
 }
 
@@ -990,6 +935,95 @@ header img {
 	padding: 0.4vw 0.8vw;
 }
 
+.titleReq {
+	font-size: 1.6vw;
+	font-family: Tomorrow-SemiBold !important;
+	color: var(--primary-dark-purple);
+}
+
+.linkReq {
+	font-family: Tomorrow-Medium;
+	color: var(--primary-dark-purple);
+	margin-right: 1vw;
+	text-decoration: underline;
+	border-right: var(--primary-border-width) solid var(--medium-green);
+	padding-right: 1vw;
+}
+
+.descriptionReq {
+	font-family: Tomorrow-Medium;
+	color: var(--primary-dark-purple);
+}
+
+.dropdownText {
+	font-family: Tomorrow-Regular;
+	color: var(--medium-green-shadow);
+	text-align: left;
+  }
+
+.wildcard * .tilteReq {
+	max-width: 90% !important;
+}
+
+.wildcardText {
+	font-family: "Tomorrow-Medium";
+	text-align: right !important;
+	position: absolute;
+	padding: 0.4vw 0.8vw;
+	top: 0;
+	right: 0;
+	font-size: var(--s-text);
+}
+
+.wildcardBubble {
+	z-index: -2;
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 100%;
+	background-color: #f0f0f0;
+	padding: 10px;
+	border: var(--primary-border-width) solid #ccc;
+	border-radius: var(--primary-border-radius);
+}
+
+.wildcardText:hover + .wildcardBubble {
+	display: block;
+}
+
+.wildcard {
+	background: linear-gradient(-50deg, var(--primary-light-purple) 40%, #f0f0f0 50%, var(--primary-light-purple) 60%);
+	background-size: 300%;
+	background-position-x: 100%;
+	animation: shimmer 4s infinite linear;
+}
+
+@keyframes shimmer {
+	to {
+		background-position-x: 0%;
+	}
+}
+
+.wildcard * {
+	color: var(--primary-dark-purple) !important;
+	border-color: var(--primary-dark-purple) !important;
+}
+
+.showMoreButton {
+	cursor: pointer;
+	padding: 0.5em 1em;
+	background-color: var(--medium-green);
+	border: var(--primary-border-width);
+	border-radius: var(--primary-border-radius);
+	font-size: 0.8vw;
+	font-family: "Tomorrow-MediumItalic";
+	color: var(--primary-light-green);
+	margin-top: 0.2vw;
+	display: block;
+	width: 30%;
+	margin: 0 auto;
+
+}
 /*
   End of Recommendation
   ---===---===---===---===---===---===---===---===---===---

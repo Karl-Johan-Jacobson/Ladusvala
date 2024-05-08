@@ -1,35 +1,31 @@
 "use client"
 
 import React, { useState } from "react";
-import Program from "@/types/program";
+import ProgramRecommendation from "@/types/ProgramRecommendation";
+import { formatNumber } from "@/app/utils";
 
 interface RecommendationItemProp {
-  program: Program;
+  recommendation: ProgramRecommendation;
   index: number;
 }
 
-function formatNumber(num: number): string {
-	num = num / 60;
-	const roundedNum = num.toFixed(2);
-	return roundedNum.endsWith(".00") ? roundedNum.slice(0, -3) : roundedNum;
-}
-
-export default function RecommendedItem({ program, index }: RecommendationItemProp) {
+export default function RecommendedItem({ recommendation, index }: RecommendationItemProp) {
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
 
   return (
-    <div className="recommendedItemWrapper">
+    <div className={`recommendedItemWrapper ${recommendation.wildcard ? "wildcard" : ""}`}>
+      <p>{recommendation.wildcard}</p>
       <div className="recommendedItemHead">
-        <p className="titleReq">{program.programTitle_sv}{","}&nbsp;{program.degree}</p>
-        <p className="descriptionReq">{"LÄROSÄTE: "}&nbsp;{program.schoolName}</p>
-        <p className="degreeReq">{"EXAMEN: "}&nbsp;{program.degree}</p>
-        <p className="pointsReq">{"POÄNG: "}&nbsp;{program.programPoints}</p>
-        <p className="yearsReq">{"ANTAL ÅR: "}&nbsp;{(formatNumber(program.programPoints))}</p>
+        <p className="titleReq">{recommendation.program.programTitle_sv}{","}&nbsp;{recommendation.program.degree}</p>
+        <p className="recommendationProp">{"LÄROSÄTE: "}&nbsp;{recommendation.program.schoolName}</p>
+        <p className="recommendationProp">{"EXAMEN: "}&nbsp;{recommendation.program.degree}</p>
+        <p className="recommendationProp">{recommendation.program.programPoints}&nbsp;{"HP"}</p>
+        <p className="recommendationProp">{(formatNumber(recommendation.program.programPoints as unknown as number))}&nbsp;{"ÅR"}</p>
       </div>
       <div className={`recommendedDropdown ${isExpanded ? 'show' : ''}`}>
-      <a className="linkReq" href={program.programLink}>länk till program</a>
+        <a className="linkReq" href={recommendation.program.programLink}>Till programmets hemsida</a>
         <p className="descriptionReq">{"Beskrivning: "}</p>
-        {program.programDesciption_sv}
+        <p className="dropdownText">{recommendation.program.programDescription_sv}</p>
       </div>
       <div onClick={() => setIsExpanded(!isExpanded)} className="recommendationArrowWrapper">
         <img src="../../arrow.svg" alt="" className={`recommendationArrow ${isExpanded ? 'rotate' : ''}`}/>

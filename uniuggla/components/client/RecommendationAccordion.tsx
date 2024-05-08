@@ -1,22 +1,18 @@
-import Program from "@/types/program";
-import { useState } from "react";
 import RecommendationItemImproved from "./RecommendationItemImproved";
+import ProgramRecommendation from "@/types/ProgramRecommendation";
 
 interface RecommendationAccordionProps {
-  recommendations: Program[];
-  shownRecommendations: number;
+  recommendations: ProgramRecommendation[];
 }
 
-export default function RecommendationAccordion({recommendations, shownRecommendations}: RecommendationAccordionProps) {
+export default function RecommendationAccordion({recommendations}: RecommendationAccordionProps) {
   return (
     <>
       <div className="recommendationAccordion">
-        {recommendations
-          .filter((_recommendation, index) => index < shownRecommendations)
-          .map((recommendation, index) => (
+        {recommendations.map((recommendation, index) => (
           <RecommendationItemImproved
             key={index}
-            program={recommendation}
+            recommendation={recommendation}
             index={index}
           />
         ))}
