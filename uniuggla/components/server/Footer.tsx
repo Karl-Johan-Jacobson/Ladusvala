@@ -16,11 +16,6 @@ export default function Footer() {
 							</a>
 						</li>
 						<li>
-							<a href="/req" className="siteNavigation">
-								Se behörighetskrav
-							</a>
-						</li>
-						<li>
 							<a href="/about" className="siteNavigation">
 								Om oss
 							</a>
