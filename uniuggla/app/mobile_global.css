@@ -311,81 +311,11 @@
 	.tilteReq {
 		font-size: var(--l-text);
 	}
-
-	.wildcardText {
-	}
-
-	.wildcardBubble {
-	}
-
-	.wildcardText:hover+.wildcardBubble {
-	}
-
-	.descriptionReq,
-	.gradeStyle,
-	.reqDescription,
-	.reqDescriptionContent,
-	.reqDescriptionDescription,
-	.gradeStyle {
-	}
-
-	.descriptionReq,
-	.gradeStyle {
-	}
-
-	.schoolReq,
-	.degreeReq,
-	.pointsReq,
-	.reqDescriptionLink,
-	.courseNameGrade,
-	.courseNameGradeGrade,
-	.coursePointsGrade {
-	}
-
-	.reqDescriptionBox {
-	}
-
-	.reqDescription {
-	}
-
-	.reqDescriptionLink {
-	}
-
-	.reqDescriptionContent {
-	}
-
-	.recommendedFoot {
-	}
-
-	.showDescription {
-	}
-
-	.arrow {
-	}
-	.showDescription p {
-	}
-
 	/*
   End of Recommendation
   ---===---===---===---===---===---===---===---===---===---
 	Start of Count
 */
-	.gradeInputWrapper {
-	}
-	.pointWrapper {
-	}
-	.pointOutput {
-	}
-	.gradeWrapper {
-	}
-	.gradeBox {
-	}
-	.courseNameGrade {
-	}
-	.coursePointsGrade,
-	.gradeGrade {
-	}
-
 	/*
 		End of Count
   ---===---===---===---===---===---===---===---===---===---
@@ -431,7 +361,7 @@
 	}
 
 	.footerLineAnimDown {
-		transform: translateY(calc(var(--xl-text)*1.5*-4));
+		transform: translateY(calc(var(--xl-text) * 1.5 * -4));
 		transition: transform 0.5s ease;
 	}
 
