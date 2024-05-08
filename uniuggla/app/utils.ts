@@ -1,9 +1,8 @@
 //import {recommendProgramFromInterest} from "@/ai/AiHandler";
-import { fetchAllProgramsJson, ProgramNameAndId, filterTheResultsFromAi } from "@/ai/AiHandler";
-import callOpenaiInParts from "@/ai/AiHandler";
+import { getRecommendations } from "@/ai/AiHandler";
 import { TypewriterForTitle } from "@/components/client/TypeWriter";
 import { useRouter } from "next/router";
-
+import Program from "@/types/program";
 export function addClass(newClass: string, htmlClass: string): void {
 	var elements = document.querySelectorAll("." + htmlClass);
 	elements.forEach(function (element) {
@@ -33,7 +32,7 @@ export function scrollToId(id: string): void {
 	}
 }
 
-export function generateHiddenRecommendations(programs: ProgramNameAndId[], htmlClass: string, interestArr: string[], hiddenCounter: number): void {
+export function generateHiddenRecommendations(programs: Program[], htmlClass: string, interestArr: string[], hiddenCounter: number): void {
 	const container = document.querySelector("." + htmlClass);
 	//null check
 	if (!container) {
@@ -164,7 +163,7 @@ export function generateHiddenRecommendations(programs: ProgramNameAndId[], html
 	}
 }
 
-export function aiTypeAnswer(programs: ProgramNameAndId[], htmlClass: string, interestArr: string[]): void {
+export function aiTypeAnswer(programs: Program[], htmlClass: string, interestArr: string[]): void {
 	//create a contianer where every box will be in
 	const container = document.querySelector("." + htmlClass);
 	var hiddenCounter = 0;
@@ -361,44 +360,9 @@ export function handleYesButtonClick(): void {
 
 export async function aiResponse(interests: string, interestArr: string[]): Promise<void> {
 	//Send all interest to AiHandler and await response
-	let notCompleteAiAnswer: string[] | undefined = await callOpenaiInParts(interests);
-	let aiAnswer: string[] | undefined = [];
-	if (notCompleteAiAnswer) {
-		aiAnswer = await filterTheResultsFromAi(notCompleteAiAnswer, interests);
-	}
 
-	//check if it is undefined, if it is just give it one id number.
-	//add later to code that user will be informed something went wrong
-	if (aiAnswer == undefined) {
-		aiAnswer = ["0"];
-	}
-
-	//fetch all programs
-	try {
-		const allPrograms: ProgramNameAndId[] = await fetchAllProgramsJson();
-
-		//convert aiAnswer to numbers so id can be matched
-		const aiAnswerAsNumber: number[] = aiAnswer.map((item) => {
-			return item as unknown as number;
-		});
-		//create an empty array to store the selected programs
-		var selectedPrograms: ProgramNameAndId[] = [];
-
-		//loop through all programs to find the selected programs
-		for (var i = 0, n = 0; i < allPrograms.length; i++) {
-			for (var j = 0; j < aiAnswerAsNumber.length; j++) {
-				if (allPrograms[i].programId == aiAnswerAsNumber[j]) {
-					selectedPrograms[n++] = allPrograms[i];
-				}
-			}
-		}
-		console.log("SelectedPrograms:  " + selectedPrograms);
-		//send the programs to generate the recommendedboxes
-
-		aiTypeAnswer(selectedPrograms, "recommendedWrapper", interestArr);
-	} catch (e) {
-		console.log(e);
-	}
+	const selectedPrograms: Program[] = await getRecommendations(interestArr);
+	aiTypeAnswer(selectedPrograms, "recommendedWrapper", interestArr);
 }
 
 export async function handleRecommendationButtonClick(interestArr: string[]): Promise<void> {
