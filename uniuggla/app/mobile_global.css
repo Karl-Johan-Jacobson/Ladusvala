@@ -1,0 +1,446 @@
+@media all and (min-width: 0px) and (max-width: 480px) {
+	:root {
+		--s-text: 2.6vw;
+		--m-text: 3.4vw;
+		--l-text: 4vw;
+		--xl-text: 6vw;
+		--xxl-text: 10vw;
+		--border-width: 1px;
+		--border-radius: 1vw;
+		--gap-size: 10px;
+		--text-form-height: 8vw;
+	}
+
+	/*
+    End of General
+    ---===---===---===---===---===---===---===---===---===---
+    Start of Header
+  */
+	header {
+		height: 10vh;
+	}
+
+	/* Fixes the position of the uniu logo */
+	header img {
+		display: none !important;
+	}
+
+	/*
+    End of Header
+    ---===---===---===---===---===---===---===---===---===---
+    Start of Main
+  */
+	.wrapper {
+		padding-right: 5vw;
+		padding-left: 5vw;
+	}
+
+	/*
+    End of Main
+  ---===---===---===---===---===---===---===---===---===---
+    Start of Welcome
+  */
+	/* Styling and positioning */
+	.answers {
+		grid-template-columns: repeat(2, 1fr);
+		grid-gap: 15vw;
+		width: 80%;
+		height: 3em;
+	}
+
+	/*
+  End of Welcome
+  ---===---===---===---===---===---===---===---===---===---
+  Start of Intrest
+*/
+	.chooseInterestWrapper {
+		grid-template-rows: 0fr 1fr 0fr 1fr 0fr;
+		padding-top: calc(10vh - var(--m-text) * 2);
+		max-width: 100%;
+	}
+
+	.selectedInterestList,
+	.notSelectedInterestList {
+		grid-template-rows: repeat(1, 1fr);
+		grid-template-columns: repeat(2, 1fr);
+		max-width: 100%;
+	}
+
+	.interestColumn {
+		display: grid;
+		width: 100%;
+	}
+
+	.interestItem,
+	.placeholderInterest {
+		width: 100%;
+		min-height: 1.5em;
+		max-height: 4em;
+		display: flex;
+		overflow: hidden;
+	}
+	.interestItem *,
+	.placeholderInterest * {
+		margin: auto;
+	}
+
+	.interestInputWrapper {
+		display: grid;
+		grid-template-rows: 1fr 1fr;
+		grid-template-columns: 1fr 1fr;
+		width: 100%;
+		height: fit-content;
+		margin-top: 0;
+	}
+
+	.textInputWrapper {
+		grid-column-start: 1;
+		grid-column-end: 3;
+		height: var(--text-form-height);
+	}
+
+	.refreshButtonInputWrapper {
+		grid-column-start: 1;
+		grid-column-end: 2;
+	}
+
+	.dreamEducationButtonInputWrapper {
+		grid-column-start: 2;
+		grid-column-end: 3;
+	}
+
+	.selectedButton,
+	.notSelectedButton {
+		width: 100%;
+		height: 100%;
+	}
+
+	.recommendationButtonWrapper {
+		overflow: hidden;
+		margin: 0 auto;
+		transition: 0.5s;
+		cursor: pointer;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		height: 10vw;
+	}
+
+	.recommendationButtonWrapper p {
+		margin: 1vw;
+		font-size: var(--l-text);
+		font-family: "Tomorrow-Medium";
+		color: var(--dark-purple);
+	}
+
+	.recommendationButtonWrapper hr {
+		flex-grow: 1;
+		border: var(--border-width) solid var(--medium-green);
+	}
+
+	.recommendationButtonLine {
+		flex-grow: 1;
+		border: var(--border-width) solid var(--medium-green);
+	}
+
+	/* Styling for the 'find my dream education' button, with locked properties */
+	.dreamEducationButton:not(.locked) p {
+		-webkit-text-stroke: 0;
+		color: var(--dark-purple);
+	}
+
+	.dreamEducationButton:not(.locked):hover p {
+		text-shadow: 2px 1px var(--medium-green-shadow);
+	}
+
+	.dreamEducationButton:active p {
+		text-shadow: none;
+	}
+
+	/* Interests fade-in and fade-out animations */
+	.fadeInSelected {
+		animation-name: inAnimationSelected;
+		animation-duration: 500ms;
+		animation-timing-function: ease;
+	}
+
+	.fadeInNew {
+		animation-name: inAnimationNew;
+		animation-duration: 1000ms;
+		animation-timing-function: ease;
+	}
+
+	.fadeOut {
+		animation-fill-mode: forwards;
+		animation-name: outAnimation;
+		animation-duration: 300ms;
+		animation-timing-function: ease;
+	}
+
+	@keyframes inAnimationSelected {
+		0% {
+			transform: scale(0);
+			opacity: 0;
+		}
+
+		60% {
+			opacity: 1;
+			transform: scale(1.1);
+		}
+
+		100% {
+			transform: scale(1);
+		}
+	}
+
+	@keyframes inAnimationNew {
+		0% {
+			transform: scale(0);
+			opacity: 0;
+		}
+
+		50% {
+			opacity: 0;
+			transform: scale(0);
+		}
+
+		80% {
+			opacity: 1;
+			transform: scale(1.1);
+		}
+
+		100% {
+			transform: scale(1);
+		}
+	}
+
+	@keyframes outAnimation {
+		0% {
+			opacity: 1;
+		}
+
+		20% {
+			transform: scale(1.1);
+		}
+
+		100% {
+			opacity: 0;
+			transform: scale(0);
+		}
+	}
+
+	.refreshButton,
+	.refreshButton::before,
+	.refreshButton::after {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		box-sizing: border-box;
+		width: 100%;
+		height: 100%;
+		padding: 4px;
+		background-color: var(--medium-green);
+		border: var(--border-width) solid var(--medium-green-shadow);
+	}
+
+	.refreshButton:hover {
+		transition: background-color 200ms;
+		background-color: var(--medium-green-shadow);
+		cursor: pointer;
+	}
+
+	.refreshIcon {
+		fill: var(--extra-light-green);
+		width: 100%;
+		height: 100%;
+	}
+
+	.refreshAnimation {
+		animation: spin 500ms ease;
+	}
+
+	/*
+  End of Intrest
+ ---===---===---===---===---===---===---===---===---===---
+  Start of Recommendation
+*/
+	.recommendedWrapper,
+	.gradeWrapper {
+		padding-top: 4vh;
+		position: relative;
+		width: 100%;
+		margin: 0 auto;
+	}
+
+	.loadingGIF img {
+		display: block;
+		width: 10vw;
+		margin: 1vw auto 0;
+	}
+
+	.showInterestBox {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		margin-top: 0 auto;
+	}
+
+	.interestReq {
+		padding: 0.5em 1em;
+		background-color: var(--medium-green);
+		border: var(--border-width);
+		font-size: var(--s-text);
+		font-family: "Tomorrow-MediumItalic";
+		color: var(--extra-light-green);
+	}
+
+	.recommendedWrapper p,
+	.recommendedWrapper a {
+		line-height: 1em;
+		text-align: left;
+	}
+
+	.recommendedBox,
+	.gradeBox {
+		position: relative;
+		margin-top: var(--gap-size);
+		padding: 0.4vw 0.8vw;
+		background-color: var(--light-green);
+		border: var(--border-width) solid var(--dark-purple);
+		border-color: var(--dark-purple);
+	}
+	.tilteReq {
+		font-size: var(--l-text);
+	}
+
+	.wildcardText {
+	}
+
+	.wildcardBubble {
+	}
+
+	.wildcardText:hover+.wildcardBubble {
+	}
+
+	.descriptionReq,
+	.gradeStyle,
+	.reqDescription,
+	.reqDescriptionContent,
+	.reqDescriptionDescription,
+	.gradeStyle {
+	}
+
+	.descriptionReq,
+	.gradeStyle {
+	}
+
+	.schoolReq,
+	.degreeReq,
+	.pointsReq,
+	.reqDescriptionLink,
+	.courseNameGrade,
+	.courseNameGradeGrade,
+	.coursePointsGrade {
+	}
+
+	.reqDescriptionBox {
+	}
+
+	.reqDescription {
+	}
+
+	.reqDescriptionLink {
+	}
+
+	.reqDescriptionContent {
+	}
+
+	.recommendedFoot {
+	}
+
+	.showDescription {
+	}
+
+	.arrow {
+	}
+	.showDescription p {
+	}
+
+	/*
+  End of Recommendation
+  ---===---===---===---===---===---===---===---===---===---
+	Start of Count
+*/
+	.gradeInputWrapper {
+	}
+	.pointWrapper {
+	}
+	.pointOutput {
+	}
+	.gradeWrapper {
+	}
+	.gradeBox {
+	}
+	.courseNameGrade {
+	}
+	.coursePointsGrade,
+	.gradeGrade {
+	}
+
+	/*
+		End of Count
+  ---===---===---===---===---===---===---===---===---===---
+  	Start of Footer
+	*/
+	/* Footer dimetionns and postion*/
+	footer {
+		left: 0;
+		width: 100%;
+		height: var(--xxl-text);
+		z-index: 10;
+		background-color: transparent;
+	}
+
+	.footerNav {
+		height: inherit;
+		background-color: transparent;
+	}
+
+	.hamburger-icon {
+		display: block;
+		margin: 0 auto;
+		height: 100%;
+	}
+
+	.dropdown-menu {
+		background-color: var(--extra-light-green);
+	}
+
+	.dropdown-menu * {
+		font-size: var(--xl-text);
+		text-align: center;
+		line-height: 1.5em;
+	}
+
+	/* Dividing line footer */
+	.footerLine {
+		top: 0;
+		width: 100%;
+		height: 0.4vh;
+		position: relative;
+		background-color: var(--dark-purple);
+	}
+
+	.footerLineAnimDown {
+		transform: translateY(calc(var(--xl-text)*1.5*-4));
+		transition: transform 0.5s ease;
+	}
+
+	.footerLineAnimUp {
+		transform: translateY(0);
+		transition: transform 0.5s ease;
+	}
+	/*
+  	End of Footer
+  ---===---===---===---===---===---===---===---===---===---
+	*/
+}

@@ -1,6 +1,6 @@
 "use client"; // Makes it so it is on client side instead of server side because of the function components.
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import interestData from "@/public/dataset/interests.json";
 import { modifyOverflow, removeClass, addClass } from "@/app/utils";
 
@@ -15,7 +15,6 @@ import { TypewriterForTitle } from "@/components/client/TypeWriter";
 // Main function that returns the html and handles the animations
 export default function Home() {
 	const [selectedInterests, setSelectedInterests] = useState<string[]>([]);
-	const [recommendedPrograms, setRecommendedPrograms] = useState<Program[]>([]);
 	const [fetchingRecommendations, setFetchingRecommendations] = useState<boolean>(false);
 	
 	const interestRef = useRef<HTMLDivElement | null>(null);

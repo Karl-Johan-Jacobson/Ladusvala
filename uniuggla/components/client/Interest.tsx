@@ -6,8 +6,13 @@ import InterestItem from "./InterestItem";
 import { v4 as uuidv4 } from "uuid";
 import RefreshButton from "./RefreshButton";
 import TextInterestInput from "./TextInterestInput";
+let NUMBER_OF_INTERESTS = 11;
 
-export const NUMBER_OF_INTERESTS = 11;
+if (window.innerWidth <= 480) {
+	NUMBER_OF_INTERESTS = 10;
+}
+
+export { NUMBER_OF_INTERESTS };
 
 interface InterestProps {
 	interests: InterestType[];
@@ -101,61 +106,107 @@ export default function Interest({ interests, handleRecommendationButtonClick }:
 
 	const placeholderInterest = { interestId: "placeholder", interestTitle: "", interestDescription: "placeholder" };
 	const filledPlaceholderInterests = [...selectedInterests, ...Array(11 - selectedInterests.length).fill(placeholderInterest)];
-	const placeholderInterestRows = filledPlaceholderInterests.length > 6 ? [filledPlaceholderInterests.slice(0, 6), filledPlaceholderInterests.slice(6, 11)] : [filledPlaceholderInterests];
 
 	// Group the notSelected interests into rows
 	const interestRows = [notSelected.slice(0, 5), notSelected.slice(5, 11)];
-	const selectedInterestRows = selectedInterests.length >= 6 ? [selectedInterests.slice(0, 6), selectedInterests.slice(6, 11)] : [[...selectedInterests]];
-
+	let placeholderInterestRows;
+	if (window.innerWidth > 480) {
+		placeholderInterestRows = filledPlaceholderInterests.length > 6 ? [filledPlaceholderInterests.slice(0, 6), filledPlaceholderInterests.slice(6, 11)] : [filledPlaceholderInterests];
+	} else {
+		placeholderInterestRows = filledPlaceholderInterests.length > 5 ? [filledPlaceholderInterests.slice(0, 5), filledPlaceholderInterests.slice(5, 10)] : [filledPlaceholderInterests];
+	}
 	console.log(selectedInterests);
 
 	return (
 		<div className="wrapper interestWrapper interest">
-			<p className="bot titleTypewriter interestText" style={{ paddingTop: "10vh" }}></p>
-			<div className="selectedInterestTitle">
-				<hr />
-				<span>Dina intressen</span>
-				<hr />
-			</div>
-			<div className="selectedInterestList">
-				{placeholderInterestRows.map((row, rowIndex) => (
-					<div className={`interestRow selectedRow${rowIndex + 1}`}>
-						{row.map((interest, index) =>
-							interest.interestId !== "placeholder" ? (
-								<InterestItem updateParent={handleDeselect} interest={interest} mounted={true} isSelected={true} key={interest.interestId} />
-							) : (
-								<div className="placeholderInterest">
-									<p></p>
+			<p className="bot titleTypewriter interestText" style={{ paddingTop: "15vh", top: "0" ,height: "1.5em"}}></p>
+			<div className="chooseInterestWrapper">
+				<div className="selectedInterestTitle">
+					<hr />
+					<span>Dina intressen</span>
+					<hr />
+				</div>
+				<div className="selectedInterestList">
+					{window.innerWidth > 480?
+						placeholderInterestRows.map((row, rowIndex) => (
+								<div className={`interestRow selectedRow${rowIndex + 1}`}>
+									{row.map(
+										(interest) =>
+											interest.interestId !== "placeholder" ? (
+												<InterestItem updateParent={handleDeselect} interest={interest} mounted={true} isSelected={true} key={interest.interestId} />
+											) : (
+												<div className="placeholderInterest">
+													<p></p>
+												</div>
+											)
+									)}
 								</div>
-							)
+						  ))
+						: /*If phone - Use this*/
+						placeholderInterestRows.map((row, rowIndex) => (
+								<div className={`interestColumn selectedColumn${rowIndex + 1}`}>
+						{row.map(
+							(interest) =>
+								interest.interestId !== "placeholder" ? (
+									<InterestItem updateParent={handleDeselect} interest={interest} mounted={true} isSelected={true} key={interest.interestId} />
+								) : (
+									<div className="placeholderInterest">
+										<p></p>
+									</div>
+								)
 						)}
 					</div>
-				))}
-			</div>
-			<div className="notSelectedInterestTitle">
-				<hr />
-				<span>Välj dina intressen</span>
-				<hr />
-			</div>
-			<div className="notSelectedInterestList">
-				{interestRows.map((row, rowIndex) => (
-					<div className={`interestRow row${rowIndex + 1}`}>
-						{row.map((interest) => (
-							<InterestItem updateParent={updateLists} interest={interest} mounted={true} isSelected={false} key={interest.interestId} />
-						))}
+						  ))}
+				</div>
+				<div className="notSelectedInterestTitle">
+					<hr />
+					<span>Välj dina intressen</span>
+					<hr />
+				</div>
+				<div className="notSelectedInterestList">
+					{window.innerWidth > 480 /*IF-STATEMENT*/
+						? // Render this block if window width is greater than 480
+						  interestRows.map((row, rowIndex) => (
+								<div className={`interestRow row${rowIndex + 1}`} key={rowIndex}>
+									{row.map((interest) => (
+										<InterestItem updateParent={updateLists} interest={interest} mounted={true} isSelected={false} key={interest.interestId} />
+									))}
+								</div>
+						  ))
+						: // Render this block if window width is less than or equal to 480
+						  interestRows.map((row, rowIndex) => (
+								<div className="interestColumn" key={rowIndex}>
+									{row.map((interest) => (
+										<InterestItem updateParent={updateLists} interest={interest} mounted={true} isSelected={false} key={interest.interestId} />
+									))}
+								</div>
+						  ))}
+				</div>
+				{window.innerWidth > 480 ? (
+					<>
+						<div className="interestInputWrapper">
+							<TextInterestInput imgSource="../../plus.svg" altText="Läggtill" onSubmit={addCustomInterest} />
+							<RefreshButton imgSource="../../refresh.svg" altText="Nya intressen" refresh={refresh}/>
+						</div>
+						<div className="recommendationButtonWrapper">
+							<hr />
+							<button className={dreamEducationButtonClass} onClick={handleRecommend}>
+								<p className="user"> &gt;&gt; Hitta min drömutbildning &lt;&lt; </p>
+							</button>
+							<hr />
+						</div>
+					</>
+				) : (
+					<div className="interestInputWrapper">
+						<TextInterestInput imgSource="../../plus.svg" altText="Läggtill" onSubmit={addCustomInterest} />
+						<RefreshButton imgSource="../../refresh.svg" altText="Nya intressen" refresh={refresh} />
+						<div className={"buttonInputWrapper " + dreamEducationButtonClass}>
+							<button onClick={handleRecommend} className="buttonInput" type="button">
+								<img className="buttonInputImg" src="../../double_right_arrow.svg" alt="Få rekommendation" />
+							</button>
+						</div>
 					</div>
-				))}
-			</div>
-			<div className="interestInputWrapper">
-				<TextInterestInput imgSource="../../plus.svg" altText="Läggtill" onSubmit={addCustomInterest} />
-				<RefreshButton imgSource="../../refresh.svg" altText="Nya intressen" refresh={refresh} />
-			</div>
-			<div className="recommendationButtonWrapper" style={{ display: "flex", alignItems: "center" }}>
-				<hr />
-				<button className={dreamEducationButtonClass} onClick={handleRecommend}>
-					<p className="user"> &gt;&gt; Hitta min drömutbildning &lt;&lt; </p>
-				</button>
-				<hr />
+				)}
 			</div>
 		</div>
 	);

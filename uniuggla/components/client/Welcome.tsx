@@ -14,8 +14,20 @@ export default function Welcome({ yesPageRef }: WelcomeProps) {
 
 	// Starting animation
 	useEffect(() => {
+		let titelText: string;
+		if (window.innerWidth > 480) {
+			titelText = "Hej!<br />Är du redo att hitta din drömutbildning?";
+		} else {
+			titelText = "Hej!<br />Är du redo att hitta<br />din drömutbildning?";
+		}
+
 		// Funciton for iniatal js animations
-		var typeWriterDelay = TypewriterForTitle("Hej!<br />Är du redo att hitta din drömutbildning?", "welcomeText");
+		var typeWriterDelay = TypewriterForTitle(titelText, "welcomeText", false, false);
+
+		const extraButtonDelay = 300;
+		setTimeout(() => {
+			setShowButtons(true);
+		}, typeWriterDelay + extraButtonDelay);
 	}, []);
 
 	const handleYesClick = () => {
@@ -29,23 +41,18 @@ export default function Welcome({ yesPageRef }: WelcomeProps) {
 		}, 500);
 	}
 
-	const SHOW_BUTTONS_DELAY = 3000;
-	const timeoutId = setTimeout(() => {
-		setShowButtons(true);
-	}, SHOW_BUTTONS_DELAY);
-
 	return (
 		<div className="wrapper welcomeWrapper">
-			<p className="bot titleTypewriter welcomeText"></p>
+			<p className="titleTypewriter welcomeText" style={{ paddingTop: "10vh"}}></p>
 			<div className={`answers ${showButtons ? "show" : ""}`}>
 				<button className="answerButton" onClick={handleYesClick}>
 					<p className="user">Ja</p>
 				</button>
-				<Link href="/about">
-					<button className="answerButton" >
+				<button className="answerButton" >
+					<Link href="/about" className="noButtonLink">
 						<p className="user">Nej</p>
-					</button>
-				</Link>
+					</Link>
+				</button>
 			</div>
 		</div>
 	);

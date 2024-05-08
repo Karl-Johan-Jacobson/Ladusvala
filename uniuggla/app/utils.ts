@@ -35,6 +35,29 @@ export const modifyTopPaddingRelative = (relativePaddingtop: string, htmlClass: 
 	});
 };
 
+export const modifyTop = (newTop: string, htmlClass: string) => {
+	var elements = document.querySelectorAll("." + htmlClass);
+	elements.forEach(function (element) {
+		(element as HTMLElement).style.top = newTop;
+	});
+};
+
+export const modifyHeight = (newHeight: string, htmlClass: string) => {
+	var elements = document.querySelectorAll("." + htmlClass);
+	elements.forEach(function (element) {
+		(element as HTMLElement).style.height = newHeight;
+	});
+};
+
+export const modifyHeightRelative = (relativeHeight: string, htmlClass: string) => {
+	var elements = document.querySelectorAll("." + htmlClass);
+	elements.forEach(function (element) {
+		var currentHeight = window.getComputedStyle(element).height;
+		var newHeight = "calc(" + currentHeight + " + " + relativeHeight + ")";
+		(element as HTMLElement).style.height = newHeight;
+	});
+};
+
 export function formatNumber(num: number): string {
 	num = num / 60;
 	const roundedNum = num.toFixed(2);

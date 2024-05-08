@@ -1,5 +1,3 @@
-import { average } from "firebase/firestore";
-
 var totalgrades: number = 0;
 var totalCoursePoints: number = 0;
 var gradeBoxCounter: number = 0;
