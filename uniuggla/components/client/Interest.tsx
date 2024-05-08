@@ -1,14 +1,12 @@
 "use client";
 
-import { ChangeEvent, FormEvent, useState, MouseEvent } from "react";
+import { useState } from "react";
 import InterestType from "@/types/interest";
 import InterestItem from "./InterestItem";
 import { v4 as uuidv4 } from "uuid";
-import Link from "next/link";
-import { RandomBlob } from "../server/Blob";
-import path from "path";
 import RefreshButton from "./RefreshButton";
 import TextInterestInput from "./TextInterestInput";
+
 export const NUMBER_OF_INTERESTS = 11;
 
 interface InterestProps {
@@ -16,10 +14,9 @@ interface InterestProps {
 	handleRecommendationButtonClick: (interest: string[]) => void;
 }
 
-const Interest: React.FC<InterestProps> = ({ interests, handleRecommendationButtonClick }) => {
+export default function Interest({ interests, handleRecommendationButtonClick }: Readonly<InterestProps>) {
 	const [selectedInterests, setSelectedInterests] = useState<InterestType[]>([]);
-	const [notSelected, setNotSelected] = useState<InterestType[]>(interests.filter((interest, index) => index < NUMBER_OF_INTERESTS));
-	const [customInterest, setCustomInterest] = useState<string>("");
+	const [notSelected, setNotSelected] = useState<InterestType[]>(interests.filter((_interest, index) => index < NUMBER_OF_INTERESTS));
 
 	// Set 'find my dream education' button as locked unless 4 interests are selected
 	let dreamEducationButtonClass = "dreamEducationButton";
@@ -72,10 +69,6 @@ const Interest: React.FC<InterestProps> = ({ interests, handleRecommendationButt
 		setSelectedInterests([...selectedInterests, interest]);
 	};
 
-	const handleUpdate = (event: ChangeEvent<HTMLInputElement>) => {
-		setCustomInterest(event.target.value);
-	};
-
 	// Method that refreshes the displayed interests
 	const refresh = () => {
 		// Copy of the non-selected interests that can be modified
@@ -107,9 +100,7 @@ const Interest: React.FC<InterestProps> = ({ interests, handleRecommendationButt
 	}
 
 	const placeholderInterest = { interestId: "placeholder", interestTitle: "", interestDescription: "placeholder" };
-
 	const filledPlaceholderInterests = [...selectedInterests, ...Array(11 - selectedInterests.length).fill(placeholderInterest)];
-
 	const placeholderInterestRows = filledPlaceholderInterests.length > 6 ? [filledPlaceholderInterests.slice(0, 6), filledPlaceholderInterests.slice(6, 11)] : [filledPlaceholderInterests];
 
 	// Group the notSelected interests into rows
@@ -129,15 +120,14 @@ const Interest: React.FC<InterestProps> = ({ interests, handleRecommendationButt
 			<div className="selectedInterestList">
 				{placeholderInterestRows.map((row, rowIndex) => (
 					<div className={`interestRow selectedRow${rowIndex + 1}`}>
-						{row.map(
-							(interest) =>
-								interest.interestId !== "placeholder" ? (
-									<InterestItem updateParent={handleDeselect} interest={interest} mounted={true} isSelected={true} key={interest.interestId} />
-								) : (
-									<div className="placeholderInterest">
-										<p></p>
-									</div>
-								) // Replace this with your actual placeholder
+						{row.map((interest, index) =>
+							interest.interestId !== "placeholder" ? (
+								<InterestItem updateParent={handleDeselect} interest={interest} mounted={true} isSelected={true} key={interest.interestId} />
+							) : (
+								<div className="placeholderInterest">
+									<p></p>
+								</div>
+							)
 						)}
 					</div>
 				))}
@@ -170,5 +160,3 @@ const Interest: React.FC<InterestProps> = ({ interests, handleRecommendationButt
 		</div>
 	);
 };
-
-export default Interest;

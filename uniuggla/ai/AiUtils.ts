@@ -38,14 +38,13 @@ export function turnProgramToPrompt(programs: Program[]): string {
 	}, "");
 }
 
-
 export function fetchAllProgramsJson(): Program[] {
   return programsJson.map((item) => ({
+    programId: item.programId,
     programTitle_sv: item.programTitle_sv,
     programPoints: item.programPoints,
     programDescription_sv: item.programDescription_sv,
     programLink: item.programLink,
-    programId: item.programId,
     schoolName: item.schoolName,
     aiPrompt: item.aiPrompt,
     degree: item.degree !== null && item.degree !== undefined ? item.degree : "",

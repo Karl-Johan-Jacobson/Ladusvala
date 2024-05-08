@@ -2,7 +2,6 @@
 
 import Interest from "@/types/interest";
 import { useState } from "react";
-import { RandomAnimatedSelectedBlob, RandomAnimatedBlob, RandomBlob } from "../server/Blob";
 
 interface InterestListItemProps {
 	interest: Interest;
@@ -32,14 +31,17 @@ export default function InterestListItem({ interest, isSelected, mounted, update
 	return (
 		<div className="interestItem">
 			{isSelected ? (
-				<button onClick={handleClick} className={isMounted ? "selectedButton fadeInSelected" : "selectedButton fadeOut"} onAnimationEnd={handleParentUpdate}>
+				<button
+					onClick={handleClick}
+					className={`selectedButton ${isMounted ? "fadeInSelected" : "fadeOut"}`}
+					onAnimationEnd={handleParentUpdate}>
 					<span className="iconText">{interest.interestTitle}</span>
 				</button>
 			) : (
 				<button // If not selected
 					onClick={handleClick}
 					onAnimationEnd={handleParentUpdate}
-					className={isMounted ? "notSelectedButton fadeInNew" : "notSelectedButton fadeOut"}>
+					className={`notSelectedButton ${isMounted ? "fadeInNew" : "fadeOut"}`}>
 					<span className="iconText">{interest.interestTitle}</span>
 				</button>
 			)}

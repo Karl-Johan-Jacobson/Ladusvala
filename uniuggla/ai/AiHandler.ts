@@ -128,9 +128,9 @@ async function recommendProgramFromInterest(content: string) {
 		const parsedObject = JSON.parse(response.choices[0].message.content as string);
 		// Extract programIds from the 'programs' array
 
-		const programIdsAndWildcards: { programId: number, wildcard: boolean }[] = parsedObject.programs.map((obj: { programId: string, wildcard: boolean }) => ({
+		const programIdsAndWildcards: { programId: number, wildcard: boolean }[] = parsedObject.programs.map((obj: { programId: string, wildcard: string }) => ({
 				programId: parseInt(obj.programId, 10),
-				wildcard: obj.wildcard
+				wildcard: obj.wildcard === "true" ? true : false
 			}));
 		if (testCounterForPrint++ == 5) {
 			parsedObject.programs.map((obj: { programId: string; wildcard: string }) => console.log("programId: " + obj.programId, "wildcard: " + obj.wildcard));
