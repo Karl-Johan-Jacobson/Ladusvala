@@ -100,9 +100,7 @@ export default function Interest({ interests, handleRecommendationButtonClick }:
 	}
 
 	const placeholderInterest = { interestId: "placeholder", interestTitle: "", interestDescription: "placeholder" };
-
 	const filledPlaceholderInterests = [...selectedInterests, ...Array(11 - selectedInterests.length).fill(placeholderInterest)];
-
 	const placeholderInterestRows = filledPlaceholderInterests.length > 6 ? [filledPlaceholderInterests.slice(0, 6), filledPlaceholderInterests.slice(6, 11)] : [filledPlaceholderInterests];
 
 	// Group the notSelected interests into rows

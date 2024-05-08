@@ -6,8 +6,6 @@ import Program from "@/types/program";
 interface RecommendationItemProp {
   program: Program;
   index: number;
-  isExpanded: boolean;
-  showDescription: (index: number) => void
 }
 
 function formatNumber(num: number): string {
@@ -16,20 +14,26 @@ function formatNumber(num: number): string {
 	return roundedNum.endsWith(".00") ? roundedNum.slice(0, -3) : roundedNum;
 }
 
-export default function RecommendedItem({ program, index, isExpanded, showDescription }: RecommendationItemProp) {
+export default function RecommendedItem({ program, index }: RecommendationItemProp) {
+  const [isExpanded, setIsExpanded] = useState<boolean>(false);
+
   return (
-    <div className="recommendedItemWrapper" onClick={() => showDescription(index)}>
+    <div className="recommendedItemWrapper">
       <div className="recommendedItemHead">
-        <p className="titleReq">{program.programTitle_sv}</p>
-        <p className="reqDesctription">{"LÄROSÄTE:" + program.schoolName}</p>
-        <p className="degreeReq">{"EXAMEN: " + program.degree}</p>
-        <p className="pointsReq">{"POÄNG: " + program.programPoints}</p>
-        <p className="yearsReq">{"ANTAL ÅR: " + (formatNumber(program.programPoints))}</p>
+        <p className="titleReq">{program.programTitle_sv}{","}&nbsp;{program.degree}</p>
+        <p className="descriptionReq">{"LÄROSÄTE: "}&nbsp;{program.schoolName}</p>
+        <p className="degreeReq">{"EXAMEN: "}&nbsp;{program.degree}</p>
+        <p className="pointsReq">{"POÄNG: "}&nbsp;{program.programPoints}</p>
+        <p className="yearsReq">{"ANTAL ÅR: "}&nbsp;{(formatNumber(program.programPoints))}</p>
       </div>
-      <div className={`recommendedItemDescription ${isExpanded ? 'show' : 'hide'}`}>
+      <div className={`recommendedDropdown ${isExpanded ? 'show' : ''}`}>
+      <a className="linkReq" href={program.programLink}>länk till program</a>
+        <p className="descriptionReq">{"Beskrivning: "}</p>
         {program.programDesciption_sv}
       </div>
-      <img className={`recommendationArrow ${isExpanded ? 'rotate' : ''}`} src="../../arrow.svg" alt="" />
+      <div onClick={() => setIsExpanded(!isExpanded)} className="recommendationArrowWrapper">
+        <img src="../../arrow.svg" alt="" className={`recommendationArrow ${isExpanded ? 'rotate' : ''}`}/>
+      </div>
     </div>
   );
 };

@@ -1,69 +1,51 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Program from "@/types/program";
 import InterestType from "@/types/interest";
 import RecommendationAccordion from "./RecommendationAccordion";
+import { getRecommendationsDummy, getRecommendationsFromAI } from "@/app/utils";
 
 interface RecommendationProps {
 	selectedInterests: string[];
-	loading: boolean;
-	setLoading: (isLoading: boolean) => void;
+	shouldFetch: boolean;
 }
 
-export const INIT_NUMBER_OF_RECOMMENDATIONS = 5;
+export const INIT_NUMBER_OF_RECOMMENDATIONS = 1;
 
-export default function Recommendation({selectedInterests, loading, setLoading}: RecommendationProps) {
+export default function Recommendation({selectedInterests, shouldFetch}: RecommendationProps) {
 	const [recommendedPrograms, setRecommendedPrograms] = useState<Program[]>([]);
   const [shownRecommendations, setShownRecommendations] = useState<number>(INIT_NUMBER_OF_RECOMMENDATIONS);
+	const [isLoading, setIsLoading] = useState<boolean>(false);
+	const [error, setError] = useState<any>();
 
-	const getRecommendations = (): Promise<Program[]> => {
-		return new Promise((resolve) => {
-		  setTimeout(() => {
-			const dummyData: Program[] = [
-			  {
-				programId: 1,
-				programTitle_sv: "Datavetenskap",
-				programPoints: 180,
-				programDesciption_sv: "AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH JAG VILL HEM NIGHTMARE NIGHTMARENIGHTMARENIGHTMARENIGHTMARENIGHTMARENIGHTMARENIGHTMARENIGHTMARENIGHTMARENIGHTMARENIGHTMARENIGHTMARENIGHTMARENIGHTMARENIGHTMARE",
-				programLink: "https://example.com/datavetenskap",
-				schoolName: "Tekniska Högskolan",
-				aiPrompt: "Utveckla framtiden med AI och maskininlärning.",
-				degree: "Kandidatexamen"
-			  },
-			  {
-				programId: 2,
-				programTitle_sv: "Industriell Ekonomi",
-				programPoints: 180,
-				programDesciption_sv: "Förbered dig för en karriär som kombinerar teknik och ekonomi.",
-				programLink: "https://example.com/industriellekonomi",
-				schoolName: "Handelshögskolan",
-				aiPrompt: "Brygga teknik med affärsstrategier.",
-				degree: "Kandidatexamen"
-			  },
-			  // Add more dummy programs as needed
-			];
-	  
-			resolve(dummyData);
-		  }, 1000); // Simulates a 2-second delay
-		});
-	};
+	// const abortControllerRef = useRef<AbortController | null>(null);
 
 	useEffect(() => {
 		const fetchRecommendations = async () => {
-		  if (loading) {
+		  if (shouldFetch) {
+				// To manage race condition, maybe move functionality to AIHandler
+				// abortControllerRef.current?.abort();
+				// abortControllerRef.current = new AbortController();
+
 				try {
-					const fetchedRecommendations = await getRecommendations();
+					setIsLoading(true);
+					// const response = await getRecommendationsFromAI(selectedInterests, abortControllerRef)
+					// https://www.youtube.com/watch?v=00lxm_doFYw
+					
+					// For AI, fix this to call the AI from here and update the recommended programs
+					// getRecommendationsFromAI(selectedInterests); 
+
+					const fetchedRecommendations = await getRecommendationsDummy(); // Dummy function to simulate an API call
 					setRecommendedPrograms(fetchedRecommendations);
-					setLoading(false); // Assuming you want to set loading to false after fetching
-				} catch (error) {
-					console.error('Failed to fetch recommendations:', error);
-					// Handle the error appropriately
-					setLoading(false); // Consider setting loading to false even on error to stop loading indicators
+				} catch (e) {
+					setError(e)
+				} finally {
+					setIsLoading(false);
 				}
 		  }
 		};
 	
 		fetchRecommendations();
-	}, [loading]); // Include `loading` in the dependency array if its changes should trigger refetching
+	}, [shouldFetch]); // Include `loading` in the dependency array if its changes should trigger refetching
 
   const handleShowMoreRecommendation = () => {
 		console.log(shownRecommendations);
@@ -77,21 +59,22 @@ export default function Recommendation({selectedInterests, loading, setLoading}:
 		<div id="recommmendation" className="wrapper recommmendationWrapper recommmendation">
 			<p className="bot titleTypewriter recommmendationText" style={{ paddingTop: "10vh" }}></p>
 			<div className="recommendedWrapper">
-				{loading ? 
+				{isLoading ? (
 					<div className="loadingGIF">
 						<img src="../../uniugglan.gif" alt="Waiting on recomendation." />
-					</div> :
+					</div> 
+				) : (
 					<div className="accordionWrapper">
 						<RecommendationAccordion recommendations={recommendedPrograms} shownRecommendations={shownRecommendations} />
-						{shownRecommendations < recommendedPrograms.length ?
-							<button className="interestReq showMoreButton" onClick={handleShowMoreRecommendation}>
-								<span>Visa fler program</span>
-							</button> :
-							<p className="interestReq">Inga fler rekommendationer</p>
-						}
+						{shownRecommendations < recommendedPrograms.length ? (
+							<button className="showMoreButton" onClick={handleShowMoreRecommendation}>
+								<span>Tryck på mig för att visa flera rekommenda</span>
+							</button> 
+						) : (
+							<p className="showMoreButton">Inga fler rekommendationer</p>
+						)}
 					</div>
-				}
-
+				)}
 			</div>
 		</div>
 	);

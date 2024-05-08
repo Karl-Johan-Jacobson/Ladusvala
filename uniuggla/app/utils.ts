@@ -2,6 +2,7 @@
 import { fetchAllProgramsJson, ProgramNameAndId, filterTheResultsFromAi } from "@/ai/AiHandler";
 import callOpenaiInParts from "@/ai/AiHandler";
 import { TypewriterForTitle } from "@/components/client/TypeWriter";
+import Program from "@/types/program";
 import { useRouter } from "next/router";
 import { RefObject } from "react";
 
@@ -24,14 +25,6 @@ export function modifyOverflow(Atribute: string, htmlClass: string): void {
 	elements.forEach(function (element) {
 		(element as HTMLElement).style.overflow = Atribute;
 	});
-}
-
-export function scrollToId(id: string): void {
-	const element = document.getElementById(id);
-	if (element) {
-		element.scrollIntoView();
-	} else {
-	}
 }
 
 /* export function generateHiddenRecommendations(programs: ProgramNameAndId[], htmlClass: string, interestArr: string[], hiddenCounter: number): void {
@@ -349,7 +342,7 @@ export function aiTypeAnswer(programs: ProgramNameAndId[], htmlClass: string, in
 	});
 } */
 
-export async function aiResponse(interests: string, interestArr: string[]): Promise<void> {
+ async function aiResponse(interests: string, interestArr: string[]): Promise<void> {
 	//Send all interest to AiHandler and await response
 	let notCompleteAiAnswer: string[] | undefined = await callOpenaiInParts(interests);
 	let aiAnswer: string[] | undefined = [];
@@ -422,3 +415,36 @@ function formatNumber(num: number): string {
 	const roundedNum = num.toFixed(2);
 	return roundedNum.endsWith(".00") ? roundedNum.slice(0, -3) : roundedNum;
 }
+
+export const getRecommendationsDummy = (): Promise<Program[]> => {
+	return new Promise((resolve) => {
+		setTimeout(() => {
+		const dummyData: Program[] = [
+			{
+			programId: 1,
+			programTitle_sv: "Datavetenskap",
+			programPoints: 180,
+			programDesciption_sv: "AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH JAG VILL HEM NIGHTMARE NIGHTMARENIGHTMAR ENIGHTMARENIGHTMAREN IGHTMARENIGHTMARENIGH TMARENIGHTMARE NIGHTMARENIGHTM ARENIGHTMARENIGHT MARENIGHTMAR ENIGHTMARENIGHTMARE",
+			programLink: "https://example.com/datavetenskap",
+			schoolName: "Tekniska Högskolan",
+			aiPrompt: "Utveckla framtiden med AI och maskininlärning.",
+			degree: "Kandidatexamen"
+			},
+			{
+			programId: 2,
+			programTitle_sv: "Industriell Ekonomi",
+			programPoints: 180,
+			programDesciption_sv: "Förbered dig för en karriär som kombinerar teknik och ekonomi.",
+			programLink: "https://example.com/industriellekonomi",
+			schoolName: "Handelshögskolan",
+			aiPrompt: "Brygga teknik med affärsstrategier.",
+			degree: "Kandidatexamen"
+			},
+			// Add more dummy programs as needed
+		];
+	
+		resolve(dummyData);
+		}, 1000); // Simulates a 2-second delay
+	});
+};
+

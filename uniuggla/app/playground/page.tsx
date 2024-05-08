@@ -29,26 +29,19 @@ export default function Home() {
 
 		//Write out the title for recommendations page
 		TypewriterForTitle("Tack! Hmm... låt mig se vad jag kan hitta!", "recommmendationText", true);
-		
 		//move to recommendations page
-		modifyOverflow("visible", "main");
-		removeClass("hide", "recommendationContainer");
 		recommendationsRef?.current?.scrollIntoView();
-		setTimeout(() => {
-			addClass("hide", "interestContainer");
-			modifyOverflow("hidden", "main");
-		}, 500);
 	}
 
 	return (
-		<main className="main" style={{ overflow: "hidden" }}>
-			<div id="welcomeContainer" className="container welcomeContainer">
+		<main>
+			<div className="container welcomeContainer">
 				<Welcome yesPageRef={interestRef} />
 			</div>
-			<div ref={interestRef} id="interestContainer" className="container interestContainer hide">
+			<div ref={interestRef} className="container interestContainer">
 				<Interest interests={interestData} handleRecommendationButtonClick={handleRecommendationButtonClick} />
 			</div>
-			<div ref={recommendationsRef} id="recommendationContainer" className="container recommendationContainer hide">
+			<div ref={recommendationsRef} className="container recommendationContainer">
 				<Recommendation selectedInterests={selectedInterests} shouldFetch={fetchingRecommendations} />
 			</div>
 		</main>
