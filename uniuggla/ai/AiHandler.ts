@@ -99,7 +99,7 @@ function createChatCompletionMessage(content: string): ChatCompletionCreateParam
 	const systemMessage: ChatCompletionMessageParam = {
 		role: "system",
 		content:
-			"Du är en studievägledare som ska rekommendera de bäst utbildningsprogram utifrån mina intressen, du lägger ingen värdering i studentens intressen. Det är viktigt att utbildningarna matchar mina intressen strikt. Du ska svara med JSON object, med två fält programId och wildcard. Du måste svara med formatet [programs: [{programId: string, wildcard: string}]]",
+			"Du är en studievägledare som ska rekommendera de bäst utbildningsprogram utifrån mina intressen, du lägger ingen värdering i studentens intressen. Det är viktigt att utbildningarna matchar mina intressen strikt. Du ska svara med JSON object, med två fält programId och wildcard. Du måste svara med formatet [programs: [{programId: string, wildcard: string}]]. Det får aldrig finns fler än tre wildcard fält som är satta till true",
 	};
 
 	//content:"You are a student counselor and a JSON formatter. All your answers should be a JSON object. With only two fields programId and Motivation, no other fields should be present. The format must be [programs: [{programId: string, Motivation: string}]]",
@@ -173,14 +173,15 @@ async function callOpenaiInParts(interestProfile: string, allPrograms: Program[]
 //Final call to ai with message to rank and maybe remove not relevant programs
 async function finalCallToAi(interestProfile: string, selectedPrograms: Program[]): Promise<ProgramRecommendation[] | undefined> {
 	try {
+		let wildcardCounter = 0;
 		const programAsString: string = turnProgramToPrompt(selectedPrograms);
-		//const content: string = `${interestProfile}  \n och det här är beskrivningen på alla utbildningsprogram jag kan välja mellan  ${programAsString}. Du ska rekommendera åtminstone 10 utbildningar. Rangordna så att det mest relevanta utbildningsprogramet är först. Jag vill att du motiverar först varför du valde programmet och sen skriver in program id. Det ä viktigt att utbildningarna matchar mina intressen väldigt strikt. I slutet vill jag att du även skriver vilken procentuell matchning utbildningen är med mina intressen skriv det i slutet av motiveringen`;
-		const content: string = `${interestProfile}  \n och det här är beskrivningen på alla utbildningsprogram jag kan välja mellan  ${programAsString}. Du ska rekommendera åtminstone 10 utbildningar. Rangordna så att det mest relevanta utbildningsprogramet är först. Jag vill att du svarar med programId. Om det finns program som matchar mina intressen måttligt sätt wildcard fältet till true. Rekommendera aldrig mer än 3 wildcards`;
+		const content: string = `${interestProfile}  \n och det här är beskrivningen på alla utbildningsprogram jag kan välja mellan  ${programAsString}. Du ska rekommendera åtminstone 10 utbildningar. Rangordna så att det mest relevanta utbildningsprogramet är först. Jag vill att du svarar med programId. Om det finns program som matchar mina intressen måttligt sätt wildcard fältet till true. Du får inte sätta fler än tre wildcard fält till true`;
 		//("whole content string final: " + content);
 		const finalProgramsIdAndWildcards: { programId: number, wildcard: boolean }[] = (await recommendProgramFromInterest(content)) || [];
 		//console.log("final numbers: " + finalProgramsId);
 		console.log(finalProgramsIdAndWildcards);
-		
+
+
 		return finalProgramsIdAndWildcards.map(({programId, wildcard}: {programId: number, wildcard: boolean}) => {
 			return {
 				program: getProgramFromId(programId, selectedPrograms),

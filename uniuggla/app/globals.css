@@ -565,7 +565,6 @@ header img {
   Start of Recommendation
 */
 
-/*
 .recommendedWrapper,
 .gradeWrapper {
 	position: relative;
@@ -709,9 +708,6 @@ header img {
 	display: inline-block;
 	text-decoration: underline;
 }
-
-*/
-
 
 .loadingGIF {
 	display: grid;

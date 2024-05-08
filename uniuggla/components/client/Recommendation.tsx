@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getRecommendations } from "@/ai/AiHandler";
 import ProgramRecommendation from "@/types/ProgramRecommendation";
 import RecommendationAccordion from "./RecommendationAccordion";
+import RecommendationItemImproved from "./RecommendationItemImproved";
 
 interface RecommendationProps {
 	selectedInterests: string[];
@@ -40,10 +41,16 @@ export default function Recommendation({selectedInterests, shouldFetch}: Recomme
 						<img src="../../uniugglan.gif" alt="Waiting on recomendation." />
 					</div>
 				) : (
-					<div className="accordionWrapper">
-						<RecommendationAccordion recommendations={recommendedPrograms} />
-					</div>
-				)}
+					<div className="recommendationAccordion">
+					{recommendedPrograms.map((recommendation, index) => (
+						<RecommendationItemImproved
+							key={index}
+							recommendation={recommendation}
+							index={index}
+						/>
+					))}
+				</div>
+					)}
 			</div>
 		</div>
 	);
