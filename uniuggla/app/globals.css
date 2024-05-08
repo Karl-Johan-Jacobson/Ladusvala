@@ -1,4 +1,28 @@
-* {
+:root {
+	--s-text: 0.8vw;
+	--m-text: 1.2vw;
+	--l-text: 1.8vw;
+	--xl-text: 3vw;
+	--xxl-text: 4vw;
+
+	--primary-extra-light-green: #dffde0;
+
+	--primar-light-green: #c6f0c3;
+
+	--primary-medium-green: #9ecb98;
+	--primary-medium-green-shadow: #61855a;
+
+	--primary-dark-green: #37552b;
+	--primary-dark-green-shadow: #37552b40;
+
+	--primary-light-purple: #dfc0fe;
+	--primary-dark-purple: #4f1eb0;
+
+	--primary-border-width: 1px;
+	--primary-border-radius: 0.5vw;
+
+	--text-form-height: 2vw;
+	/*
 	--primary-light-green: #dffde0;
 	--primary-medium-green: #c6f0c3;
 	--medium-green: #9ecb98;
@@ -6,11 +30,10 @@
 	--primary-dark-green: #37552b;
 	--primary-dark-green-shadow: #37552b64;
 	--primary-dark-green-light-shadow: #37552b32;
-	--primary-dark-purple: #4f1eb0;
-	--primary-border-width: 1px;
-	--primary-border-radius: 0.5vw;
-	--text-form-height: 2vw;
-	--primary-light-purple: #dfc0fe;
+	*/
+}
+
+* {
 	margin: 0;
 	padding: 0;
 	text-decoration: none;
@@ -31,25 +54,12 @@ html::-webkit-scrollbar {
 	display: none;
 }
 
-html {
-	scrollbar-width: none;
-	scroll-behavior: smooth;
-	background-color: var(--primary-light-green);
-}
-
-html::-webkit-scrollbar {
-	display: none;
-}
-
 body {
 	background-color: var(--primary-light-green);
 }
 
 .hide,
-.hide p,
-.hide a,
-.hide * p,
-.hide * a {
+.hide * {
 	opacity: 0 !important;
 	height: 0 !important;
 	margin: 0 !important;
@@ -99,7 +109,7 @@ input[type="number"]::-webkit-outer-spin-button {
 
 /* Class for the user interaction */
 .user {
-	color: var(--medium-green);
+	color: var(--primary-medium-green);
 }
 
 /* Standard styling for text */
@@ -121,10 +131,6 @@ p {
 	border-radius: var(--primary-border-radius);
 }
 
-.buttonInputWrapper {
-	border: none !important;
-}
-
 .textInput {
 	box-shadow: inset 0.2vw 0.3vw 0.4vw var(--primary-dark-green-shadow);
 	display: flex;
@@ -138,49 +144,40 @@ p {
 	border-radius: calc(var(--primary-border-radius) - var(--primary-border-width));
 	font-size: calc(var(--text-form-height) * 0.7);
 	font-family: "Tomorrow-MediumItalic";
-	color: var(--medium-green);
+	color: var(--primary-medium-green);
 }
 
 .textInput::placeholder {
 	font-size: calc(var(--text-form-height) * 0.7);
 	font-family: "Tomorrow-MediumItalic";
-	color: var(--medium-green);
+	color: var(--primary-medium-green);
 }
 
 .textInput:focus {
 	transition: background-color 200ms ease-in;
-	background-color: var(--primary-dark-green-light-shadow);
+	background-color: var(--primary-dark-green-shadow);
+	color: var(--primary-light-green);
 }
 
-.textButton {
-	box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	position: absolute;
-	top: calc((-1* var(--primary-border-width)));
-	right: calc((-1* var(--primary-border-width)));
-	width: calc(var(--text-form-height) + 2* var(--primary-border-width));
-	height: calc(var(--text-form-height) + 2* var(--primary-border-width));
-	background-color: var(--medium-green);
-	border: var(--primary-border-width) solid var(--primary-dark-green);
-	border-radius: var(--primary-border-radius);
-	z-index: 10;
-}
+.textButton,
 .buttonInput {
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
-	width: calc(var(--text-form-height) + 2* var(--primary-border-width));
-	height: calc(var(--text-form-height) + 2* var(--primary-border-width));
-	background-color: var(--medium-green);
+	position: absolute;
+	top: calc((-1 * var(--primary-border-width)));
+	right: calc((-1 * var(--primary-border-width)));
+	width: calc(var(--text-form-height) + 2 * var(--primary-border-width));
+	height: calc(var(--text-form-height) + 2 * var(--primary-border-width));
+	background-color: var(--primary-medium-green);
 	border: var(--primary-border-width) solid var(--primary-dark-green);
 	border-radius: var(--primary-border-radius);
+	z-index: 10;
 }
-
 .textButton:hover,
 .buttonInput:hover {
 	transition: background-color 200ms ease-in;
-	background-color: var(--medium-green-shadow);
+	background-color: var(--primary-medium-green-shadow);
 }
 
 .textButtonImg,
@@ -257,13 +254,12 @@ header img {
   End of Header
   ---===---===---===---===---===---===---===---===---===---
   Start of Main
-  Start of Main
 */
 /* Positioning of the typewriter animation*/
 .titleTypewriter {
 	margin: 0 auto;
 	transition: padding-top 0.2s ease;
-	font-size: 3vw;
+	font-size: var(--xl-text);
 	font-family: "Tomorrow-Medium" !important;
 	line-height: 1.5em;
 	color: var(--primary-dark-purple);
@@ -287,7 +283,7 @@ header img {
 	overflow-y: auto;
 	width: auto;
 	height: auto;
-	margin: 0vw auto 5vw;
+	margin: 0 auto var(--xxl-text);
 	padding: 0 10vh 1vw;
 	transition: 0.5s ease;
 }
@@ -326,15 +322,15 @@ header img {
 
 /* Text inside the buttons color and font size */
 .answerButton p {
-	font-size: 4vw;
+	font-size: var(--xxl-text);
 	font-family: "Tomorrow-MediumItalic";
-	color: var(--medium-green);
+	color: var(--primary-medium-green);
 }
 
 /* hover color change text */
 .answerButton:hover p,
 .siteNavigation:hover {
-	text-shadow: 2px 1px var(--medium-green-shadow);
+	text-shadow: 2px 1px var(--primary-medium-green-shadow);
 }
 
 .answerButton:active p {
@@ -370,7 +366,7 @@ header img {
 	right: 0;
 	top: 0;
 	bottom: 0;
-	margin: 0vw auto 6vw;
+	margin: 0vw auto var(--xxl-text);
 	padding-bottom: 1vw;
 	z-index: 1;
 	transition: 0.5s ease;
@@ -386,8 +382,8 @@ header img {
 	align-items: center;
 	text-align: center;
 	color: var(--primary-dark-purple);
-	font-family: 'Tomorrow-MediumItalic';
-	font-size: large;
+	font-family: "Tomorrow-MediumItalic";
+	font-size: var(--m-text);
 }
 
 .selectedInterestTitle hr {
@@ -409,15 +405,15 @@ header img {
 .notSelectedInterestTitle {
 	display: flex;
 	align-items: center;
-	font-size: large;
+	font-size: var(--m-text);
 	font-family: "Tomorrow-MediumItalic";
-	color: var(--medium-green);
+	color: var(--primary-medium-green);
 	text-align: center;
 }
 
 .notSelectedInterestTitle hr {
 	flex-grow: 1;
-	border: var(--primary-border-width) solid var(--medium-green);
+	border: var(--primary-border-width) solid var(--primary-medium-green);
 }
 
 .notSelectedInterestTitle span {
@@ -451,7 +447,7 @@ header img {
 }
 
 .iconText {
-	font-size: medium;
+	font-size: var(--s-text);
 	font-family: "Tomorrow-MediumItalic";
 	font-style: italic;
 	color: var(--primary-light-green);
@@ -460,7 +456,7 @@ header img {
 .notSelectedButton {
 	width: 13vw;
 	height: 4vw;
-	background-color: var(--medium-green);
+	background-color: var(--primary-medium-green);
 	border-radius: var(--primary-border-radius);
 	cursor: pointer;
 	overflow: hidden;
@@ -488,8 +484,8 @@ header img {
 }
 
 .selectedButton:hover {
-	filter: drop-shadow(0 4px 0 var(--medium-green));
-	border-color: var(--medium-green);
+	filter: drop-shadow(0 4px 0 var(--primary-medium-green));
+	border-color: var(--primary-medium-green);
 }
 
 .notSelectedButton:hover .iconText {
@@ -497,107 +493,24 @@ header img {
 }
 
 .selectedButton:hover .iconText {
-	color: var(--medium-green);
+	color: var(--primary-medium-green);
 }
 
 .placeholderInterest {
 	box-sizing: border-box;
-	/* Add this line */
 	width: 13vw;
 	height: 4vw;
 	border-radius: var(--primary-border-radius);
 	border: dotted var(--primary-dark-purple) var(--primary-border-width);
 }
 
-.interestControl {
-	width: 35vw;
-	margin-left: auto;
-	margin-right: auto;
-	display: flex;
-}
-
-.customInterestForm,
-.customInterestForm::before,
-.customInterestForm::after {
-	display: flex;
-	box-sizing: border-box;
-	width: 100%;
-	height: 100%;
-	border-radius: var(--primary-border-radius);
-}
-
-.customInterestForm:focus-within {
-	transition: background-color 100ms ease-in;
-	background-color: var(--primary-dark-green-light-shadow);
-}
-
-.customInterestField {
-	box-sizing: inherit;
-	width: 88%;
-	height: 100%;
-	padding: 4px 8px;
-
-	background-color: transparent;
-
-	border: var(--primary-border-width) solid var(--medium-green-shadow);
-	border-right: none;
-	border-top-left-radius: var(--primary-border-radius);
-	border-bottom-left-radius: var(--primary-border-radius);
-
-	box-shadow: inset 3px 3px 5px var(--primary-dark-green-shadow);
-
-	font-family: 'Tomorrow-MediumItalic';
-	font-size: 16px;
-	color: var(--medium-green-shadow);
-}
-
-.customInterestField::placeholder {
-	font-size: 16px;
-	font-family: "Tomorrow-MediumItalic";
-	color: var(--medium-green);
-}
-
-.customInterestButton {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	box-sizing: inherit;
-	width: 12%;
-	height: 100%;
-	background-color: var(--medium-green);
-	border: var(--primary-border-width) solid var(--medium-green-shadow);
-	border-top-right-radius: var(--primary-border-radius);
-	border-bottom-right-radius: var(--primary-border-radius);
-}
-
-.customInterestButton:hover {
-	background-color: var(--medium-green-shadow);
-	transition: background-color 200ms;
-}
-
-.customInterestBtnImg {
-	width: 100%;
-	height: 100%;
-	fill: var(--primary-medium-green);
-}
-
-.customInterestWrapper {
-	display: flex;
-	justify-content: left;
-	align-items: center;
-	margin-top: 1vw;
-	width: 40vw;
-	height: 2vw;
-}
-
-.refreshButtonWrapper {
-	display: flex;
-	justify-content: right;
-	align-items: center;
-	margin-top: 1vw;
-	height: 2vw;
-	width: 4vw;
-	margin-left: 1vw;
+.interestInputWrapper {
+	display: grid;
+	grid-template-columns: 6fr 0fr;
+	grid-gap: 10px;
+	width: 50%;
+	max-width: fit-content;
+	margin: 1vw auto 0;
 }
 
 .recommendationButtonWrapper {
@@ -610,24 +523,23 @@ header img {
 	display: flex;
 	align-items: center;
 	transition: 0.5s;
-
 }
 
 .recommendationButtonWrapper p {
-	font-size: 2.3vw;
-	font-family: 'Tomorrow-Medium';
+	font-size: var(--l-text);
+	font-family: "Tomorrow-Medium";
 	color: var(--primary-dark-purple);
 	margin: 1vw;
 }
 
 .recommendationButtonWrapper hr {
 	flex-grow: 1;
-	border: var(--primary-border-width) solid var(--medium-green);
+	border: var(--primary-border-width) solid var(--primary-medium-green);
 }
 
 .recommendationButtonLine {
 	flex-grow: 1;
-	border: var(--primary-border-width) solid var(--medium-green);
+	border: var(--primary-border-width) solid var(--primary-medium-green);
 }
 
 /* Styling for the 'find my dream education' button, with locked properties */
@@ -640,10 +552,10 @@ header img {
 }
 
 .dreamEducationButton p {
-	font-family: 'Tomorrow-Medium';
+	font-family: "Tomorrow-Medium";
 	color: transparent;
-	-webkit-text-stroke: 0.05vw var(--medium-green);
-	font-size: 2vw;
+	-webkit-text-stroke: 0.05vw var(--primary-medium-green);
+	font-size: var(--l-text);
 }
 
 .dreamEducationButton:not(.locked) p {
@@ -652,7 +564,7 @@ header img {
 }
 
 .dreamEducationButton:not(.locked):hover p {
-	text-shadow: 2px 1px var(--medium-green-shadow);
+	text-shadow: 2px 1px var(--primary-medium-green-shadow);
 }
 
 .dreamEducationButton:active p {
@@ -744,14 +656,14 @@ header img {
 	height: 100%;
 	padding: 4px;
 
-	background-color: var(--medium-green);
-	border: var(--primary-border-width) solid var(--medium-green-shadow);
+	background-color: var(--primary-medium-green);
+	border: var(--primary-border-width) solid var(--primary-medium-green-shadow);
 	border-radius: var(--primary-border-radius);
 }
 
 .refreshButton:hover {
 	cursor: pointer;
-	background-color: var(--medium-green-shadow);
+	background-color: var(--primary-medium-green-shadow);
 	transition: background-color 200ms;
 }
 
@@ -771,7 +683,6 @@ header img {
 		transform: rotate(360deg);
 	}
 }
-
 /*
   End of Intrest
  ---===---===---===---===---===---===---===---===---===---
@@ -794,7 +705,14 @@ header img {
 	margin-top: 0 auto;
 }
 
-
+.interestReq {
+	padding: 0.5em 1em;
+	background-color: var(--medium-green);
+	border: var(--primary-border-width);
+	border-radius: var(--primary-border-radius);
+	font-size: 0.8vw;
+	font-family: "Tomorrow-MediumItalic";
+	color: var(--primary-light-green);
 }
 .recommendedWrapper * p,
 .recommendedWrapper * a,
@@ -824,24 +742,24 @@ header img {
 	margin-bottom: 0.5em;
 }
 
-.titleReq {
+.tilteReq {
 	font-size: 1.6vw;
 	font-family: Tomorrow-SemiBold !important;
 	color: var(--primary-dark-purple);
 }
 
 .wildcard * .tilteReq {
-	max-width: 90%;
+	max-width: 90% !important;
 }
 
 .wildcardText {
-	font-family: Tomorrow-Medium;
+	font-family: "Tomorrow-Medium";
 	text-align: right !important;
 	position: absolute;
 	padding: 0.4vw 0.8vw;
 	top: 0;
 	right: 0;
-	font-size: 1.2vw;
+	font-size: var(--s-text);
 }
 
 .wildcardBubble {
@@ -856,29 +774,41 @@ header img {
 	border-radius: var(--primary-border-radius);
 }
 
-.wildcardText:hover+.wildcardBubble {
+.wildcardText:hover + .wildcardBubble {
 	display: block;
+}
+
+.wildcard {
+	background: linear-gradient(-50deg, var(--primary-light-purple) 40%, #f0f0f0 50%, var(--primary-light-purple) 60%);
+	background-size: 300%;
+	background-position-x: 100%;
+	animation: shimmer 4s infinite linear;
+}
+
+@keyframes shimmer {
+	to {
+		background-position-x: 0%;
+	}
+}
+
+.wildcard * {
+	color: var(--primary-dark-purple) !important;
+	border-color: var(--primary-dark-purple) !important;
 }
 
 .descriptionReq,
 .reqDescription,
 .reqDescriptionContent,
+.reqDescriptionDescription,
 .gradeStyle {
-	font-size: 1.2vw;
-	font-family: Tomorrow-Medium;
-}
-
-.descriptionReq,
-.reqDescription,
-.reqDescriptionDescription {
-	font-size: 1.2vw;
-	font-family: Tomorrow-Medium;
+	font-size: var(--s-text);
+	font-family: "Tomorrow-Medium";
 }
 
 .descriptionReq {
 	display: inline-block;
 	margin-top: 0.4em;
-	color: var(--medium-green-shadow);
+	color: var(--primary-medium-green-shadow);
 }
 
 .schoolReq,
@@ -890,13 +820,13 @@ header img {
 .coursePointsGrade {
 	margin-right: 0.5em;
 	padding-right: 0.5em;
-	border-right: var(--primary-border-width) solid var(--medium-green);
+	border-right: var(--primary-border-width) solid var(--primary-medium-green);
 }
 
 .reqDescriptionBox {
 	margin-bottom: 0.4em;
 	padding: 0 1vw 0.5vw 1vw;
-	border: var(--primary-border-width) dashed var(--medium-green);
+	border: var(--primary-border-width) dashed var(--primary-medium-green);
 	border-radius: var(--primary-border-radius);
 }
 
@@ -913,8 +843,8 @@ header img {
 
 .reqDescriptionContent {
 	margin-top: 0.25em;
-	font-family: Tomorrow-Regular !important;
-	color: var(--medium-green-shadow);
+	font-family: "Tomorrow-Regular" !important;
+	color: var(--primary-medium-green-shadow);
 }
 
 .recommendedFoot {
@@ -1060,65 +990,58 @@ header img {
 	padding: 0.4vw 0.8vw;
 }
 
-.titleReq {
-	font-size: 1.6vw;
-	font-family: Tomorrow-SemiBold !important;
-	color: var(--primary-dark-purple);
-}
-
-.linkReq {
-	font-family: Tomorrow-Medium;
-	color: var(--medium-green-shadow);
-	margin-right: 1vw;
-	text-decoration: underline;
-}
-
-.wildcard * .tilteReq {
-	max-width: 90%;
-}
-
-.wildcardText {
-	font-family: Tomorrow-Medium;
-	text-align: right !important;
-	position: absolute;
-	padding: 0.4vw 0.8vw;
-	top: 0;
-	right: 0;
-	font-size: 1.2vw;
-}
-
-.wildcardBubble {
-	z-index: -2;
-	display: none;
-	position: absolute;
-	top: 0;
-	left: 100%;
-	background-color: #f0f0f0;
-	padding: 10px;
-	border: var(--primary-border-width) solid #ccc;
-	border-radius: var(--primary-border-radius);
-}
-
-.wildcardText:hover+.wildcardBubble {
-	display: block;
-}
-.showMoreButton {
-	cursor: pointer;
-	padding: 0.5em 1em;
-	background-color: var(--medium-green);
-	border: var(--primary-border-width);
-	border-radius: var(--primary-border-radius);
-	font-size: 0.8vw;
-	font-family: "Tomorrow-MediumItalic";
-	color: var(--primary-light-green);
-	margin-top: 0.2vw;
-	display: block;
-	width: 30%;
-	margin: 0 auto;
-
-}
 /*
   End of Recommendation
+  ---===---===---===---===---===---===---===---===---===---
+	Start of Count
+*/
+.gradeInputWrapper {
+	display: grid;
+	grid-template-columns: 1.2fr 0.7fr 0.7fr 0fr 0.7fr;
+	grid-gap: 10px;
+	width: 70%;
+	max-width: fit-content;
+	margin: 3vw auto 0;
+}
+
+.pointWrapper {
+	display: flex;
+	width: calc(100% - 2 * var(--primary-border-width));
+	background-color: var(--primary-medium-green-shadow);
+}
+
+.pointOutput {
+	margin: auto;
+	font-size: calc(var(--text-form-height) * 0.7);
+	font-family: "Tomorrow-MediumItalic";
+	color: var(--primary-light-green);
+}
+
+.gradeWrapper {
+	display: grid;
+	gap: 1vw;
+	grid-template-columns: repeat(2, 1fr);
+	width: 80% !important;
+}
+
+.gradeBox {
+	display: flex;
+	margin: 0 !important;
+}
+
+.courseNameGrade {
+	overflow-wrap: break-word;
+	flex: 3;
+	text-align: left;
+}
+
+.coursePointsGrade,
+.gradeGrade {
+	flex: 1;
+	text-align: left;
+}
+/*
+	End of Count
   ---===---===---===---===---===---===---===---===---===---
   Start of Footer
 */
@@ -1133,7 +1056,7 @@ footer {
 	height: 4vw;
 	padding: 0 1vw 1vw 1vw;
 	background-color: var(--primary-light-green);
-	font-size: 1.5vw;
+	font-size: var(--m-text);
 }
 
 /* Footer navbar annd line dimentions and position */
@@ -1171,7 +1094,7 @@ footer {
 /* Class for the alternatives "Hitta program", "Räkna antagningspoäng", "Se behörighetskrav", and "Om oss" */
 .siteNavigation {
 	font-family: "Tomorrow-Medium";
-	color: var(--medium-green);
+	color: var(--primary-medium-green);
 }
 
 /* Text logo wrapper dimetion and position */
@@ -1180,79 +1103,10 @@ footer {
 	bottom: 0;
 	right: 1vw;
 	cursor: default;
-	font-size: 4vw;
+	font-size: var(--xxl-text);
 	color: var(--primary-dark-purple);
 }
-
 /*
   End of Footer
   ---===---===---===---===---===---===---===---===---===---
-  Start of Count
 */
-.gradeInputWrapper {
-	display: grid;
-	grid-template-columns: 1.2fr 0.7fr 0.7fr 0fr 0.7fr;
-	grid-gap: 10px;
-	width: 70%;
-	max-width: fit-content;
-	margin: 3vw auto 0;
-}
-
-.buttonInputWrapper .textInputWrapper .textButton img {
-	width: 70%;
-}
-
-.pointWrapper {
-	display: flex;
-	width: calc(100% - 2 * var(--primary-border-width));
-	background-color: var(--medium-green-shadow);
-}
-
-.pointOutput {
-	margin: auto;
-	font-size: calc(var(--text-form-height) * 0.7);
-	font-family: "Tomorrow-MediumItalic";
-	color: var(--primary-light-green);
-}
-
-.gradeWrapper {
-	display: grid;
-	gap: 1vw;
-	grid-template-columns: repeat(2, 1fr);
-	width: 80% !important;
-}
-
-.gradeBox {
-	display: flex;
-	margin: 0 !important;
-}
-
-.courseNameGrade {
-	overflow-wrap: break-word;
-	flex: 3;
-	text-align: left;
-}
-
-.coursePointsGrade,
-.gradeGrade {
-	flex: 1;
-	text-align: left;
-}
-
-@keyframes shimmer {
-	to {
-		background-position-x: 0%;
-	}
-}
-
-.wildcard {
-	background: linear-gradient(-50deg, var(--primary-light-purple) 40%, #f0f0f0 50%, var(--primary-light-purple) 60%);
-	background-size: 300%;
-	background-position-x: 100%;
-	animation: shimmer 4s infinite linear;
-}
-
-.wildcard * {
-	color: var(--primary-dark-purple);
-	border-color: var(--primary-dark-purple);
-}

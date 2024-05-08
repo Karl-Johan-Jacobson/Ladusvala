@@ -5,7 +5,7 @@ import InterestType from "@/types/interest";
 import InterestItem from "./InterestItem";
 import { v4 as uuidv4 } from "uuid";
 import RefreshButton from "./RefreshButton";
-import CustomInterestInput from "./CustomInterestInput";
+import TextInterestInput from "./TextInterestInput";
 
 export const NUMBER_OF_INTERESTS = 11;
 
@@ -146,15 +146,9 @@ export default function Interest({ interests, handleRecommendationButtonClick }:
 					</div>
 				))}
 			</div>
-			<div className="interestControl">
-				<div className="customInterestWrapper">
-					<CustomInterestInput onSubmit={addCustomInterest}>
-						<img src="../../plus.svg" />
-					</CustomInterestInput>
-				</div>
-				<div className="refreshButtonWrapper">
-					<RefreshButton refresh={refresh} />
-				</div>
+			<div className="interestInputWrapper">
+				<TextInterestInput imgSource="../../plus.svg" altText="Läggtill" onSubmit={addCustomInterest} />
+				<RefreshButton imgSource="../../refresh.svg" altText="Nya intressen" refresh={refresh} />
 			</div>
 			<div className="recommendationButtonWrapper" style={{ display: "flex", alignItems: "center" }}>
 				<hr />
