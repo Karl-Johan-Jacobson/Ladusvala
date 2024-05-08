@@ -1,6 +1,6 @@
 "use client";
 
-import { RefObject, useState } from "react";
+import { useState } from "react";
 import InterestType from "@/types/interest";
 import InterestItem from "./InterestItem";
 import { v4 as uuidv4 } from "uuid";

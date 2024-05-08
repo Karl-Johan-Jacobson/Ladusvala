@@ -1,11 +1,9 @@
 "use client"; // Makes it so it is on client side instead of server side because of the function components.
 
-import { useRouter } from "next/navigation";
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 import interestData from "@/public/dataset/interests.json";
-import { getRecommendationsFromAI, modifyOverflow, removeClass, addClass } from "@/app/utils";
+import { modifyOverflow, removeClass, addClass } from "@/app/utils";
 
-import InterestType from "@/types/interest";
 import Program from "@/types/program";
 
 // Import for subpages

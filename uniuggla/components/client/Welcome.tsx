@@ -2,7 +2,7 @@
 
 import React, { RefObject, useEffect, useState } from "react";
 import { TypewriterForTitle } from "@/components/client/TypeWriter";
-import { addClass, modifyOverflow, modifyTopPadding, modifyTopPaddingRelative, removeClass } from "@/app/utils";
+import { addClass, modifyOverflow, removeClass } from "@/app/utils";
 import Link from "next/link";
 
 interface WelcomeProps {
