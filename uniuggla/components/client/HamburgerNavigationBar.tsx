@@ -14,22 +14,17 @@ const HamburgerNavigationBar: React.FC<HamburgerNavigationBarProps> = ({ onToggl
   };
 
   return (
-    <nav className="hamburger-nav">
-      <div className="hamburger-icon" onClick={toggleDropdown}>
-        <div className="line"></div>
-        <div className="line"></div>
-        <div className="line"></div>
-      </div>
-      
+    <>
+      <img className="hamburger-icon" src="../../hamburger.svg" alt="" onClick={toggleDropdown}/>
       {isOpen && (
         <ul className="dropdown-menu">
           <li><a href="/">Hitta program</a></li>
-          <li><a href="/">Se behörighetskrav</a></li>
+          <li><a href="/cou">Se behörighetskrav</a></li>
           <li><a href="/">Beräkna antagningspoäng</a></li>
           <li><a href="/about">Om oss</a></li>
         </ul>
       )}
-    </nav>
+    </>
   );
 };
 

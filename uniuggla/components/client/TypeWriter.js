@@ -2,7 +2,7 @@ import Typewriter from "typewriter-effect/dist/core";
 import { addClass, modifyTopPaddingRelative, modifyTop, modifyHeight, modifyHeightRelative } from "@/app/utils";
 
 export function TypewriterForTitle(text, htmlClass, moveAfter, removeAfter) {
-	var charDelay = 70;
+	var charDelay = 60;
 	var brDelay = 300;
 	var time = 0;
 
@@ -40,7 +40,7 @@ export function TypewriterForTitle(text, htmlClass, moveAfter, removeAfter) {
 			modifyHeight("0", htmlClass);
 		});
 		typewriter.callFunction(function () {
-			setTimeout( () => {addClass("hide", htmlClass);}, 100 );
+			setTimeout( () => {addClass("hide", htmlClass);}, 200 );
 		});
 	}
 	return time;

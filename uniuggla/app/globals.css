@@ -78,9 +78,10 @@ input[type="number"]::-webkit-outer-spin-button {
 	color: var(--medium-green);
 }
 /* Standard styling for text */
-p {
+p, a {
 	font-family: "Tomorrow-Medium", sans-serif;
 	text-align: center;
+	color: var(--dark-purple);
 }
 /*text input*/
 .textInputWrapper,
@@ -92,6 +93,16 @@ p {
 	height: var(--text-form-height);
 	margin: auto;
 	border: var(--border-width) solid var(--dark-green);
+}
+
+.interestInputWrapper {
+	width: 75vw;
+	height: 3vh;
+	top: 90%;
+	left: 0;
+	right:0;
+	bottom:0;
+	margin: auto;
 }
 
 
@@ -204,7 +215,7 @@ header img {
 /* Positioning of the typewriter animation*/
 .titleTypewriter {
 	position: relative;
-	height: 1.5em;
+	height: min-content;
 	margin: 0 auto;
 	transition: padding-top 0.3s ease, height 0.3s ease, top 0.3s ease;
 	font-size: var(--xl-text);
@@ -283,13 +294,9 @@ header img {
 	display: grid;
 	grid-template-rows: 0fr 1fr 0fr 1fr 0fr 0fr;
 	width: 100%;
-	height: min-content;
+	height: max-content;
 	margin: 0 auto;
 	padding-top: 2vw;
-}
-.interestText {
-	position: relative;
-	height: min-content;
 }
 .selectedInterestTitle {
 	display: flex;
@@ -749,7 +756,7 @@ footer {
 	z-index: 10;
 	bottom: 0;
 	width: 98%;
-	height: 4vw;
+	height: var(--xxl-text);
 	padding: 0 1vw 1vw 1vw;
 	background-color: var(--extra-light-green);
 	font-size: var(--m-text);

@@ -392,15 +392,13 @@ export async function handleRecommendationButtonClick(interestArr: string[]): Pr
 	});
 	//send it to ai
 	aiResponse(interests, interestArr);
-	let removeAfter: boolean;
+	let titelText: string;
 	if (window.innerWidth > 480) {
-		removeAfter = false;
+		titelText = "Tack! Hmm... låt mig se vad jag kan hitta!";
 	} else {
-		removeAfter = true;
+		titelText = "Tack! Hmm... låt mig se<br />vad jag kan hitta!";
 	}
-	//Write out the title for recommendations page
-	TypewriterForTitle("Tack! Hmm... låt mig se vad jag kan hitta!", "recommmendationText", true, removeAfter);
-	//move to recommendations page
+	TypewriterForTitle(titelText, "recommmendationText", true, false);
 	modifyOverflow("visible", "main");
 	removeClass("hide", "recommendationContainer");
 	scrollToId("recommendationContainer");

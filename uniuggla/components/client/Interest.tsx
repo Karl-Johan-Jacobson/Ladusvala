@@ -27,12 +27,21 @@ const Interest: React.FC<InterestProps> = ({ interests, handleRecommendationButt
 	const [customInterest, setCustomInterest] = useState<string>("");
 
 	// Set 'find my dream education' button as locked unless 4 interests are selected
-	let dreamEducationButtonClass = "dreamEducationButton";
-	if (selectedInterests.length >= 4 && selectedInterests.length <= 11) {
-		dreamEducationButtonClass += " dreamEducationButton";
-	} else {
-		dreamEducationButtonClass += " locked";
+	let dreamEducationButtonClass: string;
+	if (window.innerWidth > 480) {
+		dreamEducationButtonClass = "dreamEducationButton";
+		if (selectedInterests.length < 4 || selectedInterests.length > 11) {
+			dreamEducationButtonClass += " locked";
+		}
 	}
+	else {
+		dreamEducationButtonClass = "dreamEducationButtonInputWrapper";
+		if (selectedInterests.length < 4 || selectedInterests.length > 10) {
+			dreamEducationButtonClass += " locked";
+		}
+	}
+	
+	
 
 	const updateLists = (selectedInterest: InterestType) => {
 		// Find index of interest to "remove" from non-selected interests
@@ -127,7 +136,7 @@ const Interest: React.FC<InterestProps> = ({ interests, handleRecommendationButt
 
 	return (
 		<div className="wrapper interestWrapper interest">
-			<p className="bot titleTypewriter interestText" style={{ paddingTop: "15vh", top: "0" ,height: "1.5em"}}></p>
+			<p className="bot titleTypewriter interestText" style={{ paddingTop: "15vh", top: "0", height: "1.5em" }}></p>
 			<div className="chooseInterestWrapper">
 				<div className="selectedInterestTitle">
 					<hr />
@@ -135,36 +144,36 @@ const Interest: React.FC<InterestProps> = ({ interests, handleRecommendationButt
 					<hr />
 				</div>
 				<div className="selectedInterestList">
-					{window.innerWidth > 480?
+					{window.innerWidth > 480 ?
 						placeholderInterestRows.map((row, rowIndex) => (
-								<div className={`interestRow selectedRow${rowIndex + 1}`}>
-									{row.map(
-										(interest) =>
-											interest.interestId !== "placeholder" ? (
-												<InterestItem updateParent={handleDeselect} interest={interest} mounted={true} isSelected={true} key={interest.interestId} />
-											) : (
-												<div className="placeholderInterest">
-													<p></p>
-												</div>
-											)
-									)}
-								</div>
-						  ))
+							<div className={`interestRow selectedRow${rowIndex + 1}`}>
+								{row.map(
+									(interest) =>
+										interest.interestId !== "placeholder" ? (
+											<InterestItem updateParent={handleDeselect} interest={interest} mounted={true} isSelected={true} key={interest.interestId} />
+										) : (
+											<div className="placeholderInterest">
+												<p></p>
+											</div>
+										)
+								)}
+							</div>
+						))
 						: /*If phone - Use this*/
 						placeholderInterestRows.map((row, rowIndex) => (
-								<div className={`interestColumn selectedColumn${rowIndex + 1}`}>
-						{row.map(
-							(interest) =>
-								interest.interestId !== "placeholder" ? (
-									<InterestItem updateParent={handleDeselect} interest={interest} mounted={true} isSelected={true} key={interest.interestId} />
-								) : (
-									<div className="placeholderInterest">
-										<p></p>
-									</div>
-								)
-						)}
-					</div>
-						  ))}
+							<div className={`interestColumn selectedColumn${rowIndex + 1}`}>
+								{row.map(
+									(interest) =>
+										interest.interestId !== "placeholder" ? (
+											<InterestItem updateParent={handleDeselect} interest={interest} mounted={true} isSelected={true} key={interest.interestId} />
+										) : (
+											<div className="placeholderInterest">
+												<p></p>
+											</div>
+										)
+								)}
+							</div>
+						))}
 				</div>
 				<div className="notSelectedInterestTitle">
 					<hr />
@@ -174,33 +183,44 @@ const Interest: React.FC<InterestProps> = ({ interests, handleRecommendationButt
 				<div className="notSelectedInterestList">
 					{window.innerWidth > 480 /*IF-STATEMENT*/
 						? // Render this block if window width is greater than 480
-						  interestRows.map((row, rowIndex) => (
-								<div className={`interestRow row${rowIndex + 1}`} key={rowIndex}>
-									{row.map((interest) => (
-										<InterestItem updateParent={updateLists} interest={interest} mounted={true} isSelected={false} key={interest.interestId} />
-									))}
-								</div>
-						  ))
+						interestRows.map((row, rowIndex) => (
+							<div className={`interestRow row${rowIndex + 1}`} key={rowIndex}>
+								{row.map((interest) => (
+									<InterestItem updateParent={updateLists} interest={interest} mounted={true} isSelected={false} key={interest.interestId} />
+								))}
+							</div>
+						))
 						: // Render this block if window width is less than or equal to 480
-						  interestRows.map((row, rowIndex) => (
-								<div className="interestColumn" key={rowIndex}>
-									{row.map((interest) => (
-										<InterestItem updateParent={updateLists} interest={interest} mounted={true} isSelected={false} key={interest.interestId} />
-									))}
-								</div>
-						  ))}
+						interestRows.map((row, rowIndex) => (
+							<div className="interestColumn" key={rowIndex}>
+								{row.map((interest) => (
+									<InterestItem updateParent={updateLists} interest={interest} mounted={true} isSelected={false} key={interest.interestId} />
+								))}
+							</div>
+						))}
 				</div>
+				{window.innerWidth > 480 ?
+					<><div className="interestInputWrapper">
+						<TextInterestInput imgSource="../../plus.svg" altText="Läggtill" onSubmit={addCustomInterest} />
+						<RefreshButton imgSource="../../refresh.svg" altText="Nya intressen" refresh={refresh}/>
+					</div><div className="recommendationButtonWrapper">
+							<hr />
+							<button className={dreamEducationButtonClass} onClick={handleRecommend}>
+								<p className="user"> &gt;&gt; Hitta min drömutbildning &lt;&lt; </p>
+							</button>
+							<hr />
+						</div></>
+				:
 				<div className="interestInputWrapper">
 					<TextInterestInput imgSource="../../plus.svg" altText="Läggtill" onSubmit={addCustomInterest} />
 					<RefreshButton imgSource="../../refresh.svg" altText="Nya intressen" refresh={refresh} />
+					<div className={"buttonInputWrapper " + dreamEducationButtonClass}>
+						<button onClick={handleRecommend} className="buttonInput" type="button">
+							<img className="buttonInputImg" src="../../double_right_arrow.svg" alt="Få rekommendation" />
+						</button>
+					</div>
 				</div>
-				<div className="recommendationButtonWrapper">
-					<hr />
-					<button className={dreamEducationButtonClass} onClick={handleRecommend}>
-						<p className="user"> &gt;&gt; Hitta min drömutbildning &lt;&lt; </p>
-					</button>
-					<hr />
-				</div>
+				}
 			</div>
 		</div>
 	);

@@ -15,7 +15,7 @@ const RefreshButton: React.FC<RefreshProps> = ({ imgSource, altText, refresh }) 
 	};
 
 	return (
-		<div className="buttonInputWrapper">
+		<div className="buttonInputWrapper refreshButtonInputWrapper">
 			<button onClick={handleRefresh} className="buttonInput" type="button">
 				<img className="buttonInputImg" src={imgSource} alt={altText} />
 			</button>
