@@ -107,6 +107,7 @@ export default function Interest({ interests, handleRecommendationButtonClick }:
 		if (selectedInterests.length >= 4 && selectedInterests.length <= 11) {
 			handleRecommendationButtonClick(selectedInterests.map((interest) => interest.interestTitle));
 		} else {
+			alert("Please select between 4 and 11 interests.");
 		}
 		//Say something to user, that they have to select interests
 	}

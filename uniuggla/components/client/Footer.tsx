@@ -33,7 +33,6 @@ export default function Footer() {
                             <ul className="footerList">
                                 <li><a href="/" className="siteNavigation">Hitta program</a></li>
                                 <li><a href="/count" className="siteNavigation">Räkna antagningspoäng</a></li>
-                                <li><a href="/req" className="siteNavigation">Se behörighetskrav</a></li>
                                 <li><a href="/about" className="siteNavigation">Om oss</a></li>
                             </ul>
                         </div>

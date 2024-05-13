@@ -385,7 +385,7 @@ header img {
 	border: none;
 	text-overflow: ellipsis;
 }
-    .selectedButton {
+.selectedButton {
 	overflow: hidden;
 	box-sizing: border-box;
 	width: 13vw;
@@ -423,8 +423,6 @@ header img {
 	margin: 1vw auto 0;
 }
 .recommendationButtonWrapper {
-	overflow: hidden;
-	margin: 0 auto;
 	transition: 0.5s;
 	cursor: pointer;
 	text-overflow: ellipsis;
@@ -446,6 +444,7 @@ header img {
 }
 /* Styling for the 'find my dream education' button, with locked properties */
 .dreamEducationButton {
+	margin: 0 auto;
 	height: inherit;
 	background-color: var(--extra-light-green);
 	cursor: pointer;
@@ -679,6 +678,13 @@ header img {
 	margin-bottom: 0.4em;
 	padding: 0 1vw 0.5vw 1vw;
 	border: var(--border-width) dashed var(--medium-green);
+	overflow: hidden;
+	max-height: 0;
+	transition: max-height 500ms cubic-bezier(0,1,0,1);
+}
+.reqDescriptionBox.show {
+	max-height: 1000px;
+	transition: max-height 400ms cubic-bezier(1,0,1,0);
 }
 .reqDescription {
 	display: inline-block;
@@ -741,14 +747,14 @@ header img {
 .recommendedItemWrapper::after {
 	width: 100%;
 	height: 100%;
-	border-radius: var(--primary-border-radius);
-	border: var(--primary-border-width) solid var(--primary-dark-purple);	
+	border-radius: var(--border-radius);
+	border: var(--border-width) solid var(--dark-purple);	
 	margin: 2vh auto;
 	padding-top: 1vh;
 	padding-right: 1vw;
 	padding-bottom: 0vh;
 	padding-left: 1vw;
-	background-color: var(--primary-medium-green);
+	background-color: var(--medium-green);
 }
 
 .recommendedItemHead {
@@ -765,8 +771,8 @@ header img {
 	padding: 0vh 1vw;
 	margin-top: 1vh;
 
-	border-radius: var(--primary-border-radius);
-	border-width: calc(var(--primary-border-width) * 0.5);
+	border-radius: var(--border-radius);
+	border-width: calc(var(--border-width) * 0.5);
 	border-style: solid;
 	border-color: var(--medium-green);
 
@@ -776,7 +782,7 @@ header img {
 }
 
 .recommendedDropdown.show {
-	border-width: var(--primary-border-width);
+	border-width: var(--border-width);
 	max-height: 1000px;
 	transition: border-width, max-height 400ms cubic-bezier(1,0,1,0);
 }
@@ -808,7 +814,7 @@ header img {
 .recommendationProp {
 	text-align: left;
 	color: var(--medium-green-shadow);
-	border-right: calc(var(--primary-border-width) * 0.5) solid var(--medium-green);	
+	border-right: calc(var(--border-width) * 0.5) solid var(--medium-green);	
 	padding-right: 0.4vw;
 	margin-right: 0.5vw;	
 }
@@ -829,21 +835,21 @@ header img {
 .titleReq {
 	font-size: 1.6vw;
 	font-family: Tomorrow-SemiBold !important;
-	color: var(--primary-dark-purple);
+	color: var(--dark-purple);
 }
 
 .linkReq {
 	font-family: Tomorrow-Medium;
-	color: var(--primary-dark-purple);
+	color: var(--dark-purple);
 	margin-right: 1vw;
 	text-decoration: underline;
-	border-right: var(--primary-border-width) solid var(--medium-green);
+	border-right: var(--border-width) solid var(--medium-green);
 	padding-right: 1vw;
 }
 
 .descriptionReq {
 	font-family: Tomorrow-Medium;
-	color: var(--primary-dark-purple);
+	color: var(--dark-purple);
 }
 
 .dropdownText {
@@ -874,8 +880,8 @@ header img {
 	left: 100%;
 	background-color: #f0f0f0;
 	padding: 10px;
-	border: var(--primary-border-width) solid #ccc;
-	border-radius: var(--primary-border-radius);
+	border: var(--border-width) solid #ccc;
+	border-radius: var(--border-radius);
 }
 
 .wildcardText:hover + .wildcardBubble {
@@ -883,7 +889,7 @@ header img {
 }
 
 .wildcard {
-	background: linear-gradient(-50deg, var(--primary-light-purple) 40%, #f0f0f0 50%, var(--primary-light-purple) 60%);
+	background: linear-gradient(-50deg, var(--light-purple) 40%, #f0f0f0 50%, var(--light-purple) 60%);
 	background-size: 300%;
 	background-position-x: 100%;
 	animation: shimmer 4s infinite linear;
@@ -896,19 +902,19 @@ header img {
 }
 
 .wildcard * {
-	color: var(--primary-dark-purple) !important;
-	border-color: var(--primary-dark-purple) !important;
+	color: var(--dark-purple) !important;
+	border-color: var(--dark-purple) !important;
 }
 
 .showMoreButton {
 	cursor: pointer;
 	padding: 0.5em 1em;
 	background-color: var(--medium-green);
-	border: var(--primary-border-width);
-	border-radius: var(--primary-border-radius);
+	border: var(--border-width);
+	border-radius: var(--border-radius);
 	font-size: 0.8vw;
 	font-family: "Tomorrow-MediumItalic";
-	color: var(--primary-light-green);
+	color: var(--light-green);
 	margin-top: 0.2vw;
 	display: block;
 	width: 30%;
