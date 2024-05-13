@@ -56,7 +56,6 @@ async function scrapeKF(url, programId, schoolName) {
 			console.log("Successfully written data to file");
 		});
 
-		//programId_sv|programUniversity_sv|programTitle_sv|programDescription_sv|programPoints_sv|programYears_sv|programRequirements_sv|programAiDescription_sv|programPlace_sv|programDegree_sv|programLink
 	});
 }
 //scrapeKF("https://www.konstfack.se/sv/Utbildning/Lararutbildning/Amneslararprogrammet-med-inriktning-mot-grundskolans-ak-7-9-270-hp/");

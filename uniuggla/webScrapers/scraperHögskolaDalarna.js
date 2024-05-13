@@ -6,7 +6,6 @@ const fs = require("fs");
 let titleReturn = { programTitle_sv: "", programPoints: "", programDescription_sv: "", programLink: "", programId: "", schoolName: "" };
 
 // Take list of urls as arg and parse, will make ID work better.
-// build master scraper?, with all school scrapers that parse "school" from list and uses correct scraper.
 async function scrapeHDa(url, programId, schoolName) {
 	await new Promise((r) => setTimeout(r, 1000));
 
@@ -14,16 +13,13 @@ async function scrapeHDa(url, programId, schoolName) {
 		if (!error && response.statusCode == 200) {
 			const $ = cheerio.load(html);
 
-			const titleBody = $("h1 > span"); // Article class ref
-			const title = titleBody.text().trim(); // title holds name of program name
-			//titleReturn.programTitle_sv = title;
+			const titleBody = $("h1 > span"); // class ref
+			const title = titleBody.text().trim(); 
 			console.log("TITLE:" + title);
 			const hpBody = $(".pull-left > b");
-			const hp = hpBody.first().text().trim(); // Holds "Program X högskolepoäng * Y år * Kandidatexamen"
+			const hp = hpBody.first().text().trim(); 
 
 			console.log("HP: " + hp);
-			//const leadSubBody = $(".lead p"); // lead class's p elements to subBody
-			//const shortDesc = leadSubBody.first().text(); // get first p and convert from HTML to text
 
 			const shortDescBody = $(".pagetitle-summary");
 			const shortDesc = shortDescBody.first().text().trim(); // Holds short desciption of program

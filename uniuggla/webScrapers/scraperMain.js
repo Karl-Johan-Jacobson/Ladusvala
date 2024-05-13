@@ -30,7 +30,7 @@ const scraperSodertorn = require("./scraperSodertorn.js");
 let programId = 1698;
 
 // Mittuni must be scraped manually. 403 Forbidden.
-// DON´T DO HANDELS. LINNÉ WONT WORK FROM KTH INTERNET -> USE PHONE. TRY BY-PASS ON MITTUNI
+// DON´T DO HANDELS. LINNÉ WONT WORK FROM KTH INTERNET -> USE PHONE.
 async function mainScraper() {
 	for (let i = 0; i < lundArray.length; i++) {
 		await scraperLund(lundArray[i], programId++, "Lunds universitet");

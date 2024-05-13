@@ -11,8 +11,8 @@ async function scrapeKarlstad(url, programId, schoolName) {
 		if (!error && response.statusCode == 200) {
 			const $ = cheerio.load(html);
 
-			const titleClass = $(".my0"); // Article class ref
-			const title = titleClass.find("span").text(); // title holds name of program, title, amount of HP
+			const titleClass = $(".my0"); // class ref
+			const title = titleClass.find("span").text();
 
 			const hpClass = $(".inline-block");
 			const hp = hpClass.first().text().trim();
@@ -53,7 +53,6 @@ async function scrapeKarlstad(url, programId, schoolName) {
 			console.log("Successfully written data to file");
 		});
 
-		//programId_sv|programUniversity_sv|programTitle_sv|programDescription_sv|programPoints_sv|programYears_sv|programRequirements_sv|programAiDescription_sv|programPlace_sv|programDegree_sv|programLink
 	});
 }
 scrapeKarlstad("https://www.kau.se/utbildning/program-och-kurser/program/NGBIO");

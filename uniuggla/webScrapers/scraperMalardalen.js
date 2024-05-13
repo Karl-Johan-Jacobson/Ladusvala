@@ -18,8 +18,8 @@ async function scrapeMalardalen(url, programId, schoolName) {
 		if (!error && response.statusCode == 200) {
 			const $ = cheerio.load(html);
 
-			const titleClass = $(".mdh-h1").first(); // Article class ref
-			const title = titleClass.text(); // title holds name of program, title, amount of HP
+			const titleClass = $(".mdh-h1").first(); 
+			const title = titleClass.text(); 
 
 			const hpClass = $(".iYGC_6L5Wv4eAcFH2ftC").first();
 			const hpArr = hpClass.text().split(" ");
@@ -55,7 +55,6 @@ async function scrapeMalardalen(url, programId, schoolName) {
 			console.log("Successfully written data to file");
 		});
 
-		//programId_sv|programUniversity_sv|programTitle_sv|programDescription_sv|programPoints_sv|programYears_sv|programRequirements_sv|programAiDescription_sv|programPlace_sv|programDegree_sv|programLink
 	});
 }
 //scrapeMalardalen("https://www.mdu.se/utbildning/program/visualisering-och-textdesign---informationsdesign",1);

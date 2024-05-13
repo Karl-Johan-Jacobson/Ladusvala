@@ -340,6 +340,7 @@
 		display: block;
 		margin: auto;
 		height: 100%;
+		padding-top: 50%; 
 	}
 
 	.dropdown-menu {

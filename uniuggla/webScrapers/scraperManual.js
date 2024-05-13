@@ -1,3 +1,5 @@
+/*This file was never used*/
+
 // Loading the dependencies. We don't need pretty
 // because we shall not log html to the terminal
 const axios = require("axios");
@@ -43,5 +45,4 @@ async function scrapeData() {
 		console.error(err);
 	}
 }
-// Invoke the above function
-scrapeData();
+//scrapeData();

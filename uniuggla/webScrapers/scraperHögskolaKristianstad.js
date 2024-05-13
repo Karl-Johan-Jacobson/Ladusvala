@@ -64,5 +64,5 @@ async function scrapeHKR(url, programId, schoolName) {
 	});
 }
 
-scrapeHKR("https://www.hkr.se/program/grundlarare-arbetsplats");
+//scrapeHKR("https://www.hkr.se/program/grundlarare-arbetsplats");
 module.exports = scrapeHKR;

@@ -1,3 +1,5 @@
+/* This file should not be used, defaults to bad string values which will result in bad data. Errors should be caught here, not later. */
+
 const request = require("request");
 const cheerio = require("cheerio");
 const fs = require("fs");

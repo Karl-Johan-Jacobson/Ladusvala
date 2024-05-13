@@ -19,15 +19,13 @@ async function scrapeLund(url, programId, schoolName) {
 		if (!error && response.statusCode == 200) {
 			const $ = cheerio.load(html);
 
-			const titleBody = $(".layout__region--main"); // Article class ref
-			const title = titleBody.find("h1").text().trim(); // title holds name of program name
+			const titleBody = $(".layout__region--main"); // class ref
+			const title = titleBody.find("h1").text().trim();
 			titleReturn.programTitle_sv = title;
 
 			const hpBody = $(".field__kicker");
-			const hp = hpBody.first().text().trim(); // Holds "Program X högskolepoäng * Y år * Kandidatexamen"
+			const hp = hpBody.first().text().trim(); 
 
-			//const leadSubBody = $(".lead p"); // lead class's p elements to subBody
-			//const shortDesc = leadSubBody.first().text(); // get first p and convert from HTML to text
 
 			const shortDescBody = $(".lubas-info__description p");
 			const shortDesc = shortDescBody.first().text().trim(); // Holds short desciption of program
@@ -51,7 +49,6 @@ async function scrapeLund(url, programId, schoolName) {
 			titleReturn.programId = programId;
 			titleReturn.schoolName = schoolName;
 
-			//console.log(titleFinal);
 			console.log("titleReturn: " + titleReturn);
 		} else {
 			console.log("ERROR CONNECTING:" + error);
@@ -68,7 +65,6 @@ async function scrapeLund(url, programId, schoolName) {
 			console.log("Successfully written data to file");
 		});
 
-		//programId_sv|programUniversity_sv|programTitle_sv|programDescription_sv|programPoints_sv|programYears_sv|programRequirements_sv|programAiDescription_sv|programPlace_sv|programDegree_sv|programLink
 	});
 }
 //scrapeLund("https://www.lu.se/lubas/i-uoh-lu-HGJAP");

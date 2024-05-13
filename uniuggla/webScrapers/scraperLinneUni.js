@@ -1,7 +1,7 @@
 const request = require("request");
 const cheerio = require("cheerio");
 const fs = require("fs");
-//   "type": "commonjs", i package.json för scrape
+//   "type": "commonjs", in package.json when scraping
 
 let titleReturn = { programTitle_sv: "", programPoints: "", programDescription_sv: "", programLink: "", programId: "", schoolName: "" };
 // DOES NOT WORK ON KTH INTERNET. ERROR: connect ENETUNREACH
@@ -14,12 +14,10 @@ async function scrapeLinneUni(url, programId, schoolName) {
 		if (!error && response.statusCode == 200) {
 			const $ = cheerio.load(html);
 
-			const titleBody = $(".main-content"); // Article class ref
-			const title = titleBody.find("h1").text().trim(); // title holds name of program name
-			//titleReturn.programTitle_sv = title;
+			const titleBody = $(".main-content"); // class ref
+			const title = titleBody.find("h1").text().trim(); // 
 			console.log("TITLE:" + title);
-			//const hpBody = $(".snabbfakta li");
-			const hp = titleBody.find("span").last().text().trim(); // Holds "Program X högskolepoäng * Y år * Kandidatexamen"
+			const hp = titleBody.find("span").last().text().trim(); 
 
 			console.log("HP: " + hp);
 
@@ -42,8 +40,6 @@ async function scrapeLinneUni(url, programId, schoolName) {
 			titleReturn.programId = programId;
 			titleReturn.schoolName = schoolName;
 
-			//console.log(titleFinal);
-			//console.log("titleReturn: "+titleReturn);
 		} else {
 			console.log("ERROR CONNECTING:" + error);
 			titleReturn.programLink = url;

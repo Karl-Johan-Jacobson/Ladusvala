@@ -47,8 +47,6 @@ async function scrapeHIG(url, programId, schoolName) {
 			titleReturn.programId = programId;
 			titleReturn.schoolName = schoolName;
 
-			//console.log(titleFinal);
-			//console.log("titleReturn: "+titleReturn);
 		} else {
 			console.log("ERROR CONNECTING:" + error + response.statusCode);
 		}

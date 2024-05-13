@@ -19,8 +19,8 @@ async function scrapeKarolinska(url, programId, schoolName) {
 		if (!error && response.statusCode == 200) {
 			const $ = cheerio.load(html);
 
-			const titleClass = $(".wrapper").first(); // Article class ref
-			const title = titleClass.text().trim().split(" "); // title holds name of program, title, amount of HP
+			const titleClass = $(".wrapper").first(); // class ref
+			const title = titleClass.text().trim().split(" "); 
 
 			const hpClass = $(".item-1").first();
 			const hpUnTrimed = hpClass.text();
@@ -28,7 +28,6 @@ async function scrapeKarolinska(url, programId, schoolName) {
 			const descriptionClass = $(".lead");
 			const description = descriptionClass.text().trim();
 
-			// make hp a nice format
 			let hpItems = [];
 			hpItems = hpUnTrimed.split("\n");
 
@@ -39,9 +38,6 @@ async function scrapeKarolinska(url, programId, schoolName) {
 					hp += item + " ";
 				}
 			});
-			// const descriptionClass = $(".mb4");
-			//const description = descriptionClass.find("div").text().split("\n");
-
 			titleReturn.programTitle_sv = title[0].trim();
 			titleReturn.programPoints = hp;
 			titleReturn.programDescription_sv = description;
@@ -63,7 +59,6 @@ async function scrapeKarolinska(url, programId, schoolName) {
 			console.log("Successfully written data to file");
 		});
 
-		//programId_sv|programUniversity_sv|programTitle_sv|programDescription_sv|programPoints_sv|programYears_sv|programRequirements_sv|programAiDescription_sv|programPlace_sv|programDegree_sv|programLink
 	});
 }
 //scrape("https://utbildning.ki.se/program/2la21-lakarprogrammet");

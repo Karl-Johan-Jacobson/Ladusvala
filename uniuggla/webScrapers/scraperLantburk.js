@@ -16,12 +16,10 @@ async function scrape(url) {
 		if (!error && response.statusCode == 200) {
 			const $ = cheerio.load(html);
 
-			const titleBody = $(".main-content"); // Article class ref
-			const title = titleBody.find("h1").text().trim(); // title holds name of program name
-			//titleReturn.programTitle_sv = title;
+			const titleBody = $(".main-content"); // class ref
+			const title = titleBody.find("h1").text().trim(); // title holds name of program 
 			console.log("TITLE:" + title);
-			//const hpBody = $(".snabbfakta li");
-			const hp = titleBody.find("span").last().text().trim(); // Holds "Program X högskolepoäng * Y år * Kandidatexamen"
+			const hp = titleBody.find("span").last().text().trim(); 
 
 			console.log("HP: " + hp);
 
@@ -42,8 +40,6 @@ async function scrape(url) {
 			titleReturn.programDescription_sv = shortDesc;
 			titleReturn.programLink = url;
 
-			//console.log(titleFinal);
-			//console.log("titleReturn: "+titleReturn);
 		} else {
 			console.log("ERROR CONNECTING:" + error);
 			titleReturn.programLink = url;
@@ -58,7 +54,6 @@ async function scrape(url) {
 			console.log("Successfully written data to file");
 		});
 
-		//programId_sv|programUniversity_sv|programTitle_sv|programDescription_sv|programPoints_sv|programYears_sv|programRequirements_sv|programAiDescription_sv|programPlace_sv|programDegree_sv|programLink
 	});
 }
 scrape("https://www.slu.se/utbildning/program-kurser/program-pa-grundniva/civing-miljovatten/");

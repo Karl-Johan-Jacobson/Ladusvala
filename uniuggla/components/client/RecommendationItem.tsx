@@ -15,7 +15,7 @@ export default function RecommendedItem({ recommendation, index }: Recommendatio
   return (
     <div className={`recommendedBox ${recommendation.wildcard ? "wildcard" : ""}`}>
       <div className="recommendedHead">
-        <p className="titleReq">{recommendation.program.programTitle_sv}{","}&nbsp;{recommendation.program.degree}</p>
+        <p className="titleReq">{recommendation.program.programTitle_sv}</p>
         {recommendation.wildcard && 
           <>
             <p className="wildcardText">WILDCARD?</p>

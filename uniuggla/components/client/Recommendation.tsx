@@ -33,7 +33,7 @@ export default function Recommendation({selectedInterests, shouldFetch}: Recomme
 	
 	return (
 		<div id="recommmendation" className="wrapper recommmendationWrapper recommmendation">
-			<p className="bot titleTypewriter recommmendationText" style={{ paddingTop: "10vh" }}></p>
+			<p className="titleTypewriter recommmendationText" style={{ paddingTop: "10vh" }}></p>
 			<div className="recommendedWrapper">
 				{isLoading ? (
 					<div className="loadingGIF">

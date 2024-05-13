@@ -28,7 +28,7 @@ const Recommendation: React.FC<RecommendationProps> = () => {
 	return (
 		<section>
 			<div id="recommendation" className="wrapper recommendationWrapper recommendation">
-				<p className="bot titleTypewriter recommendationText" style={{ paddingTop: "15vh" }}></p>
+				<p className="titleTypewriter recommendationText" style={{ paddingTop: "15vh" }}></p>
 				<form className="gradeInputWrapper">
 					<div className="textInputWrapper">
 						<input className="textInput" type="text" pattern="[A-Fa-f0-9]" placeholder="Engelska 5" value={courseName} onChange={(e) => setcourseName(e.target.value)} />

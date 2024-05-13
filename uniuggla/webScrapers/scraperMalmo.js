@@ -19,8 +19,8 @@ async function scrapeMalmö(url, programId, schoolName) {
 		if (!error && response.statusCode == 200) {
 			const $ = cheerio.load(html);
 			console.log(url);
-			const titleClass = $(".hero__title"); // Article class ref
-			const titleItems = titleClass.text().split(" "); // title holds name of program, title, amount of HP
+			const titleClass = $(".hero__title"); 
+			const titleItems = titleClass.text().split(" ");
 
 			let title = "";
 			titleItems.map((item) => {
@@ -34,7 +34,6 @@ async function scrapeMalmö(url, programId, schoolName) {
 
 			const hpArr = hpClass.text();
 
-			//console.log(hpArr);
 			hp = hpArr;
 			const descriptionClass = $(".narrow-content > .wysiwyg");
 			const description = descriptionClass.find("p").first().text();
@@ -70,7 +69,6 @@ async function scrapeMalmö(url, programId, schoolName) {
 			console.log("Successfully written data to file");
 		});
 
-		//programId_sv|programUniversity_sv|programTitle_sv|programDescription_sv|programPoints_sv|programYears_sv|programRequirements_sv|programAiDescription_sv|programPlace_sv|programDegree_sv|programLink
 	});
 }
 scrapeMalmö("https://mau.se/sok-utbildning/program/vgbap/");
