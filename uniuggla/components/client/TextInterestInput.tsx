@@ -5,10 +5,11 @@ import { ChangeEvent, FormEvent, useState } from "react";
 interface RefreshProps {
 	imgSource: string;
 	altText: string;
+	isDisabled: boolean;
 	onSubmit: (input: string) => void; // Function to run when button is clicked, passed from parent
 }
 
-export default function TextInterestInput({ imgSource, altText, onSubmit }: RefreshProps) {
+export default function TextInterestInput({ imgSource, altText, onSubmit, isDisabled }: RefreshProps) {
 	const [inputValue, setInputValue] = useState<string>("");
 
 	const handleValueChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -23,7 +24,7 @@ export default function TextInterestInput({ imgSource, altText, onSubmit }: Refr
 
 	return (
 		<form onSubmit={handleSubmit} className="textInputWrapper">
-			<input placeholder="Enter an interest..." type="text" value={inputValue} onChange={handleValueChange} required className="textInput" />
+			<input disabled={isDisabled} placeholder="Enter an interest..." type="text" value={inputValue} onChange={handleValueChange} required className="textInput" />
 			<button title="Add interest!" type="submit" className="textButton">
 				<img className="textButtonImg" src={imgSource} alt={altText} />
 			</button>

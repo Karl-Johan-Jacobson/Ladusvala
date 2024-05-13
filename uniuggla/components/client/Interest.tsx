@@ -197,7 +197,7 @@ export default function Interest({ interests, handleRecommendationButtonClick }:
 				</div>
 				<div className="notSelectedInterestTitle">
 					<hr />
-					<span>Välj dina intressen</span>
+					<span>Välj minst 4 intressen</span>
 					<hr />
 				</div>
 				<div className="notSelectedInterestList">
@@ -234,7 +234,7 @@ export default function Interest({ interests, handleRecommendationButtonClick }:
 				{window.innerWidth > 480 ? (
 					<>
 						<div className="interestInputWrapper">
-							<TextInterestInput imgSource="../../plus.svg" altText="Lägg till" onSubmit={addCustomInterest} />
+							<TextInterestInput imgSource="../../plus.svg" altText="Lägg till" onSubmit={addCustomInterest} isDisabled={selectedInterests.length === 11}/>
 							<RefreshButton imgSource="../../refresh.svg" altText="Nya intressen" refresh={refresh}/>
 						</div>
 						<div className="recommendationButtonWrapper">
@@ -247,7 +247,7 @@ export default function Interest({ interests, handleRecommendationButtonClick }:
 					</>
 				) : (
 					<div className="interestInputWrapper">
-						<TextInterestInput imgSource="../../plus.svg" altText="Läggtill" onSubmit={addCustomInterest} />
+						<TextInterestInput imgSource="../../plus.svg" altText="Läggtill" onSubmit={addCustomInterest} isDisabled={selectedInterests.length === 11} />
 						<RefreshButton imgSource="../../refresh.svg" altText="Nya intressen" refresh={refresh} />
 						<div className={"buttonInputWrapper " + dreamEducationButtonClass}>
 							<button onClick={handleRecommend} className="buttonInput" type="button">
