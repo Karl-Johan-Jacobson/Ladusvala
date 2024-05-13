@@ -8,12 +8,14 @@ import RefreshButton from "./RefreshButton";
 import TextInterestInput from "./TextInterestInput";
 
 
+
 interface InterestProps {
 	interests: InterestType[];
 	handleRecommendationButtonClick: (interest: string[]) => void;
 }
 
 export default function Interest({ interests, handleRecommendationButtonClick }: Readonly<InterestProps>) {
+if (typeof window !== 'undefined') {
 	// Function to get random elements from an array.
 	function getRandom(arr: InterestType[], n: number) {
     let result = new Array(n);
@@ -28,6 +30,7 @@ export default function Interest({ interests, handleRecommendationButtonClick }:
     }
     return result;
 	}
+
 
 	const NUMBER_OF_INTERESTS = window.innerWidth <= 480 ? 10 : 11;
 	const coreInterests = interests.filter(interest => interest.coreSubject);
@@ -260,4 +263,5 @@ export default function Interest({ interests, handleRecommendationButtonClick }:
 			</div>
 		</div>
 	);
+}
 };

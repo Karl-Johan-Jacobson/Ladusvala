@@ -85,6 +85,28 @@ p, a {
 	color: var(--dark-purple);
 	font-size: var(--m-text);
 }
+.aboutUsLink {
+	position: relative;
+	overflow: hidden;
+	display:inline-block;
+  }
+  
+  .aboutUsLink::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	height: 2px;
+	width: 100%;
+	background-color: #434343;
+	transform: translateX(-100%);
+	transition: transform 0.5s ease-in-out;
+  }
+  
+  .aboutUsLink:hover::before {
+	transform: translateX(0);
+  }
+  
 /*text input*/
 .textInputWrapper,
 .buttonInputWrapper,
@@ -359,7 +381,7 @@ header img {
 }
 .interestItem {
 	width: 13vw;
-	height: 3vw;
+	max-height: 3vw;
 }
 .iconText {
 	font-size: var(--m-text);
@@ -390,7 +412,6 @@ header img {
 	box-sizing: border-box;
 	width: 13vw;
 	height: 3vw;
-	max-height: 3vw;
 	background-color: var(--dark-purple);
 	cursor: pointer;
 	border: none;
@@ -575,6 +596,8 @@ header img {
 	display: block;
 	width: 10vw;
 	margin: 1vw auto 0;
+	padding-top: 10%;
+	scale: 1.1;
 }
 .showInterestBox {
 	display: flex;
@@ -708,7 +731,7 @@ header img {
 	display: flex;
 }
 .recommendationArrow {
-	height: 1vw;
+	height: 0.65vw;
 	margin: 0 auto;
 	transform: rotate(0deg);
 	transition: transform 0.5s ease-in-out;

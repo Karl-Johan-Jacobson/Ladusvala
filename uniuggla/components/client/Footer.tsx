@@ -7,6 +7,9 @@ export default function Footer() {
     const [isWide, setIsWide] = useState(window.innerWidth > 480);
     const [isOpen, setIsOpen] = useState(false);
 
+    if (typeof window !== 'undefined'){
+
+
     useEffect(() => {
         const handleResize = () => {
             setIsWide(window.innerWidth > 480);
@@ -19,6 +22,7 @@ export default function Footer() {
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
+}
     const toggleMenu = () => {
         setIsOpen(!isOpen);
     };
