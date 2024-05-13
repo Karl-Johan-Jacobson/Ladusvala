@@ -1,5 +1,5 @@
 import Program from "@/types/program";
-import programsJson from "@/public/dataSet/programs.json"
+import programsJson from "@/public/dataset/programs.json"
 
 export function shuffleArray<T>(array: T[]): void {
 	for (let i = array.length - 1; i > 0; i--) {
