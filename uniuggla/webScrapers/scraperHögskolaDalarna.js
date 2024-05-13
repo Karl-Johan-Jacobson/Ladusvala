@@ -39,9 +39,6 @@ async function scrapeHDa(url, programId, schoolName) {
 			titleReturn.programLink = url;
 			titleReturn.programId = programId;
 			titleReturn.schoolName = schoolName;
-
-			//console.log(titleFinal);
-			//console.log("titleReturn: "+titleReturn);
 		} else {
 			console.log("ERROR CONNECTING:" + error + response.statusCode);
 			titleReturn.programLink = url;
@@ -56,7 +53,6 @@ async function scrapeHDa(url, programId, schoolName) {
 			console.log("Successfully written data to file");
 		});
 
-		//programId_sv|programUniversity_sv|programTitle_sv|programDescription_sv|programPoints_sv|programYears_sv|programRequirements_sv|programAiDescription_sv|programPlace_sv|programDegree_sv|programLink
 	});
 }
 scrapeHDa("https://www.du.se/sv/Utbildning/Program/businessmanagement/");

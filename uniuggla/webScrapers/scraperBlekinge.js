@@ -13,16 +13,12 @@ async function scrapeBlekinge(url, programId, schoolName) {
 		if (!error && response.statusCode == 200) {
 			const $ = cheerio.load(html);
 
-			const titleBody = $(".title-bg-image"); // Article class ref
-			const title = titleBody.find("h1").text().trim(); // title holds name of program name
-			//titleReturn.programTitle_sv = title;
+			const titleBody = $(".title-bg-image"); // class ref
+			const title = titleBody.find("h1").text().trim();
 			console.log("TITLE:" + title);
 			const hpBody = $(".hpoints");
-			const hp = hpBody.first().text().trim(); // Holds "Program X högskolepoäng * Y år * Kandidatexamen"
-
+			const hp = hpBody.first().text().trim(); 
 			console.log("HP: " + hp);
-			//const leadSubBody = $(".lead p"); // lead class's p elements to subBody
-			//const shortDesc = leadSubBody.first().text(); // get first p and convert from HTML to text
 
 			const shortDescBody = $(".Wysiwyg p");
 			const shortDesc = shortDescBody.next().next().first().text().trim(); // Holds short desciption of program
@@ -42,8 +38,7 @@ async function scrapeBlekinge(url, programId, schoolName) {
 			titleReturn.programLink = url;
 			titleReturn.programId = programId;
 			titleReturn.schoolName = schoolName;
-			//console.log(titleFinal);
-			//console.log("titleReturn: "+titleReturn);
+
 		} else {
 			console.log("ERROR CONNECTING:" + error + response.statusCode);
 			titleReturn.programLink = url;
@@ -58,7 +53,6 @@ async function scrapeBlekinge(url, programId, schoolName) {
 			console.log("Successfully written data to file");
 		});
 
-		//programId_sv|programUniversity_sv|programTitle_sv|programDescription_sv|programPoints_sv|programYears_sv|programRequirements_sv|programAiDescription_sv|programPlace_sv|programDegree_sv|programLink
 	});
 }
 scrapeBlekinge("https://www.bth.se/utbildning/program-och-kurser/dvasa/");

@@ -13,19 +13,15 @@ async function scrapeGIH(url, programId, schoolName) {
 		if (!error && response.statusCode == 200) {
 			const $ = cheerio.load(html);
 
-			const titleBody = $(".sv-text-portlet-content > h1"); // Article class ref
-			const title = titleBody.text().trim(); // title holds name of program name
-			//titleReturn.programTitle_sv = title;
+			const titleBody = $(".sv-text-portlet-content > h1"); // class ref
+			const title = titleBody.text().trim(); 
 			console.log("TITLE:" + title);
 			const hpBody = $(".gih-education__occasional--info");
-			const hp = hpBody.first().text().trim(); // Holds "Program X högskolepoäng * Y år * Kandidatexamen"
-
+			const hp = hpBody.first().text().trim();
 			console.log("HP: " + hp);
-			//const leadSubBody = $(".lead p"); // lead class's p elements to subBody
-			//const shortDesc = leadSubBody.first().text(); // get first p and convert from HTML to text
 
 			const shortDescBody = $(".sv-text-portlet-content > p");
-			const shortDesc = shortDescBody.first().text().trim(); // Holds short desciption of program
+			const shortDesc = shortDescBody.first().text().trim();
 			console.log("Short Desc: " + shortDesc);
 
 			let hpItems = [];
@@ -42,9 +38,6 @@ async function scrapeGIH(url, programId, schoolName) {
 			titleReturn.programLink = url;
 			titleReturn.programId = programId;
 			titleReturn.schoolName = schoolName;
-
-			//console.log(titleFinal);
-			//console.log("titleReturn: "+titleReturn);
 		} else {
 			console.log("ERROR CONNECTING:" + error + response.statusCode);
 			titleReturn.programLink = url;
@@ -58,8 +51,6 @@ async function scrapeGIH(url, programId, schoolName) {
 			}
 			console.log("Successfully written data to file");
 		});
-
-		//programId_sv|programUniversity_sv|programTitle_sv|programDescription_sv|programPoints_sv|programYears_sv|programRequirements_sv|programAiDescription_sv|programPlace_sv|programDegree_sv|programLink
 	});
 }
 scrapeGIH("https://www.gih.se/utbildning/vara-utbildningar/program/kompletterande-pedagogisk-utbildning-till-amneslarare");
