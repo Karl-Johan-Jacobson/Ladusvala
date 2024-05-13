@@ -14,9 +14,27 @@ interface InterestProps {
 }
 
 export default function Interest({ interests, handleRecommendationButtonClick }: Readonly<InterestProps>) {
+	// Function to get random elements from an array.
+	function getRandom(arr: InterestType[], n: number) {
+    let result = new Array(n);
+    let len = arr.length;
+    let taken = new Array(len);
+    if (n > len)
+        throw new RangeError("getRandom: more elements taken than available");
+    while (n--) {
+        let x = Math.floor(Math.random() * len);
+        result[n] = arr[x in taken ? taken[x] : x];
+        taken[x] = --len in taken ? taken[len] : len;
+    }
+    return result;
+	}
+
 	const NUMBER_OF_INTERESTS = window.innerWidth <= 480 ? 10 : 11;
+	const coreInterests = interests.filter(interest => interest.coreSubject);
+	const nonCoreInterests = interests.filter(interest => !interest.coreSubject);
+	const initialInterests = [...getRandom(coreInterests,5), ...getRandom(nonCoreInterests,NUMBER_OF_INTERESTS-5)];
 	const [selectedInterests, setSelectedInterests] = useState<InterestType[]>([]);
-	const [notSelected, setNotSelected] = useState<InterestType[]>(interests.filter((_interest, index) => index < NUMBER_OF_INTERESTS));
+	const [notSelected, setNotSelected] = useState<InterestType[]>(initialInterests);
 
 	// Set 'find my dream education' button as locked unless 4 interests are selected
 	let dreamEducationButtonClass: string;
