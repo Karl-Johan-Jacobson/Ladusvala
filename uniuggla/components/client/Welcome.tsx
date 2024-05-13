@@ -43,7 +43,7 @@ export default function Welcome({ yesPageRef }: WelcomeProps) {
 
 	return (
 		<div className="wrapper welcomeWrapper">
-			<p className="titleTypewriter welcomeText" style={{ paddingTop: "10vh"}}></p>
+			<p className="titleTypewriter welcomeText" style={{ paddingTop: "10vh", top: "0", height: "1.5em"}}></p>
 			<div className={`answers ${showButtons ? "show" : ""}`}>
 				<button className="answerButton" onClick={handleYesClick}>
 					<p className="user">Ja</p>
