@@ -11,7 +11,6 @@ const openai = new OpenAI({
 	apiKey: process.env.OPENAI_API_KEY,
 });
 
-
 var testTotalTokensForPrint = 0;
 //The only function called from frontend
 //returns the ai selected programs or throws an error
@@ -38,7 +37,7 @@ export async function getRecommendations(selectedInterest: string[]): Promise<Pr
 			const remainingPrograms: Program[] = selectedPrograms.filter((program) => {
 				return !finalPrograms.some((finalProgram) => finalProgram.program.programId === program.programId);
 			});
-			//Shuffle the array to avoid taking the same school everytime. 
+			//Shuffle the array to avoid taking the same school everytime.
 			shuffleArray(remainingPrograms);
 			//take the first three programs from the remaining programs(shuffled)
 			const firstThreePrograms: Program[] = remainingPrograms.slice(0, 3);
@@ -46,19 +45,19 @@ export async function getRecommendations(selectedInterest: string[]): Promise<Pr
 			// Convert randomPrograms to ProgramRecommendation type and append to finalPrograms
 			finalPrograms.splice(3, 0, {
 				program: firstThreePrograms[0],
-				wildcard: true
+				wildcard: true,
 			});
-			
+
 			// Insert the second element of firstThreePrograms at index 6
 			finalPrograms.splice(6, 0, {
 				program: firstThreePrograms[1],
-				wildcard: true
+				wildcard: true,
 			});
-			
+
 			// Insert the third element of firstThreePrograms at index 9
 			finalPrograms.splice(9, 0, {
 				program: firstThreePrograms[2],
-				wildcard: true
+				wildcard: true,
 			});
 			//shuffle a last time to not make the wildcards appear at the end
 			return finalPrograms;
@@ -168,7 +167,6 @@ async function finalCallToAi(interestProfile: string, selectedPrograms: Program[
 		const content: string = `${interestProfile}  \n och det här är beskrivningen på alla utbildningsprogram jag kan välja mellan  ${programAsString}. Du ska rekommendera åtminstone 10 utbildningar. Jag vill att du svarar med programId. Du ska svara med det mest relevanta utbildningen först`;
 		//("whole content string final: " + content);
 		const finalProgramsIdAndWildcards: { programId: number; wildcard: boolean }[] = (await recommendProgramFromInterest(content)) || [];
-		
 
 		return finalProgramsIdAndWildcards.map(({ programId, wildcard }: { programId: number; wildcard: boolean }) => {
 			return {
