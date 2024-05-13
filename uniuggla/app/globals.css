@@ -2,6 +2,7 @@
 	--s-text: 0.8vw;
 	--m-text: 1.2vw;
 	--l-text: 1.8vw;
+	--m-l-text: 2vw;
 	--xl-text: 3vw;
 	--xxl-text: 4vw;
 	--extra-light-green: #dffde0;
@@ -209,7 +210,7 @@ header img {
 	height: min-content;
 	margin: 0 auto;
 	transition: padding-top 0.3s ease, height 0.3s ease, top 0.3s ease;
-	font-size: var(--xl-text);
+	font-size: var(--m-l-text);
 	font-family: "Tomorrow-Medium" !important;
 	line-height: 1.5em;
 }
