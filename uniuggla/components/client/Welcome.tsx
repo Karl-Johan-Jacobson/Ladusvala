@@ -11,6 +11,7 @@ interface WelcomeProps {
 
 export default function Welcome({ yesPageRef }: WelcomeProps) {
 	const [showButtons, setShowButtons] = useState<boolean>(false);
+	if (typeof window !== 'undefined'){
 
 	// Starting animation
 	useEffect(() => {
@@ -56,4 +57,5 @@ export default function Welcome({ yesPageRef }: WelcomeProps) {
 			</div>
 		</div>
 	);
+}
 };
