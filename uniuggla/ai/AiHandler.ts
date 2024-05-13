@@ -11,7 +11,7 @@ const openai = new OpenAI({
 	apiKey: process.env.OPENAI_API_KEY,
 });
 
-var testCounterForPrint = 0;
+
 var testTotalTokensForPrint = 0;
 //The only function called from frontend
 //returns the ai selected programs or throws an error
@@ -41,22 +41,46 @@ export async function getRecommendations(selectedInterest: string[]): Promise<Pr
 		const startTime4 = Date.now();
 
 		// Map id:s to their program, 50 programs
-		const selectedProgramss: Program[] = getProgramsFromId(idNumbers || [], allPrograms);
+		const selectedPrograms: Program[] = getProgramsFromId(idNumbers || [], allPrograms);
 
 		const endTime4 = Date.now();
 		const duration4 = endTime4 - startTime4;
 		console.log(`Time taken to get id: ${duration4} milliseconds`);
-		
+
 		const startTime3 = Date.now();
-		
+
 		//get the final recommendations
-		const finalPrograms: ProgramRecommendation[] | undefined= await finalCallToAi(interestProfile, selectedProgramss);
+		const finalPrograms: ProgramRecommendation[] | undefined = await finalCallToAi(interestProfile, selectedPrograms);
 		const endTime3 = Date.now();
 		const duration3 = endTime3 - startTime3;
+
+		//take away finalPrograms from selectedPrograms
+		//choose three wildcards from the remaining selectedPrograms
 
 		console.log(`Time taken final call: ${duration3} milliseconds`);
 		if (finalPrograms) {
 
+			//remove the finalprograms from the selectedprograms
+			const remainingPrograms: Program[] = selectedPrograms.filter((program) => {
+				return !finalPrograms.some((finalProgram) => finalProgram.program.programId === program.programId);
+			});
+			//Shuffle the array to avoid taking the same school everytime. 
+			shuffleArray(remainingPrograms);
+			//take the first three programs from the remaining programs(shuffled)
+			const firstThreePrograms: Program[] = remainingPrograms.slice(0, 3);
+
+			// Convert randomPrograms to ProgramRecommendation type and append to finalPrograms
+			finalPrograms.push(
+				...firstThreePrograms.map((program) => {
+					return {
+						program: program,
+						wildcard: true,
+					};
+				})
+			);
+			//shuffle a last time to not make the wildcards appear at the end
+			shuffleArray(finalPrograms);
+			console.log("Total tokens: " + testTotalTokensForPrint);
 			return finalPrograms;
 		} else {
 			throw new Error("Error occurred Ai can not filter the final results");
@@ -83,11 +107,8 @@ async function getProfile(interestAsString: string): Promise<string> {
 
 	if (response.usage?.total_tokens) testTotalTokensForPrint += response.usage?.total_tokens;
 
-	console.log(response.choices[0].message.content);
-
 	return response.choices[0].message.content ? response.choices[0].message.content : "";
 }
-
 
 //format the message to ai, takes in a string argument which is the message to ai
 function createChatCompletionMessage(content: string): ChatCompletionCreateParamsBase {
@@ -99,11 +120,9 @@ function createChatCompletionMessage(content: string): ChatCompletionCreateParam
 	const systemMessage: ChatCompletionMessageParam = {
 		role: "system",
 		content:
-			"Du är en studievägledare som ska rekommendera de bäst utbildningsprogram utifrån mina intressen, du lägger ingen värdering i studentens intressen. Det är viktigt att utbildningarna matchar mina intressen strikt. Du ska svara med JSON object, med två fält programId och wildcard. Du måste svara med formatet [programs: [{programId: string, wildcard: string}]]. Det får aldrig finns fler än tre wildcard fält som är satta till true",
+			"Du är en studievägledare som ska rekommendera de bäst utbildningsprogram utifrån mina intressen, du lägger ingen värdering i studentens intressen. Det är viktigt att utbildningarna matchar mina intressen strikt. Du ska svara med JSON object, med ett fält programId. Du måste svara med formatet [programs: [{programId: string}]].",
 	};
 
-	//content:"You are a student counselor and a JSON formatter. All your answers should be a JSON object. With only two fields programId and Motivation, no other fields should be present. The format must be [programs: [{programId: string, Motivation: string}]]",
-	//content: "Du är en studievägledare som ska rekommendera de bäst utbildningsprogram utifrån mina intressen. Har jag tekniska intressen ska du rekommendera tekniska utbildningar, har jag medicinska intressen ska du rekommendera medicinska utbildningar, och så vidare. Du ska svara med JSON object, med två fält programId och Motivation."
 	const completionMessage: ChatCompletionCreateParamsBase = {
 		messages: [systemMessage, questionToAi],
 		model: "gpt-3.5-turbo",
@@ -117,25 +136,22 @@ function createChatCompletionMessage(content: string): ChatCompletionCreateParam
 async function recommendProgramFromInterest(content: string) {
 	// Generate content for AI based on interests and programs
 	const messageToAi: ChatCompletionCreateParamsBase = createChatCompletionMessage(content);
-	//console.log(messageToAi);
+	//make the http call
 	const completion = await openai.chat.completions.create(messageToAi);
-
+	//cast the respone to correct type
 	const response = completion as ChatCompletion;
 
+	console.log(response.choices[0].message.content)
 	if (response.usage?.total_tokens) testTotalTokensForPrint += response.usage?.total_tokens;
 
 	try {
 		const parsedObject = JSON.parse(response.choices[0].message.content as string);
 		// Extract programIds from the 'programs' array
 
-		const programIdsAndWildcards: { programId: number, wildcard: boolean }[] = parsedObject.programs.map((obj: { programId: string, wildcard: string }) => ({
-				programId: parseInt(obj.programId, 10),
-				wildcard: obj.wildcard === "true" ? true : false
-			}));
-		if (testCounterForPrint++ == 5) {
-			parsedObject.programs.map((obj: { programId: string; wildcard: string }) => console.log("programId: " + obj.programId, "wildcard: " + obj.wildcard));
-			console.log("\n" + "\n" + "\n");
-		}
+		const programIdsAndWildcards: { programId: number; wildcard: boolean }[] = parsedObject.programs.map((obj: { programId: string; wildcard: string }) => ({
+			programId: parseInt(obj.programId, 10),
+			wildcard: false,
+		}));
 		return programIdsAndWildcards;
 	} catch (error) {
 		console.error("Error parsing JSON:", error);
@@ -148,23 +164,21 @@ async function callOpenaiInParts(interestProfile: string, allPrograms: Program[]
 	try {
 		shuffleArray(allPrograms);
 		const arrayLength = allPrograms.length;
-		const partition = Math.ceil(arrayLength / 4);
-		const promiseArray = Array.from({ length: 4 }, async (_, i) => {
+		const partition = Math.ceil(arrayLength / 5);
+		const promiseArray = Array.from({ length: 5 }, async (_, i) => {
 			const startIndex = i * partition;
 			const endIndex = Math.min((i + 1) * partition, arrayLength);
 			const slicedPrograms = allPrograms.slice(startIndex, endIndex);
 			const partialProgramString = turnProgramToPrompt(slicedPrograms);
-			const content: string = `Det här är mina intressen: \n ${interestProfile} \n och det här är beskrivning på utbildningsprogram \n ${partialProgramString} \n Jag vill att du väljer tio utbildningsprogram som matchar min intressen strikt. Du ska bara svara med programId, lämna wildcard fältet tomt`;
+			const content: string = `Det här är mina intressen: \n ${interestProfile} \n och det här är beskrivning på utbildningsprogram \n ${partialProgramString} \n Jag vill att du väljer tio utbildningsprogram som matchar min intressen strikt. Du ska bara svara med programId`;
 			return recommendProgramFromInterest(content);
 		});
 		const result = await Promise.all(promiseArray);
 		let programIds: number[] = [];
-		console.log("1" +result);
-		programIds = result.flat().map((obj: { programId: number, wildcard: boolean }) => {
+		programIds = result.flat().map((obj: { programId: number; wildcard: boolean }) => {
 			return obj.programId;
-		})
-		
-		console.log("2" + programIds);
+		});
+
 		return programIds;
 	} catch (error) {
 		console.error("Error occurred:", error);
@@ -173,26 +187,19 @@ async function callOpenaiInParts(interestProfile: string, allPrograms: Program[]
 //Final call to ai with message to rank and maybe remove not relevant programs
 async function finalCallToAi(interestProfile: string, selectedPrograms: Program[]): Promise<ProgramRecommendation[] | undefined> {
 	try {
-		let wildcardCounter = 0;
 		const programAsString: string = turnProgramToPrompt(selectedPrograms);
-		const content: string = `${interestProfile}  \n och det här är beskrivningen på alla utbildningsprogram jag kan välja mellan  ${programAsString}. Du ska rekommendera åtminstone 10 utbildningar. Rangordna så att det mest relevanta utbildningsprogramet är först. Jag vill att du svarar med programId. Om det finns program som matchar mina intressen måttligt sätt wildcard fältet till true. Du får inte sätta fler än tre wildcard fält till true`;
+		const content: string = `${interestProfile}  \n och det här är beskrivningen på alla utbildningsprogram jag kan välja mellan  ${programAsString}. Du ska rekommendera åtminstone 10 utbildningar. Rangordna så att det mest relevanta utbildningsprogramet är först. Jag vill att du svarar med programId. Du måste svara med JSON`;
 		//("whole content string final: " + content);
-		const finalProgramsIdAndWildcards: { programId: number, wildcard: boolean }[] = (await recommendProgramFromInterest(content)) || [];
+		const finalProgramsIdAndWildcards: { programId: number; wildcard: boolean }[] = (await recommendProgramFromInterest(content)) || [];
 		//console.log("final numbers: " + finalProgramsId);
-		console.log(finalProgramsIdAndWildcards);
 
-
-		return finalProgramsIdAndWildcards.map(({programId, wildcard}: {programId: number, wildcard: boolean}) => {
+		return finalProgramsIdAndWildcards.map(({ programId, wildcard }: { programId: number; wildcard: boolean }) => {
 			return {
 				program: getProgramFromId(programId, selectedPrograms),
-				wildcard: wildcard
-			}
+				wildcard: wildcard,
+			};
 		});
 	} catch (error) {
 		console.error("Error occurred:", error);
 	}
 }
-
-
-
-
