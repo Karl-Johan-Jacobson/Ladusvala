@@ -23,7 +23,7 @@ export default function TextInterestInput({ imgSource, altText, onSubmit }: Refr
 
 	return (
 		<form onSubmit={handleSubmit} className="textInputWrapper">
-			<input placeholder="Enter an interest..." type="text" value={inputValue} onChange={handleValueChange} required className="textInput" />
+			<input placeholder="Skriv ett eget intresse här..." type="text" value={inputValue} onChange={handleValueChange} required className="textInput" />
 			<button title="Add interest!" type="submit" className="textButton">
 				<img className="textButtonImg" src={imgSource} alt={altText} />
 			</button>
