@@ -26,7 +26,7 @@ export default function Footer() {
     return (
         <footer>
             {isWide ? (
-                <div>
+                <>
                     <div className="footerLine"></div>
                     <div className="footerLeft">
                         <div className="footerListDiv">
@@ -37,7 +37,7 @@ export default function Footer() {
                             </ul>
                         </div>
                     </div>
-                </div>
+                </>
             ) : (
                 <div className={`footerLine ${isOpen ? "footerLineAnimDown" : "footerLineAnimUp"}`}>
                     <HamburgerNavigationBar onToggle={toggleMenu} isOpen={isOpen} />

@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getRecommendations } from "@/ai/AiHandler";
 import ProgramRecommendation from "@/types/ProgramRecommendation";
-import RecommendationAccordion from "./RecommendationAccordion";
-import RecommendationItemImproved from "./RecommendationItemImproved";
+import RecommendationItemImproved from "./RecommendationItem";
 
 interface RecommendationProps {
 	selectedInterests: string[];
@@ -42,14 +41,14 @@ export default function Recommendation({selectedInterests, shouldFetch}: Recomme
 					</div>
 				) : (
 					<div className="recommendationAccordion">
-					{recommendedPrograms.map((recommendation, index) => (
-						<RecommendationItemImproved
-							key={index}
-							recommendation={recommendation}
-							index={index}
-						/>
-					))}
-				</div>
+						{recommendedPrograms.map((recommendation, index) => (
+							<RecommendationItemImproved
+								key={index}
+								recommendation={recommendation}
+								index={index}
+							/>
+						))}
+					</div>
 					)}
 			</div>
 		</div>

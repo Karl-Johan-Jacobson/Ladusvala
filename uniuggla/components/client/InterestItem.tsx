@@ -6,14 +6,14 @@ import { useState } from "react";
 interface InterestListItemProps {
 	interest: Interest;
 	isSelected: boolean;
-	mounted: boolean;
+	isDisabled: boolean;
 	updateParent: (interest: Interest, isMounted: boolean) => void;
 }
 
-export default function InterestListItem({ interest, isSelected, mounted, updateParent }: InterestListItemProps) {
-	const [isMounted, setIsMounted] = useState<boolean>(mounted);
+export default function InterestListItem({ interest, isSelected, isDisabled, updateParent }: InterestListItemProps) {
+	const [isMounted, setIsMounted] = useState<boolean>(true);
 
-	// This function is called when an animation has ended, i.e when the component has either faded in or ou
+	// This function is called when an animation has ended, i.e when the component has either faded in or out
 	const handleParentUpdate = () => {
 		// We only want to update the parent when the component is unmounted, i.e. should be removed
 		if (!isMounted) {
@@ -33,13 +33,15 @@ export default function InterestListItem({ interest, isSelected, mounted, update
 			{isSelected ? (
 				<button
 					onClick={handleClick}
+					disabled={isDisabled}
 					className={`selectedButton ${isMounted ? "fadeInSelected" : "fadeOut"}`}
 					onAnimationEnd={handleParentUpdate}>
 					<span className="iconText">{interest.interestTitle}</span>
 				</button>
 			) : (
-				<button // If not selected
+				<button
 					onClick={handleClick}
+					disabled={isDisabled}
 					onAnimationEnd={handleParentUpdate}
 					className={`notSelectedButton ${isMounted ? "fadeInNew" : "fadeOut"}`}>
 					<span className="iconText">{interest.interestTitle}</span>

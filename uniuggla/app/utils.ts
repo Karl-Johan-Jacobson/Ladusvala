@@ -61,5 +61,7 @@ export const modifyHeightRelative = (relativeHeight: string, htmlClass: string) 
 export function formatNumber(num: number): string {
 	num = num / 60;
 	const roundedNum = num.toFixed(2);
-	return roundedNum.endsWith(".00") ? roundedNum.slice(0, -3) : roundedNum;
-}
+	return roundedNum.endsWith(".00") ? roundedNum.slice(0, -3) :
+	roundedNum.endsWith("0") ? roundedNum.slice(0, -1) : roundedNum;
+} 
+

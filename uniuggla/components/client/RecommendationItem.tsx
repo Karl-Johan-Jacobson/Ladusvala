@@ -14,9 +14,14 @@ export default function RecommendedItem({ recommendation, index }: Recommendatio
 
   return (
     <div className={`recommendedBox ${recommendation.wildcard ? "wildcard" : ""}`}>
-      <p>{recommendation.wildcard}</p>
       <div className="recommendedHead">
         <p className="titleReq">{recommendation.program.programTitle_sv}{","}&nbsp;{recommendation.program.degree}</p>
+        {recommendation.wildcard && 
+        <>
+          <p className="wildcardText">WILDCARD?</p>
+          <p className="wildcardBubble">Wildcard är en rekommendation som är löst baserat på dina intressen!</p>
+        </>
+        }
         <p className="schoolReq descriptionReq">{"LÄROSÄTE: "}&nbsp;{recommendation.program.schoolName}</p>
         <p className="degreeReq descriptionReq">{"EXAMEN: "}&nbsp;{recommendation.program.degree}</p>
         <p className="pointsReq descriptionReq">{recommendation.program.programPoints}&nbsp;{"HP"}</p>
@@ -28,7 +33,7 @@ export default function RecommendedItem({ recommendation, index }: Recommendatio
         <p className="reqDescriptionContent">{recommendation.program.programDescription_sv}</p>
       </div>
       <div onClick={() => setIsExpanded(!isExpanded)} className="recommendedFoot">
-        <img src="../../arrow.svg" alt="" className={`recommendationArrow ${isExpanded ? 'rotate' : ''}`}/>
+        <img src={`${recommendation.wildcard ? "../../arrow_wildcard.svg" : "../../arrow.svg"}`} alt="" className={`recommendationArrow ${isExpanded ? 'rotate' : ''}`}/>
       </div>
     </div>
   );

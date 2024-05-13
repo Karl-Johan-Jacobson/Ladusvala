@@ -6,13 +6,7 @@ import InterestItem from "./InterestItem";
 import { v4 as uuidv4 } from "uuid";
 import RefreshButton from "./RefreshButton";
 import TextInterestInput from "./TextInterestInput";
-let NUMBER_OF_INTERESTS = 11;
 
-if (window.innerWidth <= 480) {
-	NUMBER_OF_INTERESTS = 10;
-}
-
-export { NUMBER_OF_INTERESTS };
 
 interface InterestProps {
 	interests: InterestType[];
@@ -20,6 +14,7 @@ interface InterestProps {
 }
 
 export default function Interest({ interests, handleRecommendationButtonClick }: Readonly<InterestProps>) {
+	const NUMBER_OF_INTERESTS = window.innerWidth <= 480 ? 10 : 11;
 	const [selectedInterests, setSelectedInterests] = useState<InterestType[]>([]);
 	const [notSelected, setNotSelected] = useState<InterestType[]>(interests.filter((_interest, index) => index < NUMBER_OF_INTERESTS));
 
@@ -39,18 +34,23 @@ export default function Interest({ interests, handleRecommendationButtonClick }:
 	}
 
 	const updateLists = (selectedInterest: InterestType) => {
+		if (selectedInterests.length === 11) {
+			// Return if already selected 11 interests
+			return;
+		}
+		
 		// Find index of interest to "remove" from non-selected interests
 		let index = 0;
 		while (notSelected[index] !== selectedInterest) {
 			index++;
 		}
-
+	
 		// Find index of an interest that isn't currently being displayed
 		let freeIndex = Math.floor(Math.random() * interests.length); // Index of the new interest
 		while (notSelected.includes(interests[freeIndex]) || selectedInterests.includes(interests[freeIndex])) {
 			freeIndex = Math.floor(Math.random() * interests.length);
 		}
-
+	
 		// Insert a new interest at the same index as the removed one
 		const temp = [
 			...notSelected.slice(0, index),
@@ -58,7 +58,7 @@ export default function Interest({ interests, handleRecommendationButtonClick }:
 			...notSelected.slice(index + 1), // Remove the selected interest
 		];
 		setNotSelected([...temp]);
-
+	
 		// Adds the interest to selectedInterest
 		setSelectedInterests([...selectedInterests, selectedInterest]);
 	};
@@ -109,7 +109,6 @@ export default function Interest({ interests, handleRecommendationButtonClick }:
 		} else {
 			alert("Please select between 4 and 11 interests.");
 		}
-		//Say something to user, that they have to select interests
 	}
 
 	const placeholderInterest = { interestId: "placeholder", interestTitle: "", interestDescription: "placeholder" };
@@ -141,7 +140,13 @@ export default function Interest({ interests, handleRecommendationButtonClick }:
 									{row.map(
 										(interest) =>
 											interest.interestId !== "placeholder" ? (
-												<InterestItem updateParent={handleDeselect} interest={interest} mounted={true} isSelected={true} key={interest.interestId} />
+												<InterestItem
+													updateParent={handleDeselect}
+													interest={interest}
+													isSelected={true}
+													isDisabled={false}
+													key={interest.interestId}
+												/>
 											) : (
 												<div className="placeholderInterest">
 													<p></p>
@@ -156,7 +161,13 @@ export default function Interest({ interests, handleRecommendationButtonClick }:
 						{row.map(
 							(interest) =>
 								interest.interestId !== "placeholder" ? (
-									<InterestItem updateParent={handleDeselect} interest={interest} mounted={true} isSelected={true} key={interest.interestId} />
+									<InterestItem
+										updateParent={handleDeselect}
+										interest={interest}
+										isSelected={true}
+										isDisabled={false}
+										key={interest.interestId}
+									/>
 								) : (
 									<div className="placeholderInterest">
 										<p></p>
@@ -177,7 +188,13 @@ export default function Interest({ interests, handleRecommendationButtonClick }:
 						  interestRows.map((row, rowIndex) => (
 								<div className={`interestRow row${rowIndex + 1}`} key={rowIndex}>
 									{row.map((interest) => (
-										<InterestItem updateParent={updateLists} interest={interest} mounted={true} isSelected={false} key={interest.interestId} />
+										<InterestItem
+											updateParent={updateLists}
+											interest={interest}
+											isSelected={false}
+											isDisabled={selectedInterests.length === 11}
+											key={interest.interestId}
+										/>
 									))}
 								</div>
 						  ))
@@ -185,7 +202,13 @@ export default function Interest({ interests, handleRecommendationButtonClick }:
 						  interestRows.map((row, rowIndex) => (
 								<div className="interestColumn" key={rowIndex}>
 									{row.map((interest) => (
-										<InterestItem updateParent={updateLists} interest={interest} mounted={true} isSelected={false} key={interest.interestId} />
+										<InterestItem
+											updateParent={updateLists}
+											interest={interest}
+											isSelected={false}
+											isDisabled={selectedInterests.length === 11}
+											key={interest.interestId}
+										/>
 									))}
 								</div>
 						  ))}
@@ -193,7 +216,7 @@ export default function Interest({ interests, handleRecommendationButtonClick }:
 				{window.innerWidth > 480 ? (
 					<>
 						<div className="interestInputWrapper">
-							<TextInterestInput imgSource="../../plus.svg" altText="Läggtill" onSubmit={addCustomInterest} />
+							<TextInterestInput imgSource="../../plus.svg" altText="Lägg till" onSubmit={addCustomInterest} />
 							<RefreshButton imgSource="../../refresh.svg" altText="Nya intressen" refresh={refresh}/>
 						</div>
 						<div className="recommendationButtonWrapper">

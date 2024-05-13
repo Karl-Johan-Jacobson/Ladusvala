@@ -78,9 +78,11 @@ input[type="number"]::-webkit-outer-spin-button {
 	color: var(--medium-green);
 }
 /* Standard styling for text */
-p {
+p, a {
 	font-family: "Tomorrow-Medium", sans-serif;
 	text-align: center;
+	color: var(--dark-purple);
+	font-size: var(--m-text);
 }
 /*text input*/
 .textInputWrapper,
@@ -204,14 +206,12 @@ header img {
 /* Positioning of the typewriter animation*/
 .titleTypewriter {
 	position: relative;
-	height: 1.5em;
-	top: 0;
+	height: min-content;
 	margin: 0 auto;
 	transition: padding-top 0.3s ease, height 0.3s ease, top 0.3s ease;
 	font-size: var(--xl-text);
 	font-family: "Tomorrow-Medium" !important;
 	line-height: 1.5em;
-	color: var(--dark-purple);
 }
 .container {
 	position: relative;
@@ -230,7 +230,7 @@ header img {
 	width: auto;
 	height: auto;
 	margin: 0 auto var(--xxl-text);
-	padding: 0 10vh 1vw;
+	padding: 0 10vh 2vw;
 	transition: 0.5s ease;
 }
 .wrapper::-webkit-scrollbar {
@@ -297,11 +297,9 @@ header img {
 ---===---===---===---===---===---===---===---===---===---
   Start of Welcome
 */
-
 .welcomeWrapper {
 	padding-top: 15vh;
 }
-
 /*
   End of Welcome
   ---===---===---===---===---===---===---===---===---===---
@@ -311,20 +309,15 @@ header img {
 	display: grid;
 	grid-template-rows: 0fr 1fr 0fr 1fr 0fr 0fr;
 	width: 100%;
-	height: min-content;
+	height: max-content;
 	margin: 0 auto;
 	padding-top: 2vw;
-}
-.interestText {
-	position: relative;
-	height: min-content;
 }
 .selectedInterestTitle {
 	display: flex;
 	align-items: center;
 	font-size: var(--m-text);
 	font-family: "Tomorrow-MediumItalic";
-	color: var(--dark-purple);
 	text-align: center;
 }
 .selectedInterestTitle hr {
@@ -422,6 +415,15 @@ header img {
 	max-width: fit-content;
 	margin: 1vw auto 0;
 }
+/*.interestInputWrapper {
+	width: 75vw;
+	height: 3vh;
+	top: 90%;
+	left: 0;
+	right:0;
+	bottom:0;
+	margin: auto;
+}*/
 .recommendationButtonWrapper {
 	transition: 0.5s;
 	cursor: pointer;
@@ -432,7 +434,6 @@ header img {
 	margin: 1vw;
 	font-size: var(--l-text);
 	font-family: "Tomorrow-Medium";
-	color: var(--dark-purple);
 }
 .recommendationButtonWrapper hr {
 	flex-grow: 1;
@@ -526,9 +527,7 @@ header img {
 		transform: scale(0);
 	}
 }
-.refreshButton,
-.refreshButton::before,
-.refreshButton::after {
+.refreshButton {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -563,14 +562,21 @@ header img {
  ---===---===---===---===---===---===---===---===---===---
   Start of Recommendation
 */
-
 .recommendedWrapper,
 .gradeWrapper {
 	position: relative;
 	width: 80%;
 	margin: 1vw auto 0;
 }
-
+.loadingGIF {
+	display: grid;
+	grid-column: 1 / span 5;
+}
+.loadingGIF img {
+	display: block;
+	width: 10vw;
+	margin: 1vw auto 0;
+}
 .showInterestBox {
 	display: flex;
 	flex-wrap: wrap;
@@ -605,7 +611,6 @@ header img {
 .tilteReq {
 	font-size: var(--m-text);
 	font-family: "Tomorrow-SemiBold" !important;
-	color: var(--dark-purple);
 }
 .wildcard * .tilteReq {
 	max-width: 90% !important;
@@ -626,8 +631,8 @@ header img {
 	top: 0;
 	left: 100%;
 	padding: 10px;
-	background-color: #f0f0f0;
-	border: var(--border-width) solid #ccc;
+	background-color: var(--light-purple);
+	border: var(--border-width) solid var(--dark-purple);
 }
 .wildcardText:hover + .wildcardBubble {
 	display: block;
@@ -676,19 +681,19 @@ header img {
 }
 .reqDescriptionBox {
 	margin-bottom: 0.4em;
-	padding: 0 1vw 0.5vw 1vw;
+	padding: 0 1vw;
 	border: var(--border-width) dashed var(--medium-green);
 	overflow: hidden;
 	max-height: 0;
-	transition: max-height 500ms cubic-bezier(0,1,0,1);
+	transition: max-height 0.5s cubic-bezier(0,1,0,1), padding-bottom 0.5s cubic-bezier(1,0,1,0);
 }
 .reqDescriptionBox.show {
 	max-height: 1000px;
-	transition: max-height 400ms cubic-bezier(1,0,1,0);
+	padding-bottom: 0.5vw;
+	transition: max-height 0.5s cubic-bezier(1,0,1,0), padding-bottom 0.5s cubic-bezier(1,0,1,0);
 }
 .reqDescription {
 	display: inline-block;
-	color: var(--dark-purple);
 	white-space: nowrap;
 }
 .reqDescriptionLink {
@@ -703,223 +708,14 @@ header img {
 .recommendedFoot {
 	display: flex;
 }
-.showDescription {
-	display: flex;
-	width: 100%;
-	background-color: inherit;
-	border: 0;
-}
-
-.showDescription * {
-	display: inline-block;
-	text-decoration: underline;
-}
-
-.loadingGIF {
-	display: grid;
-	grid-column: 1 / span 5;
-}
-
-.loadingGIF img {
-	display: block;
-	width: 10vw;
-	margin: 1vw auto 0;
-}
-
-.recommendedWrapper,
-.gradeWrapper {
-	position: relative;
-	width: 80%;
-	margin: 1vw auto 0;
-}
-
-.recommendationAccordion,
-.recommendationAccordion::before,
-.recommendationAccordion::after {
-	width: 100%;
-	height: fit-content;
-	margin: 0 auto;
-	transition: transform 0.5s ease;
-}
-
-.recommendedItemWrapper,
-.recommendedItemWrapper::before,
-.recommendedItemWrapper::after {
-	width: 100%;
-	height: 100%;
-	border-radius: var(--border-radius);
-	border: var(--border-width) solid var(--dark-purple);	
-	margin: 2vh auto;
-	padding-top: 1vh;
-	padding-right: 1vw;
-	padding-bottom: 0vh;
-	padding-left: 1vw;
-	background-color: var(--medium-green);
-}
-
-.recommendedItemHead {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: flex-start;
-}
-
-.recommendedDropdown {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: flex-start;
-
-	padding: 0vh 1vw;
-	margin-top: 1vh;
-
-	border-radius: var(--border-radius);
-	border-width: calc(var(--border-width) * 0.5);
-	border-style: solid;
-	border-color: var(--medium-green);
-
-	overflow: hidden;
-	max-height: 0;
-	transition: border-width, max-height 500ms cubic-bezier(0,1,0,1);
-}
-
-.recommendedDropdown.show {
-	border-width: var(--border-width);
-	max-height: 1000px;
-	transition: border-width, max-height 400ms cubic-bezier(1,0,1,0);
-}
-
-.recommendationArrowWrapper {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	cursor: pointer;
-	padding: 1vh;
-}
-
 .recommendationArrow {
-	transform: rotate(0deg);
-	transition: transform 500ms;
-}
-
-.recommendationArrow.rotate {
-	transform: rotate(180deg);
-}
-
-.titleReq {
-	flex-basis: 100%; 
-	text-align: left;
-	margin-bottom: 0.1vw;
-}
-  
-
-.recommendationProp {
-	text-align: left;
-	color: var(--medium-green-shadow);
-	border-right: calc(var(--border-width) * 0.5) solid var(--medium-green);	
-	padding-right: 0.4vw;
-	margin-right: 0.5vw;	
-}
-  
-.recommendationProp:last-child {
-	border-right: none; 
-}
-.showDescription p {
-	padding-left: 0.5em;
-}
-
-.showMoreBox {
-	display: flex;
-	flex-wrap: wrap;
-	padding: 0.4vw 0.8vw;
-}
-
-.titleReq {
-	font-size: 1.6vw;
-	font-family: Tomorrow-SemiBold !important;
-	color: var(--dark-purple);
-}
-
-.linkReq {
-	font-family: Tomorrow-Medium;
-	color: var(--dark-purple);
-	margin-right: 1vw;
-	text-decoration: underline;
-	border-right: var(--border-width) solid var(--medium-green);
-	padding-right: 1vw;
-}
-
-.descriptionReq {
-	font-family: Tomorrow-Medium;
-	color: var(--dark-purple);
-}
-
-.dropdownText {
-	font-family: Tomorrow-Regular;
-	color: var(--medium-green-shadow);
-	text-align: left;
-  }
-
-.wildcard * .tilteReq {
-	max-width: 90% !important;
-}
-
-.wildcardText {
-	font-family: "Tomorrow-Medium";
-	text-align: right !important;
-	position: absolute;
-	padding: 0.4vw 0.8vw;
-	top: 0;
-	right: 0;
-	font-size: var(--s-text);
-}
-
-.wildcardBubble {
-	z-index: -2;
-	display: none;
-	position: absolute;
-	top: 0;
-	left: 100%;
-	background-color: #f0f0f0;
-	padding: 10px;
-	border: var(--border-width) solid #ccc;
-	border-radius: var(--border-radius);
-}
-
-.wildcardText:hover + .wildcardBubble {
-	display: block;
-}
-
-.wildcard {
-	background: linear-gradient(-50deg, var(--light-purple) 40%, #f0f0f0 50%, var(--light-purple) 60%);
-	background-size: 300%;
-	background-position-x: 100%;
-	animation: shimmer 4s infinite linear;
-}
-
-@keyframes shimmer {
-	to {
-		background-position-x: 0%;
-	}
-}
-
-.wildcard * {
-	color: var(--dark-purple) !important;
-	border-color: var(--dark-purple) !important;
-}
-
-.showMoreButton {
-	cursor: pointer;
-	padding: 0.5em 1em;
-	background-color: var(--medium-green);
-	border: var(--border-width);
-	border-radius: var(--border-radius);
-	font-size: 0.8vw;
-	font-family: "Tomorrow-MediumItalic";
-	color: var(--light-green);
-	margin-top: 0.2vw;
-	display: block;
-	width: 30%;
+	height: 1vw;
 	margin: 0 auto;
-
+	transform: rotate(0deg);
+	transition: transform 0.5s ease-in-out;
+}
+.rotate {
+	transform: rotate(180deg);
 }
 /*
   End of Recommendation
@@ -974,7 +770,7 @@ footer {
 	z-index: 10;
 	bottom: 0;
 	width: 98%;
-	height: 4vw;
+	height: var(--xxl-text);
 	padding: 0 1vw 1vw 1vw;
 	background-color: var(--extra-light-green);
 	font-size: var(--m-text);
