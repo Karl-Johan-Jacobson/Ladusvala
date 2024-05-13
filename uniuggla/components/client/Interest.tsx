@@ -93,6 +93,7 @@ export default function Interest({ interests, handleRecommendationButtonClick }:
 		const interest: InterestType = {
 			interestId: randId,
 			interestTitle: customInterest,
+			coreSubject: false,
 			interestDescription: "No interest description for custom interests (user-added interests)",
 		};
 		// Adds it to the list of selected interests

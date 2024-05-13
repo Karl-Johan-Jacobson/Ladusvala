@@ -1,4 +1,4 @@
-"use client";
+/*"use client";
 
 import { ChangeEvent, FormEvent, useState } from "react";
 
@@ -40,3 +40,4 @@ export default function CounttListItem({ nr, corse, points, grade, id, imgSource
 		</div>
 	);
 }
+*/
