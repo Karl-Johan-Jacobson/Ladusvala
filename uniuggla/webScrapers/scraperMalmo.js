@@ -12,7 +12,6 @@ let titleReturn = {
 };
 
 // Take list of urls as arg and parse, will make ID work better.
-// build master scraper?, with all school scrapers that parse "school" from list and uses correct scraper. Will make ID work easier.
 async function scrapeMalmö(url, programId, schoolName) {
 	await new Promise((r) => setTimeout(r, 1000));
 

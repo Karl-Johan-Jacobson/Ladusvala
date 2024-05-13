@@ -17,10 +17,10 @@ export default function RecommendedItem({ recommendation, index }: Recommendatio
       <div className="recommendedHead">
         <p className="titleReq">{recommendation.program.programTitle_sv}{","}&nbsp;{recommendation.program.degree}</p>
         {recommendation.wildcard && 
-        <>
-          <p className="wildcardText">WILDCARD?</p>
-          <p className="wildcardBubble">Wildcard är en rekommendation som är löst baserat på dina intressen!</p>
-        </>
+          <>
+            <p className="wildcardText">WILDCARD?</p>
+            <p className="wildcardBubble">Wildcard är en rekommendation som är löst baserat på dina intressen!</p>
+          </>
         }
         <p className="schoolReq descriptionReq">{"LÄROSÄTE: "}&nbsp;{recommendation.program.schoolName}</p>
         <p className="degreeReq descriptionReq">{"EXAMEN: "}&nbsp;{recommendation.program.degree}</p>

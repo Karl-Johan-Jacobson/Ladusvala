@@ -9,7 +9,6 @@ let titleReturn = { programTitle_sv: "", programPoints: "", programDescription_s
 // DOES NOT WORK YET, INFO BEHIND BUTTONS
 
 // Take list of urls as arg and parse, will make ID work better.
-// build master scraper?, with all school scrapers that parse "school" from list and uses correct scraper.
 async function scrape(url) {
 	await new Promise((r) => setTimeout(r, 1000));
 

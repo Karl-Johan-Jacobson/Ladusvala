@@ -6,7 +6,6 @@ const fs = require("fs");
 let titleReturn = { programTitle_sv: "", programPoints: "", programDescription_sv: "", programLink: "", programId: "", schoolName: "" };
 
 // Take list of urls as arg and parse, will make ID work better.
-// build master scraper?, with all school scrapers that parse "school" from list and uses correct scraper.
 async function scrapeKF(url, programId, schoolName) {
 	await new Promise((r) => setTimeout(r, 1000));
 

@@ -1,4 +1,3 @@
-//ADD? Years, uni names,
 const scraperKarlstad = require("./scraperKarlstad.js");
 const scraperKTH = require("./scraperKTH.js");
 const scraperKarolinska = require("./scraperKarolinska.js");

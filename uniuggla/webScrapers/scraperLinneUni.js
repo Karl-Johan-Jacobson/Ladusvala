@@ -4,10 +4,9 @@ const fs = require("fs");
 //   "type": "commonjs", i package.json för scrape
 
 let titleReturn = { programTitle_sv: "", programPoints: "", programDescription_sv: "", programLink: "", programId: "", schoolName: "" };
-// DOES NOT WORK ON KTH INTERNET??? ERROR: connect ENETUNREACH
+// DOES NOT WORK ON KTH INTERNET. ERROR: connect ENETUNREACH
 
 // Take list of urls as arg and parse, will make ID work better.
-// build master scraper?, with all school scrapers that parse "school" from list and uses correct scraper.
 async function scrapeLinneUni(url, programId, schoolName) {
 	await new Promise((r) => setTimeout(r, 1000));
 
@@ -59,7 +58,6 @@ async function scrapeLinneUni(url, programId, schoolName) {
 			console.log("Successfully written data to file");
 		});
 
-		//programId_sv|programUniversity_sv|programTitle_sv|programDescription_sv|programPoints_sv|programYears_sv|programRequirements_sv|programAiDescription_sv|programPlace_sv|programDegree_sv|programLink
 	});
 }
 //scrape("https://lnu.se/program/biologiprogrammet/kalmar-ht/");
