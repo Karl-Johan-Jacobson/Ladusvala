@@ -2,7 +2,6 @@
 	--s-text: 0.8vw;
 	--m-text: 1.2vw;
 	--l-text: 1.8vw;
-	--m-l-text: 2vw;
 	--xl-text: 3vw;
 	--xxl-text: 4vw;
 	--extra-light-green: #dffde0;
@@ -232,8 +231,7 @@ header img {
 	height: min-content;
 	margin: 0 auto;
 	transition: padding-top 0.3s ease, height 0.3s ease, top 0.3s ease;
-	font-size: var(--m-l-text);
-	font-family: "Tomorrow-Medium" !important;
+	font-size: var(--xl-text);
 	line-height: 1.5em;
 }
 .container {
@@ -342,10 +340,6 @@ header img {
 	flex-grow: 1;
 	border: var(--border-width) solid var(--dark-purple);
 }
-.selectedInterestTitle span,
-.notSelectedInterestTitle span {
-	margin: 0.5em;
-}
 .selectedInterestList {
 	place-items: center;
 	display: grid;
@@ -442,7 +436,7 @@ header img {
 	grid-template-columns: 6fr 0fr;
 	width: 50%;
 	max-width: fit-content;
-	margin: 1vw auto 0;
+	margin: 0 auto;
 }
 .recommendationButtonWrapper {
 	display: flex;
@@ -452,9 +446,7 @@ header img {
 	white-space: nowrap;
 }
 .recommendationButtonWrapper p {
-	margin: 1vw;
-	font-size: var(--l-text);
-	font-family: "Tomorrow-Medium";
+	margin: 0 1vw;
 }
 .recommendationButtonWrapper hr {
 	flex-grow: 1;
@@ -475,7 +467,6 @@ header img {
 .dreamEducationButton p {
 	-webkit-text-stroke: 0.05vw var(--medium-green);
 	font-size: var(--l-text);
-	font-family: "Tomorrow-Medium";
 	color: transparent;
 }
 .dreamEducationButton:not(.locked) p {
@@ -643,7 +634,6 @@ header img {
 	right: 0;
 	padding: 0.4vw 0.8vw;
 	font-size: var(--s-text);
-	font-family: "Tomorrow-Medium";
 	text-align: right !important;
 }
 .wildcardBubble {
@@ -681,7 +671,6 @@ header img {
 .reqDescriptionDescription,
 .gradeStyle {
 	font-size: var(--s-text);
-	font-family: "Tomorrow-Medium";
 }
 .descriptionReq,
 .gradeStyle {
@@ -815,21 +804,21 @@ footer {
 .footerList {
 	display: flex;
 	justify-content: space-between;
-	margin-top: 1.5vw;
+	margin-top: calc(var(--xxl-text)/2 - 1em/2);
 	list-style: none;
 }
 /* Class for the alternatives "Hitta program", "Räkna antagningspoäng", "Se behörighetskrav", and "Om oss" */
 .siteNavigation {
-	font-family: "Tomorrow-Medium";
 	color: var(--medium-green);
 }
 /* Text logo wrapper dimension and position */
 .footerLogoDiv p {
 	position: fixed;
-	bottom: 0;
+	bottom: 1vw;
 	right: 1vw;
 	cursor: default;
 	font-size: var(--xxl-text);
+	line-height: 1em;
 	color: var(--dark-purple);
 }
 /*

@@ -148,7 +148,7 @@ if (typeof window !== 'undefined') {
 
 	return (
 		<div className="wrapper interestWrapper interest">
-			<p className="titleTypewriter interestText" style={{ paddingTop: "13vh", top: "0" ,height: "1.5em"}}></p>
+			<p className="titleTypewriter interestText" style={{ paddingTop: "15vh", top: "0" ,height: "1.5em"}}></p>
 			<div className="chooseInterestWrapper">
 				<div className="selectedInterestTitle">
 					<hr />
