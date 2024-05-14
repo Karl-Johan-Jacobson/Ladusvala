@@ -43,23 +43,26 @@ export async function getRecommendations(selectedInterest: string[], interestPro
 			const firstThreePrograms: Program[] = remainingPrograms.slice(0, 3);
 
 			// Convert randomPrograms to ProgramRecommendation type and append to finalPrograms
-			finalPrograms.splice(3, 0, {
-				program: firstThreePrograms[0],
-				wildcard: true,
-			});
-
-			// Insert the second element of firstThreePrograms at index 6
-			finalPrograms.splice(6, 0, {
-				program: firstThreePrograms[1],
-				wildcard: true,
-			});
-
-			// Insert the third element of firstThreePrograms at index 9
-			finalPrograms.splice(9, 0, {
-				program: firstThreePrograms[2],
-				wildcard: true,
-			});
-			//shuffle a last time to not make the wildcards appear at the end
+			if (finalPrograms.length >= 3) {
+				finalPrograms.splice(3, 0, {
+					program: firstThreePrograms[0],
+					wildcard: true,
+				});
+			}
+			if (finalPrograms.length >= 6) {
+				finalPrograms.splice(6, 0, {
+					program: firstThreePrograms[1],
+					wildcard: true,
+				});
+			}
+			if (finalPrograms.length >= 9) {
+				finalPrograms.splice(9, 0, {
+					program: firstThreePrograms[2],
+					wildcard: true,
+				});
+			}
+			
+		
 			return finalPrograms;
 		} else {
 			throw new Error("Error occurred Ai can not filter the final results");
