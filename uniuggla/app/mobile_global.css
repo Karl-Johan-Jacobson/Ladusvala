@@ -248,6 +248,10 @@
 		background-color: var(--extra-light-green);
 	}
 
+	ul {
+		list-style-type: none;
+	}
+
 	.hamburger-nav {
 		background-color: var(--extra-light-green);
 		border-top: 2px solid var(--dark-purple);

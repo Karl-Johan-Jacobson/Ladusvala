@@ -95,9 +95,10 @@ input[type="number"]::-webkit-outer-spin-button {
 	display: flex;
 	position: relative;
 	min-width: var(--text-form-height);
-	height: var(--text-form-height);
+	height: calc(var(--text-form-height) + 2 * var(--border-width));
 	margin: auto;
-	border: var(--border-width) solid var(--dark-green);
+	border: var(--border-width) solid var(--medium-green);
+	box-sizing: border-box;
 }
 
 
@@ -138,7 +139,7 @@ input[type="number"]::-webkit-outer-spin-button {
 	width: calc(var(--text-form-height) + 2 * var(--border-width));
 	height: calc(var(--text-form-height) + 2 * var(--border-width));
 	background-color: var(--medium-green);
-	border: var(--border-width) solid var(--dark-green);
+	border: var(--border-width) solid var(--medium-green);
 }
 .textButton:hover,
 .buttonInput:hover {
