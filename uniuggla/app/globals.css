@@ -97,11 +97,9 @@ input[type="number"]::-webkit-outer-spin-button {
 	min-width: var(--text-form-height);
 	height: calc(var(--text-form-height) + 2 * var(--border-width));
 	margin: auto;
-	border: var(--border-width) solid var(--medium-green);
+	border: var(--border-width) solid var(--dark-green);
 	box-sizing: border-box;
 }
-
-
 .textInput {
 	box-shadow: inset 0.2vw 0.3vw 0.4vw var(--dark-green-shadow);
 	display: flex;
@@ -139,7 +137,7 @@ input[type="number"]::-webkit-outer-spin-button {
 	width: calc(var(--text-form-height) + 2 * var(--border-width));
 	height: calc(var(--text-form-height) + 2 * var(--border-width));
 	background-color: var(--medium-green);
-	border: var(--border-width) solid var(--medium-green);
+	border: var(--border-width) solid var(--dark-green);
 }
 .textButton:hover,
 .buttonInput:hover {
@@ -500,36 +498,6 @@ header img {
 	100% {
 		opacity: 0;
 		transform: scale(0);
-	}
-}
-.refreshButton {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	box-sizing: border-box;
-	width: 100%;
-	height: 100%;
-	padding: 4px;
-	background-color: var(--medium-green);
-	border: var(--border-width) solid var(--medium-green-shadow);
-}
-.refreshButton:hover {
-	transition: background-color 0.2s;
-	background-color: var(--medium-green-shadow);
-	cursor: pointer;
-}
-.refreshIcon {
-	fill: var(--extra-light-green);
-	width: 100%;
-	height: 100%;
-}
-.refreshAnimation {
-	animation: spin 0.5s ease-out;
-}
-@keyframes spin {
-	100% {
-		-webkit-transform: rotate(360deg);
-		transform: rotate(360deg);
 	}
 }
 /*
