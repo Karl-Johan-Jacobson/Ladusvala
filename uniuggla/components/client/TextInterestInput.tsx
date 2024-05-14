@@ -17,7 +17,7 @@ export default function TextInterestInput({ imgSource, altText, onSubmit, isDisa
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
  
-        if (!inputValue.trim() || inputValue.trim().length === 1) {
+        if (!inputValue.trim() || inputValue.trim().length === 1 || inputValue.trim().length > 51) {
             return; 
         }
 
