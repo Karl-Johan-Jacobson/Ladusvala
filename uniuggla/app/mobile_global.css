@@ -75,6 +75,11 @@
 		height: 1vh;
 	}
 
+	.wildcardBubble {
+	position: unset;
+	margin-top: 1vh;
+	}
+
 	.interestItem,
 	.placeholderInterest {
 		width: 100%;
