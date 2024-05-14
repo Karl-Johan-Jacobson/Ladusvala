@@ -84,28 +84,11 @@ p, a {
 	color: var(--dark-purple);
 	font-size: var(--m-text);
 }
-.aboutUsLink {
-	position: relative;
-	overflow: hidden;
-	display:inline-block;
-  }
-  
-  .aboutUsLink::before {
-	content: "";
-	position: absolute;
-	left: 0;
-	bottom: 0;
-	height: 2px;
-	width: 100%;
-	background-color: #434343;
-	transform: translateX(-100%);
-	transition: transform 0.5s ease-in-out;
-  }
-  
-  .aboutUsLink:hover::before {
-	transform: translateX(0);
-  }
-  
+/* Should remove the bullet points from mobile phone*/
+ul {
+	list-style-type: none;
+}
+
 /*text input*/
 .textInputWrapper,
 .buttonInputWrapper,
@@ -773,6 +756,38 @@ header img {
 }
 /*
 	End of Count
+  ---===---===---===---===---===---===---===---===---===---
+	Start of About
+*/
+	.titleAboutUs{
+	width: fit-content;
+	text-align: center;
+	margin: 0 auto;
+}
+.aboutUsLink {
+	position: relative;
+	overflow: hidden;
+	display:inline-block;
+}
+  
+.aboutUsLink::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	height: 2px;
+	width: 100%;
+	background-color: #434343;
+	transform: translateX(-100%);
+	transition: transform 0.5s ease-in-out;
+}
+  
+.aboutUsLink:hover::before {
+	transform: translateX(0);
+}
+
+/*
+	End of About
   ---===---===---===---===---===---===---===---===---===---
   Start of Footer
 */
