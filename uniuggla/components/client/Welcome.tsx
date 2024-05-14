@@ -31,7 +31,16 @@ export default function Welcome({ yesPageRef }: WelcomeProps) {
 		}, []);
 
 		const handleYesClick = () => {
-			TypewriterForTitle("Berätta vad du har för intressen, så föreslår<br />jag ett par program som kan passa dig! :)", "interestText");
+			let titelText: string;
+			let removeAfter: boolean;
+			if (window.innerWidth > 480) {
+				titelText = "Berätta vad du har för intressen, så föreslår<br />jag ett par program som kan passa dig! :)";
+				removeAfter = false;
+			} else {
+				titelText = "Berätta vad du har<br />för intressen, så<br />föreslår jag ett par program<br />som kan passa dig!";
+				removeAfter = true;
+			}
+			TypewriterForTitle(titelText, "interestText", true, removeAfter);
 			modifyOverflow("visible", "main");
 			removeClass("hide", "interestContainer");
 			yesPageRef?.current?.scrollIntoView();

@@ -24,16 +24,20 @@ export default function Home() {
 		setFetchingRecommendations(true);
 		setSelectedInterests(interests);
 
-		//Write out the title for recommendations page
-		TypewriterForTitle("Tack! Hmm... låt mig se vad jag kan hitta!", "recommmendationText", true);
-		
-		//move to recommendations page
+		let titelText: string;
+		if (window.innerWidth > 480) {
+				titelText = "Tack! Hmm... låt mig se vad jag kan hitta!";
+		} else {
+				titelText = "Tack! Hmm... låt mig se<br />vad jag kan hitta!";
+		}
+		TypewriterForTitle(titelText, "recommmendationText", true, false);
 		modifyOverflow("visible", "main");
 		removeClass("hide", "recommendationContainer");
+		//move to recommendations page
 		recommendationsRef?.current?.scrollIntoView();
 		setTimeout(() => {
-			addClass("hide", "interestContainer");
-			modifyOverflow("hidden", "main");
+				addClass("hide", "interestContainer");
+				modifyOverflow("hidden", "main");
 		}, 500);
 	}
 

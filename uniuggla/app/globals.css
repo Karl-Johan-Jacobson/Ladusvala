@@ -228,7 +228,6 @@ header img {
 /* Positioning of the typewriter animation*/
 .titleTypewriter {
 	position: relative;
-	height: min-content;
 	margin: 0 auto;
 	transition: padding-top 0.3s ease, height 0.3s ease, top 0.3s ease;
 	font-size: var(--xl-text);

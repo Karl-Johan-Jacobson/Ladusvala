@@ -3,12 +3,9 @@
 		--s-text: 2.6vw;
 		--m-text: 3.4vw;
 		--l-text: 4vw;
-		--m-l-text: 4.7vw;
 		--xl-text: 6vw;
 		--xxl-text: 10vw;
-		--border-width: 1px;
 		--border-radius: 1vw;
-		--gap-size: 10px;
 		--text-form-height: 8vw;
 	}
 
@@ -76,10 +73,6 @@
 	}
 	.recommendationArrow{
 		height: 1vh;
-	}
-
-	.titleTypewriter {
-		font-size: var(--m-l-text);
 	}
 
 	.interestItem,
@@ -276,7 +269,7 @@
 */
 	.recommendedWrapper,
 	.gradeWrapper {
-		padding-top: 4vh;
+		padding-top: 2vh;
 		position: relative;
 		width: 100%;
 		margin: 0 auto;
