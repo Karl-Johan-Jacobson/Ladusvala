@@ -29,7 +29,6 @@ export async function getRecommendations(selectedInterest: string[], interestPro
 		const selectedPrograms: Program[] = getProgramsFromId(idNumbers || [], allPrograms);
 		//get the final recommendations
 		const finalPrograms: ProgramRecommendation[] | undefined = await finalCallToAi(interestProfile, selectedPrograms);
-		console.log("total token " + testTotalTokensForPrint);
 		//take away finalPrgrams from selectedPrograms
 		//choose three wildcards from the remaining selectedPrograms
 		if (finalPrograms) {
@@ -125,7 +124,6 @@ async function recommendProgramFromInterest(content: string) {
 	//cast the respone to correct type
 	const response = completion as ChatCompletion;
 
-	console.log(response.choices[0].message.content);
 	if (response.usage?.total_tokens) testTotalTokensForPrint += response.usage?.total_tokens;
 
 	try {
