@@ -36,7 +36,7 @@ export default function Footer() {
                         <div className="footerListDiv">
                             <ul className="footerList">
                                 <li><a href="/" className="siteNavigation">Hitta program</a></li>
-                                <li><a href="/count" className="siteNavigation">Räkna antagningspoäng</a></li>
+                                <li><a href="/berakna-poang" className="siteNavigation">Räkna antagningspoäng</a></li>
                                 <li><a href="/about" className="siteNavigation">Om oss</a></li>
                             </ul>
                         </div>

@@ -17,6 +17,7 @@
 	--border-radius: 0.5vw;
 	--gap-size: 10px;
 	--text-form-height: 2vw;
+  --border-green: #587a4f;
 }
 * {
 	gap: var(--gap-size);
@@ -611,19 +612,17 @@ header img {
 	color: var(--dark-purple) !important;
 }
 .descriptionReq,
-.gradeStyle,
 .reqDescription,
 .reqDescriptionContent,
-.reqDescriptionDescription,
-.gradeStyle {
+.reqDescriptionDescription {
 	font-size: var(--s-text);
 }
-.descriptionReq,
-.gradeStyle {
+.descriptionReq {
 	display: inline-block;
 	margin-top: 0.4em;
 	color: var(--medium-green-shadow);
 }
+
 .schoolReq,
 .degreeReq,
 .pointsReq,
@@ -679,43 +678,226 @@ header img {
   ---===---===---===---===---===---===---===---===---===---
 	Start of Count
 */
-.gradeInputWrapper {
-	display: grid;
-	grid-template-columns: 1.2fr 0.7fr 0.7fr 0fr 0.7fr;
-	width: 70%;
-	max-width: fit-content;
-	margin: 3vw auto 0;
+
+.pointCalculatorWrapper {
+	height: fit-content;
+	padding: 8vh 10vw 0 10vw;
 }
-.pointWrapper {
+
+.pointsInstruction {
+  margin-bottom: 4vh;
+  opacity: 0;
+  transition: opacity 1s ease-in;
 	display: flex;
-	width: calc(100% - 2 * var(--border-width));
-	background-color: var(--medium-green-shadow);
-}
-.pointOutput {
-	margin: auto;
-	font-size: calc(var(--text-form-height) * 0.7);
+	align-items: center;
+	font-size: var(--m-text);
 	font-family: "Tomorrow-MediumItalic";
-	color: var(--extra-light-green);
+	text-align: center;
+	color: var(--dark-purple);
 }
-.gradeWrapper {
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	width: 80% !important;
+
+.pointsInstruction hr {
+	flex-grow: 1;
+	border: var(--border-width) solid var(--dark-purple);
 }
-.gradeBox {
+.pointsInstruction span {
+	margin: 0.5em;
+}
+
+.pointsInstruction.show {
+  opacity: 1;
+}
+.pointsInstruction.show {
+  opacity: 1;
+  
+}
+
+.pointsCalculatorHeader {
 	display: flex;
-	margin: 0 !important;
+	margin-bottom: 2vh;
+  align-items: flex-end;
 }
-.courseNameGrade {
-	overflow-wrap: break-word;
+
+.pointsInformation {
+	min-width: fit-content;
+  width: 35%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.pointsInformation > p {
+	padding: 0.5vw;
+	text-align: left;
+	border-width: var(--border-width);
+	border-radius: var(--border-radius);
+	border-style: dashed;
+}
+
+.pointsInformation .purple {
+	color: var(--dark-purple);
+	border-color: var(--dark-purple);
+}
+
+.pointsInformation .green {
+	color: var(--medium-green);
+	border-color: var(--medium-green);
+}
+
+.coursesWrapper {
+	display: grid;
+	width: 100%;
+	grid-template-columns: 1fr 1fr;
+}
+
+.courseBox {
+	display: flex;
+	padding: 1vh 1vw;
+	gap: 0;
+
+	background-color: var(--light-green);
+	border: var(--border-width) solid var(--dark-purple);
+	border-color: var(--dark-purple);
+}
+
+.gradeStyle.name {
 	flex: 3;
-	text-align: left;
 }
-.coursePointsGrade,
-.gradeGrade {
+
+.gradeStyle.points {
 	flex: 1;
+}
+
+.gradeStyle.grade {
+	flex: 1;
+}
+
+.gradeStyle {
+  margin-right: 0.5em;
+	padding-right: 0.5em;
+	border-right: var(--border-width) solid var(--medium-green);
+	border-radius: 0;
+}
+
+.gradeStyle > p {
+	font-family: "Tomorrow-Medium";
+	font-size: var(--m-text);
 	text-align: left;
 }
+
+.gradeStyle > p.title {
+	color: var(--dark-purple);
+}
+
+.gradeStyle > p.content {
+	color: var(--medium-green-shadow);
+}
+
+.courseRemoveButton {
+	flex: 0.5;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: transparent;
+	border: none;
+}
+
+.removeIcon {
+	fill: transparent;
+	stroke-width: 2;
+	scale: 1.2;
+}
+
+.courseForm {
+  box-sizing: border-box;
+	flex: 2.5;
+	display: flex;
+}
+
+.courseInput{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--extra-light-green);
+  border: var(--border-width) solid var(--border-green);
+  border-radius: var(--border-radius);
+  box-shadow: inset 0.2vw 0.3vw 0.4vw var(--dark-green-shadow);
+
+  color: var(--medium-green);
+  font-family: "Tomorrow-MediumItalic";
+  font-size: var(--m-text);
+
+  padding: 0 0.5vw;
+  max-width: 10vw;
+  -moz-appearance: textfield;
+}
+
+.courseInput::placeholder {
+  font-size: var(--m-text);
+	font-family: "Tomorrow-MediumItalic";
+	color: var(--medium-green);
+}
+
+.addCourseBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: inherit;
+  padding: 0 0.8vw;
+
+  background-color: var(--medium-green);
+  color: var(--light-green);
+  font-family: "Tomorrow-Medium";
+  font-size: 1vw;
+  border-radius: var(--border-radius);
+  border: var(--border-width) solid var(--border-green);
+}
+
+.tooltip {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: help;
+}
+
+.tooltip > svg {
+  width: 80%;
+  height: 80%;
+}
+
+.tooltip .tooltipText {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  width: 40%;
+  height: fit-content;
+  padding: 1vh 1vw;
+  z-index: 1;
+
+  background-color: var(--light-green);
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s;
+
+  border-radius: var(--border-radius);
+  border: var(--border-width) dashed var(--medium-green);
+}
+
+.tooltip:hover .tooltipText {
+  visibility: visible;
+  opacity: 1;
+}
+
+.tooltipText > p {
+  color: var(--dark-green);
+  font-size: var(--s-text);
+  font-family: "Tomorrow-Medium";
+  text-align: left;
+}
+
 /*
 	End of Count
   ---===---===---===---===---===---===---===---===---===---
