@@ -359,7 +359,7 @@ header img {
 }
 .interestItem {
 	width: 13vw;
-	height: 3vw;
+	max-height: 3vw;
 }
 .iconText {
 	font-size: var(--m-text);
@@ -370,7 +370,6 @@ header img {
 	overflow: hidden;
 	width: 13vw;
 	height: 3vw;
-	max-height: 3vw;
 	background-color: var(--medium-green);
 	cursor: pointer;
 	border: none;
@@ -379,7 +378,7 @@ header img {
 .disabledNotSelectedButton {
 	overflow: hidden;
 	width: 13vw;
-	height: 3vw;
+	height: 3vw; 
 	background-color: #A9A9A9;
 	cursor: not-allowed;
 	border: none;
@@ -387,10 +386,8 @@ header img {
 }
 .selectedButton {
 	overflow: hidden;
-	box-sizing: border-box;
 	width: 13vw;
 	height: 3vw;
-	max-height: 3vw;
 	background-color: var(--dark-purple);
 	cursor: pointer;
 	border: none;
@@ -607,11 +604,11 @@ header img {
 .recommendedHead {
 	margin-bottom: 0.5em;
 }
-.tilteReq {
+.titleReq {
 	font-size: var(--m-text);
 	font-family: "Tomorrow-SemiBold" !important;
 }
-.wildcard .tilteReq {
+.wildcard .titleReq {
 	max-width: 90% !important;
 }
 .wildcardText {
