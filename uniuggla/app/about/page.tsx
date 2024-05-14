@@ -4,7 +4,7 @@ export default function About() {
 		<main>
 			<div className="wrapper">
 				<div className="title" style={{ marginTop: "12vh" }}>
-					<p>OM UNIU</p>
+					<p className="titleAboutUs">OM UNIU</p>
 
 					<div className="body" style={{ marginTop: "4vh" }}>
 						<p>UNIU är din AI-baserade studievägledare som kan hjälpa dig <br></br> att hitta din drömutbildning baserat på dina intressen. <br></br> Vi baserar våra svar på majoriteten av alla universitets-/högskoleutbildningar.</p>
