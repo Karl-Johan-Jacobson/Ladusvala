@@ -78,6 +78,7 @@
 	.wildcardBubble {
 	position: unset;
 	margin-top: 1vh;
+	background-color:rgb(234, 193, 250);
 	}
 
 	.interestItem,
