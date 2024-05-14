@@ -30,13 +30,17 @@ export async function getRecommendations(selectedInterest: string[]): Promise<Pr
 		//get the final recommendations
 		const finalPrograms: ProgramRecommendation[] | undefined = await finalCallToAi(interestProfile, selectedPrograms);
 
-		//take away finalPrograms from selectedPrograms
+		//take away finalPrgrams from selectedPrograms
 		//choose three wildcards from the remaining selectedPrograms
+		finalPrograms?.map((item) => {
+			console.log(item.program.programId)
+		})
 		if (finalPrograms) {
 			//remove the finalprograms from the selectedprograms
 			const remainingPrograms: Program[] = selectedPrograms.filter((program) => {
-				return !finalPrograms.some((finalProgram) => finalProgram.program.programId === program.programId);
+				return !finalPrograms.some((finalProgram) => finalProgram && finalProgram.program && finalProgram.program.programId === program.programId);
 			});
+		
 			//Shuffle the array to avoid taking the same school everytime.
 			shuffleArray(remainingPrograms);
 			//take the first three programs from the remaining programs(shuffled)
@@ -120,15 +124,18 @@ async function recommendProgramFromInterest(content: string) {
 	//cast the respone to correct type
 	const response = completion as ChatCompletion;
 
+	console.log(response.choices[0].message.content);
 	if (response.usage?.total_tokens) testTotalTokensForPrint += response.usage?.total_tokens;
 
 	try {
 		const parsedObject = JSON.parse(response.choices[0].message.content as string);
 		// Extract programIds from the 'programs' array
-		const programIdsAndWildcards: { programId: number; wildcard: boolean }[] = parsedObject.programs.map((obj: { programId: string; wildcard: string }) => ({
-			programId: parseInt(obj.programId, 10),
-			wildcard: false,
-		}));
+		const programIdsAndWildcards: { programId: number; wildcard: boolean }[] = parsedObject.programs
+			.map((obj: { programId: string; wildcard: string }) => ({
+				programId: parseInt(obj.programId, 10),
+				wildcard: false,
+			}))
+			.filter((item: { programId: number; }) => !isNaN(item.programId)); // Filter out items where programId is 
 		return programIdsAndWildcards;
 	} catch (error) {
 		console.error("Error parsing JSON:", error);
