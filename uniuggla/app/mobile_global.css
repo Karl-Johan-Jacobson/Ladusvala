@@ -117,14 +117,16 @@
 	.dreamEducationButtonInputWrapper {
 		grid-column-start: 2;
 		grid-column-end: 3;
+		border: none;
 	}
 	.dreamEducationButtonInputWrapper .buttonInput {
-		background-color: darkgray;
-		border-color: gray;
+		background-color: transparent;
+		border-style: dotted;
 	}
 	.dreamEducationButtonInputWrapper:not(.locked) .buttonInput {
 		background-color: var(--medium-purple);
 		border-color: var(--dark-purple);
+		border-style: solid;
 	}
 
 	.selectedButton,
