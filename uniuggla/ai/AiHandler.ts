@@ -19,11 +19,10 @@ export async function getRecommendations(selectedInterest: string[], interestPro
 		// Setup
 		const allPrograms: Program[] = fetchAllProgramsJson();
 		
-		
 
 		// Get id:s of recommended programs
 		const idNumbers: number[] | undefined = await callOpenaiInParts(interestProfile, allPrograms);
-		const startTime4 = Date.now();
+
 
 		// Map id:s to their program, 50 programs
 		const selectedPrograms: Program[] = getProgramsFromId(idNumbers || [], allPrograms);

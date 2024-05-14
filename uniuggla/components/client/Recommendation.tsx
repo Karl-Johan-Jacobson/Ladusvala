@@ -22,9 +22,9 @@ export default function Recommendation({ selectedInterests, shouldFetch }: Recom
 			if (shouldFetch) {
 				try {
 					setIsLoading(true);
+					interestProfile = await getProfile(selectedInterests);
 					const fetchedRecommendations = await getRecommendations(selectedInterests, interestProfile);
 					setRecommendedPrograms(fetchedRecommendations);
-					interestProfile = await getProfile(selectedInterests);
 					setProfile(interestProfile);
 				} catch (e) {
 					setError(e)
