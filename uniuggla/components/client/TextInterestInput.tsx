@@ -24,8 +24,8 @@ export default function TextInterestInput({ imgSource, altText, onSubmit, isDisa
 
 	return (
 		<form onSubmit={handleSubmit} className="textInputWrapper">
-			<input disabled={isDisabled} placeholder="Enter an interest..." type="text" value={inputValue} onChange={handleValueChange} required className="textInput" />
-			<button title="Add interest!" type="submit" className="textButton">
+			<input disabled={isDisabled} placeholder="Skriv in ett intresse..." type="text" value={inputValue} onChange={handleValueChange} required className="textInput" />
+			<button title="Lägg till intresset!" type="submit" className="textButton">
 				<img className="textButtonImg" src={imgSource} alt={altText} />
 			</button>
 		</form>
