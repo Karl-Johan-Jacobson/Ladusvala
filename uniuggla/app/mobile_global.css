@@ -119,6 +119,14 @@
 		grid-column-start: 2;
 		grid-column-end: 3;
 	}
+	.dreamEducationButtonInputWrapper .buttonInput {
+		background-color: darkgray;
+		border-color: gray;
+	}
+	.dreamEducationButtonInputWrapper:not(.locked) .buttonInput {
+		background-color: var(--medium-purple);
+		border-color: var(--dark-purple);
+	}
 
 	.selectedButton,
 	.notSelectedButton {
@@ -152,8 +160,7 @@
 	}
 	.dreamEducationButton:not(.locked):hover p {
 		text-shadow: 2px 1px var(--medium-green-shadow);
-		
-	}
+	} 
 	/*
   End of Intrest
  ---===---===---===---===---===---===---===---===---===---

@@ -11,6 +11,7 @@
 	--dark-green: #37552b;
 	--dark-green-shadow: #37552b38;
 	--light-purple: #dfc0fe;
+	--medium-purple: #BA89F5;
 	--dark-purple: #4f1eb0;
 	--border-width: 1px;
 	--border-radius: 0.5vw;
@@ -720,7 +721,7 @@ header img {
   ---===---===---===---===---===---===---===---===---===---
 	Start of About
 */
-	.titleAboutUs{
+.titleAboutUs{
 	width: fit-content;
 	text-align: center;
 	margin: 0 auto;
