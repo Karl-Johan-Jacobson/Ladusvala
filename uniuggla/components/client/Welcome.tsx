@@ -2,7 +2,7 @@
 
 import React, { RefObject, useEffect, useState } from "react";
 import { TypewriterForTitle } from "@/components/client/TypeWriter";
-import { addClass, modifyOverflow, removeClass } from "@/app/utils";
+import { addClass, modifyOverflow, modifyTopPadding, removeClass } from "@/app/utils";
 import Link from "next/link";
 
 interface WelcomeProps {
@@ -32,15 +32,12 @@ export default function Welcome({ yesPageRef }: WelcomeProps) {
 
 		const handleYesClick = () => {
 			let titelText: string;
-			let removeAfter: boolean;
 			if (window.innerWidth > 480) {
 				titelText = "Berätta vad du har för intressen, så föreslår<br />jag ett par program som kan passa dig! :)";
-				removeAfter = false;
 			} else {
-				titelText = "Vad har du för intressen?"
-				removeAfter = true;
+				titelText = "Vad har du för intressen? :)"
 			}
-			TypewriterForTitle(titelText, "interestText", true, removeAfter);
+			TypewriterForTitle(titelText, "interestText", true, true, false);
 			modifyOverflow("visible", "main");
 			removeClass("hide", "interestContainer");
 			yesPageRef?.current?.scrollIntoView();

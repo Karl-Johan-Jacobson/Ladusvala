@@ -30,7 +30,7 @@ export default function Home() {
 		} else {
 				titelText = "Tack! Hmm... låt mig se<br />vad jag kan hitta!";
 		}
-		TypewriterForTitle(titelText, "recommmendationText", true, false);
+		TypewriterForTitle(titelText, "recommmendationText", true, false, false);
 		modifyOverflow("visible", "main");
 		removeClass("hide", "recommendationContainer");
 		//move to recommendations page
