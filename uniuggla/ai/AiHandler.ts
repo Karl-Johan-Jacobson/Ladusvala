@@ -14,12 +14,12 @@ const openai = new OpenAI({
 var testTotalTokensForPrint = 0;
 //The only function called from frontend
 //returns the ai selected programs or throws an error
-export async function getRecommendations(selectedInterest: string[]): Promise<ProgramRecommendation[]> {
+export async function getRecommendations(selectedInterest: string[], interestProfile: string): Promise<ProgramRecommendation[]> {
 	try {
 		// Setup
 		const allPrograms: Program[] = fetchAllProgramsJson();
-		const interestAsString: string = turnInterestToPrompt(selectedInterest);
-		const interestProfile = await getProfile(interestAsString);
+		
+		
 
 		// Get id:s of recommended programs
 		const idNumbers: number[] | undefined = await callOpenaiInParts(interestProfile, allPrograms);
@@ -29,18 +29,14 @@ export async function getRecommendations(selectedInterest: string[]): Promise<Pr
 		const selectedPrograms: Program[] = getProgramsFromId(idNumbers || [], allPrograms);
 		//get the final recommendations
 		const finalPrograms: ProgramRecommendation[] | undefined = await finalCallToAi(interestProfile, selectedPrograms);
-
+		console.log("total token " + testTotalTokensForPrint);
 		//take away finalPrgrams from selectedPrograms
 		//choose three wildcards from the remaining selectedPrograms
-		finalPrograms?.map((item) => {
-			console.log(item.program.programId)
-		})
 		if (finalPrograms) {
 			//remove the finalprograms from the selectedprograms
 			const remainingPrograms: Program[] = selectedPrograms.filter((program) => {
 				return !finalPrograms.some((finalProgram) => finalProgram && finalProgram.program && finalProgram.program.programId === program.programId);
 			});
-		
 			//Shuffle the array to avoid taking the same school everytime.
 			shuffleArray(remainingPrograms);
 			//take the first three programs from the remaining programs(shuffled)
@@ -74,20 +70,22 @@ export async function getRecommendations(selectedInterest: string[]): Promise<Pr
 	}
 }
 
-async function getProfile(interestAsString: string): Promise<string> {
+export async function getProfile(interestAsArray: string []): Promise<string> {
+	const interestAsString: string = turnInterestToPrompt(interestAsArray);
+
 	const content = `Det här är mina intressen \n ${interestAsString} \n Jag vill att du beskriver min intresse profil i några meningar.`;
 	// Make a prompt format
 	const questionToAi: ChatCompletionMessageParam = {
 		role: "user",
 		content: content,
 	};
+	
 	// Make the HTTP request to AI and save the results
 	const completion = await openai.chat.completions.create({
 		messages: [{ role: "system", content: "Du är en studievägledare som hjälper studenter att förstå vad dem är intresserade i" }, questionToAi],
 		model: "gpt-3.5-turbo",
 	});
 	const response = completion as ChatCompletion;
-
 	if (response.usage?.total_tokens) testTotalTokensForPrint += response.usage?.total_tokens;
 
 	return response.choices[0].message.content ? response.choices[0].message.content : "";
@@ -130,10 +128,9 @@ async function recommendProgramFromInterest(content: string) {
 	try {
 		const parsedObject = JSON.parse(response.choices[0].message.content as string);
 		// Extract programIds from the 'programs' array
-		const programIdsAndWildcards: { programId: number; wildcard: boolean }[] = parsedObject.programs
-			.map((obj: { programId: string; wildcard: string }) => ({
+		const programIdsAndWildcards: { programId: number}[] = parsedObject.programs
+			.map((obj: { programId: string}) => ({
 				programId: parseInt(obj.programId, 10),
-				wildcard: false,
 			}))
 			.filter((item: { programId: number; }) => !isNaN(item.programId)); // Filter out items where programId is 
 		return programIdsAndWildcards;
@@ -159,7 +156,7 @@ async function callOpenaiInParts(interestProfile: string, allPrograms: Program[]
 		});
 		const result = await Promise.all(promiseArray);
 		let programIds: number[] = [];
-		programIds = result.flat().map((obj: { programId: number; wildcard: boolean }) => {
+		programIds = result.flat().map((obj: { programId: number}) => {
 			return obj.programId;
 		});
 		return programIds;
@@ -171,14 +168,14 @@ async function callOpenaiInParts(interestProfile: string, allPrograms: Program[]
 async function finalCallToAi(interestProfile: string, selectedPrograms: Program[]): Promise<ProgramRecommendation[] | undefined> {
 	try {
 		const programAsString: string = turnProgramToPrompt(selectedPrograms);
-		const content: string = `${interestProfile}  \n och det här är beskrivningen på alla utbildningsprogram jag kan välja mellan  ${programAsString}. Du ska rekommendera åtminstone 10 utbildningar. Jag vill att du svarar med programId. Du ska svara med det mest relevanta utbildningen först`;
+		const content: string = `${interestProfile}  \n och det här är beskrivningen på alla utbildningsprogram jag kan välja mellan  ${programAsString}. Du ska rekommendera 10 utbildningar. Jag vill att du svarar med endast programId. Du ska svara med det mest relevanta utbildningen först`;
 		//("whole content string final: " + content);
-		const finalProgramsIdAndWildcards: { programId: number; wildcard: boolean }[] = (await recommendProgramFromInterest(content)) || [];
+		const finalProgramsIdAndWildcards: { programId: number}[] = (await recommendProgramFromInterest(content)) || [];
 
-		return finalProgramsIdAndWildcards.map(({ programId, wildcard }: { programId: number; wildcard: boolean }) => {
+		return finalProgramsIdAndWildcards.map(({ programId}: { programId: number}) => {
 			return {
 				program: getProgramFromId(programId, selectedPrograms),
-				wildcard: wildcard,
+				wildcard: false,
 			};
 		});
 	} catch (error) {

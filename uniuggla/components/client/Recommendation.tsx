@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getRecommendations } from "@/ai/AiHandler";
+import { getRecommendations, getProfile } from "@/ai/AiHandler";
 import ProgramRecommendation from "@/types/ProgramRecommendation";
 import RecommendationItemImproved from "./RecommendationItem";
 
@@ -9,19 +9,23 @@ interface RecommendationProps {
 }
 
 export default function Recommendation({ selectedInterests, shouldFetch }: RecommendationProps) {
-	if (typeof window !== 'undefined') {
-
 	const [recommendedPrograms, setRecommendedPrograms] = useState<ProgramRecommendation[]>([]);
 	const [isLoading, setIsLoading] = useState<boolean>(false);
 	const [error, setError] = useState<any>();
-
+	const [profile, setProfile] = useState<string>();
+	const [isExpanded, setIsExpanded] = useState<boolean>(false);
+	let interestProfile = "";
 	useEffect(() => {
+		
+		
 		const fetchRecommendations = async () => {
 			if (shouldFetch) {
 				try {
 					setIsLoading(true);
-					const fetchedRecommendations = await getRecommendations(selectedInterests);
+					const fetchedRecommendations = await getRecommendations(selectedInterests, interestProfile);
 					setRecommendedPrograms(fetchedRecommendations);
+					interestProfile = await getProfile(selectedInterests);
+					setProfile(interestProfile);
 				} catch (e) {
 					setError(e)
 				} finally {
@@ -29,8 +33,8 @@ export default function Recommendation({ selectedInterests, shouldFetch }: Recom
 				}
 			}
 		};
-
 		fetchRecommendations();
+		
 	}, [shouldFetch]); // Shouldn't have any problems with race condition since shouldFetch is only updated once
 
 	return (
@@ -45,13 +49,23 @@ export default function Recommendation({ selectedInterests, shouldFetch }: Recom
 						))}
 					</div>
 				)}
-
 				{isLoading ? (
 					<div className="loadingGIF">
 						<img src="../../uniugglan.gif" alt="Waiting on recomendation." />
 					</div>
 				) : (
 					<div className="recommendationAccordion">
+						<div className="yourInterestBox">
+							<div className="recommendedHead">
+								<p className="titleReq">UNIUGPTs tolkning av dina intressen </p>
+							</div>
+							<div className={`reqDescriptionBox ${isExpanded ? 'show' : ''}`}>
+								<p className="reqDescriptionContent">{profile}</p>
+							</div>
+							<div onClick={() => setIsExpanded(!isExpanded)} className="recommendedFoot">
+								<img src="../../arrow.svg" alt="se mer" className={`recommendationArrow ${isExpanded ? 'rotate' : ''}`}/>
+							</div>
+						</div>
 						{recommendedPrograms.map((recommendation, index) => (
 							<RecommendationItemImproved
 								key={index}
@@ -64,5 +78,4 @@ export default function Recommendation({ selectedInterests, shouldFetch }: Recom
 			</div>
 		</div>
 	);
-	}
-	};
+};

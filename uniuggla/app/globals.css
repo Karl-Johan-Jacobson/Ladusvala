@@ -595,6 +595,9 @@ header img {
 	justify-content: center;
 	margin-top: 0 auto;
 }
+.yourInterestBox .reqDescriptionContent{
+	font-size: var(--m-text);
+}
 .interestReq {
 	padding: 0.5em 1em;
 	background-color: var(--medium-green);
@@ -609,6 +612,7 @@ header img {
 	text-align: left;
 }
 .recommendedBox,
+.yourInterestBox,
 .gradeBox {
 	position: relative;
 	margin-top: 1vw;
@@ -625,7 +629,7 @@ header img {
 	font-family: "Tomorrow-SemiBold" !important;
 }
 .wildcard .tilteReq {
-	max-width: 90% !important;
+	max-width: 85% !important;
 }
 .wildcardText {
 	position: absolute;

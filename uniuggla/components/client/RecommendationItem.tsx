@@ -33,7 +33,7 @@ export default function RecommendedItem({ recommendation, index }: Recommendatio
         <p className="reqDescriptionContent">{recommendation.program.programDescription_sv}</p>
       </div>
       <div onClick={() => setIsExpanded(!isExpanded)} className="recommendedFoot">
-        <img src={`${recommendation.wildcard ? "../../arrow_wildcard.svg" : "../../arrow.svg"}`} alt="" className={`recommendationArrow ${isExpanded ? 'rotate' : ''}`}/>
+        <img src={`${recommendation.wildcard ? "../../arrow_wildcard.svg" : "../../arrow.svg"}`} alt="se mer" className={`recommendationArrow ${isExpanded ? 'rotate' : ''}`}/>
       </div>
     </div>
   );
