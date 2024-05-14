@@ -227,7 +227,7 @@ if (typeof window !== 'undefined') {
 											updateParent={updateLists}
 											interest={interest}
 											isSelected={false}
-											isDisabled={selectedInterests.length === 11}
+											isDisabled={selectedInterests.length === 10}
 											key={interest.interestId}
 										/>
 									))}
@@ -253,7 +253,7 @@ if (typeof window !== 'undefined') {
 						<TextInterestInput imgSource="../../plus.svg" altText="Läggtill" onSubmit={addCustomInterest} isDisabled={selectedInterests.length === 11} />
 						<RefreshButton imgSource="../../refresh.svg" altText="Nya intressen" refresh={refresh} />
 						<div className={"buttonInputWrapper " + dreamEducationButtonClass}>
-							<button onClick={handleRecommend} className="buttonInput" type="button">
+							<button onClick={handleRecommend} className="buttonInput ref " type="button">
 								<img className="buttonInputImg" src="../../double_right_arrow.svg" alt="Få rekommendation" />
 							</button>
 						</div>
