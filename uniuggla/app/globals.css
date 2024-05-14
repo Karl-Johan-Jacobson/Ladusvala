@@ -639,20 +639,18 @@ header img {
 	color: var(--dark-purple) !important;
 }
 .descriptionReq,
-.gradeStyle,
 .reqDescription,
 .reqDescriptionContent,
-.reqDescriptionDescription,
-.gradeStyle {
+.reqDescriptionDescription {
 	font-size: var(--s-text);
 	font-family: "Tomorrow-Medium";
 }
-.descriptionReq,
-.gradeStyle {
+.descriptionReq {
 	display: inline-block;
 	margin-top: 0.4em;
 	color: var(--medium-green-shadow);
 }
+
 .schoolReq,
 .degreeReq,
 .pointsReq,
@@ -708,6 +706,108 @@ header img {
   ---===---===---===---===---===---===---===---===---===---
 	Start of Count
 */
+
+.pointCalculatorWrapper {
+	height: fit-content;
+	padding: 15vh 3vw 0 3vw;
+}
+
+.pointsCalculatorHeader {
+	display: flex;
+	margin-bottom: 2vh;
+}
+
+.pointsInformation {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.pointsInformation > p {
+	padding: 0.5vw;
+	text-align: left;
+	border-width: var(--border-width);
+	border-radius: var(--border-radius);
+	border-style: dashed;
+}
+
+.pointsInformation .purple {
+	color: var(--dark-purple);
+	border-color: var(--dark-purple);
+}
+
+.pointsInformation .green {
+	color: var(--medium-green);
+	border-color: var(--medium-green);
+}
+
+.coursesWrapper {
+	display: grid;
+	width: 100%;
+	grid-template-columns: 1fr 1fr;
+}
+
+.courseBox {
+	display: flex;
+	padding: 1vh 1vw;
+	gap: 0;
+
+	background-color: var(--light-green);
+	border: var(--border-width) solid var(--dark-purple);
+	border-color: var(--dark-purple);
+}
+
+.gradeStyle.name {
+	flex: 3;
+}
+
+.gradeStyle.points {
+	flex: 1;
+}
+
+.gradeStyle.grade {
+	flex: 1;
+}
+
+.gradeStyle > p {
+	font-family: "Tomorrow-Medium";
+	font-size: var(--s-text);
+	text-align: left;
+	margin-right: 0.5em;
+	padding-right: 0.5em;
+	border-right: var(--border-width) solid var(--medium-green);
+	border-radius: 0;
+}
+
+.gradeStyle > p.title {
+	color: var(--dark-purple);
+}
+
+.gradeStyle > p.content {
+	color: var(--medium-green-shadow);
+}
+
+.courseRemoveButton {
+	flex: 0.5;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: transparent;
+	border: none;
+}
+
+.removeIcon {
+	fill: transparent;
+	stroke-width: 2;
+	scale: 1.2;
+}
+
+.courseForm {
+	flex: 2.5;
+	display: flex;
+}
+
 .gradeInputWrapper {
 	display: grid;
 	grid-template-columns: 1.2fr 0.7fr 0.7fr 0fr 0.7fr;
@@ -715,11 +815,13 @@ header img {
 	max-width: fit-content;
 	margin: 3vw auto 0;
 }
+
 .pointWrapper {
 	display: flex;
 	width: calc(100% - 2 * var(--border-width));
 	background-color: var(--medium-green-shadow);
 }
+
 .pointOutput {
 	margin: auto;
 	font-size: calc(var(--text-form-height) * 0.7);
