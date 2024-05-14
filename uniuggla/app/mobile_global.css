@@ -342,6 +342,12 @@
 		background-color: transparent;
 	}
 
+	.hamburger-nav {
+		background-color: var(--extra-light-green);
+		border-top: 2px solid var(--dark-purple);
+		border-radius: 0;
+	}
+
 	.hamburger-icon {
 		display: block;
 		margin: auto;

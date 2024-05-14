@@ -46,25 +46,25 @@ body {
 }
 /* Is the font for the text for instance question title and greetings, etc */
 @font-face {
-	src: url(./../public/fonts/Tomorrow-Medium.ttf);
+	src: url(./../public/fonts/Tomorrow-Medium.woff2);
 	font-family: "Tomorrow-Medium";
 	font-style: normal;
 	font-weight: medium;
 }
 @font-face {
-	src: url(./../public/fonts/Tomorrow-MediumItalic.ttf);
+	src: url(./../public/fonts/Tomorrow-MediumItalic.woff2);
 	font-family: "Tomorrow-MediumItalic";
 	font-style: italic;
 	font-weight: medium;
 }
 @font-face {
-	src: url(./../public/fonts/Tomorrow-Regular.ttf);
+	src: url(./../public/fonts/Tomorrow-Regular.woff2);
 	font-family: "Tomorrow-Regular";
 	font-style: normal;
 	font-weight: 400;
 }
 @font-face {
-	src: url(./../public/fonts/Tomorrow-SemiBold.ttf);
+	src: url(./../public/fonts/Tomorrow-SemiBold.woff2);
 	font-family: "Tomorrow-SemiBold";
 	font-style: medium;
 	font-weight: bold;
@@ -385,7 +385,6 @@ header img {
 	overflow: hidden;
 	width: 13vw;
 	height: 3vw;
-	max-height: 3vw;
 	background-color: var(--medium-green);
 	cursor: pointer;
 	border: none;
@@ -394,7 +393,7 @@ header img {
 .disabledNotSelectedButton {
 	overflow: hidden;
 	width: 13vw;
-	height: 3vw;
+	height: 3vw; 
 	background-color: #A9A9A9;
 	cursor: not-allowed;
 	border: none;
@@ -402,7 +401,6 @@ header img {
 }
 .selectedButton {
 	overflow: hidden;
-	box-sizing: border-box;
 	width: 13vw;
 	height: 3vw;
 	background-color: var(--dark-purple);
@@ -624,13 +622,14 @@ header img {
 .recommendedHead {
 	margin-bottom: 0.5em;
 }
-.tilteReq {
+.titleReq {
 	font-size: var(--m-text);
 	font-family: "Tomorrow-SemiBold" !important;
 }
-.wildcard .tilteReq {
+.wildcard .titleReq {
 	max-width: 85% !important;
 }
+
 .wildcardText {
 	position: absolute;
 	top: 0;
