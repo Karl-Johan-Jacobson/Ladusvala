@@ -76,7 +76,12 @@
 	position: unset;
 	margin-top: 1vh;
 	background-color:rgb(234, 193, 250);
+	animation: pulse 2s infinite ease-in-out alternate;
 	}
+	@keyframes pulse {
+		from { transform: scale(0.9); }
+		to { transform: scale(1); }
+	  }
 
 	.interestItem,
 	.placeholderInterest {
@@ -103,7 +108,6 @@
 	.textInputWrapper {
 		grid-column-start: 1;
 		grid-column-end: 3;
-		height: var(--text-form-height);
 	}
 
 	.refreshButtonInputWrapper {
@@ -115,8 +119,15 @@
 		grid-column-start: 2;
 		grid-column-end: 3;
 	}
+
 	.selectedButton,
 	.notSelectedButton {
+		width: 100%;
+		height: 100%;
+	}
+	.disabledNotSelectedButton {
+		background-color: #A9A9A9;
+		cursor: not-allowed;
 		width: 100%;
 		height: 100%;
 	}
@@ -141,6 +152,7 @@
 	}
 	.dreamEducationButton:not(.locked):hover p {
 		text-shadow: 2px 1px var(--medium-green-shadow);
+		
 	}
 	/*
   End of Intrest

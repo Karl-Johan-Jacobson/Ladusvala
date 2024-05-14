@@ -126,11 +126,21 @@ if (typeof window !== 'undefined') {
 	};
 
 	async function handleRecommend() {
-		if (selectedInterests.length >= 4 && selectedInterests.length <= 11) {
-			handleRecommendationButtonClick(selectedInterests.map((interest) => interest.interestTitle));
-		} else {
-			alert("Please select between 4 and 11 interests.");
+		if(window.innerWidth > 480){
+			if (selectedInterests.length >= 4 && selectedInterests.length <= 11) {
+				handleRecommendationButtonClick(selectedInterests.map((interest) => interest.interestTitle));
+			} else {
+				alert("Please select between 4 and 11 interests.");
+			}
 		}
+		else{
+			if (selectedInterests.length >= 4 && selectedInterests.length <= 10) {
+				handleRecommendationButtonClick(selectedInterests.map((interest) => interest.interestTitle));
+			} else {
+				alert("Please select between 4 and 10 interests.");
+			}
+		}
+
 	}
 
 	const placeholderInterest = { interestId: "placeholder", interestTitle: "", interestDescription: "placeholder" };
