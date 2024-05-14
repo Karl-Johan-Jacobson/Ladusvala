@@ -333,13 +333,13 @@
 		width: 100%;
 		height: var(--xxl-text);
 		z-index: 10;
-		background-color: transparent;
+		background-color: var(--extra-light-green);
 		padding: 0 1vw 1vw 0;
 	}
 
 	.footerNav {
 		height: inherit;
-		background-color: transparent;
+		background-color: var(--extra-light-green);
 	}
 
 	.hamburger-nav {
