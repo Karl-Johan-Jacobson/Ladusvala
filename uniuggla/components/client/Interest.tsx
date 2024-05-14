@@ -8,6 +8,7 @@ import RefreshButton from "./RefreshButton";
 import TextInterestInput from "./TextInterestInput";
 
 
+
 interface InterestProps {
 	interests: InterestType[];
 	handleRecommendationButtonClick: (interest: string[]) => void;
@@ -29,6 +30,8 @@ export default function Interest({ interests, handleRecommendationButtonClick }:
     return result;
 	}
 
+
+if (typeof window !== 'undefined') {
 	const NUMBER_OF_INTERESTS = window.innerWidth <= 480 ? 10 : 11;
 	const coreInterests = interests.filter(interest => interest.coreSubject);
 	const nonCoreInterests = interests.filter(interest => !interest.coreSubject);
@@ -93,6 +96,7 @@ export default function Interest({ interests, handleRecommendationButtonClick }:
 		const interest: InterestType = {
 			interestId: randId,
 			interestTitle: customInterest,
+			coreSubject: false,
 			interestDescription: "No interest description for custom interests (user-added interests)",
 		};
 		// Adds it to the list of selected interests
@@ -144,7 +148,7 @@ export default function Interest({ interests, handleRecommendationButtonClick }:
 
 	return (
 		<div className="wrapper interestWrapper interest">
-			<p className="titleTypewriter interestText" style={{ paddingTop: "13vh", top: "0" ,height: "1.5em"}}></p>
+			<p className="titleTypewriter interestText" style={{ paddingTop: "15vh", top: "0" ,height: "1.5em"}}></p>
 			<div className="chooseInterestWrapper">
 				<div className="selectedInterestTitle">
 					<hr />
@@ -259,4 +263,5 @@ export default function Interest({ interests, handleRecommendationButtonClick }:
 			</div>
 		</div>
 	);
+}
 };

@@ -9,6 +9,8 @@ interface RecommendationProps {
 }
 
 export default function Recommendation({ selectedInterests, shouldFetch }: RecommendationProps) {
+	if (typeof window !== 'undefined') {
+
 	const [recommendedPrograms, setRecommendedPrograms] = useState<ProgramRecommendation[]>([]);
 	const [isLoading, setIsLoading] = useState<boolean>(false);
 	const [error, setError] = useState<any>();
@@ -62,4 +64,5 @@ export default function Recommendation({ selectedInterests, shouldFetch }: Recom
 			</div>
 		</div>
 	);
-};
+	}
+	};

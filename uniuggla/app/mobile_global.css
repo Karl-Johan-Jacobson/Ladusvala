@@ -3,6 +3,7 @@
 		--s-text: 2.6vw;
 		--m-text: 3.4vw;
 		--l-text: 4vw;
+		--m-l-text: 4.7vw;
 		--xl-text: 6vw;
 		--xxl-text: 10vw;
 		--border-width: 1px;
@@ -69,6 +70,16 @@
 	.interestColumn {
 		display: grid;
 		width: 100%;
+	}
+	.selectedInterestTitle{
+		padding-top: 1vh;
+	}
+	.recommendationArrow{
+		height: 1vh;
+	}
+
+	.titleTypewriter {
+		font-size: var(--m-l-text);
 	}
 
 	.interestItem,
@@ -275,6 +286,8 @@
 		display: block;
 		width: 10vw;
 		margin: 1vw auto 0;
+		padding-top: 15%;
+		scale: 2.5;
 	}
 
 	.showInterestBox {

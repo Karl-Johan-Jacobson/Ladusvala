@@ -50,3 +50,4 @@ export function fetchAllProgramsJson(): Program[] {
     degree: item.degree !== null && item.degree !== undefined ? item.degree : "",
   }));
 }
+

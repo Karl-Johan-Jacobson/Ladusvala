@@ -7,13 +7,13 @@ export default function About() {
 				<p>OM UNIU</p>
 
 				<div className="body" style={{ marginTop: "4vh" }}>
-					<p>UNIU är din AI-baserade studievägledare som kan hjälpa dig <br></br> att hitta din drömutbildning baserat på dina intressen. <br></br> Vi baserar våra svar på marjoriteten av all universitets/högskole utbildningar</p>
+					<p>UNIU är din AI-baserade studievägledare som kan hjälpa dig <br></br> att hitta din drömutbildning baserat på dina intressen. <br></br> Vi baserar våra svar på majoriteten av alla universitets-/högskoleutbildningar.</p>
 				</div>
 				<div className="body" style={{ marginTop: "3vh" }}>
 					<p>Hemsidan har skapats av 8st KTH-studenter för kursen II1305, <br></br>Projekt inom informations- och kommunikationsteknik, under våren 2024.</p>
 				</div>
 				<div className="body" style={{ marginTop: "3vh" }}>
-					<p>Utvecklingen av hemsidan fortlöpte under Scrum ramverket med sprintar som motsvarade 4st arbetsveckor. <br></br> Mer information om projektet kan läsas här: <a href="https://ladusvala2024.wixsite.com/teamladusvala"> projekt sida</a></p>
+					<p>Utvecklingen av hemsidan fortlöpte under Scrum ramverket med sprintar som motsvarade 4st arbetsveckor. <br></br> Mer information om projektet kan läsas här: <a className="aboutUsLink" href="https://ladusvala2024.wixsite.com/teamladusvala"> Team Ladusvala </a></p>
 				</div>
 			</div>
 			<div className="body" style={{margin: "0 auto", textAlign: "left", width: "max-content", display: "block"}}>
