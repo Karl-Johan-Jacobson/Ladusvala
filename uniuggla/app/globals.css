@@ -767,7 +767,9 @@ header img {
 .aboutUsLink {
 	position: relative;
 	overflow: hidden;
-	display:inline-block;
+	display:block;
+	width: fit-content;
+	margin: 0 auto;
 }
   
 .aboutUsLink::before {
