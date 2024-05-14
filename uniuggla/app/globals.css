@@ -577,6 +577,15 @@ header img {
 	justify-content: center;
 	margin-top: 0 auto;
 }
+.yourInterestBox {
+	animation: shimmer 4s infinite linear;
+	background: linear-gradient(-50deg, transparent 40%, #ADD8E6 50%, transparent 60%);
+	background-position-x: 100%;
+	background-size: 300%;
+}
+.yourInterestBox .titleReq{
+	text-align: center;
+}
 .yourInterestBox .reqDescriptionContent{
 	font-size: var(--m-text);
 }
