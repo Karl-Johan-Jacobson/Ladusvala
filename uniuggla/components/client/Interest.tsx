@@ -144,7 +144,6 @@ if (typeof window !== 'undefined') {
 	} else {
 		placeholderInterestRows = filledPlaceholderInterests.length > 5 ? [filledPlaceholderInterests.slice(0, 5), filledPlaceholderInterests.slice(5, 10)] : [filledPlaceholderInterests];
 	}
-	console.log(selectedInterests);
 
 	return (
 		<div className="wrapper interestWrapper interest">

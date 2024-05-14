@@ -22,7 +22,6 @@ async function fetchAllProgramsJson(): Promise<ProgramNameAndId[]> {
 					programLink: item.programLink,
 					// id: counter++ // This will be set through scrapers, will be present within programs.json. Assuming programId is a string and needs to be converted to a number
 				}));
-				console.log(allPrograms);
 				return allPrograms; // can use resolve(allPrograms) if errors occur. -> is much slower
 			} catch (parseError) {
 				reject(parseError);
@@ -33,6 +32,5 @@ async function fetchAllProgramsJson(): Promise<ProgramNameAndId[]> {
 
 async function testRet() {
 	const test = await fetchAllProgramsJson();
-	console.log(test);
 }
 testRet();

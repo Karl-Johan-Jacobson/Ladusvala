@@ -54,7 +54,6 @@ export async function fetchAllProgramsJson(): Promise<void> {
 // Example usage
 fetchAllProgramsJson()
 	.then(() => {
-		console.log("Modified programs JSON file created successfully.");
 	})
 	.catch((error) => {
 		console.error("Error creating modified programs JSON file:", error);

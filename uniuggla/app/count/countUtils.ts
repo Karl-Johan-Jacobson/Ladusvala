@@ -11,14 +11,10 @@ export default function countAllGrades(courseName: string, coursePointsAsString:
 
 	//turn coursepoints to an Integer
 	const coursePointsAsNumber: number = parseInt(coursePointsAsString, 10);
-	console.log("coursePointsAsNumber: " + coursePointsAsNumber);
-	console.log("totalCoursePoints: " + totalCoursePoints);
 	//increment global points counter
 	totalCoursePoints += coursePointsAsNumber;
 	//check the value from one grade and increment a totalgrades counter
 	totalgrades += countOneGrade(grade, coursePointsAsNumber);
-	console.log("Before totalCoursePoints:  " + totalCoursePoints);
-	console.log("Before totalgrades: " + totalgrades);
 
 	//generate a block that shows a box of the argument that is passed to the user
 	generateHTMLBLock(courseName, coursePointsAsString, grade, coursePointsAsNumber);
@@ -134,7 +130,6 @@ function generateHTMLBLock(courseName: string, coursePointsAsString: string, gra
 		totalgrades -= countOneGrade(grade, coursePointsAsNumber);
 		totalCoursePoints -= coursePointsAsNumber;
 	};
-	console.log("After totalCoursePoints:  " + totalCoursePoints);
 	gradeBox.appendChild(removeButton);
 
 	gradeBoxCounter++;
