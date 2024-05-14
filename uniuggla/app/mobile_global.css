@@ -75,7 +75,6 @@
 	.wildcardBubble {
 	position: unset;
 	margin-top: 1vh;
-	background-color:rgb(234, 193, 250);
 	animation: pulse 2s infinite ease-in-out alternate;
 	}
 	@keyframes pulse {
