@@ -40,6 +40,17 @@ html::-webkit-scrollbar {
 body {
 	background-color: var(--extra-light-green);
 }
+/* Standard styling for text */
+p, a {
+	font-family: "Tomorrow-Medium", sans-serif;
+	text-align: center;
+	color: var(--dark-purple);
+	font-size: var(--m-text);
+}
+/* Should remove the bullet points from mobile phone*/
+ul {
+	list-style-type: none;
+}
 .hide,
 .hide * {
 	display: none !important;
@@ -77,18 +88,6 @@ input[type="number"]::-webkit-outer-spin-button {
 .user {
 	color: var(--medium-green);
 }
-/* Standard styling for text */
-p, a {
-	font-family: "Tomorrow-Medium", sans-serif;
-	text-align: center;
-	color: var(--dark-purple);
-	font-size: var(--m-text);
-}
-/* Should remove the bullet points from mobile phone*/
-ul {
-	list-style-type: none;
-}
-
 /*text input*/
 .textInputWrapper,
 .buttonInputWrapper,
@@ -255,7 +254,7 @@ header img {
 	gap: 20vw;
 	grid-template-columns: 1fr 1fr;
 	width: 50vw;
-	height: 4em;
+	height: 5em;
 	transition: margin-top 1s ease, opacity 0.5s ease;
 	margin: 5vw auto 0;
 	opacity: 0;
@@ -322,7 +321,8 @@ header img {
 	flex-grow: 1;
 	border: var(--border-width) solid var(--dark-purple);
 }
-.selectedInterestList {
+.selectedInterestList,
+.notSelectedInterestList {
 	place-items: center;
 	display: grid;
 	height: min-content;
@@ -339,18 +339,10 @@ header img {
 	flex-grow: 1;
 	border: var(--border-width) solid var(--medium-green);
 }
-.notSelectedInterestList {
-	place-items: center;
-	display: grid;
-	height: min-content;
-}
 .interestRow {
 	display: flex;
 }
-.row1 {
-	display: flex;
-	justify-content: center;
-}
+.row1,
 .selectedRow2 {
 	display: flex;
 	justify-content: center;
@@ -364,32 +356,26 @@ header img {
 	font-family: "Tomorrow-MediumItalic";
 	color: var(--extra-light-green);
 }
-.notSelectedButton {
-	overflow: hidden;
-	width: 13vw;
-	height: 3vw;
-	background-color: var(--medium-green);
-	cursor: pointer;
-	border: none;
-	text-overflow: ellipsis;
-}
-.disabledNotSelectedButton {
-	overflow: hidden;
-	width: 13vw;
-	height: 3vw; 
-	background-color: #A9A9A9;
-	cursor: not-allowed;
-	border: none;
-	text-overflow: ellipsis;
-}
+.notSelectedButton,
+.disabledNotSelectedButton,
 .selectedButton {
 	overflow: hidden;
 	width: 13vw;
 	height: 3vw;
-	background-color: var(--dark-purple);
-	cursor: pointer;
 	border: none;
 	text-overflow: ellipsis;
+}
+.notSelectedButton {
+	background-color: var(--medium-green);
+	cursor: pointer;
+}
+.disabledNotSelectedButton {
+	background-color: #A9A9A9;
+	cursor: not-allowed;
+}
+.selectedButton {
+	background-color: var(--dark-purple);
+	cursor: pointer;
 }
 .notSelectedButton:hover {
 	filter: drop-shadow(0 4px 0 var(--dark-purple));
@@ -428,10 +414,7 @@ header img {
 .recommendationButtonWrapper p {
 	margin: 0 1vw;
 }
-.recommendationButtonWrapper hr {
-	flex-grow: 1;
-	border: var(--border-width) solid var(--medium-green);
-}
+.recommendationButtonWrapper hr,
 .recommendationButtonLine {
 	flex-grow: 1;
 	border: var(--border-width) solid var(--medium-green);
@@ -576,12 +559,6 @@ header img {
 	justify-content: center;
 	margin-top: 0 auto;
 }
-.yourInterestBox {
-	animation: shimmer 4s infinite linear;
-	background: linear-gradient(-50deg, transparent 40%, #ADD8E6 50%, transparent 60%);
-	background-position-x: 100%;
-	background-size: 300%;
-}
 .yourInterestBox .titleReq{
 	text-align: center;
 }
@@ -601,8 +578,8 @@ header img {
 	line-height: 1em;
 	text-align: left;
 }
-.recommendedBox,
 .yourInterestBox,
+.recommendedBox,
 .gradeBox {
 	position: relative;
 	margin-top: 1vw;

@@ -1,7 +1,7 @@
 import Typewriter from "typewriter-effect/dist/core";
-import { addClass, modifyTopPaddingRelative, modifyTop, modifyHeight, modifyHeightRelative } from "@/app/utils";
+import { addClass,modifyTopPadding, modifyTopPaddingRelative, modifyTop, modifyHeight, modifyHeightRelative } from "@/app/utils";
 
-export function TypewriterForTitle(text, htmlClass, moveAfter, removeAfter) {
+export function TypewriterForTitle(text, htmlClass, moveAfter, moveToTop, removeAfter) {
 	var charDelay = 50;
 	var brDelay = 300;
 	var time = 0;
@@ -29,9 +29,13 @@ export function TypewriterForTitle(text, htmlClass, moveAfter, removeAfter) {
 			});
 		}
 	}
-	if (moveAfter && !removeAfter && i != splitText.length - 1) {
+	if (moveAfter && !moveToTop && !removeAfter) {
 		typewriter.callFunction(function () {
 			modifyTopPaddingRelative("-1.5em", htmlClass);
+		});
+	} else if (moveAfter && moveToTop && !removeAfter) {
+		typewriter.callFunction(function () {
+			modifyTopPadding("1em", htmlClass);
 		});
 	} else if (moveAfter && removeAfter) {
 		typewriter.callFunction(function () {

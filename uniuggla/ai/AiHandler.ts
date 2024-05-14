@@ -143,19 +143,25 @@ async function recommendProgramFromInterest(content: string) {
 //This is the function that does calls recommendProgramFromInterest
 async function callOpenaiInParts(interestProfile: string, allPrograms: Program[]) {
 	try {
+		//shuffle the array to get random splices
 		shuffleArray(allPrograms);
 		const arrayLength = allPrograms.length;
+		//split into 5 equal parts
 		const partition = Math.ceil(arrayLength / 5);
+		//make the calls without awaitng every respionse, and push promise to array
 		const promiseArray = Array.from({ length: 5 }, async (_, i) => {
 			const startIndex = i * partition;
 			const endIndex = Math.min((i + 1) * partition, arrayLength);
 			const slicedPrograms = allPrograms.slice(startIndex, endIndex);
 			const partialProgramString = turnProgramToPrompt(slicedPrograms);
 			const content: string = `Det här är mina intressen: \n ${interestProfile} \n och det här är beskrivning på utbildningsprogram \n ${partialProgramString} \n Jag vill att du väljer tio utbildningsprogram som matchar min intressen strikt. Du ska bara svara med programId`;
+			//make the call to ai
 			return recommendProgramFromInterest(content);
 		});
+		//wait in all the promises
 		const result = await Promise.all(promiseArray);
 		let programIds: number[] = [];
+		//take the id number
 		programIds = result.flat().map((obj: { programId: number}) => {
 			return obj.programId;
 		});

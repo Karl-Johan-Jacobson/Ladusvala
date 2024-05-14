@@ -25,7 +25,7 @@ export default function Home() {
 		setSelectedInterests(interests);
 
 		//Write out the title for recommendations page
-		TypewriterForTitle("Tack! Hmm... låt mig se vad jag kan hitta!", "recommmendationText", true);
+		TypewriterForTitle("Tack! Hmm... låt mig se vad jag kan hitta!", "recommmendationText", true, false, false);
 		//move to recommendations page
 		recommendationsRef?.current?.scrollIntoView();
 	}
