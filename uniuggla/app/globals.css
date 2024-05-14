@@ -834,43 +834,56 @@ header img {
   justify-content: center;
   align-items: center;
   background-color: var(--medium-green);
-  border: none;
-  border-radius: var(--border-radius);
   width: 10%; 
   font-family: "Tomorrow-Medium";
   font-size: 1vw;
   color: var(--light-green);
+  border-radius: var(--border-radius);
   border: var(--border-width) solid var(--dark-green-shadow);
 }
 
 .tooltip {
-  position: relative;
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: help;
-  margin-left: 2vw;
-  fill: var(--medium-green);
 }
 
-.tooltiptext {
-  visibility: hidden;
-  width: 1vw;
-  background-color: var(--medium-green);
-  color: var(--dark-green);
-  text-align: center;
+.tooltip > svg {
+  width: 80%;
+  height: 80%;
+}
+
+.tooltip .tooltipText {
   position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  width: 40%;
+  height: fit-content;
+  padding: 1vh 1vw;
   z-index: 1;
+
+  background-color: var(--light-green);
+  visibility: hidden;
   opacity: 0;
   transition: opacity 0.3s;
-  font-size: var(--s-text);
-  font-family: "Tomorrow-Medium";
+
   border-radius: var(--border-radius);
-  width: 20vw;
-  height: 5vw;
+  border: var(--border-width) dashed var(--medium-green);
 }
 
-.tooltip:hover .tooltiptext {
+.tooltip:hover .tooltipText {
   visibility: visible;
   opacity: 1;
+}
+
+.tooltipText > p {
+  color: var(--dark-green);
+  font-size: var(--s-text);
+  font-family: "Tomorrow-Medium";
+  text-align: left;
 }
 
 /* .gradeInputWrapper {
