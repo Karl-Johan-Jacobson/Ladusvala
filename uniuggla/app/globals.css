@@ -54,7 +54,7 @@ body {
 @font-face {
 	src: url(./../public/fonts/Tomorrow-MediumItalic.woff2);
 	font-family: "Tomorrow-MediumItalic";
-	font-style: italic;
+	font-style: normal;
 	font-weight: medium;
 }
 @font-face {
