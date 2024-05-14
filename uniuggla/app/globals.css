@@ -46,25 +46,25 @@ body {
 }
 /* Is the font for the text for instance question title and greetings, etc */
 @font-face {
-	src: url(./../public/fonts/Tomorrow-Medium.ttf);
+	src: url(./../public/fonts/Tomorrow-Medium.woff2);
 	font-family: "Tomorrow-Medium";
 	font-style: normal;
 	font-weight: medium;
 }
 @font-face {
-	src: url(./../public/fonts/Tomorrow-MediumItalic.ttf);
+	src: url(./../public/fonts/Tomorrow-MediumItalic.woff2);
 	font-family: "Tomorrow-MediumItalic";
 	font-style: italic;
 	font-weight: medium;
 }
 @font-face {
-	src: url(./../public/fonts/Tomorrow-Regular.ttf);
+	src: url(./../public/fonts/Tomorrow-Regular.woff2);
 	font-family: "Tomorrow-Regular";
 	font-style: normal;
 	font-weight: 400;
 }
 @font-face {
-	src: url(./../public/fonts/Tomorrow-SemiBold.ttf);
+	src: url(./../public/fonts/Tomorrow-SemiBold.woff2);
 	font-family: "Tomorrow-SemiBold";
 	font-style: medium;
 	font-weight: bold;
