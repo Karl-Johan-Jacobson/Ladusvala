@@ -39,7 +39,7 @@ export default function CourseInput({ addCourse }: CourseInputProps) {
         onChange={updateName}
         placeholder="Kursnamn"
         required
-        className="textInput courseInput"
+        className="courseInput"
       />
       <input
         value={points}
@@ -47,7 +47,7 @@ export default function CourseInput({ addCourse }: CourseInputProps) {
         onChange={updatePoints}
         placeholder="Poäng"
         required
-        className="textInput courseInput"
+        className="courseInput"
       />
       <input
         value={grade}
@@ -55,35 +55,33 @@ export default function CourseInput({ addCourse }: CourseInputProps) {
         onChange={updateGrade}
         placeholder="Betyg"
         required
-        className="textInput courseInput"
+        className="courseInput"
       />
       <button type="submit" className="addCourseBtn">
-        Lägg till
-        {
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-            <path
-              d="M17.4167 2.75H4.58333C3.57081 2.75 2.75 3.57081 2.75 4.58333V17.4167C2.75 18.4292 3.57081 19.25 4.58333 19.25H17.4167C18.4292 19.25 19.25 18.4292 19.25 17.4167V4.58333C19.25 3.57081 18.4292 2.75 17.4167 2.75Z"
-              stroke="#C6F0C3"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              d="M11 7.33325V14.6666"
-              stroke="#C6F0C3"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              d="M7.3335 11H14.6668"
-              stroke="#C6F0C3"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-        }
+        {window.innerWidth > 480 ? <span>Lägg till</span> : null}
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+          <path
+            d="M17.4167 2.75H4.58333C3.57081 2.75 2.75 3.57081 2.75 4.58333V17.4167C2.75 18.4292 3.57081 19.25 4.58333 19.25H17.4167C18.4292 19.25 19.25 18.4292 19.25 17.4167V4.58333C19.25 3.57081 18.4292 2.75 17.4167 2.75Z"
+            stroke="#C6F0C3"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M11 7.33325V14.6666"
+            stroke="#C6F0C3"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M7.3335 11H14.6668"
+            stroke="#C6F0C3"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
       </button>
     </form>
   );

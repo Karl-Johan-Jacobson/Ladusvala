@@ -1,19 +1,26 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Course from "@/types/course";
 import CourseItem from "@/components/client/CourseItem";
 import CourseInput from "@/components/client/CourseInput";
-import { calculateScore } from "./countUtils";
-
-const GRADE_VALUES: string[] = ["A", "B", "C", "D", "E", "F"];
+import { calculateScore, assertEligibility, GRADE_VALUES, POINTS_FULL_PROGRAM } from "./countUtils";
+import { TypewriterForTitle } from "@/components/client/TypeWriter";
 
 export default function Count() {
   const [courses, setCourses] = useState<Course[]>([]);
+  const [showInstruction, setShowInstruction] = useState<boolean>(false);
   const totalPoints: number = courses.reduce(
     (acc, course) => (acc += course.points),
     0
   );
+
+  useEffect(() => {
+    const typeDelay = TypewriterForTitle("Här kan du räkna ut ditt meritvärde", "pointsCounterText", true);
+    setTimeout(() => {
+      setShowInstruction(true);
+    }, typeDelay)
+  }, [])
 
   const addCourse = (name: string, pointsString: string, grade: string) => {
     try {
@@ -45,22 +52,23 @@ export default function Count() {
     }
   };
 
-  const assertEligibility = () => {
-    // TODO Implement functionality to verify eligibility
-    return courses.length > 2;
-  };
-
   return (
     <div className="pointCalculatorWrapper">
+			<p className="titleTypewriter pointsCounterText" style={{ top: "0", height: "1.5em" }}></p> 
+      <div className={`pointsInstruction ${showInstruction ? "show" : ""}`}>
+					<hr />
+					<span>Fyll i namnet på en kurs, dess poäng samt betyget du fick.</span>
+					<hr />
+				</div>
       <div className="pointsCalculatorHeader">
         <div className="pointsInformation">
-          <p className="purple">{`Antal lästa poäng: ${totalPoints}/2400`}</p>
-          <p className="green">
+          <p className="purple">{`Antal lästa poäng: ${totalPoints}/${POINTS_FULL_PROGRAM}`}</p>
+          <p className={assertEligibility(courses) ? "purple" : "green"}>
             {`Grundläggande behörighet: ${
-              assertEligibility() ? "UPPFYLLES" : "SAKNAS"
+              assertEligibility(courses) ? "UPPFYLLES" : "SAKNAS"
             }`}
           </p>
-          <p className="green">{`Beräknad meritpoäng: ${calculateScore(
+          <p className={totalPoints >= POINTS_FULL_PROGRAM ? "purple" : "green"}>{`Beräknad meritpoäng: ${calculateScore(
             courses
           )}`}</p>
         </div>

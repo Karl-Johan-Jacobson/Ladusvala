@@ -317,18 +317,53 @@
 		Start of Count
 	*/
 
+	
+
 	.pointsCalculatorHeader {
-		display: block;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center; 
+		height: 100%;
+	}
+
+	.pointsInformation {
+		width: 100%;
+		gap: 1vh;
+	}
+
+	.pointsCounterText{
+		margin-bottom: 8vh;
 	}
 
 	.courseForm {
-		display: block;
+		margin-top: 1vh;
+		width: 100%;
+		justify-content: space-between;
 	}
 
-	.courseWrapper {
-		display: grid;
-		grid-template-columns: 1fr;
+	.courseInput {
+		padding-left: 0.4vw;
+		max-width: 18vw;
+		font-size: calc(0.8 * var(--m-text));
 	}
+
+	.courseInput::placeholder {
+		padding-left: 0.4vw;
+		font-size: calc(0.8 * var(--m-text));
+	}
+
+	.addCourseBtn {
+		padding: 0;
+	}
+
+	.coursesWrapper {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+
+
 
 	/*
 		End of Count
