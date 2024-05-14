@@ -37,24 +37,27 @@ export default function CourseInput({ addCourse }: CourseInputProps) {
         value={name}
         type="text"
         onChange={updateName}
+        placeholder="Kursnamn"
         required
-        className="textInput"
+        className="textInput courseInput"
       />
       <input
         value={points}
         type="number"
         onChange={updatePoints}
+        placeholder="Poäng"
         required
-        className="textInput"
+        className="textInput courseInput"
       />
       <input
         value={grade}
         type="text"
         onChange={updateGrade}
+        placeholder="Betyg"
         required
-        className="textInput"
+        className="textInput courseInput"
       />
-      <button type="submit" className="">
+      <button type="submit" className="addCourseBtn">
         Lägg till
         {
           <svg width="22" height="22" viewBox="0 0 22 22" fill="none">

@@ -316,6 +316,20 @@
   ---===---===---===---===---===---===---===---===---===---
 		Start of Count
 	*/
+
+	.pointsCalculatorHeader {
+		display: block;
+	}
+
+	.courseForm {
+		display: block;
+	}
+
+	.courseWrapper {
+		display: grid;
+		grid-template-columns: 1fr;
+	}
+
 	/*
 		End of Count
   ---===---===---===---===---===---===---===---===---===---
