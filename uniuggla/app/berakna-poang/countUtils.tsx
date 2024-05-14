@@ -10,10 +10,20 @@ const coursesForEligibility: string[][] = [
   ["s3", "svenska3", "svenskasomandraspråk3"],
   ["e5", "engelska5"],
   ["e6", "engelska6"],
-  ["m1", "matematik1", "matte1", "matematik1a", "matte1a", "matematik1b", "matte1b", "matematik1c", "matte1c"]
+  [
+    "m1",
+    "matematik1",
+    "matte1",
+    "matematik1a",
+    "matte1a",
+    "matematik1b",
+    "matte1b",
+    "matematik1c",
+    "matte1c",
+  ],
 ];
 
-export { GRADE_VALUES, POINTS_FOR_EXAM, POINTS_FULL_PROGRAM }
+export { GRADE_VALUES, POINTS_FOR_EXAM, POINTS_FULL_PROGRAM };
 
 export const calculateScore = (courses: Course[]) => {
   if (courses.length === 0) {
@@ -58,18 +68,30 @@ const getCourseScore = (course: Course) => {
 };
 
 export const getCoursesPoints = (courses: Course[]) => {
-  return courses.reduce((acc, course) => acc += course.points, 0)
-}
-
-export const assertEligibility = (courses: Course[]) => {
-  const passedCourses: Course[] = courses.filter((course) => course.grade !== "F");
-  const formattedCourses = passedCourses.map((course) => course.name.toLowerCase().replaceAll(" ", ""));
-
-  const eligibility = coursesForEligibility.reduce((acc, eligibleCourseType) => {
-    const intersection = eligibleCourseType.filter((course) => formattedCourses.includes(course))
-    return acc && intersection.length > 0;
-  }, true)
-
-  return eligibility && getCoursesPoints(passedCourses) >= POINTS_FOR_EXAM && getCoursesPoints(courses) >= POINTS_FULL_PROGRAM;
+  return courses.reduce((acc, course) => (acc += course.points), 0);
 };
 
+export const assertEligibility = (courses: Course[]) => {
+  const passedCourses: Course[] = courses.filter(
+    (course) => course.grade !== "F"
+  );
+  const formattedCourses = passedCourses.map((course) =>
+    course.name.toLowerCase().replaceAll(" ", "")
+  );
+
+  const eligibility = coursesForEligibility.reduce(
+    (acc, eligibleCourseType) => {
+      const intersection = eligibleCourseType.filter((course) =>
+        formattedCourses.includes(course)
+      );
+      return acc && intersection.length > 0;
+    },
+    true
+  );
+
+  return (
+    eligibility &&
+    getCoursesPoints(passedCourses) >= POINTS_FOR_EXAM &&
+    getCoursesPoints(courses) >= POINTS_FULL_PROGRAM
+  );
+};
