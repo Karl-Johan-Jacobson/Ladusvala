@@ -37,7 +37,7 @@ export default function Welcome({ yesPageRef }: WelcomeProps) {
 				titelText = "Berätta vad du har för intressen, så föreslår<br />jag ett par program som kan passa dig! :)";
 				removeAfter = false;
 			} else {
-				titelText = "Berätta vad du har<br />för intressen, så<br />föreslår jag ett par program<br />som kan passa dig!";
+				titelText = "Vad har du för intressen?"
 				removeAfter = true;
 			}
 			TypewriterForTitle(titelText, "interestText", true, removeAfter);
